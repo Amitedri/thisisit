@@ -3,9 +3,15 @@ import ContactsUs from '../../components/ContactUs'
 import ProductSlider from '../../components/ProductSlider'
 import { allProdcts, allServices } from "../../sampleData";
 import FAQ from "../../components/FAQ";
+import { useState } from "react";
 
 const ServicePage = () => {
+  const [text,setText] = useState("");
+  const [header,setHeader] = useState("");
+  // const [text,setText] = useState("");
+
   const imgSrc = "./assets/img/service.png";
+  
   return (
     <div className="row d-flex flex-column align-items-center">
       {/* large image with button */}

@@ -13,7 +13,7 @@ const AppRouter = () => {
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts />} />
         <Route exact path="/services" element={<ServicePage />} />
-        <Route exact path="/contractpage" element={<ProductPage />} />
+        <Route exact path="/contractinfo" element={<ProductPage />} />
 
 
         <Route exact path="/" element={<ContractLawyer />} />
