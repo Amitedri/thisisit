@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      #loadingDiv {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: #000a;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading div -->
+    <div id="loadingDiv">
+      <div class="spinner-border text-primary" style="top: 48%; left: 48%; position: fixed" role="status"></div>
+    </div>
+    <div class="container">
+      <!-- Navbar -->
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active" data-bs-toggle="tab">ניתוח בעלויות</a>
+        </li>
+        <li class="nav-item">
+          <a href="#profile" class="nav-link" data-bs-toggle="tab">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a href="#messages" class="nav-link" data-bs-toggle="tab">Messages</a>
+        </li>
+      </ul>
+      <!-- Panels -->
+      <div class="tab-content">
+        <!-- home -->
+        <div class="tab-pane fade show active" id="home">
+          <h2 style="text-align: center">דו"ח ניתוח בעלויות</h2>
+          <input type="checkbox" id="filterShow" /> <label for="filterShow">הצג בעלויות צולבות בלבד</label>
+          <input type="checkbox" id="collapseOptions" /> <label for="collapseOptions">צמצם בעלויות</label>
+          <div dir="rtl" id="mainAcc"></div>
+        </div>
+        <!-- home -->
+        <div class="tab-pane fade" id="profile">
+          <h4 class="mt-2">Profile tab content</h4>
+          <p>
+            Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis
+            a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed
+            molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis
+            leo at faucibus adipiscing.
+          </p>
+        </div>
+        <!-- home -->
+        <div class="tab-pane fade" id="messages">
+          <h4 class="mt-2">Messages tab content</h4>
+          <p>
+            Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at
+            erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet.
+            Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus
+            imperdiet. Cum sociis natoque penatibus et magnis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //Vars
+      var owners = [],
+        records = [],
+        filteredOwners = [];
+
+      //elements
+      const loadingDiv = document.getElementById("loadingDiv");
+      const filterShow = document.getElementById("filterShow");
+
+      //fields
+      const testField = "pcfsystemfield616";
+
+      //init
+      async function init() {
+        startLoading();
+        records = await loadRecords();
+        owners = await loadOwners();
+        await setRecorsForOwners();
+        // filteredOwners = getOwnersWithOneOrMore();
+        stopLoading();
+        //initAccordion(owners);
+      }
+
+      init();
+      // --------------------???------------------------
+      //Jquery ready
+      jQuery(document).ready(() => {
+        jQuery('a[data-bs-toggle="tab"]').on("shown.bs.tab", function (e) {
+          console.log("new tab: ", e.target.text);
+        });
+      });
+
+      //Listeners
+      filterShow.addEventListener("click", () => {
+        initAccordion(filterShow.checked ? filteredOwners : owners);
+      });
+      // --------------------???--------------------------
+
+      //Functions
+      //system functions
+      async function loadOwners(page = 1, sData = []) {
+        let res = (await sendPlQuery(1009, "customobject1009id, name", "", page, 500)).data.Data;
+        sData = sData.concat(res);
+        if (res.length == 500) {
+          page++;
+          return await loadOwners(page, sData);
+        } else {
+          return sData;
+        }
+      }
+      async function loadRecords(page = 1, sData = []) {
+        let res = (await sendPlQuery(1002, "pcfsystemfield76name, pcfsystemfield616, pcfsystemfield155", "", page, 500))
+          .data.Data;
+        sData = sData.concat(res);
+        if (res.length == 500) {
+          page++;
+          return await loadRecords(page, sData);
+        } else {
+          return sData;
+        }
+      }
+      function setRecorsForOwners() {
+        let orderRecords = {};
+        records.forEach((rec) => {
+          if (!orderRecords[rec.pcfsystemfield155]) {
+            orderRecords[rec.pcfsystemfield155] = [];
+          }
+          orderRecords[rec.pcfsystemfield155].push(rec);
+        });
+
+        for (const [key, value] of Object.entries(orderRecords)) {
+          owners.find((owner) => owner.customobject1009id == key).items = value;
+        }
+        return orderRecords;
+      }
+      
+      
+      function getOwnersWithOneOrMore() {
+        let arr = [];
+        owners.forEach((owner) => {
+          let x = records.filter((r) => r.pcfsystemfield155 == owner.customobject1009id);
+          if (x.length > 1) arr.push(x);
+        });
+        return arr;
+      }
+
+      function startLoading() {
+        loadingDiv.style.display = "block";
+      }
+      function stopLoading() {
+        loadingDiv.style.display = "none";
+      }
+
+      //PowerLink Functions
+      function sendPlQuery(objecttype, fields, query = "", page = 1, page_size = 500) {
+        return new Promise(function (resolve, reject) {
+          let xhr = new XMLHttpRequest();
+          xhr.open("POST", "/api/query", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+              resolve(JSON.parse(xhr.response));
+            } else {
+              reject({
+                status: this.status,
+                statusText: xhr.statusText,
+              });
+            }
+          };
+          xhr.onerror = function () {
+            reject({
+              status: this.status,
+              statusText: xhr.statusText,
+            });
+          };
+          xhr.send(
+            JSON.stringify({
+              objecttype: objecttype,
+              sort_type: "desc",
+              fields: fields,
+              query: query,
+              page_size: page_size,
+              page_number: page,
+            })
+          );
+        });
+      }
+      function initAccordion(arr) {
+        document.getElementById("mainAcc").innerHTML = "";
+        arr.forEach((o) => {
+          let it = "";
+          o.items.forEach((i) => {
+            it += `<span>${i.pcfsystemfield76name} - ${i.pcfsystemfield616}%</span></br>`;
+          });
+          document.getElementById("mainAcc").innerHTML += `
+                <div class="card" style="width: 100%; margin-bottom: 15px;">
+                    <div class="card-body">
+                    <h5 class="card-title">${o.name} (${o.items.length})</h5>
+                    <p class="card-text">${it}</p>
+                    </div>
+                </div>
+                `;
+        });
+        return true;
+      }
+      /*------------[OLD FUNCTIONS]----------------*/
+
+      var test = {};
+      function opt1() {
+        let time = Date.now();
+        let r = {};
+        records.forEach((rec) => {
+          if (!r[rec.pcfsystemfield155]) r[rec.pcfsystemfield155] = [];
+          r[rec.pcfsystemfield155].push(rec);
+        });
+        for (const [key, value] of Object.entries(r)) {
+          owners.find((owner) => owner.customobject1009id == key).items = value;
+        }
+        console.log(Date.now() - time);
+        test = r;
+      }
+
+      function opt2() {
+        let time = Date.now();
+        owners.forEach((owner) => {
+          owner.items = records.filter((r) => r.pcfsystemfield155 == owner.customobject1009id);
+        });
+        console.log(Date.now() - time);
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

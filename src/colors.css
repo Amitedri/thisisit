@@ -1,0 +1,35 @@
+.blue {
+  background-color: #043b40 !important;
+}
+.green {
+  background-color: #d6e2ce !important;
+}
+
+.backgroundMain {
+  background-color: #e5e5e5 !important;
+}
+.lightBlue {
+  background-color: #4ba492 !important;
+}
+.yellow {
+  background-color: #f0cc76 !important;
+}
+.cream {
+  background-color: #fdfdf1 !important;
+}
+.greenText {
+  color: #d6e2ce !important;
+}
+.blueText {
+  color: #043b40 !important;
+}
+.lightBlueText {
+  color: #4ba492 !important;
+}
+.yellowText {
+  color: #f0cc76 !important;
+}
+
+.greyText {
+  color: #616161 !important;
+}

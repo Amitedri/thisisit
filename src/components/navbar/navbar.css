@@ -1,0 +1,17 @@
+.navbarCustom {
+  height: 100px !important;
+  text-decoration: underline;
+  color: white;
+}
+/* .navItemCustom:hover {
+  animation: scaleFont 1s ease;
+} */
+
+@keyframes scaleFont {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}

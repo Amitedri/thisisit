@@ -1,0 +1,21 @@
+.topSearchBar{
+}
+
+.customSearchBar{
+    background: transparent;
+    direction: rtl;
+    border: none;
+    color: white;
+}
+.customSearchBar::placeholder{
+    color: white !important;
+}
+
+.customSearchBar:focus{
+    outline: none !important;
+}
+
+
+.logoIcon{
+    max-height: 65px !important;
+}

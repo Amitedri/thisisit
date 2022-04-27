@@ -1,0 +1,28 @@
+
+.formItem {
+  border-bottom: 1px solid grey;
+}
+.formInput {
+  all: unset;
+  direction: rtl;
+  text-align: right;
+  /* margin-right: 15px; */
+  color:white;
+}
+.formInput::placeholder {
+  text-align: center;
+}
+.messageInput {
+  height: 100px;
+  background-color: transparent;
+  border: 1px solid grey;
+  border-radius: 5px;
+  color:white;
+  text-align: right;
+}
+.headerContainer{
+  height: 15% !important;
+}
+.containerContent{
+  height: 15% !important;
+}

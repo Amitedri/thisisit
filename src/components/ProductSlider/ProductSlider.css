@@ -1,0 +1,25 @@
+.productImg{
+    height: 350px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.arrowImg{
+    height: 65px;
+}
+.exampleCon{
+    height: 350px !important;
+    background-color: white !important;
+
+}
+.bottomBorder{
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+
+}
+.card-img-top {
+    width: 100%;
+    height: 23vw;
+    object-fit: cover;
+}

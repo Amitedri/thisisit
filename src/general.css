@@ -1,0 +1,50 @@
+.pointer {
+  cursor: pointer !important;
+}
+
+.invertColor {
+  filter: invert(100%);
+}
+
+.space5 {
+  letter-spacing: 50px;
+}
+.borderLeft {
+  border-left: 1px solid grey;
+}
+.borderRight {
+  border-right: 1px solid grey;
+}
+
+.borderTop {
+  border-top: 1px solid grey;
+}
+.borderBotton {
+  border-bottom: 1px solid grey;
+}
+
+.responsiveContainer{
+  /* height: 50vh; */
+  min-height: 65vh;
+
+}
+
+.letter1{
+  letter-spacing: 1px !important;
+}
+.letter2{
+  letter-spacing: 2px !important;
+}
+.letter3{
+  letter-spacing: 3px !important;
+}
+.letter4{
+  letter-spacing: 4px !important;
+}
+.letter5{
+  letter-spacing: 5px !important;
+}
+
+.z100{
+  z-index: 100 !important;
+}
