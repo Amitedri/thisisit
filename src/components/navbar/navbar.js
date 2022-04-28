@@ -25,7 +25,7 @@ const Navbar = () => {
           </div>
         </div>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="exampleContracts" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a id="exampleContracts" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contractpage">
             הסכמים לדוגמא
           </a>
           <div class="dropdown-menu" aria-labelledby="exampleContracts">

@@ -50,7 +50,7 @@ const FullProductsList = ({dataToRender,componentHeader}) => {
 };
 const Contracts = () => {
   return (
-    <div className="row d-flex flex-column align-items-center">
+    <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
       <div className="w-50 mt-5 d-flex flex-column align-items-center ">
         <h1 className="f36 w5">כותרת</h1>

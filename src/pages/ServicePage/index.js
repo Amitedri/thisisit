@@ -7,11 +7,11 @@ import FAQ from "../../components/FAQ";
 const ServicePage = () => {
   const imgSrc = "./assets/img/service.png";
   return (
-    <div className="row d-flex flex-column align-items-center">
+    <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* large image with button */}
-      <div className="row p-0 position-relative serviceImageContainer h-50">
-        <img src={imgSrc} className="w-100 h-100" />
-        <div className="w-100 d-flex flex-column position-absolute top-50 z-100">
+      <div className="col-12 p-0 position-relative serviceImageContainer h-50">
+        <img src={imgSrc} className="w-100 h-100 rounded" />
+        <div className="w-100 d-flex flex-column position-absolute top-50 z-100 h-50 m-auto">
           <h1 className="f42 align-self-center text-white">לייוי לרכישת דירה</h1>
           <div className="d-grid w-25 align-self-center">
             <button className="btn yellow f36 w3 p-2" type="button">

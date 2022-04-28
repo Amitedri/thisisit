@@ -6,7 +6,7 @@ import { allProdcts, allServices } from "../../sampleData";
 const ProductPage = () => {
   const imgSrc = "./assets/img/service.png";
   return (
-    <div className="row d-flex flex-column align-items-center">
+    <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* large image with button */}
       <div className="row p-0 position-relative serviceImageContainer h-50">
         <img src={imgSrc} className="w-100 h-100" />

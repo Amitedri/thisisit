@@ -5,7 +5,6 @@ import Contracts from "./pages/Contracts";
 import ServicePage from "./pages/ServicePage";
 import ProductPage from "./pages/ProductPage";
 
-
 const AppRouter = () => {
   return (
     <Router>
@@ -14,13 +13,10 @@ const AppRouter = () => {
         <Route exact path="/contracts" element={<Contracts />} />
         <Route exact path="/services" element={<ServicePage />} />
         <Route exact path="/contractpage" element={<ProductPage />} />
-
-
         <Route exact path="/" element={<ContractLawyer />} />
 
-
         {/* <Route exact path="/recovery-password" element={<RecoveryPassword/>}/> */}
-        {/* <Route path="*" element={<NotFound/>}/> */}
+        <Route path="*" element={<div>404</div>} />
       </Routes>
     </Router>
   );

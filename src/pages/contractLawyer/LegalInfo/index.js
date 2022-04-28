@@ -3,7 +3,7 @@ import "./LegalInfo.css";
 
 const LegalInfo = () => {
   return (
-    <div className="col-auto d-flex flex-column align-items-center">
+    <div className="col-10 m-auto d-flex flex-column align-items-center">
         <h1 className="f42 mb-2 mt-5">מידע משפטי</h1>
       <FAQ header={"משפחה"} />
       <FAQ header={"משפחה"} />

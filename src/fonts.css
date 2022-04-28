@@ -82,3 +82,10 @@
   font-weight: 700;
   letter-spacing: 30px;
 }
+
+.specialFAQHeader {
+  font-family: "Amatic SC", cursive;
+  font-size: 130px;
+  font-weight: 700;
+  letter-spacing: 3em;
+}

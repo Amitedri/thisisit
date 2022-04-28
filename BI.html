@@ -411,11 +411,9 @@
         var res = "";
         try {
           const data = JSON.stringify(payload);
-
           const headers = {
             "Content-Type": "application/json",
           };
-
           const request = await axios({
             method: "POST",
             url: "/api/query",
@@ -547,13 +545,7 @@
         const ownersInPropwertyList = allObject[1];
         const companiesPropertyOwnersList = allObject[2];
         const allOwnersList = allObject[3];
-        // const {
-        //   propertyOwnersList,
-        //   stockOwnersList,
-        //   ownersInPropwertyList,
-        //   companiesPropertyOwnersList,
-        //   allOwnersList,
-        // } = await loadAllObjects();
+
         // console.log(propertyOwnersList);
         // console.log(stockOwnersList);
         // console.log(ownersInPropwertyList);
