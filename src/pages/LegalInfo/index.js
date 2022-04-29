@@ -1,5 +1,4 @@
-import FAQ from "../../../components/FAQ";
-import "./LegalInfo.css";
+import FAQ from "../../components/FAQ";
 
 const LegalInfo = () => {
   return (

@@ -7,9 +7,9 @@ const Navbar = () => {
       {/* Menu icon */}
       <img src="./assets/icons/burgerMenu.svg" className="align-self-center" height="35" width="35" />
       {/* Navigation */}
-      <div className="col navbarCustom f22 d-flex flex-row justify-content-center">
+      <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
         <div className="p-2 align-self-center navItemCustom pointer dropdown">
-          <a id="contractLawyer" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">
+          <a id="contractLawyer" as="button" className="dropdown-toggle text-white text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">
             עורך דין חוזים
           </a>
           <div class="dropdown-menu" aria-labelledby="contractLawyer">
@@ -25,7 +25,7 @@ const Navbar = () => {
           </div>
         </div>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="exampleContracts" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contractinfo">
+          <a id="exampleContracts" as="button" className="dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contracts">
             הסכמים לדוגמא
           </a>
           <div class="dropdown-menu" aria-labelledby="exampleContracts">
@@ -41,7 +41,7 @@ const Navbar = () => {
           </div>
         </span>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="officeServices" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/services">
+          <a id="officeServices" as="button" className="dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/services">
             שירותי המשרד
           </a>
           <div class="dropdown-menu" aria-labelledby="officeServices">
@@ -57,7 +57,7 @@ const Navbar = () => {
           </div>
         </span>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="legalInfo" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/legal">
+          <a id="legalInfo" as="button" className="dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/legal">
             מידע משפטי
           </a>
           <div class="dropdown-menu" aria-labelledby="legalInfo">
@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
         </span>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="forCommunity" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a id="forCommunity" as="button" className="dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             למען הקהילה
           </a>
           <div class="dropdown-menu" aria-labelledby="forCommunity">
@@ -89,7 +89,7 @@ const Navbar = () => {
           </div>
         </span>
         <span className="p-2 align-self-center navItemCustom pointer">
-          <a id="contact" as="button" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a id="contact" as="button" className="dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             צור קשר
           </a>
           <div class="dropdown-menu" aria-labelledby="contact">

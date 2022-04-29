@@ -53,6 +53,9 @@
 .f60 {
   font-size: 60px;
 }
+.f100 {
+  font-size: 100px;
+}
 .f150 {
   font-size: 150px;
 }
@@ -88,4 +91,10 @@
   font-size: 130px;
   font-weight: 700;
   letter-spacing: 3em;
+}
+.specialStandHeader {
+  font-family: "Amatic SC", cursive;
+  font-size: 130px !important;
+  font-weight: 700;
+  letter-spacing: 5px;
 }

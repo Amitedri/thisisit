@@ -54,16 +54,16 @@ const Contracts = () => {
       {/* header */}
       <div className="w-50 mt-5 d-flex flex-column align-items-center ">
         <h1 className="f36 w5">כותרת</h1>
-        <p className="f20 w3 text-center">
+        <p className="f16 text-center m-1">
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
           טסט טסט טסט טסט
         </p>
-        <hr className="w-100" />
-        <span className="f20 w3 text-center">
+        <hr className="w-100 m-0" />
+        <span className="f16 text-center">
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
           טסט טסט טסט טסט
         </span>
-        <div className="col-12 d-flex flex-row justify-content-center">
+        <div className="col-12 d-flex flex-row justify-content-center mt-5">
           <DropDown header={"קטגוריות"} key={"קטגוריות"} />
           <DropDown header={"סוג המסמך"} key={"סוג המסמך"} />
         </div>

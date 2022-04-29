@@ -1,19 +1,25 @@
 import "./ProductPage.css";
 import ContactsUs from "../../components/ContactUs";
 import ProductSlider from "../../components/ProductSlider";
+import ContractPreview from "../../components/ContractPreview";
+import StandUp from "../../components/StandUp";
+
 import { allProdcts, allServices } from "../../sampleData";
+import FAQ from "../../components/FAQ";
 
 const BuyCard = ({ header, cost, buttonText }) => {
   return (
     <div class="col p-4">
       <div class="card text-center bg-light">
-        <h1 className="card-header f18 p-5 bg-light ">{header}</h1>
-        <div class="card-body p-5">
-          <p class="card-text">{cost}</p>
+        <h1 className="card-header f18 bg-light pb-5 pt-5 ">{header}</h1>
+        <div class="card-body col p-0">
+          <p class="card-text card-text p-2 m-0">{cost}</p>
+          <div className="d-grid">
+            <a href="#" class="w-100 yellow p-2 text-dark text-decoration-none">
+              {buttonText}
+            </a>
+          </div>
         </div>
-        <a href="#" class="btn w-100 yellow">
-          {buttonText}
-        </a>
       </div>
     </div>
   );
@@ -26,7 +32,7 @@ const ProductPage = () => {
     { type: "פגישת ייעוץ", cost: "350", buttonText: "קבע עכשיו" },
   ];
   return (
-    <div className="col-10 m-auto d-flex flex-column align-items-center">
+    <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden">
       {/* large image with button */}
       <div className="row p-0 d-flex flex-row">
         <div className="col d-flex flex-column text-center lightBlue">
@@ -41,13 +47,15 @@ const ProductPage = () => {
             ))}
           </div>
         </div>
-        <img src={imgSrc} className="w-50 p-0" />
+        <img src={imgSrc} className="col-6 p-0 rounded" />
       </div>
-
-      {/* <ContactsUs key={"sdnjnnnnn"}/>
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh"/>
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh"/>
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh"/> */}
+      <ContractPreview key={"asdasaasdsddasdasdsa"}/>
+      <StandUp key={"asdasadasdasdsfffa"}/>
+      <FAQ header={"שאלות ותשובות בנושא משפחה"} withTitle="true" />
+      <ContactsUs key={"sdnjnnnnn"} />
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh" />
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh" />
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh" />
     </div>
   );
 };

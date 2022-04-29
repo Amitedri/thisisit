@@ -16,16 +16,14 @@ const TopSearchBar = () => {
     <div className="container-fluid d-flex flex-row-reverse topSearchBar justify-content-between ">
       {/* icons container */}
       <div className="col-auto align-self-center d-flex flex-wrap">
-        {/* rounded img */}
-        <img src="./assets/img/smLogo.svg" className="logoIcon align-self-center" />
         {/* logo */}
         <img src="./assets/img/lgLogo.svg" className="m-2 logoIcon align-self-center" />
       </div>
 
       {/* search container */}
       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-5 col d-flex align-self-center position-relative border border-dark py-2 rounded rounded-2 border-white" style={{height:"65px"}}>
-        <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center" id="searchIcon"></i>
-        <input className="col f18 customSearchBar" type="text" placeholder="חפש.." />
+        <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
+        <input className="col f18 customSearchBar p-3" type="text" placeholder="חפש.." />
       </div>
 
       {/* contact banner */}
