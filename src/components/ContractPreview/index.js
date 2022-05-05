@@ -65,7 +65,6 @@ const ContractPreview = () => {
             data-bs-target="#contractLoader"
             aria-expanded="false"
             aria-controls="contractLoader"
-            data-bs-parent=""
           >
             פתח עוד
           </a>
@@ -73,7 +72,7 @@ const ContractPreview = () => {
         {/* content */}
 
         <div class="collapse mt-5 border-0" id="contractLoader">
-          <div class="card cream">
+          <div class="card cream border-0">
             <p>
               <strong>והואיל:</strong>וברצון בני הזוג להביא הסכם ממון ידועים בציבור זה בפני בית משפט לענייני משפחה וליתן
               לו תוקף מחייב של פסק דין.{" "}
@@ -282,25 +281,7 @@ const ContractPreview = () => {
             <p> </p>
             <p> </p>
           </div>
-          {/* buttons */}
-          <div className="d-grid w-100 d-flex flex-column m-auto align-items-center">
-            {/* get agreement */}
-            <a class="btn yellow w-25 letter2 w3 m-2" type="button">
-              הורד הסכם
-            </a>
-            {/* load more */}
-            <a
-              class="btn yellow w-25 letter2 w3 mb-2"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#contractLoader"
-              aria-expanded="false"
-              aria-controls="contractLoader"
-              data-bs-parent=""
-            >
-             סגור
-            </a>
-          </div>
+
         </div>
         {/* rest of Contract */}
       </div>

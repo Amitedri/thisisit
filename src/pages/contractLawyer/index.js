@@ -28,7 +28,6 @@ const ContractLawyer = () => {
       <ContactsUs key={"dskdmasmkdmalksdmdkl"} />
       <FAQ  header={"שאלות ותשובות"} withTitle="true"/>
       <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={allServices} />
-
       <Footer/>
     </div>
   );

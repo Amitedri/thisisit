@@ -107,7 +107,7 @@ const Navbar = () => {
           </div>
         </span>
         <span className="p-4 align-self-center navItemCustom pointer">
-          <a id="contact" as="button" className="dropdown-toggle text-white costumeItem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a id="contact" as="button" className="dropdown-toggle text-white costumeItem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contactus">
             צור קשר
           </a>
           <div class="dropdown-menu" aria-labelledby="contact">
