@@ -1,4 +1,3 @@
-import ContractLawyer from "./pages/ContractLawyer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LegalInfo from "./pages/LegalInfo";
 import Contracts from "./pages/Contracts";
@@ -6,6 +5,7 @@ import ServicePage from "./pages/ServicePage";
 import ProductPage from "./pages/ProductPage";
 import ForCommunity from "./pages/ForCommunity";
 import Contact from "./pages/Contact";
+import ContractLawyer from "./pages/contractLawyer";
 
 const AppRouter = () => {
   return (
