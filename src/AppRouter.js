@@ -17,7 +17,6 @@ const AppRouter = () => {
         <Route exact path="/contractpage" element={<ProductPage />} />
         <Route exact path="/community" element={<ForCommunity />} />
         <Route exact path="/contactus" element={<Contact />} />
-
         <Route exact path="/" element={<ContractLawyer />} />
 
         {/* <Route exact path="/recovery-password" element={<RecoveryPassword/>}/> */}
