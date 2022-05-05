@@ -8,7 +8,7 @@ const TextComponent = ({ imgSrc, header, subHeader, text, backgroundColor }) => 
       </div>
       {/* text container */}
       <div className="col-7 d-flex flex-column align-items-start mt-2">
-        <h1 className="m-0 p-0 w5 f30 text-right blueText">{header}</h1>
+        <h1 className="m-0 p-0 f32 text-right">{header}</h1>
         <h2 className="m-0 p-0 f26 text-right greyText mt-2">{subHeader}</h2>
         <span className="m-0 p-0 fw-2 text-right w-75 mt-2">{text}</span>
       </div>

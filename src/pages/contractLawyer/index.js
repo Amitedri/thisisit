@@ -5,6 +5,8 @@ import ProductSlider from "../../components/ProductSlider";
 import "./ContractLawyer.css";
 import { allProdcts, allServices } from "../../sampleData";
 import TextComponent from "../../components/TextComponent";
+import Footer from "../../components/Footer";
+
 const ContractLawyer = () => {
 
   const textComponentData = {
@@ -18,13 +20,16 @@ const ContractLawyer = () => {
     <div className="col-10 d-flex flex-column align-items-center p-0 green m-auto">
       <TextComponent {...textComponentData} />
       {/* contract steps */}
+      <div className="col-12 d-flex flex-column align-items-center cream">
+        <h1 className="f42 w3 p-3">כותרת שקשורה לפה</h1>
+      </div>
       <ContractSteps />
+      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={allProdcts} />
       <ContactsUs key={"dskdmasmkdmalksdmdkl"} />
       <FAQ  header={"שאלות ותשובות"} withTitle="true"/>
-      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={allProdcts} />
       <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={allServices} />
 
-      <div className="col-12">example services</div>
+      <Footer/>
     </div>
   );
 };

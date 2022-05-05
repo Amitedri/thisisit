@@ -65,13 +65,27 @@
     </style>
     <style>
       .red {
-        color: red !important;
+        color: white !important;
+        max-width: 20%;
+        min-width: 10%;
+        background-color: #ff4433;
       }
       .green {
-        color: green !important;
+        color: white !important;
+        max-width: 20%;
+        min-width: 10%;
+
+        background-color: green !important;
       }
       .orange {
-        color: orange !important;
+        color: white !important;
+        max-width: 20%;
+        min-width: 10%;
+
+        background-color: orange !important;
+      }
+      .columnFont {
+        font-size: 24px !important ;
       }
     </style>
   </head>
@@ -99,13 +113,30 @@
         <!-- home -->
         <div class="tab-pane fade show active" id="home">
           <h2 style="text-align: center">דו"ח ניתוח בעלויות</h2>
-          <input type="checkbox" id="filterShow" /> <label for="filterShow">הצג בעלויות צולבות בלבד</label>
-          <input type="checkbox" id="collapseOptions" /> <label for="collapseOptions">צמצם בעלויות</label>
+          <input type="checkbox" id="filterShow" /> <label for="filterShow">הצג בעלויות צולבות בלבד</label> <input type="checkbox" id="collapseOptions" />
+          <label for="collapseOptions">צמצם בעלויות</label>
           <div dir="rtl" id="mainAcc"></div>
         </div>
         <!-- Anlyse properties -->
         <div class="tab-pane fade" id="analyse">
-          <h4 class="mt-3 fs-2">ניתוח בעלויות</h4>
+          <div class="col-12 d-flex flex-column justify-content-center">
+            <h4 class="mt-3 fs-2 align-self-center">ניתוח בעלויות</h4>
+            <div class="col d-flex flex-row justify-content-center">
+              <span class="d-flex flex-row m-2">
+                <span style="height: 10px;margin: 5px; align-self: center; width: 10px; background-color: #ff4433"></span>
+                תאגיד
+              </span>
+              <span class="d-flex flex-row m-2">
+                <span style="height: 10px;margin: 5px; align-self: center; width: 10px; background-color: #539c28"></span>
+                פרטי
+              </span>
+              <span class="d-flex flex-row m-2">
+                <span style="height: 10px;margin: 5px; align-self: center; width: 10px; background-color: #dba419"></span>
+                חסר מידע
+              </span>
+            </div>
+            </div>
+          </div>
           <div id="target"></div>
           <div class="lds-circle">
             <div></div>
@@ -115,10 +146,9 @@
         <div class="tab-pane fade" id="messages">
           <h4 class="mt-2">Messages tab content</h4>
           <p>
-            Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at
-            erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet.
-            Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus
-            imperdiet. Cum sociis natoque penatibus et magnis.
+            Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend
+            egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie
+            libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.
           </p>
         </div>
       </div>
@@ -169,8 +199,7 @@
         }
       }
       async function loadRecords(page = 1, sData = []) {
-        let res = (await sendPlQuery(1002, "pcfsystemfield76name, pcfsystemfield616, pcfsystemfield155", "", page, 500))
-          .data.Data;
+        let res = (await sendPlQuery(1002, "pcfsystemfield76name, pcfsystemfield616, pcfsystemfield155", "", page, 500)).data.Data;
         sData = sData.concat(res);
         if (res.length == 500) {
           page++;
@@ -380,14 +409,7 @@
         });
       });
 
-      const createQueryPayload = async ({
-        objectType,
-        fields,
-        query,
-        pageNum = 1,
-        pageSize = 500,
-        sortDirection = "desc",
-      } = {}) => {
+      const createQueryPayload = async ({ objectType, fields, query, pageNum = 1, pageSize = 500, sortDirection = "desc" } = {}) => {
         try {
           if (!objectType || !fields) {
             throw new Error("Missing critical fields in reuqest");
@@ -411,9 +433,11 @@
         var res = "";
         try {
           const data = JSON.stringify(payload);
+
           const headers = {
             "Content-Type": "application/json",
           };
+
           const request = await axios({
             method: "POST",
             url: "/api/query",
@@ -528,14 +552,6 @@
         ]);
         var endTime = performance.now();
         console.log(`Call to doSomething took ${endTime - startTime} milliseconds`);
-
-        // const payload = {
-        //   propertyOwnersList,
-        //   stockOwnersList,
-        //   ownersInPropwertyList,
-        //   companiesPropertyOwnersList,
-        //   allOwnersList,
-        // };
         return new Promise((resolve) => setTimeout(() => resolve(all), 0));
       };
 
@@ -545,32 +561,30 @@
         const ownersInPropwertyList = allObject[1];
         const companiesPropertyOwnersList = allObject[2];
         const allOwnersList = allObject[3];
-
+        // const {
+        //   propertyOwnersList,
+        //   stockOwnersList,
+        //   ownersInPropwertyList,
+        //   companiesPropertyOwnersList,
+        //   allOwnersList,
+        // } = await loadAllObjects();
         // console.log(propertyOwnersList);
         // console.log(stockOwnersList);
         // console.log(ownersInPropwertyList);
         // console.log(companiesPropertyOwnersList);
         // console.log(allOwnersList);
         const targetElem = document.getElementById("target");
+        targetElem.innerHTML = "";
         var objectToRender = {};
         var BreakException = {};
         const createResElem = ({ colorClass, name }) => {
-          let elem = document.createElement("span");
-          elem.classList.add("d-flex", "flex-row", colorClass,"col");
+          let elem = document.createElement("li");
+          elem.classList.add("d-flex", "flex-row", "justify-content-center", colorClass, "rounded", "text-center", "m-2", "p-1","fs-6");
           elem.textContent = name;
-          // let elem = `<div class="row d-flex flex-row ${colorClass}">${name}</div>`;
           return elem;
         };
 
-        const findStockOwner = ({
-          idNum,
-          stockOwnersList,
-          companiesPropertyOwnersList,
-          propertyName,
-          dataRow,
-          companyData,
-          dataToAppend
-        }) => {
+        const findStockOwner = ({ idNum, stockOwnersList, companiesPropertyOwnersList, propertyName, dataRow, companyData, dataToAppend }) => {
           stockOwnersList.some((el) => {
             const ownerID = el.pcfsystemfield374;
             const ownerName = el.name;
@@ -581,11 +595,7 @@
                 //FIND PERSON
                 let personData = createResElem({ colorClass: "green", name: ownerName });
                 dataToAppend.append(personData);
-                dataRow.append(dataToAppend)
-                // dataRow.innerHTML += personData;
-                // targetElem.append(dataRow);
-                // const personPayload = createPayload({ ownerID, ownerName, ownerType, company: false, missingData: false });
-                // objectToRender[propertyName].push(personPayload);
+                dataRow.append(dataToAppend);
                 return;
               }
               if (ownerType === "תאגיד") {
@@ -599,8 +609,8 @@
           });
         };
         const findCompanyOwner = ({ idNum, companiesPropertyOwnersList, propertyName, dataRow, companyData }) => {
-          const dataToAppend = document.createElement("span");
-          dataToAppend.classList.add("d-flex","flex-row");
+          const dataToAppend = document.createElement("li");
+          dataToAppend.classList.add("d-flex", "flex-row", "fs-6");
 
           companiesPropertyOwnersList.some((el) => {
             const ownerID = el.customobject1009id;
@@ -612,25 +622,18 @@
                 //FIND PERSON
                 // console.log("found matching person owner", ownerName);
                 let personData = createResElem({ colorClass: "green", name: ownerName });
-                // dataRow.innerHTML += personData;
-                dataToAppend.append(companyData)
-                dataToAppend.append(personData)
-
+                dataToAppend.append(companyData);
+                dataToAppend.append(personData);
                 dataRow.append(dataToAppend);
 
-                // const personPayload = createPayload({ ownerID, ownerName, ownerType, company: false, missingData: false });
-                // objectToRender[propertyName].push(personPayload);
                 return;
               }
               if (ownerType === "תאגיד") {
                 // console.log("found matching company owner תאגיד", ownerName);
                 // console.log("looking for stock owner...");
-                // let companyData = createResElem({ colorClass: "red", name: ownerName });
-                // dataRow.innerHTML += companyData;
-                dataToAppend.append(companyData)
-                dataRow.append(dataToAppend)
-                // dataRow.append(companyData);
-                findStockOwner({ idNum: ownerID, stockOwnersList, propertyName, dataRow, companyData,dataToAppend });
+                dataToAppend.append(companyData);
+                dataRow.append(dataToAppend);
+                findStockOwner({ idNum: ownerID, stockOwnersList, propertyName, dataRow, companyData, dataToAppend });
                 return;
               }
             }
@@ -645,16 +648,26 @@
         for (let prop of ownersInPropwertyList) {
           const propertyOwnerID = prop.pcfsystemfield155;
           const propertyName = prop.pcfsystemfield15name;
+
           let testElem = document.getElementById(propertyName);
-          var dataRow = document.createElement("div");
+          var dataRow = document.createElement("nav");
+
+          //   let innerOL = document.createElement("ol");
+
+          //   innerOL.classList.add("breadcrumb");
+          //   dataRow.appendChild(innerOL)
+          dataRow.ariaLabel = "breadcrumb";
+
           if (!testElem) {
-            dataRow.classList.add(["row", "d-flex", "flex-colum"]);
+            dataRow.classList.add("row", "d-flex", "flex-column", "columnFont");
             dataRow.id = propertyName;
             const propertyNameElem = `${propertyName}`;
             dataRow.append(propertyNameElem);
           }
           if (testElem) {
             dataRow = testElem;
+            // console.log(testElem.children)
+            // console.log(testElem.childNodes)
           }
 
           for (let person of allOwnersList) {
@@ -665,19 +678,8 @@
 
             if (propOwnerID === propertyOwnerID) {
               if (!ownerType || ownerType == false || !idNumber) {
-                // const missingDataPayload = createPayload({
-                //   ownerID: propOwnerID,
-                //   ownerName,
-                //   ownerType,
-                //   company: false,
-                //   missingData: true,
-                // });
                 let missingData = createResElem({ colorClass: "orange", name: ownerName });
                 dataRow.append(missingData);
-                // dataRow.innerHTML += missingData;
-                // targetElem.append(dataRow);
-
-                // objectToRender[propertyName].push(missingDataPayload);
 
                 // console.log("missing data entity",ownerName)
               }
@@ -686,9 +688,6 @@
                 if (ownerType === "תאגיד") {
                   // console.log("found תאגיד", ownerName);
                   let companyData = createResElem({ colorClass: "red", name: ownerName });
-                  // dataRow.innerHTML += companyData;
-                  // targetElem.append(dataRow);
-                  // dataRow.append(companyData);
 
                   findCompanyOwner({
                     idNum: propOwnerID,
@@ -702,15 +701,6 @@
                   // console.log("found אדם", ownerName);
                   let personData = createResElem({ colorClass: "green", name: ownerName });
                   dataRow.append(personData);
-                  // dataRow.innerHTML += personData;
-                  // const personPayload = createPayload({
-                  //   company: false,
-                  //   missingData: false,
-                  //   ownerID: propOwnerID,
-                  //   ownerName,
-                  //   ownerType,
-                  // });
-                  // objectToRender[propertyName].push(personPayload);
                 }
               }
             }

@@ -16,16 +16,19 @@ const breakPoints = [
 
 const Product = ({ title, description }) => {
   return (
-    <div class="card m-4 align-items-center p-0">
-      <img src="./assets/img/exp.png" class="card-img-top" />
-      <div class="card-body d-flex flex-column align-items-center">
-        <h5 class="card-title">sCard title</h5>
-        <p class="card-text text-center">
+    <div className="card align-items-center p-0">
+      <img src="./assets/img/exp.png" className="card-img-top" />
+      <div className="card-body d-flex flex-column align-items-center">
+        <h5 className="card-title">sCard title</h5>
+        <p className="card-text text-center">
           Some quick example text to build on the card title and make up the bulk of the card's content.
         </p>
-        <a href="#" class="btn yellow w-75 text-white">
-          Go somewhere
-        </a>
+        <a href="/contractpage" className="btn yellow text-white m-1 w-75">
+        פתח הסכם לדוגמא
+          </a>
+          <a href="/checkout" className="btn yellowLight text-white m-1 w-75">
+           רכוש 69.90₪
+          </a>
       </div>
     </div>
   );
@@ -40,20 +43,24 @@ const ProductSlider = ({ componentHeader, dataToRender }) => {
   // }, []);
 
   return (
-    <div className="w-100 d-flex flex-column align-items-center responsiveContainer lightBlue rounded mt-5 mb-3">
-      <h1 className="mt-3">{componentHeader}</h1>
-      <Carousel
-        ref={sliderRef}
-        breakPoints={breakPoints}
-        enableMouseSwipe={true}
-        enableSwipe={true}
-        pagination={false}
-        disableArrowsOnEnd={false}
-      >
-        {productsList.map((el, idx) => {
-          return <Product description={el.description} title={el.title} key={idx} />;
-        })}
-      </Carousel>
+    <div className="w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 mb-3">
+      <div className="d-flex flex-column align-items-center" style={{ width: "90%" }}>
+        <h1 className="mt-0">{componentHeader}</h1>
+        <Carousel
+          ref={sliderRef}
+          breakPoints={breakPoints}
+          enableMouseSwipe={true}
+          enableSwipe={true}
+          pagination={false}
+          disableArrowsOnEnd={false}
+          isRTL="true"
+          itemPadding={[35]}
+        >
+          {productsList.map((el, idx) => {
+            return <Product description={el.description} title={el.title} key={idx} />;
+          })}
+        </Carousel>
+      </div>
     </div>
   );
 };

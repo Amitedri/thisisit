@@ -13,11 +13,11 @@ const TopSearchBar = () => {
   };
 
   return (
-    <div className="container-fluid d-flex flex-row-reverse topSearchBar justify-content-between ">
+    <div className="container-fluid d-flex flex-row-reverse topSearchBar justify-content-between p-2 sticky-top green">
       {/* icons container */}
       <div className="col-auto align-self-center d-flex flex-wrap">
         {/* logo */}
-        <img src="./assets/img/lgLogo.svg" className="m-2 logoIcon align-self-center" />
+        <img src="./assets/img/lgLogo.jpg" className="m-2 logoIcon align-self-center" />
       </div>
 
       {/* search container */}
@@ -27,8 +27,8 @@ const TopSearchBar = () => {
       </div>
 
       {/* contact banner */}
-      <div className="col-auto align-self-center d-flex flex-column border border-1 border-dark rounded">
-        <div className="d-flex justify-content-center">
+      <div className="col-auto align-self-center d-flex flex-column border border-1 border-dark rounded p-2">
+        <div className="d-flex justify-content-center ps-5 pe-5">
           <span className="align-self-center f20">צור קשר עכשיו</span>
         </div>
         <hr className="w-100 m-0 p-0" />

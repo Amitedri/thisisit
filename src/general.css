@@ -1,7 +1,9 @@
 .pointer {
   cursor: pointer !important;
 }
-
+h1{
+  color: #4ba492 !important;
+}
 .invertColor {
   filter: invert(100%);
 }

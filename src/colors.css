@@ -11,8 +11,14 @@
 .lightBlue {
   background-color: #4ba492 !important;
 }
+.lightBlueStrong {
+  background-color: #1d9d83 !important;
+}
 .yellow {
   background-color: #f0cc76 !important;
+}
+.yellowLight {
+  background-color: #e7b645 !important;
 }
 .cream {
   background-color: #fdfdf1 !important;

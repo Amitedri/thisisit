@@ -79,6 +79,10 @@
   font-family: "Amatic SC", cursive;
 }
 
+.sansSerif{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 .specialHeader {
   font-family: "Amatic SC", cursive;
   font-size: 130px;
