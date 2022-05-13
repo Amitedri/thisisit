@@ -1,23 +1,24 @@
-const Question = ({ title, answer,id }) => {
+const Question = ({ title, answer,id,onClick }) => {
   return (
-    <div className="accordion-item col-12 m-1 p-2 lightBlue">
+    <div className="accordion-item col-12 m-1 p-2 cream">
       <h2 className="accordion-header" id={`flush-headingOne${id}`}>
         <button
-          className="col-12 customeAccordionItem lightBlue rounded text-center f26"
+          className="col-12 customeAccordionItem cream rounded text-center f26"
           type="button"
           data-bs-toggle="collapse"
            data-bs-target={`#collapseExample${id}`}
           aria-expanded="false"
           aria-controls={`collapseExample${id}`}
+          onClick={onClick}
         >
-          <i class="fa-solid fa-plus float-end m-1 invertColor"></i>
+          <i class="fa-solid fa-plus float-end m-1"></i>
           {title}
-          <img className="float-start mt-1" height="25" width="25" src="./assets/icons/arrow.svg" />
+          <img className="float-start mt-1 invertColor" height="25" width="25" src="./assets/icons/arrow.svg" />
         </button>
       </h2>
 
       <div className="collapse" id={`collapseExample${id}`}>
-        <div className="card card-body cream ">{answer}</div>
+        <div className="card card-body white ">{answer}</div>
       </div>
     </div>
   );

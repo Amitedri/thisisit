@@ -17,5 +17,16 @@
 
 
 .logoIcon{
-    max-height: 85px !important;
+    max-height: 65px !important;
+}
+.lineLength{
+    width: 80% !important;
+    height: 2px !important;
+    max-height: 65px !important;
+
+}
+
+.blueBorder{
+    border-color: #4AA391 !important;
+    background-color: white !important;
 }

@@ -5,6 +5,7 @@ import { allProdcts, allServices } from "../../sampleData";
 import FAQ from "../../components/FAQ";
 import { useState } from "react";
 import FullList from "../../components/FullList";
+import ExpandedProducs from "../../components/ExpandedProduct";
 
 const ServicePage = () => {
   const [text, setText] = useState("");
@@ -54,9 +55,9 @@ const ServicePage = () => {
         </p> */}
       </div>
       <ContactsUs key={"sdnjnnnnn"} />
-      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh" Children={ProductSlider}/>
-      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdasahhhh" Children={ProductSlider}/>
-      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdddadhhhh" Children={ProductSlider}/>
+      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs}/>
+      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdasahhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs}/>
+      <FullList componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdddadhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs}/>
     </div>
   );
 };

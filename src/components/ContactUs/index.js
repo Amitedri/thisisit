@@ -5,7 +5,7 @@ const ContactsUs = () => {
     <div className="col-12 cream  d-flex flex-row flex-wrap responsiveContainer p-0 mt-5 rounded">
       {/* contactus header */}
       <div className="col-12 lightBlue d-flex justify-content-center p-0 headerContainer rounded">
-        <h1 className="m-auto specialHeader p-0 yellowText">CONTACT US</h1>
+        <h1 className="m-auto specialHeader p-0 yellowText">צור קשר</h1>
       </div>
       {/* form */}
       <div className="col-auto formContainer d-flex flex-column pb-5">

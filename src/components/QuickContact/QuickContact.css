@@ -1,11 +1,12 @@
 .contactColumn{
     height: 25vh;
-    position: absolute;
+    position: fixed !important;
     z-index: 9999 !important;
     float: left;
     width: 5vw;
     position: sticky;
-    top: 25vh;
+    top: 40vh;
+    left: 0;
 }
 .contactItem{
     transition: all 1s ease-in-out;

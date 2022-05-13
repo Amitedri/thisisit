@@ -3,6 +3,7 @@ import ProductSlider from "../../components/ProductSlider";
 import ContactUs from "../../components/ContactUs";
 import FullList from "../../components/FullList";
 import DropDown from "../../components/DropDown";
+import ExpandedProduct from "../../components/ExpandedProduct";
 
 import { allProdcts, allServices } from "../../sampleData";
 
@@ -33,9 +34,9 @@ const Contracts = () => {
         </div>
       </div>
       {/* documents */}
-      <FullList dataToRender={allProdcts} componentHeader={"מקרקעין"} Children={ProductSlider} />
-      <FullList dataToRender={allProdcts} componentHeader={"משפחה"} Children={ProductSlider} />
-      <FullList dataToRender={allProdcts} componentHeader={"גירושים"} Children={ProductSlider} />
+      <FullList dataToRender={allProdcts} componentHeader={"מקרקעין"} Children={ProductSlider} ExpandedProducts={ExpandedProduct}  />
+      <FullList dataToRender={allProdcts} componentHeader={"משפחה"} Children={ProductSlider} ExpandedProducts={ExpandedProduct} />
+      <FullList dataToRender={allProdcts} componentHeader={"גירושים"} Children={ProductSlider} ExpandedProducts={ExpandedProduct} />
       <ContactUs key={"dsdsdskbjnbjlknknmklmklmklmlkmlk"}/>
       <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={allServices} key={"dsdsdskbjnbjlmklmlkmdlk"} />
 

@@ -2,7 +2,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="col-12 footerHeight rounded d-flex flex-column align-items-center mb-2 mt-5">
+    <div className="col-12 footerHeight rounded d-flex flex-column align-items-center mb-2 mt-5 blue">
         <h1 className="fs5 w3 text-white mt-2">אלעד כהן עו"ד</h1>
     <div className="col-10 d-flex flex-row flex-wrap align-items-center mt-3">
     <a href="/contracts" className="btn footerItem col text-center w3 m-2">

@@ -11,10 +11,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <div className="col-12 d-flex flex-column sticky-top">
         <TopSearchBar />
         <Navbar />
-      </div>
       <QuickContact />
       <AppRouter />
       <Footer/>

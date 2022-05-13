@@ -43,6 +43,14 @@ const Title = ({withTitle}) => {
 };
 const FAQ = ({ header, withTitle }) => {
   const id = uuidv2();
+  const onClick = (e)=>{
+    let parent = e.target.parentElement;
+    let icon = parent.querySelector("i");
+    let arrow = parent.querySelector("img");
+    icon.classList.toggle("spinElem")
+    arrow.classList.toggle("spinElem")
+
+  }
 
   return (
     <div className="col-12 m-0 d-flex flex-column align-items-center mt-5">
@@ -56,7 +64,7 @@ const FAQ = ({ header, withTitle }) => {
           //change to real value later
           const innerID = uuidv2();
 
-          return <Question answer={el.answer} title={el.title} id={innerID} />;
+          return <Question answer={el.answer} title={el.title} id={innerID} onClick={onClick} />;
         })}
       </div>
     </div>

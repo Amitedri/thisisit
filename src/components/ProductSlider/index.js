@@ -14,7 +14,7 @@ const breakPoints = [
   { width: 2200, itemsToShow: 3, itemsToScroll: 3 },
 ];
 
-const Product = ({ title, description }) => {
+export const Product = ({ title, description }) => {
   return (
     <div className="card align-items-center p-0">
       <img src="./assets/img/exp.png" className="card-img-top" />
@@ -33,17 +33,14 @@ const Product = ({ title, description }) => {
     </div>
   );
 };
-const ProductSlider = ({ componentHeader, dataToRender }) => {
+const ProductSlider = ({ componentHeader, dataToRender,className }) => {
   const [productsList, setProductsList] = useState(dataToRender);
 
   const sliderRef = useRef(null);
 
-  // useEffect(() => {
-  //   setProductsList(() => dataToRender);
-  // }, []);
 
   return (
-    <div className="w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 mb-3">
+    <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 mb-3 ${className}`}>
       <div className="d-flex flex-column align-items-center" style={{ width: "90%" }}>
         <h1 className="mt-0">{componentHeader}</h1>
         <Carousel
@@ -55,6 +52,8 @@ const ProductSlider = ({ componentHeader, dataToRender }) => {
           disableArrowsOnEnd={false}
           isRTL="true"
           itemPadding={[35]}
+          
+          
         >
           {productsList.map((el, idx) => {
             return <Product description={el.description} title={el.title} key={idx} />;

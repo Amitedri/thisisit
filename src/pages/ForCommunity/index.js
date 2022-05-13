@@ -26,8 +26,8 @@ const ForCommunity = () => {
       {/* <TextComponent header={textComponentData2.header} imgSrc={textComponentData2.imgSrc} subHeader={textComponentData2.subHeader} text={textComponentData2.text} key={textComponentData2.header}/> */}
       
       <ContactsUs key={"sdnjnnnnn"} />
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhasdasdhhh" />
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdsadhhhh" />
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdhasdasdhhh" className="pt-4"/>
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={allServices} key="sdsdsadhhhh" className="pt-4"/>
     </div>
   );
 };

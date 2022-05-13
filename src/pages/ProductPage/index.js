@@ -35,9 +35,9 @@ const ProductPage = () => {
     <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden">
       {/* large image with button */}
       <div className="row p-0 d-flex flex-row">
-        <div className="col d-flex flex-column text-center lightBlue">
-          <h1 className="f42 text-white mt-3">כותרת</h1>
-          <h2 className="f20 p-2 text-white">
+        <div className="col d-flex flex-column text-center bg-white border-bottom">
+          <h1 className="f42 text-white mt-3 lightBlueText">כותרת</h1>
+          <h2 className="f20 p-2 greyText">
             טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
             טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט{" "}
           </h2>

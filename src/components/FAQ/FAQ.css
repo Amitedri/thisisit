@@ -1,4 +1,12 @@
-.customeAccordionItem{
-    border:none !important;
-    height: 60px;
+.customeAccordionItem {
+  border: none !important;
+  height: 60px;
 }
+.spinElem {
+  transition: all 0.5s ease-in-out;
+  transform: rotate(180deg);
+}
+.unSpinElem {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-180deg) !important;
+  }
