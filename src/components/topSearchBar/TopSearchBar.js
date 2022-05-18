@@ -21,7 +21,8 @@ const TopSearchBar = () => {
       </div>
 
       {/* contact banner */}
-      <div className="col-auto align-self-center d-flex flex-column border border-4 blueBorder with-gradient shadow-sm">
+      <div className="col-auto align-self-center d-flex flex-column">
+        <a href="#" className="text-dark" style={{all:'unset'}}>
         <div className="d-flex justify-content-center ps-4 pe-4">
           <span className="align-self-center f16 w3 p-1">צור קשר עכשיו</span>
         </div>
@@ -29,6 +30,8 @@ const TopSearchBar = () => {
         <div className="d-flex justify-content-center">
           <span className="align-self-center f16 w3">052-281-3907</span>
         </div>
+      </a>
+
       </div>
     </div>
   );

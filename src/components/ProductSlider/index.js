@@ -40,9 +40,12 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
 
 
   return (
-    <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 mb-3 ${className}`}>
-      <div className="d-flex flex-column align-items-center" style={{ width: "90%" }}>
-        <h1 className="mt-0">{componentHeader}</h1>
+    <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 ${className}`}>
+
+      <div className="d-flex flex-column align-items-center mb-2" style={{ width: "90%" }}>
+        <h1 className="mt-4 align-self-center">{componentHeader}</h1>
+
+        <hr className="w-50 m-auto bg-dark" style={{opacity:"0.1"}}/>
         <Carousel
           ref={sliderRef}
           breakPoints={breakPoints}
@@ -60,6 +63,7 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
           })}
         </Carousel>
       </div>
+      
     </div>
   );
 };

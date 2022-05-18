@@ -35,19 +35,23 @@ const ProductPage = () => {
     <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden">
       {/* large image with button */}
       <div className="row p-0 d-flex flex-row">
-        <div className="col d-flex flex-column text-center bg-white border-bottom">
+        <div className="col d-flex flex-column text-center bg-white border-bottom p-0">
           <h1 className="f42 text-white mt-3 lightBlueText">כותרת</h1>
-          <h2 className="f20 p-2 greyText">
-            טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
-            טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט{" "}
+          <h2 className="f18 ps-2 pe-2 greyText">
+            טסט טסט טסט  טסט טסט טסט טסט טסט טסט
           </h2>
-          <div className="row p-0 d-flex flex-row">
-            {cardsData.map((el) => (
-              <BuyCard cost={el.cost} key={el.type} buttonText={el.buttonText} header={el.type} />
-            ))}
-          </div>
+          <p className="ps-5 pe-5">טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
+            טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסטטסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
+            טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסטטסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
+            טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט</p>
+            <div className="d-grid">
+          <a className="btn btn-primary rounded-0">כפתור 1</a>
+          <a className="btn btn-warning rounded-0">כפתור 2</a>
+
+        </div>
         </div>
         <img src={imgSrc} className="col-6 p-0 rounded" />
+
       </div>
       <ContractPreview key={"asdasaasdsddasdasdsa"}/>
       <StandUp key={"asdasadasdasdsfffa"}/>

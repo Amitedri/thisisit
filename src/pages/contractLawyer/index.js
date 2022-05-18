@@ -20,7 +20,7 @@ const ContractLawyer = () => {
     <div className="col-10 d-flex flex-column align-items-center p-0 green m-auto">
       <TextComponent {...textComponentData} />
       {/* contract steps */}
-      <div className="col-12 d-flex flex-column align-items-center cream">
+      <div className="col-12 d-flex flex-column align-items-center cream mt-4">
         <h1 className="f42 w3 p-3">כותרת שקשורה לפה</h1>
       </div>
       <ContractSteps />

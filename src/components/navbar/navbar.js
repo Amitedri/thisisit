@@ -1,43 +1,70 @@
 import "./navbar.css";
 import $ from "jquery";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 const Navbar = () => {
+  const [currentButton,setCurrentButton] = useState(null);
   useEffect(() => {
-    let elem = document.querySelectorAll(".navItemCustom");
+    let elem = document.querySelectorAll(".myItem");
 
     elem.forEach((el) => {
       el.addEventListener("mouseenter", (e) => {
-        window.$(e.target).dropdown("toggle");
+        let btn = e.target.querySelector("a");
+        let list = e.target.querySelector(".dropdown-menu");
+        window.$(btn).dropdown("show");
+        elem.forEach((el,idx)=>{
+          let compareBtn = el.querySelector("a");
+        let compareList = el.querySelector(".dropdown-menu");
+          if(compareBtn.id !== btn.id){
+            compareList.classList.remove("show")
+            $(btn).attr('aria-expanded', false);
+          }
+        })
+        
       });
       el.addEventListener("click", (e) => {
         let splitted = e.target.href.split("/");
         splitted = splitted[splitted.length - 1];
-        console.log(splitted);
         window.location.pathname = splitted;
       });
-      el.addEventListener("mouseout", (e) => {
-        window.$(e.target).dropdown("toggle");
-      });
+
     });
+    $("body").on("click",(e)=>{
+      let elem = document.querySelectorAll(".navDropMenu");
+      elem.forEach((el)=>{
+        el.classList.remove("show")
+      })
+
+    })
+    $(function(){
+      $(function($) {
+        var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+        $('.navItemCustom').each(function() {
+         if (this.href === path) {
+          $(this).addClass('active');
+         }
+        });
+       });
+  })
     return () => {
       elem.forEach((el) => {
         el.removeEventListener("mouseenter", () => {});
-        el.removeEventListener("mouseout", () => {});
         el.removeEventListener("click", () => {});
       });
     };
+    
   }, []);
+
   return (
     <div className="container-fluid blue d-flex flex-row justify-content-center sticky-top">
       {/* Menu icon */}
       <img src="./assets/icons/burgerMenu.svg" className="align-self-center d-none" height="35" width="35" />
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
-        <div className="p-4 align-self-center  pointer dropdown">
+        <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem dropdown">
           <a
             id="contractLawyer"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem "
+            className=" navItemCustom text-white costumeItem "
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -45,23 +72,24 @@ const Navbar = () => {
           >
             עורך דין חוזים
           </a>
-          <div class="dropdown-menu" aria-labelledby="contractLawyer">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="contractLawyer">
             <a class="dropdown-item" href="#">
               עורך דין חוזים
             </a>
             <a class="dropdown-item" href="#">
-              Another actionעורך דין חוזים
+              Aonעורך דין חוזים
+              Aonעורך דין חוזים
             </a>
             <a class="dropdown-item" href="#">
-              Something else hereעורך דין חוזים
+              ם
             </a>
           </div>
         </div>
-        <span className="p-4 align-self-center  pointer">
+        <span className="pe-2 ps-3 pb-2 align-self-center pointer myItem">
           <a
             id="exampleContracts"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem"
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -69,7 +97,7 @@ const Navbar = () => {
           >
             הסכמים לדוגמא
           </a>
-          <div class="dropdown-menu" aria-labelledby="exampleContracts">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="exampleContracts">
             <a class="dropdown-item" href="#">
               הסכמים לדוגמא
             </a>
@@ -77,15 +105,15 @@ const Navbar = () => {
               Another הסכמים לדוגמא
             </a>
             <a class="dropdown-item" href="#">
-              Something else here הסכמים לדוגמא
+              הסכמים לדוגמא
             </a>
           </div>
         </span>
-        <span className="p-4 align-self-center  pointer">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem">
           <a
             id="officeServices"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem"
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -93,7 +121,7 @@ const Navbar = () => {
           >
             שירותי המשרד
           </a>
-          <div class="dropdown-menu" aria-labelledby="officeServices">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
             <a class="dropdown-item" href="#">
               Action
             </a>
@@ -105,11 +133,11 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="p-4 align-self-center  pointer">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem">
           <a
             id="legalInfo"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem"
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -117,7 +145,7 @@ const Navbar = () => {
           >
             מידע משפטי
           </a>
-          <div class="dropdown-menu" aria-labelledby="legalInfo">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
             <a class="dropdown-item" href="#">
               Action
             </a>
@@ -129,11 +157,11 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="p-4 align-self-center  pointer">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem">
           <a
             id="forCommunity"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem"
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -141,7 +169,7 @@ const Navbar = () => {
           >
             למען הקהילה
           </a>
-          <div class="dropdown-menu" aria-labelledby="forCommunity">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="forCommunity">
             <a class="dropdown-item" href="#">
               Action
             </a>
@@ -153,11 +181,11 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="p-4 align-self-center  pointer">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem">
           <a
             id="contact"
             as="button"
-            className="dropdown-toggle navItemCustom text-white costumeItem"
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -165,7 +193,7 @@ const Navbar = () => {
           >
             צור קשר
           </a>
-          <div class="dropdown-menu" aria-labelledby="contact">
+          <div class="dropdown-menu navDropMenu" aria-labelledby="contact">
             <a class="dropdown-item" href="#">
               Action
             </a>

@@ -1,5 +1,5 @@
 .navbarCustom {
-  height: 100px !important;
+  height: 70px !important;
   text-decoration: underline;
   color: white;
 }
@@ -19,3 +19,21 @@
 .isPressed{
   color: #4ba492 !important;
 }
+
+
+.dropdown-menu,.dropdown{
+border: none !important;
+}
+
+a.active{
+  color: #4ba492 !important;
+}
+
+.navItemCustom:hover{
+  transition:all 0.5s ease-in-out;
+  font-size: 24px;
+  }
+  
+  a:focus-visible{
+    outline: none !important;
+  }

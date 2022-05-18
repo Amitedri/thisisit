@@ -26,3 +26,10 @@
 .containerContent{
   height: 15% !important;
 }
+.standupContainer{
+  border-bottom: 10px solid #4ba492;
+}
+.standupBorder{
+  border-left: 5px solid #4ba492
+  
+}

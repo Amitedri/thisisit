@@ -11,9 +11,9 @@ const Question = ({ title, answer,id,onClick }) => {
           aria-controls={`collapseExample${id}`}
           onClick={onClick}
         >
-          <i class="fa-solid fa-plus float-end m-1"></i>
+          <img className="float-end mt-1" height="25" width="25" src="./assets/icons/arrow.svg" />
           {title}
-          <img className="float-start mt-1 invertColor" height="25" width="25" src="./assets/icons/arrow.svg" />
+          <img className="float-start mt-1" height="25" width="25" src="./assets/icons/arrow.svg" />
         </button>
       </h2>
 

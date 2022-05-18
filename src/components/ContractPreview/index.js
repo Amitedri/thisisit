@@ -17,10 +17,14 @@ const ContractPreview = () => {
     </span>
   );
 
-  // useEffect(() => {
-    if(!isAgreedConsent && !isAgreedTerms){
-      window.$(".collapse").off("collapse");
-    }
+  useEffect(() => {
+    // if(!isAgreedConsent && !isAgreedTerms){
+    //   window.$(".collapse").off("collapse");
+    // }
+    $(document).on('shown.bs.collapse', function (e) {
+      // Get clicked element that initiated the collapse...
+    console.log("open")
+  });
   //   window.$(".collapse").on("show.bs.collapse", function (e) {
   //     if (isAgreedConsent && setisAgreedConsent) {
   //       setIsExpanded(true);
@@ -41,13 +45,13 @@ const ContractPreview = () => {
   //       // Get clicked element that initiated the collapse...
   //     });
   //   };
-  // }, []);
+  }, []);
 
   const setTrigger = () => {
     setIsExpanded((prev) => !prev);
   };
   useEffect(() => {
-    headerRef.current.scrollIntoView("alignToTop");
+    // headerRef.current.scrollIntoView("alignToTop");
   }, [isExpanded]);
   return (
     <div className="col-12 d-flex flex-column align-items-center text-center cream p-0 rounded" ref={headerRef}>
@@ -98,11 +102,8 @@ const ContractPreview = () => {
         </p>
         {isExpanded ? null : (
           <div className="d-grid w-100 d-flex flex-column m-auto align-items-center">
-            <a class="btn yellow w-25 letter2 w3 m-2" type="button">
-              הורד הסכם
-            </a>
             <a
-              class="btn yellow w-25 letter2 w3 mb-2"
+              class="btn yellow w-25 letter2 w3 mb-2 tryot"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#contractLoader"
@@ -112,6 +113,7 @@ const ContractPreview = () => {
             >
               פתח עוד
             </a>
+            <div className="d-flex flex-column col align-items-start justify-content-start">
             <div class="form-check d-flex flex-row justify-content-center align-items-center" style={{ direction: "rtl" }}>
               <input
                 class="form-check-input m-1"
@@ -122,7 +124,7 @@ const ContractPreview = () => {
                 onChange={() => setisAgreedConsent((prev) => !prev)}
               />
               <label class="form-check-label m-1" for="flexCheckDefault" style={{ direction: "rtl" }}>
-                הנני מסכים לתנאי השימוש
+                הנני מסכים לתנאי השימוש שבאתר
               </label>
             </div>
             <div class="form-check d-flex flex-row justify-content-center align-items-center" style={{ direction: "rtl" }}>
@@ -137,6 +139,7 @@ const ContractPreview = () => {
               <label class="form-check-label m-1" for="flexCheckDefault" style={{ direction: "rtl" }}>
                 {consentElement}
               </label>
+            </div>
             </div>
             {/* <Checkbox value={isAgreedTerms} setValue={setIsAgreedTerms} title="" />
 
