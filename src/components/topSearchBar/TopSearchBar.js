@@ -21,9 +21,9 @@ const TopSearchBar = () => {
       </div>
 
       {/* contact banner */}
-      <div className="col-auto align-self-center d-flex flex-column">
+      <div className="col-auto align-self-center d-flex flex-column me-2">
         <a href="#" className="text-dark" style={{all:'unset'}}>
-        <div className="d-flex justify-content-center ps-4 pe-4">
+        <div className="d-flex justify-content-center ">
           <span className="align-self-center f16 w3 p-1">צור קשר עכשיו</span>
         </div>
         <hr className="lineLength m-auto" />

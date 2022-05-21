@@ -25,7 +25,7 @@ const PurchaseBox = ({ header, text, buttonText,withBorder }) => {
       <hr className="w-25 p-0 m-0 mb-3" />
       <p className="f16 w2 col-8 p-3">{text}</p>
       <div className="d-grid col-5">
-        <a class="btn yellow letter2 w3 m-2 blueText" type="button">
+        <a class="btn btn-lg yellow letter2 w3 blueText" type="button">
           {buttonText}
         </a>
       </div>
@@ -35,7 +35,7 @@ const PurchaseBox = ({ header, text, buttonText,withBorder }) => {
 
 const StandUp = () => {
   return (
-    <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 mt-5 rounded standupContainer">
+    <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 rounded standupContainer">
       {/* standup header */}
       <div className="col-12 p-0 lightBlue d-flex flex-row align-items-center p-0 headerContainer rounded">
         <i class="fa-solid fa-arrow-down-long f100 w5 me-5 yellowText"></i>

@@ -49,7 +49,7 @@ const FAQ = ({ header, withTitle }) => {
   return (
     <div className="col-12 m-0 d-flex flex-column align-items-center mt-5">
       <div className="col-auto d-flex flex-column align-items-center text-center">
-        <h1 className="f30 w5 ">{header}</h1>
+        <h1 >{header}</h1>
       </div>
       {/* question */}
       <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
