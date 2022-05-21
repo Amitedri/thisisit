@@ -60,10 +60,10 @@ const ContactsUs = () => {
           <span>ימי ו' וערבי חג 08:00-13:00</span>
           <h3 className="greyText w6 f20  m-0 mt-1">כתובת המשרד</h3>
           <span>יפו 97, ירושלים קומה 7 משרד 317</span>
-          <span className="greyText w3">
+          <a className="greyText w3 btn border border-dark m-2 btn-sm">
             הוראות הגעה ב-
             <img src="./assets/icons/waze.svg" height="20" width="20" className="m-1" />
-          </span>
+          </a>
           <div>
           <iframe className='border border-1 rounded' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.5023059297287!2d35.217411384538075!3d31.784057681283183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d7e23981c9%3A0xfd7662d2e7fae713!2z15nXpNeVIDk3LCDXmdeo15XXqdec15nXnQ!5e0!3m2!1siw!2sil!4v1653168463202!5m2!1siw!2sil"   referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
