@@ -1,5 +1,5 @@
 import "./ProductSlider.css";
-
+import Product from '../Product'
 import Carousel from "react-elastic-carousel";
 import { useEffect, useRef, useState } from "react";
 
@@ -14,25 +14,6 @@ const breakPoints = [
   { width: 2200, itemsToShow: 3, itemsToScroll: 3 },
 ];
 
-export const Product = ({ title, description }) => {
-  return (
-    <div className="card align-items-center p-0">
-      <img src="./assets/img/exp.png" className="card-img-top" />
-      <div className="card-body d-flex flex-column align-items-center">
-        <h5 className="card-title">sCard title</h5>
-        <p className="card-text text-center">
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </p>
-        <a href="/contractpage" className="btn yellow text-white m-1 w-75">
-        פתח הסכם לדוגמא
-          </a>
-          <a href="/checkout" className="btn yellowLight text-white m-1 w-75">
-           רכוש 69.90₪
-          </a>
-      </div>
-    </div>
-  );
-};
 const ProductSlider = ({ componentHeader, dataToRender,className }) => {
   const [productsList, setProductsList] = useState(dataToRender);
 
@@ -56,10 +37,11 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
           isRTL="true"
           itemPadding={[35]}
           
-          
         >
           {productsList.map((el, idx) => {
-            return <Product description={el.description} title={el.title} key={idx} />;
+            const description = el.h1Content.slice(0,100);
+
+            return <Product description={description} title={el.h1} key={idx} buttonText={el.buttonText} actionButtonText={el.actionButtonText} href={el.href} imgSrc={el.imgSrc}/>;
           })}
         </Carousel>
       </div>

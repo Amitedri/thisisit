@@ -1,24 +1,25 @@
-import { allProdcts, allServices } from "../../sampleData";
-const Product = ({ title, description }) => {
+import { allProdcts, allServices } from '../../sampleData';
+const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc }) => {
   return (
     <div className="card align-items-center p-0 col-3 m-2">
-      <img src="./assets/img/exp.png" className="card-img-top" />
+      <img src={imgSrc} className="card-img-top" />
       <div className="card-body d-flex flex-column align-items-center">
-        <h5 className="card-title">sCard title</h5>
-        <p className="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="/contractpage" className="btn yellow text-white m-1 w-75">
-          פתח הסכם לדוגמא
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text text-center">{description}</p>
+        <a href={href} className="btn yellow text-white m-1 w-75">
+          {buttonText}
         </a>
         <a href="/checkout" className="btn yellowLight text-white m-1 w-75">
-          רכוש 69.90₪
+          {actionButtonText}
         </a>
       </div>
     </div>
   );
 };
 const ExpandedProducs = ({ dataToRender }) => {
-  return dataToRender.map((el) => {
-    return <Product />;
+  return dataToRender.map((el,idx) => {
+    const description = el.h1Content.slice(0,120);
+    return <Product description={description} title={el.h1} actionButtonText={el.actionButtonText} buttonText={el.buttonText} key={el.id} href={el.href} imgSrc={el.imgSrc} />;
   });
 };
 

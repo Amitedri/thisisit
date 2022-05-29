@@ -34,7 +34,7 @@ const questions = [
   },
 ];
 
-const FAQ = ({ header, withTitle }) => {
+const FAQ = ({ header, withTitle,questions }) => {
   const id = uuidv2();
   const onClick = (e)=>{
     let parent = e.target.parentElement;

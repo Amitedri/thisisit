@@ -16,7 +16,7 @@ const AppRouter = () => {
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts />} />
         <Route exact path="/services" element={<Services />} />
-        <Route exact path="/service" element={<ServicePage />} />
+        <Route exact path="/service/:id" element={<ServicePage />} />
 
         <Route exact path="/contractpage" element={<ProductPage />} />
         <Route exact path="/community" element={<ForCommunity />} />

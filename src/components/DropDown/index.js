@@ -1,37 +1,15 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import $ from "jquery";
+import $ from 'jquery';
 
-const DropDown = ({ header, colorClass }) => {
+const DropDown = ({ header, colorClass, values,onChange }) => {
+  const mappedValues = values.map((el) => {
+    return <option>{el.title}</option>;
+  });
 
   return (
     <div className="dropdown m-2 w-50 dropItem">
-      <button
-        className={`btn w-100  dropdown-toggle text-white f20 ${colorClass}`}
-        type="button"
-        id={`dropdownMenuButton${header}`}
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        {header}
-      </button>
-      <ul className="dropdown-menu w-100" aria-labelledby={`dropdownMenuButton${header}`}>
-        <li>
-          <a className="dropdown-item" href="#">
-            Action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Something else here
-          </a>
-        </li>
-      </ul>
+      <select onInput={onChange} className={`form-check btn w-100 text-white f20 ${colorClass}`}>{mappedValues}</select>
     </div>
   );
 };

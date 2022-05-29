@@ -1,7 +1,7 @@
 import "./TextComponent.css";
-const TextComponent = ({ imgSrc, header, subHeader, text, backgroundColor }) => {
+const TextComponent = ({ imgSrc, header, subHeader, text, backgroundColor,textHeaderColor,textColor }) => {
   return (
-    <div className="col-12 d-flex flex-row flex-wrap rounded pb-3 pt-3" style={{ backgroundColor: backgroundColor }}>
+    <div className="col-12 d-flex flex-row flex-wrap rounded pb-3 pt-3" style={{ backgroundColor: backgroundColor,color:textHeaderColor }}>
       {/* side rounded image */}
       <div className="col d-flex justify-content-center">
         <img src={imgSrc} className="p-3" />

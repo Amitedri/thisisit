@@ -5,9 +5,31 @@ import FullList from "../../components/FullList";
 import DropDown from "../../components/DropDown";
 import ExpandedProduct from "../../components/ExpandedProduct";
 
-import { allProdcts, allServices } from "../../sampleData";
-
+import contractsList from '../../Data/Contracts'
 const Contracts = () => {
+  const generalServices= contractsList.filter((el)=>el.categoryHeb === "כללי")
+  const realestateServices= contractsList.filter((el)=>el.categoryHeb === "מקרקעין");
+  const familyServices= contractsList.filter((el)=>el.categoryHeb === "משפחה");
+  const companyServices= contractsList.filter((el)=>el.categoryHeb === "חברות");
+
+  // const data = contractsList.map((el)=>{
+  //   const resultObj = {};
+  //   const c
+  // })
+
+  const serviceCategoryDrop = [
+    {
+      title: 'משפחה',
+    },
+    {
+      title: 'ממון',
+    },{
+      title: 'חברות',
+    },{
+      title: 'כללי',
+    },
+  ];
+
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
@@ -23,34 +45,34 @@ const Contracts = () => {
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
         </span>
         <div className="col-12 d-flex flex-row justify-content-center mt-5">
-          <DropDown header={"תחום משפטי"} key={"קטגוריות"} colorClass="lightBlue" />
-          <DropDown header={"הסכמים וחוזים"} key={"סוג המסמך"} colorClass="lightBlue" />
+          <DropDown header={"תחום משפטי"} key={"קטגוריות"} colorClass="lightBlue" values={serviceCategoryDrop} />
+          <DropDown header={"הסכמים וחוזים"} key={"סוג המסמך"} colorClass="lightBlue" values={serviceCategoryDrop} />
         </div>
       </div>
       {/* documents */}
       <FullList
-        dataToRender={allProdcts}
+        dataToRender={generalServices}
         componentHeader={"מקרקעין"}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dfjksndfjksndjkfsndjkfnsdjkf"
       />
       <FullList
-        dataToRender={allProdcts}
+        dataToRender={generalServices}
         componentHeader={"משפחה"}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjjkfnsdjkf"
       />
       <FullList
-        dataToRender={allProdcts}
+        dataToRender={generalServices}
         componentHeader={"גירושים"}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjksndfjksndjkfsndjkfnsdjkf"
       />
       <ContactUs key={"dsdsdskbjnbjlkmklmklmlkmlk"} />
-      <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={allServices} key={"dsdsdskbjnbjlmklmlkmdlk"} />
+      <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={generalServices} key={"dsdsdskbjnbjlmklmlkmdlk"} />
     </div>
   );
 };

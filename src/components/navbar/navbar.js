@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const Navbar = () => {
   const [currentButton,setCurrentButton] = useState(null);
   useEffect(() => {
-    let elem = document.querySelectorAll(".myItem m-5");
+    let elem = document.querySelectorAll(".myItem");
 
     elem.forEach((el) => {
       el.addEventListener("mouseenter", (e) => {
@@ -57,10 +57,10 @@ const Navbar = () => {
   return (
     <div className="container-fluid blue d-flex flex-row justify-content-center sticky-top">
       {/* Menu icon */}
-      <img src="./assets/icons/burgerMenu.svg" className="align-self-center d-none" height="35" width="35" />
+      <img src="../assets/icons/burgerMenu.svg" className="align-self-center d-none" height="35" width="35" />
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
-        <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-5 dropdown">
+        <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3 dropdown">
           <a
             id="contractLawyer"
             as="button"
@@ -85,7 +85,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <span className="pe-2 ps-3 pb-2 align-self-center pointer myItem m-5">
+        <span className="pe-2 ps-3 pb-2 align-self-center pointer myItem m-3">
           <a
             id="exampleContracts"
             as="button"
@@ -109,7 +109,7 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-5">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
           <a
             id="officeServices"
             as="button"
@@ -133,7 +133,7 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-5">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
           <a
             id="legalInfo"
             as="button"
@@ -157,7 +157,7 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-5">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
           <a
             id="forCommunity"
             as="button"
@@ -181,7 +181,7 @@ const Navbar = () => {
             </a>
           </div>
         </span>
-        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-5">
+        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
           <a
             id="contact"
             as="button"

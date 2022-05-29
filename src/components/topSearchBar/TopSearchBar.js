@@ -10,7 +10,7 @@ const TopSearchBar = () => {
       <div className="col-auto align-self-center d-flex flex-wrap">
         {/* logo */}
         < a href="http://localhost:3000">
-        <img src="./assets/img/lgLogo.jpg" className="m-2 logoIcon align-self-center" />
+        <img src="../assets/img/lgLogo.jpg" className="m-2 logoIcon align-self-center" />
         </a>
       </div>
 

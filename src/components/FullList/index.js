@@ -13,20 +13,19 @@ const breakPoints = [
   { width: 2200, itemsToShow: 3, itemsToScroll: 3 },
 ];
 
-export const Product = ({ title, description }) => {
+export const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc }) => {
   return (
     <div className="card align-items-center p-0">
-      <img src="./assets/img/exp.png" className="card-img-top" />
+      <img src={imgSrc} className="card-img-top" />
       <div className="card-body d-flex flex-column align-items-center">
-        <h5 className="card-title">sCard title</h5>
+        <h5 className="card-title">{title}</h5>
         <p className="card-text text-center">
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </p>
-        <a href="/contractpage" className="btn yellow text-white m-1 w-75">
-        פתח הסכם לדוגמא
+        {description}        </p>
+        <a href={href} className="btn yellow text-white m-1 w-75">
+        {buttonText}
           </a>
           <a href="/checkout" className="btn yellowLight text-white m-1 w-75">
-           רכוש 69.90₪
+          {actionButtonText}
           </a>
       </div>
     </div>
@@ -37,12 +36,12 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
 
   const sliderRef = useRef(null);
 
-
+  console.log("dataToRender",dataToRender)
   return (
     <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 ${className}`}>
 
       <div className="d-flex flex-column align-items-center mb-2" style={{ width: "90%" }}>
-        <h1 className="mt-0 align-self-center">{componentHeader}</h1>
+        <h1 className="mt-0 align-self-center componentHeader">{componentHeader}</h1>
 
         <hr className="w-50 m-auto bg-dark" style={{opacity:"0.1"}}/>
         <Carousel
@@ -58,7 +57,8 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
           
         >
           {productsList.map((el, idx) => {
-            return <Product description={el.description} title={el.title} key={idx} />;
+            const description = el.h1Content.slice(0,100);
+            return <Product description={description} title={el.h1} actionButtonText={el.actionButtonText} buttonText={el.buttonText} key={idx} href={el.href} imgSrc={el.imgSrc} />;
           })}
         </Carousel>
       </div>

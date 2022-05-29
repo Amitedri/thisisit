@@ -21,41 +21,24 @@ const ContractPreview = () => {
     // if(!isAgreedConsent && !isAgreedTerms){
     //   window.$(".collapse").off("collapse");
     // }
-    $(document).on('shown.bs.collapse', function (e) {
+    $("#contractLoader").on('show.bs.collapse', function (e) {
       // Get clicked element that initiated the collapse...
+    setIsExpanded(true);
     console.log("open")
   });
-  //   window.$(".collapse").on("show.bs.collapse", function (e) {
-  //     if (isAgreedConsent && setisAgreedConsent) {
-  //       setIsExpanded(true);
-  //       console.log("isAgreedConsent", isAgreedConsent);
-  //       console.log("isAgreedTerms", isAgreedTerms);
-  //       console.log("yes");
-  //     }
-  //     if (!isAgreedConsent || !setisAgreedConsent) {
-  //       console.log("no");
-  //       console.log("isAgreedConsent", isAgreedConsent);
-  //       console.log("isAgreedTerms", isAgreedTerms);
-  //       e.preventDefault();
-  //       return;
-  //     }
-  //   });
-  //   return () => {
-  //     window.$(".collapse").off("show.bs.collapse", function (e) {
-  //       // Get clicked element that initiated the collapse...
-  //     });
-  //   };
+
   }, []);
 
-  const setTrigger = () => {
-    setIsExpanded((prev) => !prev);
+  const setTrigger = (value) => {
+    setIsExpanded((prev) =>!prev);
   };
   useEffect(() => {
     // headerRef.current.scrollIntoView("alignToTop");
+    console.log(isExpanded)
   }, [isExpanded]);
   return (
     <div className="col-12 d-flex flex-column align-items-center text-center cream p-0 rounded" ref={headerRef}>
-      <h1 className="f42 w3 mt-5">הסכם ידועים בציבור</h1>
+      <h1 className="f42 w3 mt-5" id="mainContractHeader">הסכם ידועים בציבור</h1>
       <h2 className="f32 text-muted p-0">הסכם לחיים משותפים וממון</h2>
       <div className="col-10 d-flex flex-column align-items-start">
         <p> </p>
@@ -339,7 +322,6 @@ const ContractPreview = () => {
                 </p>
               </div>
             </div>
-            {isExpanded ? (
               <div className="d-grid w-100 d-flex flex-column m-auto align-items-center">
                 <a class="btn yellow w-25 letter2 w3 m-2" type="button">
                   הורד הסכם
@@ -356,7 +338,6 @@ const ContractPreview = () => {
                   סגור
                 </a>
               </div>
-            ) : null}
           </div>
         </div>
 

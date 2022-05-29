@@ -26,9 +26,9 @@ const Footer = () => {
     </div>
     <div className="col-auto d-flex flex-row mt-3 p-3">
       <div className="contactItem d-flex flex-row align-items-center">
-        <img src="./assets/icons/phone.svg" height="50" width="50" className="p-2" />
-        <img src="./assets/icons/whatsapp.svg" height="50" width="50" className="p-2" />
-        <img src="./assets/icons/maildotru.svg" height="50" width="50" className="p-2" />
+        <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2" />
+        <img src="../assets/icons/whatsapp.svg" height="50" width="50" className="p-2" />
+        <img src="../assets/icons/maildotru.svg" height="50" width="50" className="p-2" />
       </div>
     </div>
 
