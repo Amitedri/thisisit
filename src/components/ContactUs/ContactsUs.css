@@ -13,12 +13,15 @@
   text-align: center;
 }
 .messageInput {
-  height: 100px;
+  height: 190px;
   background-color: transparent;
   border: 1px solid grey;
   border-radius: 5px;
   color:white;
   text-align: right;
+}
+.messageInput:focus{
+  border: none;
 }
 .headerContainer{
   height: 15% !important;

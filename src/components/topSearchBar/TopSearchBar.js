@@ -12,6 +12,11 @@ const TopSearchBar = () => {
         < a href="http://localhost:3000">
         <img src="../assets/img/lgLogo.jpg" className="m-2 logoIcon align-self-center" />
         </a>
+        {/* <div className="col-auto border border-4 border-dark d-flex flex-column align-items-center justify-content-center" style={{height:"90%"}}>
+        <span className="">COHEN ELAD & CO</span>
+        <hr className="w-100 ps-1 pe-1 m-0"/>
+        <span className="blueText fw-4"><span className="lightBlueText w5">Digital</span>Law Office</span>
+        </div> */}
       </div>
 
       {/* search container */}
@@ -31,7 +36,6 @@ const TopSearchBar = () => {
           <span className="align-self-center f16 w3">052-281-3907</span>
         </div>
       </a>
-
       </div>
     </div>
   );
