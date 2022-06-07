@@ -15,9 +15,9 @@ const breakPoints = [
 
 export const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc }) => {
   return (
-    <div className="card align-items-center p-0">
+    <div className="card align-items-center p-0 col-12">
       <img src={imgSrc} className="card-img-top" />
-      <div className="card-body d-flex flex-column align-items-center">
+      <div className="card-body col-12 d-flex flex-column align-items-center">
         <h5 className="card-title">{title}</h5>
         <p className="card-text text-center">
         {description}        </p>
@@ -31,7 +31,7 @@ export const Product = ({ title, description, buttonText, actionButtonText,href,
     </div>
   );
 };
-const ProductSlider = ({ componentHeader, dataToRender,className }) => {
+const ProductSlider = ({ componentHeader, dataToRender,className}) => {
   const [productsList, setProductsList] = useState(dataToRender);
 
   const sliderRef = useRef(null);
@@ -67,7 +67,7 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
   );
 };
 
-const FullList = ({ dataToRender, componentHeader, ExpandedProducts }) => {
+const FullList = ({ dataToRender, componentHeader, ExpandedProducts,category  }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   let listRef = useRef(null)
   const setTrigger = ()=>{
@@ -80,7 +80,7 @@ const FullList = ({ dataToRender, componentHeader, ExpandedProducts }) => {
     
   }
   return (
-    <div className="col-12 d-flex flex-column flex-wrap justify-content-center cream rounded align-items-center mb-5">
+    <div className="col-12 d-flex flex-column flex-wrap justify-content-center cream rounded align-items-center mb-5" data-cat={category}>
       {isExpanded ? (
         <a class="btn yellow w-25 text-white f20 w3 mt-5 mb-5" id={`close${componentHeader}`} onClick={close}>
           סגור

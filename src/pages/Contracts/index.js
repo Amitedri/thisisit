@@ -1,32 +1,52 @@
-import "./Contracts.css";
-import ProductSlider from "../../components/ProductSlider";
-import ContactUs from "../../components/ContactUs";
-import FullList from "../../components/FullList";
-import DropDown from "../../components/DropDown";
-import ExpandedProduct from "../../components/ExpandedProduct";
+import './Contracts.css';
+import ProductSlider from '../../components/ProductSlider';
+import ContactUs from '../../components/ContactUs';
+import FullList from '../../components/FullList';
+import DropDown from '../../components/DropDown';
+import ExpandedProduct from '../../components/ExpandedProduct';
 
-import contractsList from '../../Data/Contracts'
+import previewContracts from '../../Data/ContractExport';
+import { useEffect, useState } from 'react';
 const Contracts = () => {
-  const generalServices= contractsList.filter((el)=>el.categoryHeb === "כללי")
-  const realestateServices= contractsList.filter((el)=>el.categoryHeb === "מקרקעין");
-  const familyServices= contractsList.filter((el)=>el.categoryHeb === "משפחה");
-  const companyServices= contractsList.filter((el)=>el.categoryHeb === "חברות");
+  const [typeFilter, setTypeFilter] = useState('');
+  const generalServices = previewContracts.filter((el) => el.categoryHeb === 'כללי');
+  const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
+  const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
+  const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות');
 
-  // const data = contractsList.map((el)=>{
-  //   const resultObj = {};
-  //   const c
-  // })
-
+  const onFilterChange = (event) => {
+    setTypeFilter(event.target.value);
+  };
+  useEffect(() => {
+    if (typeFilter) {
+      const all = document.querySelectorAll('[data-cat]');
+      all.forEach((element) => element.classList.remove('d-none'));
+      all.forEach((el) => {
+        if (el.dataset.cat !== typeFilter) {
+          console.log(el);
+          console.log('typeFilter', typeFilter);
+          el.classList.add('d-none');
+          console.log(el.dataset.cat);
+        }
+        if (typeFilter === 'הכל') {
+          el.classList.remove('d-none');
+        }
+      });
+    }
+  }, [typeFilter]);
   const serviceCategoryDrop = [
+    {
+      title: 'הכל',
+    },
     {
       title: 'משפחה',
     },
+
     {
-      title: 'ממון',
-    },{
-      title: 'חברות',
-    },{
       title: 'כללי',
+    },
+    {
+      title: 'מקרקעין',
     },
   ];
 
@@ -45,34 +65,37 @@ const Contracts = () => {
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
         </span>
         <div className="col-12 d-flex flex-row justify-content-center mt-5">
-          <DropDown header={"תחום משפטי"} key={"קטגוריות"} colorClass="lightBlue" values={serviceCategoryDrop} />
-          <DropDown header={"הסכמים וחוזים"} key={"סוג המסמך"} colorClass="lightBlue" values={serviceCategoryDrop} />
+          <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
+          <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
         </div>
       </div>
       {/* documents */}
       <FullList
-        dataToRender={generalServices}
-        componentHeader={"מקרקעין"}
+        category={'מקרקעין'}
+        dataToRender={realestateServices}
+        componentHeader={'מקרקעין'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dfjksndfjksndjkfsndjkfnsdjkf"
       />
       <FullList
-        dataToRender={generalServices}
-        componentHeader={"משפחה"}
+        category={'משפחה'}
+        dataToRender={familyServices}
+        componentHeader={'משפחה'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjjkfnsdjkf"
       />
       <FullList
+        category={'כללי'}
         dataToRender={generalServices}
-        componentHeader={"גירושים"}
+        componentHeader={'כללי'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjksndfjksndjkfsndjkfnsdjkf"
       />
-      <ContactUs key={"dsdsdskbjnbjlkmklmklmlkmlk"} />
-      <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={generalServices} key={"dsdsdskbjnbjlmklmlkmdlk"} />
+      <ContactUs key={'dsdsdskbjnbjlkmklmklmlkmlk'} />
+      <ProductSlider componentHeader={'שירותים לדוגמא'} dataToRender={generalServices} key={'dsdsdskbjnbjlmklmlkmdlk'} />
     </div>
   );
 };

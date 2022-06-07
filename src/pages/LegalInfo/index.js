@@ -22,23 +22,23 @@ const LegalInfo = () => {
         <DropDown header={"שאלה משפטית"} key={"שאלה משפטית"} colorClass="lightBlueStrong" values={serviceCategoryDrop} />
       </div>
       <FAQ header={"משפחה"} questions={general} />
-      <a href="#" class="btn lightBlue w-25 text-white f20 w3 mt-2">
+      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2">
         פתח עוד
       </a>
       <FAQ header={"משפחה"} questions={general} />
-      <a href="#" class="btn lightBlue w-25 text-white f20 w3 mt-2">
+      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2">
         פתח עוד
       </a>
       <FAQ header={"משפחה"} questions={general} />
-      <a href="#" class="btn lightBlue w-25 text-white f20 w3 mt-2">
+      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2">
         פתח עוד
       </a>
       <FAQ header={"משפחה"} questions={general} />
-      <a href="#" class="btn lightBlue w-25 text-white f20 w3 mt-2">
+      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2">
         פתח עוד
       </a>
       <FAQ header={"משפחה"} questions={general} />
-      <a href="#" class="btn lightBlue w-25 text-white f20 w3 mt-2">
+      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2">
         פתח עוד
       </a>
     </div>

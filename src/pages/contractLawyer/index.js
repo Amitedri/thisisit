@@ -8,9 +8,13 @@ import TextComponent from "../../components/TextComponent";
 import Footer from "../../components/Footer";
 import {general} from '../../Data/Questions'
 import servicesList from "../../Data/Services";
+import previewContracts from "../../Data/ContractExport";
+
 
 const ContractLawyer = () => {
 const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
+const generalContracts = previewContracts.filter((el)=>el.categoryHeb = "כללי")
+console.log("generalContracts",generalContracts)
   const textComponentData = {
     text: `הסכמים וחוזים מלווים וממלאים את חיינו. 
     לפעמים הם קצרים, נעימים או לא חשובים כמו לקבוע לקפה עם חברים, 
@@ -37,7 +41,7 @@ const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
         <h1 className="f42 w3 p-3">כותרת שקשורה לפה</h1>
       </div>
       <ContractSteps />
-      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={generalServices} />
+      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={generalContracts} />
       <ContactsUs key={"dskdmasmkdmalksdmdkl"} />
       <FAQ  header={"שאלות ותשובות"} withTitle="true" questions={general}/>
       <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={generalServices} />

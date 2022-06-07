@@ -15,10 +15,11 @@ const AppRouter = () => {
       <Routes>
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts />} />
+        <Route exact path="/contract/:id" element={<ProductPage />} />
+
         <Route exact path="/services" element={<Services />} />
         <Route exact path="/service/:id" element={<ServicePage />} />
 
-        <Route exact path="/contractpage" element={<ProductPage />} />
         <Route exact path="/community" element={<ForCommunity />} />
         <Route exact path="/contactus" element={<Contact />} />
         <Route exact path="/" element={<ContractLawyer />} />

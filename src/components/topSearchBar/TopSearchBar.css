@@ -30,3 +30,8 @@
     border-color: #4AA391 !important;
     background-color: white !important;
 }
+
+.tableBtn:hover{
+background-color: #4BA492 !important;
+color:white !important;
+}
