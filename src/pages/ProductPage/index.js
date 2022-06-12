@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import previewContracts from '../../Data/ContractExport';
 import PriceTable from '../../components/PriceTable';
+import SmPriceTable from '../../components/SmTable';
 const ProductPage = () => {
   const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const { id } = useParams();
@@ -41,7 +42,7 @@ const ProductPage = () => {
       {/* large image with button */}
       <div className="row p-0 d-flex flex-row">
         <div className="col d-flex flex-column text-center bg-white border-bottom p-0">
-      <PriceTable iconType="another"/>
+      <SmPriceTable iconType="another"/>
         </div>
         <img src={imgSrc} className="col-6 p-0 rounded" />
       </div>

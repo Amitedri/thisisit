@@ -1,50 +1,108 @@
-import ContactsUs from "../../components/ContactUs";
-import ContractSteps from "../../components/ContractSteps";
-import FAQ from "../../components/FAQ";
-import ProductSlider from "../../components/ProductSlider";
-import "./ContractLawyer.css";
-import { allProdcts, allServices } from "../../sampleData";
-import TextComponent from "../../components/TextComponent";
-import Footer from "../../components/Footer";
-import {general} from '../../Data/Questions'
-import servicesList from "../../Data/Services";
-import previewContracts from "../../Data/ContractExport";
+import ContactsUs from '../../components/ContactUs';
+import ContractSteps from '../../components/ContractSteps';
+import FAQ from '../../components/FAQ';
+import ProductSlider from '../../components/ProductSlider';
+import './ContractLawyer.css';
+import { allProdcts, allServices } from '../../sampleData';
+// import TextComponent from '../../components/TextComponent';
+import Footer from '../../components/Footer';
+import { general } from '../../Data/Questions';
+import servicesList from '../../Data/Services';
+import previewContracts from '../../Data/ContractExport';
+const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor, textColor }) => {
+  return (
+    <div className="col-12 d-flex flex-row flex-wrap rounded pb-3 pt-3" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
+      {/* side rounded image */}
+      <div className="col d-flex justify-content-center">
+        <img src={imgSrc} className="p-3" />
+      </div>
+      {/* text container */}
+      <div className="col-7 d-flex flex-column align-items-start mt-5">
+        <h1 className="m-0 p-0 f32 text-right">{header}</h1>
+        <span className="m-0 p-0 fw-2 text-right w-75 mt-2 text-right">{text}</span>
+        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center" >
+          <div className="btn yellow hoverScale col-3 m-1 shadow-sm">
+          <a href="#" style={{all:"unset"}}>
+             צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
+            </a>
+
+          </div>
+          <div className="btn yellow hoverScale col-3 m-1 shadow-sm">
+            <a href="#" style={{all:"unset"}}>
+              שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
+            </a>
+          </div>
+        </div>
+        <h2 className="m-0 p-0 lightBlueText f32 text-right mt-2">משרד עורך דין חוזים דיגיטלי</h2>
+        <h3 className="m-0 p-0 greyText f18  mt-2 m-2 sdh">משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי שבו תוכלו לרכוש ישירות מהאתר:</h3>
+        <div className='d-flex flex-column justify-content-start'>
+          <ul className='d-flex flex-column justify-content-start align-self-start '>
+            <li className='w3 greyText' style={{listStyleType: "decimal"}}>חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.</li>
+            <li className='w3 greyText' style={{listStyleType: "decimal"}}>חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות. </li>
+            <li className='w3 greyText' style={{listStyleType: "decimal"}}>פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.</li>
+          </ul>
+          <p className='f22 w-75 text-right align-self-start greyText'>כמו כן, תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן.</p>
+          <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-start" >
+          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+          <a href="#" style={{all:"unset"}}>
+          חוזים מקרקעין
+            </a>
+
+          </div>
+          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+            <a href="#" style={{all:"unset"}}>
+            חוזים חברות
+            </a>
+          </div>
+        </div>
+        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-start" >
+          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+
+          <a href="#" style={{all:"unset"}}>
+          חוזים משפחה
+            </a>
+
+          </div>
+          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+            <a href="#" style={{all:"unset"}}>
+            חוזים כללי
+            </a>
+          </div>
+        </div>
+        </div>
 
 
+      </div>
+    </div>
+  );
+};
 const ContractLawyer = () => {
-const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
-const generalContracts = previewContracts.filter((el)=>el.categoryHeb = "כללי")
-console.log("generalContracts",generalContracts)
+  const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
+  const generalContracts = previewContracts.filter((el) => (el.categoryHeb = 'כללי'));
+  console.log('generalContracts', generalContracts);
   const textComponentData = {
-    text: `הסכמים וחוזים מלווים וממלאים את חיינו. 
-    לפעמים הם קצרים, נעימים או לא חשובים כמו לקבוע לקפה עם חברים, 
-    ולפעמים ארוכים ובעלי ערך רב כגון חוזה לקניית דירה ו/או הסכם ממון. 
-    בכל סוגי החוזים והסכמים ישנה תקשורת העונה להגדרות של הצעה וקיבול. 
-    הצד המציע יפרט את תנאיו ודרישותיו בהצעתו, ואילו המקבל 
-    ישקול האם עליו לקבל את ההצעה כפי שהיא או לאחר שינוי. 
-    אקט של הצעה ו/או קיבול ההסכם ניתן לבצע בעל פה, בכתב, בהתנהגות או במעשה. 
-    החוזה ו/או ההסכם יהא מחייב בכפוף למבחני גמירות דעת ומסוימות (מלבד בעסקאות והסכמים בנושאי מקרקעין שם יש דרישת כתב להסכמים). 
-    בבואי לנסח ו/או לערוך הסכם מטרתי היא לצפות פני עתיד, 
-    ולוודא כי הצדדים לחוזה לא יצטרכו לפתוח ולעיין בו יותר החל מיום חתימתו. 
-    אשמח לפרט לכם מספר כללי אצבע לניסוח ו/או עריכת חוזים הסכמים במאמר מטה.
-    `,
-    header: "חשיבותו של עורך דין חוזים",
-    subHeader: "חשיבותו של עורך דין חוזים. סאב כותרת",
-    imgSrc: "../assets/img/personImg.svg",
+    text: `חוזים מלווים וממלאים את חיינו. 
+    לפעמים הם קצרים ופחות חשובים כמו הסכמה להצטרף למועדון לקוחות בסופרמרקט, 
+    ולפעמים הם ארוכים ובעלי ערך רב כגון חוזה לקניית דירה או הסכם ממון בין בני זוג. 
+    בבואי לנסח חוזה מטרתי היא לצפות פני עתיד ולוודא כי הצדדים לחוזה לא יותירו שאלות פתוחות ללא מענה ולא יצטרכו לשוב ולהתדיין לגבי החוזה החל מיום חתימתו.`,
+    header: 'חשיבותו של עורך דין חוזים',
+    subHeader: 'חשיבותו של עורך דין חוזים. סאב כותרת',
+    imgSrc: '../assets/img/personImg.svg',
   };
 
   return (
     <div className="col-10 d-flex flex-column align-items-center p-0 green m-auto">
-      <TextComponent {...textComponentData} />
+      <SpecialTextComponent {...textComponentData} />
       {/* contract steps */}
       <div className="col-12 d-flex flex-column align-items-center cream mt-4">
-        <h1 className="f42 w3 p-3">כותרת שקשורה לפה</h1>
+        <h1 className="f42 w3 p-3">כללים לניסוח חוזים.
+        51</h1>
       </div>
       <ContractSteps />
-      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={generalContracts} />
-      <ContactsUs key={"dskdmasmkdmalksdmdkl"} />
-      <FAQ  header={"שאלות ותשובות"} withTitle="true" questions={general}/>
-      <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={generalServices} />
+      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />
+      <ContactsUs key={'dskdmasmkdmalksdmdkl'} />
+      <FAQ header={'שאלות ותשובות'} withTitle="true" questions={general} />
+      <ProductSlider componentHeader={'שירותים לדוגמא'} dataToRender={generalServices} />
     </div>
   );
 };

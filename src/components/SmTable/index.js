@@ -1,10 +1,10 @@
-const PriceTable = ({ iconType }) => {
+const SmPriceTable = ({ iconType }) => {
   return (
     <div className="col-12 d-flex flex-column">
       <div className="col-12 d-flex flex-row flex-wrap" style={{ minHeight: '40vh' }}>
         <div className="col d-flex flex-column  justify-content-center align-items-center border-start lightBlue text-white">
-          <h3 className="h-25 blueText">חבילות</h3>
-          <span className="fs-6 border-bottom col-12">מס' עמודים</span>
+          <h3 className="h-25 blueText ">חבילות</h3>
+          <span className="fs-6 border-bottom col-12 border-top border-white">מס' עמודים</span>
           <span className="fs-6 border-bottom col-12">קובץ WORD</span>
           <span className="fs-6 border-bottom col-12">התאמה אישית</span>
           <span className="fs-6 border-bottom col-12">מס' תיקונים</span>
@@ -17,7 +17,7 @@ const PriceTable = ({ iconType }) => {
           </div>
         </div>
         <div className="col d-flex flex-column justify-content-center align-items-center border-start">
-          <h3 className="h-25 blueText d-flex flex-column">בסיסי 
+        <h3 className="h-25 blueText d-flex flex-column">בסיסי
           <span className="f16 w-75 align-self-center blueText">תקציר הסכם בסיסי ללא עלות.</span>
           </h3>
           <span className="fs-6 border-bottom col-12 border-top">עד 3</span>
@@ -40,7 +40,7 @@ const PriceTable = ({ iconType }) => {
           <div className="btn cream border col-10 m-2 tableBtn hoverYellow">הצג</div>
         </div>
         <div className="col d-flex flex-column justify-content-center align-items-center border-start cream">
-          <h3 className="h-25 blueText d-flex flex-column">מקיף
+        <h3 className="h-25 blueText d-flex flex-column">מקיף
           <span className="f16 w-75 align-self-center blueText">רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
           </h3>
 
@@ -63,47 +63,18 @@ const PriceTable = ({ iconType }) => {
           <span className="fs-6 border-bottom col-12 d-flex flex-column justify-content-center align-items-center">220 ש"ח</span>
           <div className="btn cream border col-10 m-2 align-self-center tableBtn hoverYellow">רכישה</div>
         </div>
-        <div className="col d-flex flex-column justify-content-center align-items-center border-start ">
-          <h3 className="h-25 blueText d-flex flex-column">התאמה אישית
-          <span className="f16 w-75 align-self-center blueText">הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
-          </h3>
-          <span className="fs-6 border-bottom col-12 border-top">עד 3</span>
-          <span className="fs-6 border-bottom col-12"> X</span>
-          <span className="fs-6 border-bottom col-12">X </span>
-          <span className="fs-6 border-bottom col-12">X</span>
-          <span className="fs-6 border-bottom col-12">מיידי</span>
-          <span className="fs-6 border-bottom col-12">XX</span>
-          <span className="fs-6 border-bottom col-12">X</span>
-          <span className="fs-6 border-bottom col-12 d-flex flex-column justify-content-center align-items-center">720 ש"ח</span>
-          <div className="btn cream border col-10 m-2 align-self-center tableBtn hoverYellow">קבע פגישה</div>
-        </div>
 
-        <div className="col d-flex flex-column justify-content-center align-items-center border-start cream">
-          <h3 className="h-25 blueText d-flex flex-column">פגישת ייעוץ
-          <span className="f16 w-75 align-self-center blueText">90 ד' פגישת ייעוץ להגנה מיטבית.</span>
-          </h3>
-          <span className="fs-6 border-bottom col-12 border-top">עד 3</span>
-          <span className="fs-6 border-bottom col-12"> X</span>
-          <span className="fs-6 border-bottom col-12">X </span>
-          <span className="fs-6 border-bottom col-12">X</span>
-          <span className="fs-6 border-bottom col-12">מיידי</span>
-          <span className="fs-6 border-bottom col-12">XX</span>
-          <span className="fs-6 border-bottom col-12">X</span>
-          <span className="fs-6 border-bottom col-12 d-flex flex-column justify-content-center align-items-center">1420 ש"ח</span>
-
-          <div className="btn cream border col-10 m-2 align-self-center tableBtn hoverYellow">קבע פגישה</div>
-        </div>
       </div>
       {iconType == 'payment' ? (
         <div className="col-10 d-flex flex-row justify-content-between align-items-center align-self-center">
           <div className="col-auto p-1">
-            <img src="../assets/icons/ssl.svg" height="85" width="85" />
+            <img src="../assets/icons/ssl.svg" height="60" width="60" />
           </div>
           <div className="col-auto p-1">
             <img src="../assets/icons/mc_symbol.svg" height="60" width="60" />
           </div>
           <div className="col-auto p-1">
-            <img src="../assets/icons/pci.svg" height="85" width="85" />
+            <img src="../assets/icons/pci.svg" height="60" width="60" />
           </div>
           <div className="col-auto p-1">
             <img src="../assets/icons/bit.svg" height="60" width="60" />
@@ -147,4 +118,4 @@ const PriceTable = ({ iconType }) => {
   );
 };
 
-export default PriceTable;
+export default SmPriceTable;

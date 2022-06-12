@@ -17,6 +17,7 @@ const ServicePage = () => {
   const { id } = useParams();
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
   useEffect(() => {
+    document.title = "זה בדיקה של טייטל"
     var copy = {};
     servicesList.forEach((el) => {
       if (el.id == id) {
