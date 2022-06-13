@@ -6,7 +6,7 @@ import './ContractLawyer.css';
 import { allProdcts, allServices } from '../../sampleData';
 // import TextComponent from '../../components/TextComponent';
 import Footer from '../../components/Footer';
-import { general } from '../../Data/Questions';
+import { lawyer } from '../../Data/Questions';
 import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
 const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor, textColor }) => {
@@ -101,7 +101,7 @@ const ContractLawyer = () => {
       <ContractSteps />
       <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />
       <ContactsUs key={'dskdmasmkdmalksdmdkl'} />
-      <FAQ header={'שאלות ותשובות'} withTitle="true" questions={general} />
+      <FAQ header={'שאלות ותשובות'} withTitle="true" questions={lawyer} />
       <ProductSlider componentHeader={'שירותים לדוגמא'} dataToRender={generalServices} />
     </div>
   );

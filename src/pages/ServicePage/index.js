@@ -51,7 +51,7 @@ const ServicePage = () => {
         </div>
       </div>
       {/* Text Area */}
-      <div className="col-12 d-flex flex-column flex-wrap align-content-start align-items-start justify-content-start mt-3" style={{maxHeight:"75vh"}}>
+      <div className="col-12 d-flex flex-column flex-wrap align-content-center align-items-center justify-content-center mt-3" style={{maxHeight:"75vh"}}>
         {pageContent.map((el) => {
           return (
             <div className='col-4 text-end d-flex flex-column p-3'>

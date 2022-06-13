@@ -36,7 +36,22 @@ const Contracts = () => {
   }, [typeFilter]);
   const serviceCategoryDrop = [
     {
-      title: 'הכל',
+      title: 'לפי שם',
+    },
+    {
+      title: 'משפחה',
+    },
+
+    {
+      title: 'כללי',
+    },
+    {
+      title: 'מקרקעין',
+    },
+  ];
+  const legalCategory = [
+    {
+      title: 'תחום משפטי',
     },
     {
       title: 'משפחה',
@@ -105,7 +120,7 @@ const Contracts = () => {
         <hr className="w-100 m-1" />
 
           <div className="col-12 d-flex flex-row justify-content-center">
-            <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
+            <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={legalCategory} onChange={onFilterChange} />
             <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
           </div>
         </div>

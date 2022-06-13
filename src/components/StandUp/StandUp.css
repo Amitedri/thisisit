@@ -1,6 +1,19 @@
-.standupContainer{
-    border-bottom: 10px solid #4ba492
+.standupContainer {
+  border-bottom: 10px solid #4ba492;
 }
-.standupBorder{
-    border-left: 5px solid #4ba492
+.standupBorder {
+  border-left: 5px solid #4ba492;
+}
+
+.blueLightHeader  {
+  background-color: #043b40 !important;
+  color: #4ba492 !important;
+}
+.blueCreamHeader {
+  background-color: #043b40 !important;
+  color: #fdfdf1 !important;
+}
+.blueGoldHeader {
+  background-color: #043b40 !important;
+  color: #f0cc76 !important;
 }

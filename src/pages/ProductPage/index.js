@@ -18,6 +18,8 @@ const ProductPage = () => {
   const [title, setTitle] = useState('');
   const [disclaimertitle, setDisclaimerTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
+  const [contractPreview, setContractPreview] = useState('');
+
 
   const [signTitle, setSignTitle] = useState('');
   const [whoSignLine, setWhoSignLine] = useState('');
@@ -53,6 +55,7 @@ const ProductPage = () => {
         title={title}
         whoSign={whoSignLine}
         contractBody={contractBody}
+        contractPreview={contractPreview}
       />
       <StandUp key={'asdasadasdasdsfffa'} />
       <FAQ header={'שאלות ותשובות בנושא משפחה'} withTitle="true" questions={general} />

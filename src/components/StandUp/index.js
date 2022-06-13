@@ -37,35 +37,41 @@ const buttons = [
 // };
 
 const StandUp = () => {
-  const sentences = ['משרדנו מתמחה בכל סוגי ההסכמים.', 'הגנו על זכויותיכם בצורה מיטבית', ' הסכם מקיף או חבילת התאמה אישית'];
-  const [current, setCurrent] = useState('');
+  const sentences = [
+    { text: 'שירות משפטי דיגיטלי חדש', color: '#4ba492' },
+    { color: '#fdfdf1', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
+    { text: 'און ליין ישירות מהאתר', color: '#4ba492' },
+    { text: 'להגנה מיטבית על זכויותיכם', color: '#f0cc76' },
+  ];
   const [counter, setcounter] = useState(0);
 
   useEffect(() => {
+    let cntarget = document.querySelector('.cntarget');
+    let tntarget = document.querySelector('.tntarget');
+
     const doit = () => {
       setTimeout(() => {
-        if(counter < sentences.length - 1){
-          setcounter((prev) => prev + 1);
-        }
-        else{
-          setcounter(0)
-        }
-        console.log(counter)
-      }, 2000);
-    };
-    doit()
+        if (counter < sentences.length - 1) {
 
+          setcounter((prev) => prev + 1);
+        } else {
+          setcounter(0);
+        }
+        console.log(counter);
+      }, 5000);
+    };
+    doit();
   }, [counter]);
 
   return (
     <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 rounded">
       {/* standup header */}
-      <div className="col-12 p-0 lightBlue d-flex flex-row align-items-center p-0 headerContainer rounded">
-        <h1 className="m-auto specialStandHeader p-0 yellowText text-center">{sentences[counter]}</h1>
+      <div className="col-12 p-0 blue d-flex flex-row align-items-center p-0 headerContainer rounded ">
+        <h2 className="m-auto specialStandHeader p-0 text-center tntarget" style={{color:sentences[counter].color}}>{sentences[counter].text}</h2>
       </div>
       {/* Content */}
-      <div className="col-12 p-0 d-flex flex-row flex-wrap align-items-center rounded text-center">
-        <PriceTable iconType="payment"/>
+      <div className="col-12 p-0 d-flex flex-column align-items-center rounded text-center">
+        <PriceTable iconType="payment" />
       </div>
     </div>
   );

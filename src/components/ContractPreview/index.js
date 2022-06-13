@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Checkbox from '../Checkbox';
 import $ from 'jquery';
 import './ContractPreview.css';
-const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody }) => {
+const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody,contractPreview }) => {
   const headerRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isAgreedTerms, setIsAgreedTerms] = useState(false);
@@ -39,7 +39,7 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
     // if (!isExpanded) {
     //   window.$('#contractLoader').collapse('hide');
     // }
-    console.log(isExpanded)
+    console.log(isExpanded);
   }, [isExpanded]);
   return (
     <div className="col-12 d-flex flex-column align-items-center text-center cream p-0 rounded" ref={headerRef}>
@@ -49,10 +49,13 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
       <h2 className="f32 text-muted p-0"></h2>
       <div className="col-10 d-flex flex-column align-items-start">
         <div className="d-grid w-100 d-flex flex-column m-auto align-items-center">
-          {/* {contractBody} */}
-          <a class="btn yellow w-25 letter2 w3 m-2" type="button">
-            הורד הסכם
-          </a>
+        {contractPreview}
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            <label class="form-check-label" for="flexCheckDefault">
+              תנאי שימוש
+            </label>
+          </div>
           <a
             className="btn yellow w-25 letter2 w3 mb-2"
             data-bs-toggle="collapse"
@@ -63,12 +66,10 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
             id="expandContract2"
             // onClick={() => setIsExpanded(false)}
           >
-            {isExpanded ? "סגור" : "פתח עוד"}
+            {isExpanded ? 'סגור' : 'פתח עוד'}
           </a>
           <div class="collapse" id="contractLoader">
-            <div class="card card-body cream border-0">
-              {contractBody}
-            </div>
+            <div class="card card-body cream border-0">{contractBody}</div>
           </div>
         </div>
       </div>
