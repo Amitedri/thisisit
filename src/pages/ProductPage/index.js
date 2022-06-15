@@ -9,8 +9,7 @@ import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import previewContracts from '../../Data/ContractExport';
-import PriceTable from '../../components/PriceTable';
-import SmPriceTable from '../../components/SmTable';
+
 const ProductPage = () => {
   const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const { id } = useParams();
@@ -19,7 +18,7 @@ const ProductPage = () => {
   const [disclaimertitle, setDisclaimerTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
   const [contractPreview, setContractPreview] = useState('');
-
+  const [imgSrc, setImgSrc] = useState('../assets/img/service.png');
 
   const [signTitle, setSignTitle] = useState('');
   const [whoSignLine, setWhoSignLine] = useState('');
@@ -27,24 +26,56 @@ const ProductPage = () => {
   const [secondSigner, setSecondSigner] = useState('');
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
-    const { contractBody, disclaimer, firstSigner, title, price, secondSigner, signInDate } = doc[0];
+    const { contractBody, disclaimer, firstSigner, title, price, secondSigner, signInDate, contractPreview, imgSrc } = doc[0];
     setDisclaimer(disclaimer);
     setTitle(title);
     setContractBody(contractBody);
     setDisclaimerTitle(title);
-
     setSignTitle(title);
     setWhoSignLine(title);
     setFirstSigner(firstSigner);
     setSecondSigner(secondSigner);
+    setContractPreview(contractPreview);
+    setImgSrc(imgSrc);
   }, []);
-  const imgSrc = '../assets/img/service.png';
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       {/* large image with button */}
       <div className="row p-0 d-flex flex-row">
-        <div className="col d-flex flex-column text-center bg-white border-bottom p-0">
-      <SmPriceTable iconType="another"/>
+        <div className="col d-flex flex-column text-center bg-white border-bottom p-5">
+          {/* <SmPriceTable iconType="another"/> */}
+          <div className="col d-flex flex-column align-items-center position-relative">
+            <h1 className="f32">{title}</h1>
+            <h2 className="f18 text-muted mb-3">אל תסתפקו בפחות רכשו הסכם מקיף במחיר שווה לכל נפש להגנה טובה יותר על זכויותכם</h2>
+            <div className="col d-flex flex-row align-items-center ">
+              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+                <span className="col-8">שירות מקצועי ובגובה העיניים</span>
+                <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+              </div>
+              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+                <span className="col-8">הסכם מלא ומקיף</span>
+                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+              </div>
+              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+                <span className="col-8">ייעוץ ראשוני ללא עלות</span>
+                <img src="../assets/icons/free-time.svg" height="25" width="25" />
+              </div>
+              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+                <span className="col-8">עלות שווה לכל נפש</span>
+                <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
+              </div>
+            </div>
+            <div className="col-6 d-flex flex-column">
+              <div className="btn btn-outline-info">הצג</div>
+            </div>
+            <div className="col-6 d-flex flex-column m-1">
+              <div className="btn btn-outline-info p-2">מצא תכנית בהתאמה אישית</div>
+            </div>
+            <p className="text-muted f12 w-50">
+              כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
+              ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
+            </p>
+          </div>
         </div>
         <img src={imgSrc} className="col-6 p-0 rounded" />
       </div>
