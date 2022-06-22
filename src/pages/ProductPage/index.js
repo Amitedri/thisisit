@@ -83,7 +83,7 @@ const ProductPage = () => {
           </div>
           </div>
         </div>
-        <div className="col-6 p-0 rounded" style={{maxHeight:"55vh",backgroundSize:"100%",objectFit:"cover"}}>
+        <div className="col-6 p-0 rounded" style={{maxHeight:"800px",backgroundSize:"100%",objectFit:"cover"}}>
         <img src={imgSrc} className="w-100 h-100"  />
         </div>
       </div>
