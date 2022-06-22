@@ -46,23 +46,21 @@ const ProductPage = () => {
           {/* <SmPriceTable iconType="another"/> */}
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32">{title}</h1>
-            <h2 className="f18 text-muted mb-3">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
+            <h2 className="f18 text-muted">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col d-flex flex-row align-items-center ">
-              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
-                <span className="col-8">שירות מקצועי ומהיר</span>
+              <div className="col d-flex flex-column p-2 justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+                <span className="col-10">שירות מקצועי ומהיר</span>
                 <img src="../assets/icons/five-stars.svg" height="25" width="25" />
-
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+              <div className="col d-flex flex-column p-2 justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
                 <span className="col-8">הסכם מלא ומקיף</span>
                 <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
-
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+              <div className="col d-flex flex-column p-2 justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
                 <span className="col-8">ייעוץ ראשוני ללא עלות</span>
                 <img src="../assets/icons/free-time.svg" height="25" width="25" />
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
+              <div className="col d-flex flex-column p-2 justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
                 <span className="col-8">עלות שווה לכל נפש</span>
                 <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
               </div>
@@ -85,7 +83,9 @@ const ProductPage = () => {
           </div>
           </div>
         </div>
-        <img src={imgSrc} className="col-6 p-0 rounded" />
+        <div className="col-6 p-0 rounded" style={{maxHeight:"55vh",backgroundSize:"100%",objectFit:"cover"}}>
+        <img src={imgSrc} className="w-100 h-100"  />
+        </div>
       </div>
       <ContractPreview
         key={'asdasaasdsddasdasdsa'}
