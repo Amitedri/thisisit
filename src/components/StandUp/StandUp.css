@@ -17,3 +17,16 @@
   background-color: #043b40 !important;
   color: #f0cc76 !important;
 }
+
+.full{
+  height: 18px;
+  width: 18px;
+  background-color: #4ba492;
+  border-radius: 50%;
+}
+.empty{
+  height: 18px;
+  width: 18px;
+  border:1px solid #4ba492;
+  border-radius: 50%;
+}

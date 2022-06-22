@@ -159,7 +159,7 @@ const PriceTable = ({ iconType }) => {
           </span>
         </td>
       </tr>
-      <tr>
+      <tr className="border-bottom-0 border-white">
         <th scope="row" className="col-2 lightBlue border-white">
           מחיר
         </th>
@@ -168,7 +168,7 @@ const PriceTable = ({ iconType }) => {
         <td>720 ש"ח</td>
         <td>1420 ש"ח</td>
       </tr>
-      <tr>
+      <tr className="border-top-0">
         <th scope="row" className="col-2 lightBlue border-white">
           {" "}
         </th>
@@ -203,12 +203,14 @@ const PriceTable = ({ iconType }) => {
       ) : (
         <div className="col-12 d-flex flex-row ">
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
-            <span className="col-8">שירות מקצועי ובגובה העיניים</span>
-            <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+            <span className="col-8">שירות מקצועי ומהיר</span>
+            <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">הסכם מלא ומקיף</span>
-            <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+            <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">ייעוץ ראשוני ללא עלות</span>

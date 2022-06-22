@@ -46,15 +46,17 @@ const ProductPage = () => {
           {/* <SmPriceTable iconType="another"/> */}
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32">{title}</h1>
-            <h2 className="f18 text-muted mb-3">אל תסתפקו בפחות רכשו הסכם מקיף במחיר שווה לכל נפש להגנה טובה יותר על זכויותכם</h2>
+            <h2 className="f18 text-muted mb-3">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col d-flex flex-row align-items-center ">
               <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
-                <span className="col-8">שירות מקצועי ובגובה העיניים</span>
-                <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+                <span className="col-8">שירות מקצועי ומהיר</span>
+                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+
               </div>
               <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
                 <span className="col-8">הסכם מלא ומקיף</span>
-                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+                <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+
               </div>
               <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
                 <span className="col-8">ייעוץ ראשוני ללא עלות</span>
@@ -66,15 +68,21 @@ const ProductPage = () => {
               </div>
             </div>
             <div className="col-6 d-flex flex-column">
-              <div className="btn btn-outline-info">הצג</div>
+              <div className="btn yellow w-3">רכוש הסכם מקיף 290 ש"ח</div>
             </div>
             <div className="col-6 d-flex flex-column m-1">
-              <div className="btn btn-outline-info p-2">מצא תכנית בהתאמה אישית</div>
+              <div className="btn yellow w-3 p-2">הצג אפשרויות הגנה נוספות</div>
             </div>
             <p className="text-muted f12 w-50">
               כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
+            <div class="form-check f14">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            <label class="form-check-label" for="flexCheckDefault">
+              תנאי שימוש
+            </label>
+          </div>
           </div>
         </div>
         <img src={imgSrc} className="col-6 p-0 rounded" />

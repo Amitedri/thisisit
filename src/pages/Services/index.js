@@ -71,7 +71,7 @@ const Services = () => {
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
-      <div className="w-50 mt-5 d-flex flex-column align-items-center text-center mb-5">
+      <div className="w-100 mt-5 d-flex flex-column align-items-center text-center mb-5">
         <h1 className="f32 w5">כותרת</h1>
         <p className="f16 text-center m-1">
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
@@ -82,7 +82,7 @@ const Services = () => {
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
         </span>
-        <div className="col-12 d-flex flex-row justify-content-center mt-5">
+        <div className="col-6 d-flex flex-row justify-content-center mt-5">
           <DropDown header={'תחום משפטי'} key={'קasasasטגוריות'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
           <DropDown header={'שירותים משפטיים'} key={'סוג asasasasהמסמך'} colorClass="lightBlue" values={legalCategoryDrop} onChange={onFilterChange} />
         </div>

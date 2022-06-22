@@ -68,7 +68,7 @@ const Contracts = () => {
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
-      <div className="w-50 mt-5 d-flex flex-column align-items-center text-center mb-5">
+      <div className="w-100 mt-5 d-flex flex-column align-items-center text-center mb-5">
         <h1 className="f32 w5">הסכמים מעולים מבית טוב</h1>
         <h2 className="f26 greyText">משרדנו מתמחה בכל סוגי ההסכמים ומכל תחומי המשפט.</h2>
         <p className="f16 text-center m-1">מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט. </p>
@@ -89,14 +89,14 @@ const Contracts = () => {
           במידה ואינכם מוצאים הסכם בו אתם מעוניינים צרו קשר עם משרדנו ונשמח לשלוח לכם. משרדנו מציע גם שירותי ניהול משא ומתן וגישור מכל סוג עד לכריתת הסכם.{' '}
         </p>
 
-        <div className="col-12 d-flex flex-row">
+        <div className="col-6 d-flex flex-row">
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
-            <span className="col-8">שירות מקצועי ובגובה העיניים</span>
-            <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
+            <span className="col-8">שירות מקצועי ומהיר</span>
+            <img src="../assets/icons/five-stars.svg" height="25" width="25" />
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">הסכם מלא ומקיף</span>
-            <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+            <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">ייעוץ ראשוני ללא עלות</span>
@@ -117,9 +117,9 @@ const Contracts = () => {
         </div>
         <div className="col-12 d-flex flex-column justify-content-center align-items-center mt-5">
           <h3 className="f26 greyText">חפש הסכם</h3>
-        <hr className="w-100 m-1" />
+          <hr className="w-100 m-1" />
 
-          <div className="col-12 d-flex flex-row justify-content-center">
+          <div className="col-6 d-flex flex-row justify-content-center">
             <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={legalCategory} onChange={onFilterChange} />
             <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
           </div>

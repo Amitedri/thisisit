@@ -4,7 +4,6 @@ import FAQ from '../../components/FAQ';
 import ProductSlider from '../../components/ProductSlider';
 import './ContractLawyer.css';
 import { allProdcts, allServices } from '../../sampleData';
-// import TextComponent from '../../components/TextComponent';
 import Footer from '../../components/Footer';
 import { lawyer } from '../../Data/Questions';
 import servicesList from '../../Data/Services';
@@ -14,56 +13,56 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
     <div className="col-12 d-flex flex-row flex-wrap rounded pb-3 pt-3" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
       {/* side rounded image */}
       <div className="col d-flex justify-content-center">
-        <img src={imgSrc} className="p-3" />
+        <img src={imgSrc} className="p-3 rounded-circle card-img" style={{maxHeight:"600px",maxWidth:"600px"}} />
       </div>
       {/* text container */}
       <div className="col-7 d-flex flex-column align-items-start mt-5">
         <h1 className="m-0 p-0 f32 text-right">{header}</h1>
         <span className="m-0 p-0 fw-2 text-right w-75 mt-2 text-right">{text}</span>
-        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center" >
-          <div className="btn yellow hoverScale col-3 m-1 shadow-sm">
+        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center mt-2" >
+          <div className="btn yellow hoverScale col-3 m-2 shadow-sm">
           <a href="#" style={{all:"unset"}}>
              צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>
 
           </div>
-          <div className="btn yellow hoverScale col-3 m-1 shadow-sm">
+          <div className="btn yellow hoverScale col-3 m-2 shadow-sm">
             <a href="#" style={{all:"unset"}}>
               שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
             </a>
           </div>
         </div>
-        <h2 className="m-0 p-0 lightBlueText f32 text-right mt-2">משרד עורך דין חוזים דיגיטלי</h2>
-        <h3 className="m-0 p-0 greyText f18  mt-2 m-2 sdh">משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי שבו תוכלו לרכוש ישירות מהאתר:</h3>
+        <h1 className="m-0 p-0 lightBlueText f32 text-right mt-2">משרד עורך דין חוזים דיגיטלי</h1>
+        <h3 className="m-0 p-0   mt-2 m-2 f26 greyText">משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br/> שבו תוכלו לרכוש ישירות מהאתר:</h3>
         <div className='d-flex flex-column justify-content-start'>
           <ul className='d-flex flex-column justify-content-start align-self-start '>
-            <li className='w3 greyText' style={{listStyleType: "decimal"}}>חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.</li>
-            <li className='w3 greyText' style={{listStyleType: "decimal"}}>חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות. </li>
-            <li className='w3 greyText' style={{listStyleType: "decimal"}}>פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.</li>
+            <li className='greyText f22' style={{listStyleType: "decimal"}}>חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.</li>
+            <li className='greyText f22' style={{listStyleType: "decimal"}}>חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות. </li>
+            <li className='greyText f22' style={{listStyleType: "decimal"}}>פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.</li>
           </ul>
-          <p className='f22 w-75 text-right align-self-start greyText'>כמו כן, תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן.</p>
+          <p className='f22 w-75 text-right align-self-start greyText'>תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן</p>
           <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-start" >
-          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+          <div className="btn lightBlue hoverGreen text-white  col-3 m-1  shadow-sm ">
           <a href="#" style={{all:"unset"}}>
           חוזים מקרקעין
             </a>
 
           </div>
-          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+          <div className="btn lightBlue hoverGreen text-white  col-3 m-1  shadow-sm ">
             <a href="#" style={{all:"unset"}}>
             חוזים חברות
             </a>
           </div>
         </div>
         <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-start" >
-          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+          <div className="btn lightBlue hoverGreen text-white  col-3 m-1  shadow-sm ">
 
           <a href="#" style={{all:"unset"}}>
           חוזים משפחה
             </a>
 
           </div>
-          <div className="btn lightBlue hoverGreen text-white shadow-sm col-3 m-1 shadow-sm">
+          <div className="btn lightBlue hoverGreen text-white  col-3 m-1  shadow-sm ">
             <a href="#" style={{all:"unset"}}>
             חוזים כללי
             </a>
@@ -85,9 +84,9 @@ const ContractLawyer = () => {
     לפעמים הם קצרים ופחות חשובים כמו הסכמה להצטרף למועדון לקוחות בסופרמרקט, 
     ולפעמים הם ארוכים ובעלי ערך רב כגון חוזה לקניית דירה או הסכם ממון בין בני זוג. 
     בבואי לנסח חוזה מטרתי היא לצפות פני עתיד ולוודא כי הצדדים לחוזה לא יותירו שאלות פתוחות ללא מענה ולא יצטרכו לשוב ולהתדיין לגבי החוזה החל מיום חתימתו.`,
-    header: 'חשיבותו של עורך דין חוזים',
+    header: 'עורך דין חוזים',
     subHeader: 'חשיבותו של עורך דין חוזים. סאב כותרת',
-    imgSrc: '../assets/img/personImg.svg',
+    imgSrc: '../assets/img/עורך דין חוזים.jpg',
   };
 
   return (
@@ -95,8 +94,8 @@ const ContractLawyer = () => {
       <SpecialTextComponent {...textComponentData} />
       {/* contract steps */}
       <div className="col-12 d-flex flex-column align-items-center cream mt-4">
-        <h1 className="f42 w3 p-3">כללים לניסוח חוזים.
-        51</h1>
+        <h1 className="f42 w3 p-3">כללים לניסוח חוזים
+        </h1>
       </div>
       <ContractSteps />
       <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />

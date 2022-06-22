@@ -50,12 +50,6 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
       <div className="col-10 d-flex flex-column align-items-start">
         <div className="d-grid w-100 d-flex flex-column m-auto align-items-center">
         {contractPreview}
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-            <label class="form-check-label" for="flexCheckDefault">
-              תנאי שימוש
-            </label>
-          </div>
           <a
             className="btn yellow w-25 letter2 w3 mb-2"
             data-bs-toggle="collapse"
@@ -69,7 +63,18 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
             {isExpanded ? 'סגור' : 'פתח עוד'}
           </a>
           <div class="collapse" id="contractLoader">
-            <div class="card card-body cream border-0">{contractBody}</div>
+            <div class="card card-body cream border-0 text-end">{contractBody}</div>
+            <a
+            className="btn yellow w-25 letter2 w3 mb-2"
+            data-bs-toggle="collapse"
+            href="#contractLoader"
+            role="button"
+            aria-expanded="false"
+            aria-controls="contractLoader"
+            // onClick={() => setIsExpanded(false)}
+          >
+            {isExpanded ? 'סגור' : 'פתח עוד'}
+          </a>
           </div>
         </div>
       </div>

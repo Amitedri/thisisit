@@ -47,13 +47,22 @@ const StandUp = () => {
 
   useEffect(() => {
     let cntarget = document.querySelector('.cntarget');
-    let tntarget = document.querySelector('.tntarget');
+    let onurs = document.querySelectorAll('.onurs');
 
     const doit = () => {
       setTimeout(() => {
         if (counter < sentences.length - 1) {
-
           setcounter((prev) => prev + 1);
+          onurs.forEach((el, idx) => {
+            if (idx === counter) {
+              el.classList.add('full');
+              el.classList.remove('empty');
+            }
+            else{
+              el.classList.add('empty');
+              el.classList.remove('full');
+            }
+          });
         } else {
           setcounter(0);
         }
@@ -67,7 +76,15 @@ const StandUp = () => {
     <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 rounded">
       {/* standup header */}
       <div className="col-12 p-0 blue d-flex flex-row align-items-center p-0 headerContainer rounded ">
-        <h2 className="m-auto specialStandHeader p-0 text-center tntarget" style={{color:sentences[counter].color}}>{sentences[counter].text}</h2>
+        <h2 className="m-auto specialStandHeader p-0 text-center tntarget" style={{ color: sentences[counter].color }}>
+          {sentences[counter].text}
+        </h2>
+      </div>
+      <div className="d-flex flex-row">
+        <span className="m-1 onurs full" id="one"></span>
+        <span className="m-1 onurs full" id="two"></span>
+        <span className="m-1 onurs full" id="three"></span>
+        <span className="m-1 onurs full" id="five"></span>
       </div>
       {/* Content */}
       <div className="col-12 p-0 d-flex flex-column align-items-center rounded text-center">
