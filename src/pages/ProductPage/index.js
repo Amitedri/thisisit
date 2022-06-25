@@ -45,7 +45,7 @@ const ProductPage = () => {
         <div className="col d-flex flex-column text-center bg-white border-bottom p-5">
           {/* <SmPriceTable iconType="another"/> */}
           <div className="col d-flex flex-column align-items-center position-relative">
-            <h1 className="f32">{title}</h1>
+            <h1 className="f32 w5">{title}</h1>
             <h2 className="f18 text-muted">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col d-flex flex-row align-items-center ">
               <div className="col d-flex flex-column p-2 justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
@@ -65,26 +65,26 @@ const ProductPage = () => {
                 <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
               </div>
             </div>
-            <div className="col-6 d-flex flex-column">
-              <div className="btn yellow w-3">רכוש הסכם מקיף 290 ש"ח</div>
+            <div className="col-6 d-flex flex-column blink">
+              <div className="btn w-3">רכוש הסכם מקיף 290 ש"ח</div>
             </div>
-            <div className="col-6 d-flex flex-column m-1">
-              <div className="btn yellow w-3 p-2">הצג אפשרויות הגנה נוספות</div>
+            <div className="col-6 d-flex flex-column blink m-1">
+              <div className="btn w-3 p-2">הצג אפשרויות הגנה נוספות</div>
             </div>
             <p className="text-muted f12 w-50">
               כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
             <div class="form-check f14">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-            <label class="form-check-label" for="flexCheckDefault">
-              תנאי שימוש
-            </label>
-          </div>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label" for="flexCheckDefault">
+                תנאי שימוש
+              </label>
+            </div>
           </div>
         </div>
-        <div className="col-6 p-0 rounded" style={{maxHeight:"800px",backgroundSize:"100%",objectFit:"cover"}}>
-        <img src={imgSrc} className="w-100 h-100"  />
+        <div className="col-6 p-0 rounded" style={{ maxHeight: '800px', backgroundSize: '100%', objectFit: 'cover' }}>
+          <img src={imgSrc} className="w-100 h-100" />
         </div>
       </div>
       <ContractPreview

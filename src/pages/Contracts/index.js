@@ -69,7 +69,7 @@ const Contracts = () => {
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
       <div className="w-100 mt-5 d-flex flex-column align-items-center text-center mb-5">
-        <h1 className="f32 w5">הסכמים מעולים מבית טוב</h1>
+        <h1 className="f32 w5 mb-3">הסכמים מעולים מבית טוב</h1>
         <h2 className="f26 greyText">משרדנו מתמחה בכל סוגי ההסכמים ומכל תחומי המשפט.</h2>
         <p className="f16 text-center m-1">מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט. </p>
         <hr className="w-100 m-1" />

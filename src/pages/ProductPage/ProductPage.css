@@ -1,0 +1,44 @@
+.blink {
+  animation: blink 5s infinite;
+}
+@keyframes blink {
+  0% {
+    background: red !important;
+  }
+  20% {
+    background: green !important;
+  }
+  40% {
+    background: yellow !important;
+  }
+  60% {
+    background: blue !important;
+  }
+  80% {
+    background: orange !important;
+  }
+  100% {
+    background: red !important;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    background: red !important;
+  }
+  20% {
+    background: green !important;
+  }
+  40% {
+    background: yellow !important;
+  }
+  60% {
+    background: blue !important;
+  }
+  80% {
+    background: orange !important;
+  }
+  100% {
+    background: red !important;
+  }
+}

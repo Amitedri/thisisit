@@ -159,7 +159,7 @@ const PriceTable = ({ iconType }) => {
           </span>
         </td>
       </tr>
-      <tr className="border-bottom-0 border-white">
+      <tr className=" border-white">
         <th scope="row" className="col-2 lightBlue border-white">
           מחיר
         </th>
@@ -168,14 +168,14 @@ const PriceTable = ({ iconType }) => {
         <td>720 ש"ח</td>
         <td>1420 ש"ח</td>
       </tr>
-      <tr className="border-top-0">
+      <tr className="border-top-0 border-white">
         <th scope="row" className="col-2 lightBlue border-white">
           {" "}
         </th>
-        <td className="bg-white">הצג</td>
-        <td>רכישה</td>
-        <td>רכישה</td>
-        <td>קבע פגישה</td>
+        <td className="tableBtn">הצג</td>
+        <td className="tableBtn">רכישה</td>
+        <td className="tableBtn">רכישה</td>
+        <td className="tableBtn">קבע פגישה</td>
       </tr>
     </tbody>
   </table>
@@ -197,7 +197,7 @@ const PriceTable = ({ iconType }) => {
             <img src="../assets/icons/isracard.svg" height="60" width="60" />
           </div>
           <div className="col-auto p-1 ">
-            <img src="../assets/icons/visa.png" height="60" width="60" />
+            <img src="../assets/icons/visa5.png" height="60" width="60" />
           </div>
         </div>
       ) : (
@@ -205,12 +205,10 @@ const PriceTable = ({ iconType }) => {
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">שירות מקצועי ומהיר</span>
             <img src="../assets/icons/five-stars.svg" height="25" width="25" />
-
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">הסכם מלא ומקיף</span>
             <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
-
           </div>
           <div className="col d-flex flex-column justify-content-center align-items-center ms-1 mt-2 mb-2 border-bottom shadow-sm border border-light">
             <span className="col-8">ייעוץ ראשוני ללא עלות</span>

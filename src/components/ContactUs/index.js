@@ -2,7 +2,7 @@ import './ContactsUs.css';
 
 const ContactsUs = () => {
   return (
-    <div className="col-12 cream d-flex flex-column flex-wrap justify-content-center align-items-center responsiveContainer p-0 mt-5 rounded standupContainer">
+    <div className="col-12 cream d-flex flex-column flex-wrap justify-content-center align-items-center responsiveContainer mb-5 p-0 mt-5 rounded standupContainer">
       {/* right */}
       {/* standup header */}
       <div className="col-12 p-0 lightBlue d-flex flex-row align-items-center justify-content-center p-0  rounded">

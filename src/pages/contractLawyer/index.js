@@ -10,16 +10,16 @@ import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
 const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor, textColor }) => {
   return (
-    <div className="col-12 d-flex flex-row flex-wrap rounded pb-3 pt-3" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
+    <div className="col-12 d-flex flex-row flex-wrap rounded mt-4" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
       {/* side rounded image */}
       <div className="col d-flex justify-content-center">
-        <img src={imgSrc} className="p-3 rounded-circle card-img" style={{maxHeight:"600px",maxWidth:"600px"}} />
+        <img src={imgSrc} className="p-3 m-3 rounded-circle card-img" style={{maxHeight:"600px",maxWidth:"600px"}} />
       </div>
       {/* text container */}
-      <div className="col-7 d-flex flex-column align-items-start mt-5">
-        <h1 className="m-0 p-0 f32 text-right">{header}</h1>
+      <div className="col-7 d-flex flex-column justify-content-start align-content-start align-items-start mt-3">
+        <h1 className="m-0 p-0 w5 f32 text-right mb-3">{header}</h1>
         <span className="m-0 p-0 fw-2 text-right w-75 mt-2 text-right">{text}</span>
-        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center mt-2" >
+        <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center mt-3" >
           <div className="btn yellow hoverScale col-3 m-2 shadow-sm">
           <a href="#" style={{all:"unset"}}>
              צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
