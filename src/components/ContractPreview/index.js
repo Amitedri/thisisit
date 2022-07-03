@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Checkbox from '../Checkbox';
 import $ from 'jquery';
 import './ContractPreview.css';
-const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody,contractPreview }) => {
+const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody, contractPreview }) => {
   const headerRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isAgreedTerms, setIsAgreedTerms] = useState(false);
@@ -35,10 +35,10 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
   const setTrigger = (value) => {
     setIsExpanded((prev) => !prev);
   };
+  const closeContract = () => {
+    window.$('#contractLoader').collapse('toggle');
+  };
   useEffect(() => {
-    // if (!isExpanded) {
-    //   window.$('#contractLoader').collapse('hide');
-    // }
     console.log(isExpanded);
   }, [isExpanded]);
   return (
@@ -49,32 +49,17 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
       <h2 className="f32 text-muted p-0"></h2>
       <div className="col-10 d-flex flex-column align-items-start">
         <div className="d-grid w-100 d-flex flex-column m-auto align-items-center text-end">
-        {contractPreview}
-          <a
-            className="btn yellow w-25 letter2 w3 mb-2"
-            data-bs-toggle="collapse"
-            href="#contractLoader"
-            role="button"
-            aria-expanded="false"
-            aria-controls="contractLoader"
-            id="expandContract2"
-            // onClick={() => setIsExpanded(false)}
-          >
+          {contractPreview}
+          <a href="#contractLoader" className="btn yellow w-25 letter2 w3 mb-2" onClick={closeContract}>
             {isExpanded ? 'סגור' : 'פתח עוד'}
           </a>
           <div class="collapse" id="contractLoader">
             <div class="card card-body cream border-0 text-end">{contractBody}</div>
-            <a
-            className="btn yellow w-25 letter2 w3 mb-2"
-            data-bs-toggle="collapse"
-            href="#contractLoader"
-            role="button"
-            aria-expanded="false"
-            aria-controls="contractLoader"
-            // onClick={() => setIsExpanded(false)}
-          >
-            {isExpanded ? 'סגור' : 'פתח עוד'}
-          </a>
+            <div className="d-grid d-flex justify-content-center">
+              <a className="btn yellow w-25 letter2 w3 mb-2" href="#contractLoader" onClick={closeContract}>
+                {isExpanded ? 'סגור' : 'פתח עוד'}
+              </a>
+            </div>
           </div>
         </div>
       </div>

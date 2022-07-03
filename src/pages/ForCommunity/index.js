@@ -22,7 +22,6 @@ const ForCommunity = () => {
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor="#fdfdf1"/>
-      {/* <TextComponent header={textComponentData2.header} imgSrc={textComponentData2.imgSrc} subHeader={textComponentData2.subHeader} text={textComponentData2.text} key={textComponentData2.header}/> */}
       
       <ContactsUs key={"sdnjnnnnn"} />
       <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={general} key="sdsdhasdasdhhh" className="pt-4"/>

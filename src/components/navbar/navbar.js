@@ -1,57 +1,42 @@
-import "./navbar.css";
-import $ from "jquery";
-import { useEffect, useRef, useState } from "react";
+import './navbar.css';
+import $ from 'jquery';
+import { useEffect, useRef, useState } from 'react';
 const Navbar = () => {
-  const [currentButton,setCurrentButton] = useState(null);
   useEffect(() => {
-    let elem = document.querySelectorAll(".myItem");
-
-    elem.forEach((el) => {
-      el.addEventListener("mouseenter", (e) => {
-        let btn = e.target.querySelector("a");
-        let list = e.target.querySelector(".dropdown-menu");
-        window.$(btn).dropdown("show");
-        elem.forEach((el,idx)=>{
-          let compareBtn = el.querySelector("a");
-        let compareList = el.querySelector(".dropdown-menu");
-          if(compareBtn.id !== btn.id){
-            compareList.classList.remove("show")
-            $(btn).attr('aria-expanded', false);
-          }
-        })
-        
+    let elem = document.querySelectorAll('.myItem');
+    $(elem)
+      .on('mouseenter', function (e) {
+        $(this).find('.navDropMenu').show();
+      })
+      .on('mouseleave', function (e) {
+        $(this).find('.navDropMenu').hide();
       });
-      el.addEventListener("click", (e) => {
-        let splitted = e.target.href.split("/");
+    elem.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        let splitted = e.target.href.split('/');
         splitted = splitted[splitted.length - 1];
         window.location.pathname = splitted;
       });
-
     });
-    $("body").on("click",(e)=>{
-      let elem = document.querySelectorAll(".navDropMenu");
-      elem.forEach((el)=>{
-        el.classList.remove("show")
-      })
 
-    })
-    $(function(){
-      $(function($) {
+
+    $(function () {
+      $(function ($) {
         var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-        $('.navItemCustom').each(function() {
-         if (this.href === path) {
-          $(this).addClass('active');
-         }
+        $('.navItemCustom').each(function () {
+          if (this.href === path) {
+            $(this).addClass('active');
+          }
         });
-       });
-  })
+      });
+    });
+    
     return () => {
       elem.forEach((el) => {
-        el.removeEventListener("mouseenter", () => {});
-        el.removeEventListener("click", () => {});
+        el.removeEventListener('mouseenter', () => {});
+        el.removeEventListener('click', () => {});
       });
     };
-    
   }, []);
 
   return (
@@ -73,14 +58,13 @@ const Navbar = () => {
             עורך דין חוזים
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="contractLawyer">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               עורך דין חוזים
             </a>
-            <a class="dropdown-item" href="#">
-              Aonעורך דין חוזים
-              Aonעורך דין חוזים
+            <a class="dropdown-item dropitop" href="#">
+              Aonעורך דין חוזים Aonעורך דין חוזים
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               ם
             </a>
           </div>
@@ -98,13 +82,13 @@ const Navbar = () => {
             הסכמים לדוגמא
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="exampleContracts">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               הסכמים לדוגמא
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Another הסכמים לדוגמא
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               הסכמים לדוגמא
             </a>
           </div>
@@ -122,13 +106,13 @@ const Navbar = () => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Another action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Something else here
             </a>
           </div>
@@ -146,13 +130,13 @@ const Navbar = () => {
             מידע משפטי
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Another action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Something else here
             </a>
           </div>
@@ -170,13 +154,13 @@ const Navbar = () => {
             למען הקהילה
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="forCommunity">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Another action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Something else here
             </a>
           </div>
@@ -194,13 +178,13 @@ const Navbar = () => {
             צור קשר
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="contact">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Another action
             </a>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item dropitop" href="#">
               Something else here
             </a>
           </div>

@@ -1,0 +1,8 @@
+.perfectMiddle {
+  left: 0;
+  right: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  position: absolute;
+}

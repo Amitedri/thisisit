@@ -71,8 +71,8 @@ const Services = () => {
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
-      <div className="w-100 mt-5 d-flex flex-column align-items-center text-center mb-5">
-        <h1 className="f32 w5 mb-3">כותרת</h1>
+      <div className="w-100 mt-2 d-flex flex-column align-items-center text-center mb-5">
+        <h1 className="f32 w5">כותרת</h1>
         <p className="f16 text-center m-1">
           טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט
         </p>
