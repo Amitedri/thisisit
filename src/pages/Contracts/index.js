@@ -68,13 +68,12 @@ const Contracts = () => {
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center">
       {/* header */}
-      <div className="col-12 mt-2 d-flex flex-row align-items-center flex-wrap">
-        <div className="col-6 d-flex flex-column">
-          <h1 className="f32 w5">הסכמים מעולים מבית טוב</h1>
-          <h2 className="f26 greyText">משרדנו מתמחה בכל סוגי ההסכמים ומכל תחומי המשפט.</h2>
-          <p className="f16 m-1">מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט. </p>
-          <hr className="w-90 m-1" />
-          <ul className="f16 text-end d-flex flex-column w3">
+      <h1 className="f32 w5">הסכמים מעולים מבית טוב</h1>
+      <div className="col-12 mt-2 d-flex flex-row align-items-center flex-wrap ">
+        <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+          <p className="f16 m-1 w-75">מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט. </p>
+          <hr className="w-90 m-1 w-75" />
+          <ul className="f16 text-end d-flex flex-column w3 w-75">
             באפשרותכם לרכוש במהירות:
             <li className="w2" style={{ listStyleType: 'decimal' }}>
               הסכם מקיף ומקצועי של ממשרדנו ישירות מהאתר במחיר שווה לכל נפש.
@@ -86,7 +85,7 @@ const Contracts = () => {
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית תוך 7 ימי עסקים.
             </li>
           </ul>
-          <p className="f16 m-1">
+          <p className="f16 m-1 w-75">
             במידה ואינכם מוצאים הסכם בו אתם מעוניינים צרו קשר עם משרדנו ונשמח לשלוח לכם. משרדנו מציע גם שירותי ניהול משא ומתן וגישור מכל סוג עד לכריתת הסכם.{' '}
           </p>
         </div>

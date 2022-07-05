@@ -12,11 +12,11 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
   return (
     <div className="col-12 d-flex flex-row flex-wrap rounded" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
       {/* side rounded image */}
-      <div className="col d-flex justify-content-center">
-        <img src={imgSrc} className="p-3 m-3 rounded-circle card-img" style={{maxHeight:"600px",maxWidth:"600px"}} />
+      <div className="col-6 d-flex justify-content-center align-items-center">
+        <img src={imgSrc} className="rounded-circle w-75 h-75" />
       </div>
       {/* text container */}
-      <div className="col-7 d-flex flex-column justify-content-start align-content-start align-items-start mt-2">
+      <div className="col-6 d-flex flex-column justify-content-start align-content-start align-items-start mt-2">
         <h1 className="m-0 p-0 w5 f32 text-right">{header}</h1>
         <span className="m-0 p-0 fw-2 text-right w-75 mt-2 text-right">{text}</span>
         <div className="col-12 d-flex justify-content-start flex-row align-items-start  align-self-center mt-3" >

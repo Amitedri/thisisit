@@ -24,6 +24,9 @@ const ProductPage = () => {
   const [whoSignLine, setWhoSignLine] = useState('');
   const [firstSigner, setFirstSigner] = useState('');
   const [secondSigner, setSecondSigner] = useState('');
+  const [signInDate, setSignInDate] = useState('');
+  const [isAgreedConsent, setisAgreedConsent] = useState(false);
+
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     const { contractBody, disclaimer, firstSigner, title, price, secondSigner, signInDate, contractPreview, imgSrc } = doc[0];
@@ -36,12 +39,13 @@ const ProductPage = () => {
     setFirstSigner(firstSigner);
     setSecondSigner(secondSigner);
     setContractPreview(contractPreview);
+    setSignInDate(signInDate);
     setImgSrc(imgSrc);
   }, []);
   return (
     <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       {/* large image with button */}
-      <div className="row p-0 d-flex flex-row" style={{maxHeight:"350px"}} >
+      <div className="row p-0 d-flex flex-row" style={{ maxHeight: '350px' }}>
         <div className="col d-flex flex-column text-center bg-white border-bottom p-2">
           {/* <SmPriceTable iconType="another"/> */}
           <div className="col d-flex flex-column align-items-center position-relative">
@@ -76,10 +80,10 @@ const ProductPage = () => {
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
             <div class="form-check f14">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-              <label class="form-check-label" for="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />
+              <a class="form-check-label" href="javascript:void(0)" for="flexCheckDefault">
                 תנאי שימוש
-              </label>
+              </a>
             </div>
           </div>
         </div>
@@ -95,6 +99,8 @@ const ProductPage = () => {
         whoSign={whoSignLine}
         contractBody={contractBody}
         contractPreview={contractPreview}
+        signInDate={signInDate}
+        isAgreedConsent={isAgreedConsent}
       />
       <StandUp key={'asdasadasdasdsfffa'} />
       <FAQ header={'שאלות ותשובות בנושא משפחה'} withTitle="true" questions={general} />

@@ -841,6 +841,7 @@ const previewContracts = [
     title: `הסכם סודיות`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: 'מוסר המידע',
+    secondSigner: 'עוזר מקבל המידע',
     contractBody:parse(`<p><strong>הגדרת מידע סודי</strong></p>
     <ol>
       <li>
