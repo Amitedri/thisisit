@@ -52,7 +52,7 @@ const ProductSlider = ({ componentHeader, dataToRender,className}) => {
           pagination={false}
           disableArrowsOnEnd={false}
           isRTL="true"
-          itemPadding={[35]}
+          itemPadding={[10]}
           
           
         >
@@ -93,7 +93,7 @@ const FullList = ({ dataToRender, componentHeader, ExpandedProducts,category  })
       {isExpanded ? <ExpandedProducts dataToRender={dataToRender} /> : <ProductSlider componentHeader={componentHeader} dataToRender={dataToRender} />}
 
     </div>
-    <a  class={`btn yellow w-25 text-white f20 w3 mb-5 mt-2 ${isExpanded ? "mt-5" : 'nothing'}`} onClick={setTrigger}>
+    <a  class={`btn yellow text-white f20 w3 mb-5 mt-2 ${isExpanded ? "mt-5" : 'nothing'}`} onClick={setTrigger}>
         {isExpanded ? "סגור" :  "פתח עוד"}
       </a>
     </div>

@@ -47,13 +47,13 @@ const Step = ({ step, text, header }) => {
 };
 const ContractSteps = () => {
   return (
-    <div className="col-12 d-flex flex-row  contractSteps rounded">
-      <div className="col">
+    <div className="col-12 d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column  contractSteps rounded">
+      <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
         {steps3.map((el) => {
           return <Step step={el.step} text={el.text} key={el.text} header={el.header} />;
         })}
       </div>
-      <div className="col">
+      <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
         {steps6.map((el) => {
           return <Step step={el.step} text={el.text} key={el.step} header={el.header} />;
         })}

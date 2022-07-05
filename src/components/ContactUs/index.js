@@ -7,24 +7,24 @@ const ContactsUs = () => {
       {/* standup header */}
       <div className="col-12 p-0 lightBlue d-flex flex-row align-items-center justify-content-center p-0  rounded">
         <h1 className="specialHeader yellowText text-center">יצירת קשר</h1>
-        <a href="#">
-          <img src="../assets/icons/phone.svg" height="75" width="75" className="me-5" />
+        <a href="#" className=''>
+          <img src="../assets/icons/phone.svg" height="75" width="75" className="me-xxl-5 me-xl-5 me-xl-5 me-lg-5 me-md-0 me-sm-0 me-0 p-xxl-0 p-xl-0 p-lg-0 p-md-2 p-sm-2 p-3" />
         </a>
       </div>
       {/* Content */}
-      <div className="col-12 h-100 p-0 d-flex flex-row flex-wrap align-items-center rounded m-auto">
+      <div className="col-12 h-100 p-0 d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column flex-wrap align-items-center rounded m-auto">
         {/* form */}
-        <div className="col-6 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
-          <div className="col-auto d-flex flex-row formItem m-2 justify-content-between">
+        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
+          <div className="col-xxl-auto col-xl-auto col-lg-auto col-md-auto col-sm-10 col-10 d-flex flex-row formItem m-xxl-2 m-xl-2 justify-content-between">
             <span className="align-self-start f20 w2 ">שם מלא</span>
             <input className="formInput" type="text" placeholder="הקלד כאן" />
           </div>
-          <div className="col-12 d-flex flex-row m-2 justify-content-center">
-            <div className="col-auto d-flex flex-row formItem justify-content-between">
+          <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center m-2 justify-content-center">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between">
               <span className="align-self-start f20 w2 ">אימייל</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" />
             </div>
-            <div className="col-auto d-flex flex-row formItem me-5 justify-content-between">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto col-md-auto col-sm-10 col-10 d-flex flex-row formItem me-xxl-5 justify-content-between">
               <span className="align-self-start f20 w2 ">טלפון</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" />
             </div>
@@ -41,8 +41,8 @@ const ContactsUs = () => {
         </div>
         {/* left */}
         {/* contact container */}
-        <div className="col-6 p-2 contactInfo d-flex flex-row flex-wrap justify-content-center align-items-center p-0 mt-2 text-center">
-          <div className="col-6 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
+        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-row flex-wrap justify-content-center align-items-center p-0 mt-2 text-center">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
             <span className="greyText w3 f20  m-0">
               צרו כעת קשר עם משרדנו ב-
               <img src="../assets/icons/whatsapp.svg" height="20" width="20" className="m-1" />
@@ -54,7 +54,7 @@ const ContactsUs = () => {
               <span className="greyText w3  ">office@ceco.com</span>
             </a>
           </div>
-          <div className="col-6 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-3 text-center">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-3 text-center">
             <h2 className="greyText w6 f20  m-0 mt-1">שעות פעילות המשרד</h2>
             <span>ימים א'-ה' 08:00 - 20:00</span>
             <span>ימי ו' וערבי חג 08:00-13:00</span>
