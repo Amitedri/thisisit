@@ -39,7 +39,7 @@
 
 @media screen and (max-width:600px) {
   .standupBorder {
-   display: none !important;
+   border: none !important;
   }
 
 }
