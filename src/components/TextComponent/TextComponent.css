@@ -1,0 +1,13 @@
+
+
+@media screen and (max-width:1400px) {
+    .textComponentImg {
+     height: 400px !important;
+    }
+  }
+
+  @media screen and (max-width:500px) {
+    .textComponentImg {
+     height: 200px !important;
+    }
+  }

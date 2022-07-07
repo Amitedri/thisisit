@@ -37,3 +37,42 @@ a.active{
   a:focus-visible{
     outline: none !important;
   }
+.bbbmenu{
+  display: none;
+}
+.mobileMenu{
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .mobileContainer{
+    display: none !important;
+  }
+}
+
+  @media screen and (max-width: 900px) {
+    .navbarCustom {
+      display: none !important;
+    }
+    .bbbmenu{
+      display: block;
+      float: right;
+    }
+    .mobileMenu{
+      display: block;
+      top: 100%;
+      min-height: 50vh;
+    }
+
+  }
+  .mobileitem{
+    list-style: none;
+    text-decoration: none;
+  }
+  .mobileitem a{
+    text-decoration: none; color: grey;
+  }
+  .mobileitem:hover{
+    background-color: white;
+    color: grey;
+  }

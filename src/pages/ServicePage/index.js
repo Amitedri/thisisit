@@ -37,7 +37,7 @@ const ServicePage = () => {
     });
   }, []);
   return (
-    <div className="col-10 m-auto d-flex flex-column align-items-center">
+    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
       {/* large image with button */}
       <div className="col-12 p-0 position-relative serviceImageContainer">
         <img src={imgSrc} className="w-100 h-100 rounded" />

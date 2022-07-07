@@ -1,7 +1,7 @@
 .pointer {
   cursor: pointer !important;
 }
-h1{
+h1 {
   color: #4ba492 !important;
 }
 .invertColor {
@@ -24,46 +24,45 @@ h1{
 .borderBotton {
   border-bottom: 1px solid grey;
 }
-
-.responsiveContainer{
+.responsiveContainer {
   /* height: 50vh; */
   min-height: 60vh;
-
 }
-
-.letter1{
+.letter1 {
   letter-spacing: 1px !important;
 }
-.letter2{
+.letter2 {
   letter-spacing: 2px !important;
 }
-.letter3{
+.letter3 {
   letter-spacing: 3px !important;
 }
-.letter4{
+.letter4 {
   letter-spacing: 4px !important;
 }
-.letter5{
+.letter5 {
   letter-spacing: 5px !important;
 }
-
-.z100{
+.z100 {
   z-index: 100 !important;
 }
-
-.w-90{
+.w-90 {
   width: 90%;
 }
-
-.hoverGreen:hover{
- background-color: white  !important;
- color: #4ba492  !important;
+.hoverGreen:hover {
+  background-color: white !important;
+  color: #4ba492 !important;
 }
-.hoverScale:hover{
+.hoverScale:hover {
   transition: all 0.5s ease-in-out;
   transform: scale(1.1);
- }
- .hoverYellow:hover{
-  background-color: #f0cc76  !important;
-  color: white  !important;
- }
+}
+.hoverYellow:hover {
+  background-color: #f0cc76 !important;
+  color: white !important;
+}
+@media screen and (max-width: 1350px) {
+  .responsiveContainer {
+    min-height: 0;
+  }
+}

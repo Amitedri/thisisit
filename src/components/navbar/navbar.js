@@ -1,6 +1,7 @@
 import './navbar.css';
 import $ from 'jquery';
 import { useEffect, useRef, useState } from 'react';
+import Search from '../Search';
 const Navbar = () => {
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
@@ -38,11 +39,98 @@ const Navbar = () => {
       });
     };
   }, []);
-
+  const showMobileMenu = ()=>{
+    let elem = document.querySelector(".mobileMenu");
+    if(elem.classList.contains("d-none")){
+      elem.classList.remove("d-none")
+      return
+    }
+    if(!elem.classList.contains("d-none")){
+      elem.classList.add("d-none")
+      return
+    }
+  }
   return (
-    <div className="container-fluid blue d-flex flex-row justify-content-center sticky-top">
+    <div className="container-fluid blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-start justify-content-sm-start justify-content-start sticky-top ">
       {/* Menu icon */}
-      <img src="../assets/icons/burgerMenu.svg" className="align-self-center d-none" height="35" width="35" />
+      <img src="../assets/icons/burgerMenu.svg" onClick={showMobileMenu} className="align-self-center bbbmenu align-self-end pointer" height="35" width="35" />
+      <div className='col-6 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer'>
+      <div
+      className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-10 d-flex align-self-center position-relative py-2"
+      style={{ height: '65px' }}
+    >
+      <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
+      <input className="form-control p-3" type="text" placeholder="חפש.." />
+    </div>
+        <ul className=''>
+          <li className='mobileitem col-12 border-bottom p-2 text-center'> <a
+            id="contractLawyer"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/"
+          >
+            עורך דין חוזים
+          </a></li>
+          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
+            id="exampleContracts"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/contracts"
+          >
+            הסכמים לדוגמא
+          </a></li>
+          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
+            id="officeServices"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/services"
+          >
+            שירותי המשרד
+          </a></li>
+          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
+            id="legalInfo"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/legal"
+          >
+            מידע משפטי
+          </a></li>
+          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
+            id="forCommunity"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/community"
+          >
+            למען הקהילה
+          </a></li>
+          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
+            id="contact"
+            as="button"
+            className="navmobileitem"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="/contactus"
+          >
+            צור קשר
+          </a></li>
+        </ul>
+      </div>
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
         <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3 dropdown">

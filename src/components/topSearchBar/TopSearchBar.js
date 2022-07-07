@@ -1,9 +1,10 @@
 import React from 'react';
 import './TopSearchBar.css';
 import $ from 'jquery';
+import Search from '../Search'
 const TopSearchBar = () => {
   return (
-    <div className="container-fluid d-flex flex-row-reverse topSearchBar justify-content-between green">
+    <div className="container-fluid d-flex flex-row-reverse topSearchBar justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-center justify-content-sm-center justify-content-center green ">
       {/* contact img */}
       <div className="col-auto align-self-center d-flex flex-column m-2 bg-white ps-2 pe-2 pt-1 pb-1" style={{ border: '2px solid #46A592' }}>
         <a href="#" className="text-dark" style={{ all: 'unset' }}>
@@ -22,13 +23,8 @@ const TopSearchBar = () => {
       </div>
 
       {/* search container */}
-      <div
-        className="col-xl-4 col-lg-6 col-md-6 col-sm-5 col d-flex align-self-center position-relative border border-dark py-2 rounded rounded-2 border-white"
-        style={{ height: '65px' }}
-      >
-        <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
-        <input className="col f18 customSearchBar p-3" type="text" placeholder="חפש.." />
-      </div>
+    
+    <Search/>
 
       {/* contact banner */}
       <div className="col-auto align-self-center d-flex flex-column me-2 mb-2">

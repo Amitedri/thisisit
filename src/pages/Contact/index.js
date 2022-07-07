@@ -14,7 +14,7 @@ const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
     imgSrc: "../assets/img/personImg.svg",
   };
   return (
-    <div className="col-10 m-auto d-flex flex-column align-items-center">
+    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
       <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor="#4ba492"/>   
       <ContactsUs key={"sdnjnnnnn"} />
       <ProductSlider componentHeader={"מקרקעין"} dataToRender={generalServices} key="sdsdhasdasdhhh" />

@@ -1,0 +1,25 @@
+.searchbox{
+
+}
+
+/* @media screen and (min-width:900px) {
+    .searchbox {
+     display: none !important;
+    }
+  } */
+
+  @media screen and (max-width:900px) {
+    .searchbox {
+     margin-top: 25px;
+     display: none !important;
+
+     color: grey !important;
+    }
+    .searchbox input::placeholder{
+     color: grey !important;
+
+    }
+    .searchbox input{
+        color: grey !important;
+       }
+  }

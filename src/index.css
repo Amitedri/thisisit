@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@media screen and (max-width: 500px) {
+  .card-img-top{
+      height: 120px !important;
+  }
+}
+
+.pointersm{
+  cursor: pointer;
+}
+li{
+  /* list-style: none; */
+}

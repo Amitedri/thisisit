@@ -10,7 +10,7 @@ import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
 const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor, textColor }) => {
   return (
-    <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-10 d-flex flex-row flex-wrap rounded" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
+    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-row flex-wrap rounded" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
       {/* side rounded image */}
       <div className="col-6 position-relative d-flex justify-content-center align-items-center align-content-center d-md-none d-sm-none  d-sm-none  d-lg-none d-xl-block d-xxl-block">
         <div className='position-absolute m-auto mainImg mt-xl-5' style={{height:"500px",width:"500px",left:"0",right:"0"}}>
