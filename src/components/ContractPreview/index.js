@@ -57,7 +57,7 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
         {title}
       </h1>
       <h2 className="f32 text-muted p-0"></h2>
-      <div className="col-10 d-flex flex-column align-items-start">
+      <div className="col-xxl-10 col-xl-10 col-lg-11 col-md-11 col-sm-11 col-11 d-flex flex-column align-items-start">
         <div className="d-grid w-100 d-flex flex-column m-auto align-items-center text-end">
           {signInDate}
           {contractPreview}

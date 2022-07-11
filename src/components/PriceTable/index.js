@@ -7,25 +7,25 @@ const PriceTable = ({ iconType }) => {
             <th scope="col" className="col-2">
               חבילות
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
               <h3 className="h-25 blueText d-flex flex-column">
                 בסיסי
                 <span className="f16 align-self-center blueText">תקציר הסכם בסיסי ללא עלות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
               <h3 className="h-25 blueText d-flex flex-column">
                 מקיף
                 <span className="f16 align-self-center blueText">רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
               <h3 className="h-25 blueText d-flex flex-column">
                 התאמה אישית
                 <span className="f16 align-self-center blueText">הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
               <h3 className="h-25 blueText d-flex flex-column">
                 פגישת ייעוץ
                 <span className="f16 align-self-center blueText">90 ד' פגישת ייעוץ להגנה מיטבית.</span>

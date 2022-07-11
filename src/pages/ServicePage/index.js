@@ -40,10 +40,10 @@ const ServicePage = () => {
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
       {/* large image with button */}
       <div className="col-12 p-0 position-relative serviceImageContainer">
-        <img src={imgSrc} className="w-100 h-100 rounded" />
-        <div className="w-100 d-flex flex-column position-absolute contentCenter z-100 h-50 m-auto">
+        <img src={imgSrc} className="w-100 h-100 rounded servicesTopImg" />
+        <div className="col-12 d-flex flex-column position-absolute contentCenter z-100 h-50 m-auto">
           <h1 className="f42 align-self-center text-white">{header}</h1>
-          <div className="d-grid w-25 align-self-center">
+          <div className="d-grid col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-5 col-8 align-self-center">
             <button className="btn yellow f36 w3 p-2" type="button">
               קבע פגישת ייעוץ
             </button>
@@ -51,10 +51,10 @@ const ServicePage = () => {
         </div>
       </div>
       {/* Text Area */}
-      <div className="col-12 d-flex flex-column flex-wrap align-content-center align-items-center justify-content-center mt-3" style={{maxHeight:"100vh"}}>
+      <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-xxl-column flex-xl-column flex-lg-column flex-md-column flex-sm-row flex-row flex-wrap align-content-center align-items-center justify-content-center mt-3">
         {pageContent.map((el) => {
           return (
-            <div className='col-11 text-end d-flex flex-column p-3'>
+            <div className='col-12 text-end d-flex flex-column p-3'>
               <h1 className="f28">{el[0]}</h1>
               <p className="f16">{el[1]}</p>
             </div>

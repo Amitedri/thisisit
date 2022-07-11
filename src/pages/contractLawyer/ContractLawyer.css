@@ -21,5 +21,6 @@ top:8%
       top:0 !important;
       height: 350px !important;
       width: 350px !important;
+      display: none;
     }
   }

@@ -43,29 +43,36 @@ const ProductPage = () => {
     setImgSrc(imgSrc);
   }, []);
   return (
-    <div className="col-10 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
+    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       {/* large image with button */}
-      <div className="row p-0 d-flex flex-row" style={{ maxHeight: '350px' }}>
-        <div className="col d-flex flex-column text-center bg-white border-bottom p-2">
-          {/* <SmPriceTable iconType="another"/> */}
+      <div className="col-12 p-0 d-flex flex-row" >
+        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-column text-center bg-white border-bottom">
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32 w5">{title}</h1>
             <h2 className="f18 text-muted">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
-            <div className="col-12 align-self-center d-flex flex-row align-items-center mb-1">
-              <div className="col d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span className="col-8">שירות מקצועי ומהיר</span>
-                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
+            <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-10 col-sm-10 col-10 align-self-center d-flex flex-row align-items-center mb-1">
+              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
+                <span style={{ height: '50px' }} className="col-8 f16">
+                  שירות מקצועי ומהיר
+                </span>
+                <img src="../assets/icons/five-stars.svg" height="25" width="25"  />
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span className="col-8">הסכם מלא ומקיף</span>
+              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
+                <span style={{ height: '50px' }} className="col-8 f16">
+                  הסכם מלא ומקיף
+                </span>
                 <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span className="col-8">ייעוץ ראשוני ללא עלות</span>
+              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
+                <span style={{ height: '50px' }} className="col-8 f16">
+                  ייעוץ ראשוני ללא עלות
+                </span>
                 <img src="../assets/icons/free-time.svg" height="25" width="25" />
               </div>
-              <div className="col d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span className="col-8">עלות שווה לכל נפש</span>
+              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
+                <span style={{ height: '50px' }} className="col-8 f16">
+                  עלות שווה לכל נפש
+                </span>
                 <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
               </div>
             </div>
@@ -87,8 +94,8 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-6 p-0 rounded">
-          <img src={imgSrc} className="w-100 h-100" />
+        <div className="col-xxl-6 col-xl-6 col-lg-6 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-block col-md-12 d-sm-none col-12 p-0 rounded" style={{ maxHeight: '380px' }}>
+          <img src={imgSrc} className="w-100 h-100 productTopImg"  />
         </div>
       </div>
       <ContractPreview
