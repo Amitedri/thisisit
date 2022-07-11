@@ -1,0 +1,12 @@
+.cartContainer{
+    height: 80vh !important;
+}
+
+.purContainer{
+    height: 35vh !important;
+    overflow-y: auto;
+}
+.productsTotal{
+    height: 10vh !important;
+    overflow-y: auto;
+}

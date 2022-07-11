@@ -1,7 +1,8 @@
 .contactColumn{
-    height: 25vh;
+    min-height: 25vh;
+    
     position: fixed !important;
-    z-index: 9999 !important;
+    z-index: 999 !important;
     float: left;
     width: 5vw;
     position: sticky;
@@ -14,3 +15,4 @@
 .contactItem img:hover{
     transform: scale(1.1);
 }
+

@@ -23,6 +23,33 @@
     height: 18vw;
     object-fit: cover;
 }
+@media screen and (max-width: 500px) {
+    .card-img-top{
+        height: 120px !important;
+    }
+  }
+  @media screen and (max-width: 762px) {
+    .card-img-top{
+        height: 150px !important;
+        background-size: 100% 100%;
+        object-fit: cover;
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 300px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .card-img-top{
+        height: 150px !important;
+        background-size: 100% 100%;
+        object-fit: cover;
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 150px;
+    }
+  }
 .rec-arrow:hover{
     background-color: #4ba492 !important;
     

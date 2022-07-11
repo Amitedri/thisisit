@@ -93,7 +93,7 @@ const FullList = ({ dataToRender, componentHeader, ExpandedProducts,category  })
       {isExpanded ? <ExpandedProducts dataToRender={dataToRender} /> : <ProductSlider componentHeader={componentHeader} dataToRender={dataToRender} />}
 
     </div>
-    <a  class={`btn col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-5 col-8 yellow text-white f20 w3 mb-5 mt-2 ${isExpanded ? "mt-5" : 'nothing'}`} onClick={setTrigger}>
+    <a  class={`btn col-xxl-3 col-xl-3 col-lg-3 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none d-none openMoreBtn yellow text-white f20 w3 mb-5 mt-2 ${isExpanded ? "mt-5" : 'nothing'}`} onClick={setTrigger}>
         {isExpanded ? "סגור" :  "פתח עוד"}
       </a>
     </div>

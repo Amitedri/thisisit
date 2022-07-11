@@ -9,10 +9,12 @@ import ExpandedProducs from '../../components/ExpandedProduct';
 import { useParams } from 'react-router-dom';
 import servicesList from '../../Data/Services';
 import { compact, without } from 'lodash';
+
+
+
 const ServicePage = () => {
   const [pageContent, setPageContent] = useState([]);
   const [header, setHeader] = useState('');
-  const [doc, setDoc] = useState([]);
   const imgSrc = '../assets/img/service.png';
   const { id } = useParams();
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');

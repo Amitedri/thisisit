@@ -76,3 +76,11 @@ a.active{
     background-color: white;
     color: grey;
   }
+  
+@media screen and (max-width: 900px) {
+  .cartImg{
+    height: 35px;
+    width: 35px;
+
+  }
+}

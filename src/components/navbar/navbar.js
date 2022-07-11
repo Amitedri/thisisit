@@ -2,7 +2,9 @@ import './navbar.css';
 import $ from 'jquery';
 import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
+import Cart from '../Cart';
 const Navbar = () => {
+  const [showCart,setShowCart] = useState(false)
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
     $(elem)
@@ -20,7 +22,6 @@ const Navbar = () => {
       });
     });
 
-
     $(function () {
       $(function ($) {
         var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
@@ -31,7 +32,7 @@ const Navbar = () => {
         });
       });
     });
-    
+
     return () => {
       elem.forEach((el) => {
         el.removeEventListener('mouseenter', () => {});
@@ -39,98 +40,72 @@ const Navbar = () => {
       });
     };
   }, []);
-  const showMobileMenu = ()=>{
-    let elem = document.querySelector(".mobileMenu");
-    if(elem.classList.contains("d-none")){
-      elem.classList.remove("d-none")
-      return
+  const showMobileMenu = () => {
+    let elem = document.querySelector('.mobileMenu');
+    if (elem.classList.contains('d-none')) {
+      elem.classList.remove('d-none');
+      return;
     }
-    if(!elem.classList.contains("d-none")){
-      elem.classList.add("d-none")
-      return
+    if (!elem.classList.contains('d-none')) {
+      elem.classList.add('d-none');
+      return;
     }
+  };
+
+  const showCartFunc = ()=>{
+    setShowCart((prev)=>!prev)
   }
   return (
-    <div className="container-fluid blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-start justify-content-sm-start justify-content-start sticky-top ">
+    <div className="container-fluid shadow-sm blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-between justify-content-sm-between justify-content-between sticky-top ">
       {/* Menu icon */}
       <img src="../assets/icons/burgerMenu.svg" onClick={showMobileMenu} className="align-self-center bbbmenu align-self-end pointer" height="35" width="35" />
-      <div className='col-6 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer'>
-      <div
-      className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 col-10 d-flex align-self-center position-relative py-2"
-      style={{ height: '65px' }}
-    >
-      <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
-      <input className="form-control p-3" type="text" placeholder="חפש.." />
-    </div>
-        <ul className=''>
-          <li className='mobileitem col-12 border-bottom p-2 text-center'> <a
-            id="contractLawyer"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/"
-          >
-            עורך דין חוזים
-          </a></li>
-          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
-            id="exampleContracts"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/contracts"
-          >
-            הסכמים לדוגמא
-          </a></li>
-          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
-            id="officeServices"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/services"
-          >
-            שירותי המשרד
-          </a></li>
-          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
-            id="legalInfo"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/legal"
-          >
-            מידע משפטי
-          </a></li>
-          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
-            id="forCommunity"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/community"
-          >
-            למען הקהילה
-          </a></li>
-          <li className=' mobileitem col-12 border-bottom p-2 text-center'>          <a
-            id="contact"
-            as="button"
-            className="navmobileitem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/contactus"
-          >
-            צור קשר
-          </a></li>
+      <div className="col-sm-6 col-10 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer">
+        <h3 className="f22 align-self-center mt-2 greyText shadow-sm">ELAD COHEN & CO</h3>
+        <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex  d-flex align-self-center position-relative py-2">
+          <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
+          <input className="form-control p-3" type="text" placeholder="חפש.." />
+        </div>
+        <ul className="">
+          <li className="mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="contractLawyer" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">
+              עורך דין חוזים
+            </a>
+          </li>
+          <li className=" mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="exampleContracts" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contracts">
+              הסכמים לדוגמא
+            </a>
+          </li>
+          <li className=" mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="officeServices" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/services">
+              שירותי המשרד
+            </a>
+          </li>
+          <li className=" mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="legalInfo" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/legal">
+              מידע משפטי
+            </a>
+          </li>
+          <li className=" mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="forCommunity" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/community">
+              למען הקהילה
+            </a>
+          </li>
+          <li className=" mobileitem col-12 border-bottom p-2 text-center">
+            {' '}
+            <a id="contact" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contactus">
+              צור קשר
+            </a>
+          </li>
         </ul>
       </div>
+    <Cart openCart={showCart} setOpenCart={showCartFunc}/>
+
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
         <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3 dropdown">
@@ -277,6 +252,15 @@ const Navbar = () => {
             </a>
           </div>
         </span>
+      </div>
+      <div className="col-1 d-flex flex-row justify-content-center align-items-center position-relative pointer" onClick={showCartFunc}>
+        <span
+          className="fw-bold text-white m-1 position-absolute lightBlue rounded-circle text-center start-50 f14"
+          style={{ height: '25px', width: '25px', lineHeight: '25px' }}
+        >
+          0
+        </span>
+        <img src="../assets/icons/cart.svg" className='cartImg' height="50" width="50"  />
       </div>
     </div>
   );
