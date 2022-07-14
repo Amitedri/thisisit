@@ -61,6 +61,10 @@ h1 {
   background-color: #f0cc76 !important;
   color: white !important;
 }
+.hoverGreener:hover {
+  background-color: #4ba492 !important;
+  color: white !important;
+}
 @media screen and (max-width: 1350px) {
   .responsiveContainer {
     min-height: 0;

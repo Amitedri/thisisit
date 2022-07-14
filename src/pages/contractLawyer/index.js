@@ -29,22 +29,22 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
           </div>
         </div>
         <h1 className="m-0 p-0 lightBlueText f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center mt-2">משרד עורך דין חוזים דיגיטלי</h1>
-        <h3 className="m-0 p-0 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center  mt-2 m-2 f26 greyText">
+        <h3 className="m-0 p-0 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center  mt-2 m-2 f22 greyText">
           משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br /> שבו תוכלו לרכוש ישירות מהאתר:
         </h3>
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
-          <ul className="col-8 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
-            <li className="greyText f22" style={{ listStyleType: 'decimal' }}>
+          <ul className="col-8 d-flex flex-column text-center justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
+            <li className="greyText f18" style={{ listStyleType: 'none' }}>
               חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.
             </li>
-            <li className="greyText f22" style={{ listStyleType: 'decimal' }}>
+            <li className="greyText f18" style={{ listStyleType: 'none' }}>
               חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות.{' '}
             </li>
-            <li className="greyText f22" style={{ listStyleType: 'decimal' }}>
+            <li className="greyText f18" style={{ listStyleType: 'none' }}>
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.
             </li>
           </ul>
-          <p className="f22 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center greyText">
+          <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center greyText">
             תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן
           </p>
           <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">

@@ -84,3 +84,12 @@ a.active{
 
   }
 }
+
+a.dropdown-item{
+  text-align: start !important;
+  direction: rtl !important;
+  float: right;
+}
+.dropdown-menu{
+  text-align: right;
+}

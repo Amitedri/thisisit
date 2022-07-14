@@ -112,7 +112,7 @@ const Navbar = () => {
           <a
             id="contractLawyer"
             as="button"
-            className=" navItemCustom text-white costumeItem "
+            className=" navItemCustom text-white costumeItem"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -120,15 +120,18 @@ const Navbar = () => {
           >
             עורך דין חוזים
           </a>
-          <div class="dropdown-menu navDropMenu" aria-labelledby="contractLawyer">
+          <div class="dropdown-menu  navDropMenu " aria-labelledby="contractLawyer">
             <a class="dropdown-item dropitop" href="#">
-              עורך דין חוזים
+              כללים לניסוח חוזה
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Aonעורך דין חוזים Aonעורך דין חוזים
+             הסכמים לדוגמא
             </a>
             <a class="dropdown-item dropitop" href="#">
-              ם
+              שאלות ותשובות
+            </a>
+            <a class="dropdown-item dropitop" href="#">
+             שירותי המשרד
             </a>
           </div>
         </div>
@@ -146,13 +149,19 @@ const Navbar = () => {
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="exampleContracts">
             <a class="dropdown-item dropitop" href="#">
-              הסכמים לדוגמא
+              הסכמי מקרקעין
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Another הסכמים לדוגמא
+              הסכמי משפחה
             </a>
             <a class="dropdown-item dropitop" href="#">
-              הסכמים לדוגמא
+              הסכמי חברות וסטארט-אפ
+            </a>
+            <a class="dropdown-item dropitop" href="#">
+              הסכמי עבודה
+            </a>
+            <a class="dropdown-item dropitop" href="#">
+              הסכמים כלליים
             </a>
           </div>
         </span>
@@ -169,14 +178,18 @@ const Navbar = () => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-            <a class="dropdown-item dropitop" href="#">
-              Action
+          <a class="dropdown-item dropitop" href="#">
+              דיני חברות
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Another action
+              דיני משפחה
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Something else here
+              דיני מקרקעין
+            </a>
+
+            <a class="dropdown-item dropitop" href="#">
+              שירותים כלליים
             </a>
           </div>
         </span>
@@ -193,14 +206,20 @@ const Navbar = () => {
             מידע משפטי
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
-            <a class="dropdown-item dropitop" href="#">
-              Action
+          <a class="dropdown-item dropitop" href="#">
+              דיני חברות
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Another action
+              דיני משפחה
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Something else here
+              דיני מקרקעין
+            </a>
+            <a class="dropdown-item dropitop" href="#">
+              דיני עבודה
+            </a>
+            <a class="dropdown-item dropitop" href="#">
+              נושאים כלליים
             </a>
           </div>
         </span>
@@ -218,14 +237,12 @@ const Navbar = () => {
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="forCommunity">
             <a class="dropdown-item dropitop" href="#">
-              Action
+              קידום הגדרת ידועים בציבור
             </a>
             <a class="dropdown-item dropitop" href="#">
-              Another action
+              עזרה בפנייה למוסדות רפואה במצב חרום
             </a>
-            <a class="dropdown-item dropitop" href="#">
-              Something else here
-            </a>
+
           </div>
         </span>
         <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
@@ -240,17 +257,9 @@ const Navbar = () => {
           >
             צור קשר
           </a>
-          <div class="dropdown-menu navDropMenu" aria-labelledby="contact">
-            <a class="dropdown-item dropitop" href="#">
-              Action
-            </a>
-            <a class="dropdown-item dropitop" href="#">
-              Another action
-            </a>
-            <a class="dropdown-item dropitop" href="#">
-              Something else here
-            </a>
-          </div>
+          {/* <div class="dropdown-menu navDropMenu" aria-labelledby="contact">
+
+          </div> */}
         </span>
       </div>
       <div className="col-1 d-flex flex-row justify-content-center align-items-center position-relative pointer" onClick={showCartFunc}>

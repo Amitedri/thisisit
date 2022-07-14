@@ -4,6 +4,7 @@ import ContactUs from '../../components/ContactUs';
 import FullList from '../../components/FullList';
 import DropDown from '../../components/DropDown';
 import ExpandedProduct from '../../components/ExpandedProduct';
+import servicesList from '../../Data/Services';
 
 import previewContracts from '../../Data/ContractExport';
 import { useEffect, useState } from 'react';
@@ -13,7 +14,6 @@ const Contracts = () => {
   const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
   const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
   const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות');
-
   const onFilterChange = (event) => {
     setTypeFilter(event.target.value);
   };
@@ -71,11 +71,11 @@ const Contracts = () => {
       <h1 className="f32 w5">הסכמים מעולים מבית טוב</h1>
       <div className="col-12 mt-2 d-flex flex-row align-items-center flex-wrap ">
         <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-center text-center d-flex flex-column align-items-center justify-content-center">
-          <p className="f16 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-center">
+          <p className="f18 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-center">
             מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט.{' '}
           </p>
           <hr className="w-90 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11" />
-          <ul className="f16 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+          <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
             באפשרותכם לרכוש במהירות:
             <li className="w2" style={{ listStyleType: 'none' }}>
               הסכם מקיף ומקצועי של ממשרדנו ישירות מהאתר במחיר שווה לכל נפש.
@@ -87,7 +87,7 @@ const Contracts = () => {
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית תוך 7 ימי עסקים.
             </li>
           </ul>
-          <p className="f16 m-1 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-11 col-11 w3 text-center">
+          <p className="f18 m-1 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-11 col-11 w3 text-center">
             במידה ואינכם מוצאים הסכם בו אתם מעוניינים צרו קשר עם משרדנו ונשמח לשלוח לכם. משרדנו מציע גם שירותי ניהול משא ומתן וגישור מכל סוג עד לכריתת הסכם.{' '}
           </p>
         </div>
@@ -149,6 +149,14 @@ const Contracts = () => {
         key="dsfnjsdkndfjjkfnsdjkf"
       />
       <FullList
+        category={'חברות'}
+        dataToRender={companyServices}
+        componentHeader={'חברות'}
+        Children={ProductSlider}
+        ExpandedProducts={ExpandedProduct}
+        key="dsfnjsdkndfjjkfnsdjmkljmklmklmjkf"
+      />
+      <FullList
         category={'כללי'}
         dataToRender={generalServices}
         componentHeader={'כללי'}
@@ -157,7 +165,7 @@ const Contracts = () => {
         key="dsfnjsdkndfjksndfjksndjkfsndjkfnsdjkf"
       />
       <ContactUs key={'dsdsdskbjnbjlkmklmklmlkmlk'} />
-      <ProductSlider componentHeader={'שירותים לדוגמא'} dataToRender={generalServices} key={'dsdsdskbjnbjlmklmlkmdlk'} />
+      <ProductSlider componentHeader={'שירותי המשרד'} dataToRender={servicesList} key={'dsdsdskbjnbjlmklmlkmdlk'} />
     </div>
   );
 };

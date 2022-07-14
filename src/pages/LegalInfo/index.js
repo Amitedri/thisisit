@@ -47,7 +47,7 @@ useEffect(() => {
 }, [typeFilter]);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
-      <h1 className="f42 mb-2 mt-2">מידע משפטי</h1>
+      <h1 className="f32 w5 mb-2 mt-2">מידע משפטי</h1>
       <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center mt-2">
         <DropDown header={'תחום משפטי'} key={'קטגוריותsdfsdfקטגוריות'} colorClass="lightBlueStrong" values={serviceCategoryDrop} onChange={onFilterChange} />
         <DropDown header={'שאלה משפטית'} key={'שאלהasdasdasds משפטית'} colorClass="lightBlueStrong" values={serviceCategoryDrop} onChange={onFilterChange} />

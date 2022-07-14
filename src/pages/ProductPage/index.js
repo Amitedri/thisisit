@@ -44,8 +44,24 @@ const ProductPage = () => {
   }, []);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
+      <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body text-center mt-3">
+              <p>יש לאשר את תנאי השימוש לפני הצפייה בחוזה.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn lightBlue text-white w3 m-auto" data-bs-dismiss="modal">
+                סגור
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* large image with button */}
-      <div className="col-12 p-0 d-flex flex-row" >
+      <div className="col-12 p-0 d-flex flex-row">
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-column text-center bg-white border-bottom">
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32 w5">{title}</h1>
@@ -55,7 +71,7 @@ const ProductPage = () => {
                 <span style={{ height: '50px' }} className="col-8 f16">
                   שירות מקצועי ומהיר
                 </span>
-                <img src="../assets/icons/five-stars.svg" height="25" width="25"  />
+                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
               </div>
               <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
                 <span style={{ height: '50px' }} className="col-8 f16">
@@ -76,13 +92,13 @@ const ProductPage = () => {
                 <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
               </div>
             </div>
-            <div className="col-6 d-flex flex-column mt-1 shadow-sm">
-              <div className="btn btn-sm w-3 border-info">רכוש הסכם מקיף 290 ש"ח</div>
+            <div className="col-6 d-flex flex-column mt-2 shadow-sm">
+              <div className="btn btn-sm w-3 yellow text-white hoverGreener">רכוש הסכם מקיף 290 ש"ח</div>
             </div>
-            <div className="col-6 d-flex flex-column m-1 shadow-sm">
-              <div className="btn btn-sm w-3 border-info">הצג אפשרויות הגנה נוספות</div>
+            <div className="col-6 d-flex flex-column m-2 shadow-sm">
+              <div className="btn btn-sm w-3 yellow text-white hoverGreener">הצג אפשרויות הגנה נוספות</div>
             </div>
-            <p className="text-muted f12 w-50 m-0">
+            <p className="text-muted f12 w-75 m-0">
               כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
@@ -94,8 +110,11 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-xxl-6 col-xl-6 col-lg-6 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-block col-md-12 d-sm-none col-12 p-0 rounded" style={{ maxHeight: '380px' }}>
-          <img src={imgSrc} className="w-100 h-100 productTopImg"  />
+        <div
+          className="col-xxl-6 col-xl-6 col-lg-6 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-block col-md-12 d-sm-none col-12 p-0 rounded"
+          style={{ maxHeight: '380px' }}
+        >
+          <img src={imgSrc} className="w-100 h-100 productTopImg" />
         </div>
       </div>
       <ContractPreview

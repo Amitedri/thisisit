@@ -31,14 +31,14 @@
   border-radius: 50%;
 }
 .tableBtn {
-  background-color: #4ba492 !important;
+  background-color:  #f0cc76 !important;
   cursor: pointer;
    border-right:1px solid white;
    transition:all 0.3s ease-in-out;
 }
 
 .tableBtn:hover{
-  background-color: #f0cc76 !important;
+  background-color: #4ba492 !important;
   color: black;
 }
 

@@ -12,7 +12,7 @@ const TopSearchBar = () => {
     >
       {/* contact img */}
  
-        <div className="col-auto align-self-center d-flex flex-column m-2 bg-white ps-2 pe-2 pt-1 pb-1" style={{ border: '2px solid #46A592' }}>
+        <div className="col-auto align-self-center d-flex flex-column m-2 bg-white ps-2 pe-2 pt-1 pb-1 pointer" style={{ border: '2px solid #46A592' }} onClick={()=>window.location = '/'}>
         <a href="#" className="text-dark" style={{ all: 'unset' }}>
           <div className="d-flex justify-content-center ">
             <span className="align-self-center f12 w5 p-1 lightBlueText" style={{ letterSpacing: '1px' }}>

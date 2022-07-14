@@ -18,10 +18,7 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
       </a>
     </span>
   );
-  // const setIsAgreed = (value) => {
-  //   setIsAgreedTerms(value);
-  //   return;
-  // };
+ 
   useEffect(() => {
     window.$(document).on('show.bs.collapse', function (e) {
       setIsExpanded((prev) => true);
@@ -39,7 +36,7 @@ const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractB
     let flexCheckDefault = document.getElementById("flexCheckDefault");
 
     if (!isAgreedConsent) {
-      console.log('nope');
+      window.$("#termsModal").modal("toggle")
       flexCheckDefault.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
       // flexCheckDefault.parentElement.classList.add("border","border-danger","p-1","rounded")
       return;
