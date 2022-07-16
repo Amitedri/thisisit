@@ -36,7 +36,7 @@ const buttons = [
 //   );
 // };
 
-const StandUp = () => {
+const StandUp = ({ doc }) => {
   const sentences = [
     { text: 'שירות משפטי דיגיטלי חדש', color: '#4ba492' },
     { color: '#fdfdf1', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
@@ -44,7 +44,6 @@ const StandUp = () => {
     { text: 'להגנה מיטבית על זכויותיכם', color: '#f0cc76' },
   ];
   const [counter, setcounter] = useState(0);
-
   useEffect(() => {
     let cntarget = document.querySelector('.cntarget');
 
@@ -52,28 +51,26 @@ const StandUp = () => {
       setTimeout(() => {
         if (counter < sentences.length - 1) {
           setcounter((prev) => prev + 1);
-
         } else {
           setcounter(0);
         }
-        console.log(counter);
       }, 1000);
     };
     doit();
   }, [counter]);
-useEffect(()=>{
-  let onurs = document.querySelectorAll('.onurs');
+  useEffect(() => {
+    let onurs = document.querySelectorAll('.onurs');
 
-  onurs[counter].classList.remove('empty');
-  onurs[counter].classList.add('full');
+    onurs[counter].classList.remove('empty');
+    onurs[counter].classList.add('full');
 
-  onurs.forEach((el, idx) => {
-    if (el.id !== onurs[counter].id) {
-      el.classList.add('empty');
-      el.classList.remove('full');
-    }
-  });
-},[counter])
+    onurs.forEach((el, idx) => {
+      if (el.id !== onurs[counter].id) {
+        el.classList.add('empty');
+        el.classList.remove('full');
+      }
+    });
+  }, [counter]);
   return (
     <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 rounded">
       {/* standup header */}
@@ -90,7 +87,16 @@ useEffect(()=>{
       </div>
       {/* Content */}
       <div className="col-12 p-0 d-flex flex-column align-items-center rounded text-center">
-        <PriceTable iconType="payment" />
+        <PriceTable
+          iconType="payment"
+          levelOfProtectionBasic={doc.levelOfProtectionBasic}
+          makingTimeBasic={doc.makingTimeBasic}
+          numOfPagesBasic={doc.numOfPagesBasic}
+          warrantyBasic={doc.warrantyBasic}
+          wordFileBasic={doc.wordFileBasic}
+          numOfFixesBasic={doc.numOfFixesBasic}
+          tailoredBasic={doc.tailoredBasic}
+        />
       </div>
     </div>
   );

@@ -33,12 +33,12 @@ const Search = () => {
       servicesList.forEach((el) => {
         if (searchTerm.length >= 3) {
           if (el['h1Content'].includes(searchTerm) || el['h2Content'].includes(searchTerm)) {
-            console.log(searchResults);
             if (!searchResults.includes(el)) {
               el.type = 'service';
               setSearchResults((prev) => [...prev, el]);
             }
           }
+          
         }
       });
     }

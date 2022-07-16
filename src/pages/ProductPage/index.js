@@ -9,7 +9,7 @@ import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import previewContracts from '../../Data/ContractExport';
-
+import { scrollIntoView } from '../../Utils';
 const ProductPage = () => {
   const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const { id } = useParams();
@@ -19,7 +19,7 @@ const ProductPage = () => {
   const [contractBody, setContractBody] = useState('');
   const [contractPreview, setContractPreview] = useState('');
   const [imgSrc, setImgSrc] = useState('../assets/img/service.png');
-
+  const [docWhole, setDocWhole] = useState({});
   const [signTitle, setSignTitle] = useState('');
   const [whoSignLine, setWhoSignLine] = useState('');
   const [firstSigner, setFirstSigner] = useState('');
@@ -41,14 +41,14 @@ const ProductPage = () => {
     setContractPreview(contractPreview);
     setSignInDate(signInDate);
     setImgSrc(imgSrc);
+    setDocWhole(doc[0]);
   }, []);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-            </div>
+            <div class="modal-header"></div>
             <div class="modal-body text-center mt-3">
               <p>יש לאשר את תנאי השימוש לפני הצפייה בחוזה.</p>
             </div>
@@ -95,7 +95,7 @@ const ProductPage = () => {
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div className="btn btn-sm w-3 yellow text-white hoverGreener">רכוש הסכם מקיף 290 ש"ח</div>
             </div>
-            <div className="col-6 d-flex flex-column m-2 shadow-sm">
+            <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={() => scrollIntoView('tableDisplay')}>
               <div className="btn btn-sm w-3 yellow text-white hoverGreener">הצג אפשרויות הגנה נוספות</div>
             </div>
             <p className="text-muted f12 w-75 m-0">
@@ -104,7 +104,12 @@ const ProductPage = () => {
             </p>
             <div class="form-check f14">
               <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />
-              <a class="form-check-label" href="javascript:void(0)" for="flexCheckDefault">
+              <a
+                class="form-check-label"
+                href="javascript:void(0)"
+                onClick={() => window.open(window.location.origin + "/terms", 'תנאי שימוש', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes')}
+                for="flexCheckDefault"
+              >
                 תנאי שימוש
               </a>
             </div>
@@ -128,7 +133,7 @@ const ProductPage = () => {
         signInDate={signInDate}
         isAgreedConsent={isAgreedConsent}
       />
-      <StandUp key={'asdasadasdasdsfffa'} />
+      <StandUp key={'asdasadasdasdsfffa'} doc={docWhole} />
       <FAQ header={'שאלות ותשובות בנושא משפחה'} withTitle="true" questions={general} />
       <ContactsUs key={'sdnjnnnnn'} />
     </div>

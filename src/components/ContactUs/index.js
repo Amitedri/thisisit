@@ -15,16 +15,16 @@ const ContactsUs = () => {
       <div className="col-12 h-100 p-0 d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column flex-wrap align-items-center rounded m-auto">
         {/* form */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
-          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem m-xxl-2 m-xl-2 justify-content-between">
+          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem m-2 justify-content-between">
             <span className="align-self-start f20 w2 ">שם מלא</span>
             <input className="formInput" type="text" placeholder="הקלד כאן" />
           </div>
-          <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center">
-            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between">
+          <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center ">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between m-1">
               <span className="align-self-start f20 w2 ">אימייל</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" />
             </div>
-            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem me-xxl-5 justify-content-between">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem me-xxl-5 justify-content-between m-2">
               <span className="align-self-start f20 w2 ">טלפון</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" />
             </div>
@@ -34,7 +34,7 @@ const ContactsUs = () => {
           <div className="col-10 align-self-center d-flex flex-column">
             <span className="align-self-center f20 border-bottom mb-2">הודעה</span>
             <input type="text" className="messageInput col-auto" />
-            <button style={{ letterSpacing: '1px' }} className="btn btn-lg col-6 yellow align-self-center mt-2 w3">
+            <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18">
               צור קשר עכשיו
             </button>
           </div>

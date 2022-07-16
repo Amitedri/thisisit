@@ -2,9 +2,27 @@ import parse from 'html-react-parser';
 
 const previewContracts = [
   {
+
+
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם גירושין.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/1',
     h1: 'הסכם גירושין',
     h1Content: '',
@@ -15,7 +33,7 @@ const previewContracts = [
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם גירושין המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ו/או בנושא עורך דין הסכם גירושין ואינו מחליף ו/או מהווה ייעוץ עורך דין ו/או משפטי ו/או מקצועי כנדרש. הסכם גירושין בהסכמה המפורט מטה ו/או אחר הינו הסכם גירושין לדוגמא שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות מבני זוג בבואם להתקשר חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן הסכם בעל תוכן ספציפי וממוקד. יובהר, כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף ו/או בני זוג שהסתמכו בכל צורה ו/או דרך על הסכם גירושין ו/או הסכם גירושין לדוגמא ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co ועורך דין הסכם גירושין יערוך עבורכם הסכם מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם גירושין מקיף און ליין באתר, לחצו כאן. `,
     title: `הסכם גירושין`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p><strong>האפוטרופסים של הקטין</strong></p>
+    contractBody: parse(`<p><strong>האפוטרופסים של הקטין</strong></p>
     <ol>
       <li>מסוכם על ההורים כי שניהם יהיו אפוטרופוסים הבלעדיים והיחידים של הקטין והכל לפי הוראותיו של הפרק שני לחוק הכשרות המשפטית והאפוטרופסות, תשכ"ב-1962.</li>
       <li>ההורים מתחייבים לקבל יחד כל החלטה הנחשבת למהותית שקשורה לקטין לרבות אך לא רק ________________ , ________________ , ________________ ו/או אחרת.</li>
@@ -109,7 +127,8 @@ const previewContracts = [
     `),
     firstSigner: 'האם',
     secondSigner: 'האב',
-    contractPreview:parse(`  <strong>והואיל: </strong>והצדדים חתמו על הסכם ממון שקיבל תוקף של פסק דין ביום ______________ (להלן:"<strong>הסכם ממון</strong>"), ובו פירטו את רצונם בדבר
+    contractPreview:
+      parse(`  <strong>והואיל: </strong>והצדדים חתמו על הסכם ממון שקיבל תוקף של פסק דין ביום ______________ (להלן:"<strong>הסכם ממון</strong>"), ובו פירטו את רצונם בדבר
     הפרדה מלאה של זכויות ו/או חובות השייכים למי מבני הזוג טרם הנישואין על כל חלופותיהם ו/או על כל פירותיהם ו/או רווחיהם העתידי במהלך החיים המשותפים, ובנוסף על כל
     רכוש ו/או כספים ו/או זכויות ו/או חובות שייצברו בעתיד במהלך תקופת הנישואין ביחד או לחוד.
   </p>
@@ -139,9 +158,25 @@ const previewContracts = [
   </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם הורות משותפת.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/2',
     h1: 'הסכם הורות משותפת',
     h1Content: '',
@@ -152,7 +187,7 @@ const previewContracts = [
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם הורות משותפת המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ו/או בנושא עורך דין הורות משותפת ו/או הסכם הורות משותפת ו/או הסכם הורות משותפת להפריה ו/או אחר ואינו מחליף ו/או מהווה ייעוץ עורך דין ו/או משפטי ו/או מקצועי כנדרש. הסכם הורות משותפת המפורט מטה ו/או אחר הינו נוסח הסכם הורות משותפת שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות בהתקשרות חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן הסכם בעל תוכן ספציפי וממוקד. יובהר כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף ו/או בני זוג שהסתמכו בכל צורה ו/או דרך על הסכם הורות משותפת לדוגמא ו/או הסכם הורות משותפת להפריה ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co ועורך דין הורות משותפת יערוך עבורכם הסכם מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם הורות משותפת מקיף און ליין באתר, לחצו כאן.`,
     title: `תקציר הסכם הורות משותפת`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p><strong>תהליכי הפריה וטרום לידה</strong></p>
+    contractBody: parse(`<p><strong>תהליכי הפריה וטרום לידה</strong></p>
     <ol>
       <li>ההורים מסכימים ומתחייבים לקיים כל בדיקה טרום תהליך ההפריה ובמהלכה הנוגעת לתהליך ההפריה ו/או לבריאות העובר לרבות בדיקות סקר גנטיות ורפואיות.</li>
       <li>
@@ -303,7 +338,7 @@ const previewContracts = [
     `),
     firstSigner: 'האם האב',
     secondSigner: 'שם האם',
-    contractPreview:parse(`<p><strong>הסכם הורות משותפת</strong></p>
+    contractPreview: parse(`<p><strong>הסכם הורות משותפת</strong></p>
     <p>שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________</p>
     <p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
@@ -329,9 +364,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם מייסדים.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/3',
     h1: 'הסכם מייסדים',
     h1Content: '',
@@ -342,7 +393,7 @@ const previewContracts = [
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם מייסדים המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ואינו מחליף ו/או מהווה ייעוץ עורך דין ו/או משפטי ו/או מקצועי כנדרש. הסכם מייסדים המפורט מטה ו/או הסכם מייסדים להקמת חברה ו/או אחר הינו הסכם מייסדים לדוגמא שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות מצדדים ו/או ממייסדים בבואם להתקשר חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן חוזה בעל תוכן ספציפי וממוקד. יובהר כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף המסתמך בכל צורה ו/או דרך על הסכם מייסדים ו/או הסכם מייסדים סטארט אפ ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co ונערוך עבורכם הסכם מייסדים מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם מייסדים מקיף און ליין באתר, לחצו כאן.`,
     title: `תקציר הסכם מייסדים`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p><strong>מהות ומטרות החברה</strong></p>
+    contractBody: parse(`<p><strong>מהות ומטרות החברה</strong></p>
     <ol>
       <li>מבלי לפגוע בכלליות המפורט בהסכם מייסדים סטארט אפ זה, מטרות החברה הם כדלקמן:</li>
     </ol>
@@ -468,7 +519,7 @@ const previewContracts = [
     `),
     firstSigner: 'צד א',
     secondSigner: 'צד ב',
-    contractPreview:parse(`<p></p>
+    contractPreview: parse(`<p></p>
     <p>שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________</p>
     <p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
@@ -495,9 +546,25 @@ const previewContracts = [
     <p>משרדה הרשום של החברה יהא בכתובת: ______________________________</p>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם מכר.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: '/contract/4',
     h1: 'הסכם מכר',
     h1Content: '',
@@ -508,7 +575,7 @@ const previewContracts = [
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם מכר המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ואינו מחליף ו/או מהווה ייעוץ עורך דין מקרקעין ו/או עורך דין נדל"ן ו/או הסכם מכר ו/או משפטי ו/או מקצועי כנדרש. הסכם מכר המפורט מטה ו/או חוזה מכר אחר הינו הסכם מכר קצר שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות ממוכר דירה ו/או קונה דירה בבואם להתקשר חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן חוזה מכר בעל תוכן ספציפי וממוקד. יובהר כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף המסתמך בכל צורה ו/או דרך על הסכם מכר ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co הכולל בתוכו עורכי דין המתמחים במקרקעין ו/או נדל"ן ונערוך עבורכם הסכם מכר מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם מכר מקיף און ליין באתר, לחצו כאן.`,
     title: `הסכם מכר`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p></p>
+    contractBody: parse(`<p></p>
     <p><strong>תנאים מקדימים להסכם מכר</strong></p>
     <ol>
       <li>
@@ -627,7 +694,7 @@ const previewContracts = [
     `),
     firstSigner: 'המוכר',
     secondSigner: 'הקונה',
-    contractPreview:parse(`<p></p>
+    contractPreview: parse(`<p></p>
     <p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>המוכר</strong>") <strong> מצד אחד;</strong></p>
@@ -654,9 +721,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם ממון ידועים בציבור.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/5',
     h1: 'הסכם ידועים בציבור',
     h1Content: '',
@@ -667,7 +750,7 @@ const previewContracts = [
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם ממון ידועים בציבור המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ו/או בנושא עורך דין ידועים בציבור ו/או הסכם חיים משותפים ו/או אחר ואינו מחליף ו/או מהווה ייעוץ עורך דין ו/או משפטי ו/או מקצועי כנדרש. הסכם ידועים בציבור המפורט מטה ו/או אחר הינו הסכם ממון ידועים בציבור שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות מבני זוג בבואם להתקשר חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן הסכם בעל תוכן ספציפי וממוקד. יובהר כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף ו/או בני זוג שהסתמכו בכל צורה ו/או דרך על הסכם ממון ידועים בציבור לדוגמא ו/או הסכם חיים משותפים ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co ועורך דין ידועים בציבור יערוך עבורכם הסכם מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם ממון ידועים בציבור מקיף און ליין באתר, לחצו כאן.`,
     title: `הסכם ידועים בציבור`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p><strong>ערכים משפחתיים ומטרות משותפות</strong></p>
+    contractBody: parse(`<p><strong>ערכים משפחתיים ומטרות משותפות</strong></p>
     <ol>
       <li>
         בני הזוג מצהירים כי הם מעוניינים שגם בהמשך חייהם הקשר ביניהם יהא מושתת על כבוד הדדי, אהבה, תקשורת טובה, סובלנות, נתינה, ויתור והתגמשות, תמיכה וביטחון.
@@ -794,7 +877,7 @@ const previewContracts = [
     `),
     firstSigner: 'האישה',
     secondSigner: 'האיש',
-    contractPreview:parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
+    contractPreview: parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>האישה</strong>") <strong> מצד אחד;</strong></p>
     <p><strong>לבין: ________________ ת.ז. ___________________</strong></p>
@@ -827,9 +910,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם סודיות.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/6',
     h1: 'הסכם סודיות',
     h1Content: '',
@@ -842,7 +941,7 @@ const previewContracts = [
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: 'מוסר המידע',
     secondSigner: 'עוזר מקבל המידע',
-    contractBody:parse(`<p><strong>הגדרת מידע סודי</strong></p>
+    contractBody: parse(`<p><strong>הגדרת מידע סודי</strong></p>
     <ol>
       <li>
         "מידע סודי" - כל מידע הקשור במישרין או בעקיפין לפרויקט בשם ___________, שבבעלותו הפרטית של מוסר המידע, ושיחשף בנאמנות בעל פה או בכתב בפני מקבל המידע ויועצו
@@ -888,7 +987,7 @@ const previewContracts = [
     </ol>
     `),
     secondSigner: 'מקבל המידע',
-    contractPreview:parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
+    contractPreview: parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>מוסר המידע</strong>") <strong> מצד אחד;</strong></p>
     <p><strong>לבין: ________________ ת.ז. ___________________</strong></p>
@@ -913,9 +1012,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה עם קבלן.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/7',
     h1: 'הסכם עבודה עם קבלן',
     h1Content: '',
@@ -927,7 +1042,7 @@ const previewContracts = [
     title: `הסכם עבודה עם קבלן`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: 'צד א',
-    contractBody:parse(`<p><strong>תנאים מקדימים להסכם</strong></p>
+    contractBody: parse(`<p><strong>תנאים מקדימים להסכם</strong></p>
     <ol>
       <li>הצדדים מסכימים ההגדרה של "הצדדים" כאמור מעלה כוללת גם את כל מי מטעמם.</li>
       <li>הצדדים מצהירים כי אין כל מניעה גלוייה ו/או נסתרת ו/או משפטית ו/או אחרת לחתימתם על קיום הוראות הסכם עבודה עם קבלן שיפוצים זה.</li>
@@ -1084,7 +1199,7 @@ const previewContracts = [
     </ol>
     `),
     secondSigner: 'צד ב',
-    contractPreview:parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
+    contractPreview: parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>המזמין</strong>") <strong> מצד אחד;</strong></p>
     <p><strong>לבין: ________________ ח.פ ___________________</strong></p>
@@ -1114,9 +1229,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם שותפות.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/8',
     h1: 'הסכם שותפות',
     h1Content: '',
@@ -1128,7 +1259,7 @@ const previewContracts = [
     title: `הסכם שותפות`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: 'צד א',
-    contractBody:parse(`<p></p>
+    contractBody: parse(`<p></p>
     <p><strong>תנאים מקדימים לשותפות</strong></p>
     <ol>
       <li>הצדדים מצהירים כי אין כל מניעה גלוייה ו/או נסתרת ו/או משפטית ו/או אחרת לקיים השותפות ביניהם.</li>
@@ -1263,7 +1394,7 @@ const previewContracts = [
     <p><strong> </strong></p>
     `),
     secondSigner: 'צד ב',
-    contractPreview:parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
+    contractPreview: parse(`<p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>צד א</strong>") <strong> מצד אחד;</strong></p>
     <p><strong>לבין: ________________ ת.ז. ___________________</strong></p>
@@ -1292,9 +1423,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם שיתוף במקרקעין.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/9',
 
     h1: 'הסכם שיתוף במקרקעין',
@@ -1307,7 +1454,7 @@ const previewContracts = [
     title: `הסכם שיתוף במקרקעין`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: 'צד א',
-    contractBody:parse(`<p><strong>תנאים מקדימים לשותפות</strong></p>
+    contractBody: parse(`<p><strong>תנאים מקדימים לשותפות</strong></p>
     <ol>
       <li>הצדדים מצהירים כי אין כל מניעה גלוייה ו/או נסתרת ו/או משפטית ו/או אחרת לקיים השותפות ביניהם.</li>
       <li>
@@ -1399,7 +1546,7 @@ const previewContracts = [
     </ol>
     `),
     secondSigner: 'צד ב',
-    contractPreview:parse(`<p>חלקה ________ בגוש ________</p>
+    contractPreview: parse(`<p>חלקה ________ בגוש ________</p>
     <p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>צד א</strong>") <strong> מצד אחד;</strong></p>
@@ -1422,9 +1569,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/10',
     h1: 'חוזה עבודה',
     h1Content: '',
@@ -1435,7 +1598,7 @@ const previewContracts = [
     disclaimer: '',
     title: `חוזה עבודה`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-    contractBody:parse(`<p><strong>תנאים מקדימים </strong></p>
+    contractBody: parse(`<p><strong>תנאים מקדימים </strong></p>
     <ol>
       <li>הצדדים מצהירים כי אין כל מניעה גלוייה ו/או נסתרת ו/או משפטית ו/או כלכלית ו/או אחרת לרבות ניגוד עניינים לחתימה על חוזה עבודה סטנדרטי זה.</li>
       <li>
@@ -1526,7 +1689,7 @@ const previewContracts = [
     `),
     firstSigner: 'המעסיק',
     secondSigner: 'העובד',
-    contractPreview:parse(`<p>שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________ <strong> </strong></p>
+    contractPreview: parse(`<p>שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________ <strong> </strong></p>
     <p><strong>בין: ________________ ת.ז. ___________________</strong></p>
     <p>כתובת _________________________________</p>
     <p>(להלן – "<strong>המעסיק ו/או החברה</strong>") <strong> מצד אחד;</strong></p>
@@ -1547,9 +1710,25 @@ const previewContracts = [
     </ol>`),
   },
   {
+        numOfPagesBasic: '0',
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
+    
+    numOfPagesCustom: '0',
+    wordFileCustom: false,
+    tailoredCustom: false,
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
+    priceCustom: '350',
     imgSrc: '../assets/img/contracts/יפוי כח מתמשך.jpg',
     buttonText: 'פתח עוד',
-    actionButtonText: 'רכוש כעת |  ₪',
+    actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/11',
     h1: 'יפוי כח מתמשך',
     h1Content: '',
@@ -1561,7 +1740,7 @@ const previewContracts = [
     title: `יפוי כח מתמשך`,
     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
     firstSigner: '',
-    contractBody:parse(`<p><strong>לצורך כניסה לאתר האינטרנט, לצפייה במסמך ולביצוע פעולות, תישלח סיסמה: </strong></p>
+    contractBody: parse(`<p><strong>לצורך כניסה לאתר האינטרנט, לצפייה במסמך ולביצוע פעולות, תישלח סיסמה: </strong></p>
     <p>לכתובת הדואר האלקטרוני הזו: _________________</p>
     <p>במסרון לטלפון נייד שמספרו: _________________</p>
     <p><strong>פרטי מיופה הכוח (יש להיחתם ע"י עורך דין ייפוי כוח מתמשך)</strong></p>
@@ -1697,7 +1876,7 @@ const previewContracts = [
     <p>נדרשת חתימתו של<strong> עורך דין ייפוי כוח מתמשך</strong></p>
     `),
     secondSigner: '',
-    contractPreview:parse(`<p>טופס א'</p>
+    contractPreview: parse(`<p>טופס א'</p>
     <p>(תקנה2 (א))</p>
     <p>יפוי כח מתמשך</p>
     <p>טופס זה מנוסח בלשון זכר אך מיועד לנשים וגברים כאחד</p>
@@ -1720,9 +1899,25 @@ const previewContracts = [
     <p>טלפון נייד (סימון סעיף זה מהווה הסכמה לקבלת מסרונים): _________________</p>`),
   },
   // {
+    //     numOfPagesBasic: '0',
+    // wordFileBasic: false,
+    // tailoredBasic: false,
+    // numOfFixesBasic: '1',
+    // makingTimeBasic: 'מיידי',
+    // levelOfProtectionBasic: '3',
+    // warrantyBasic: false,
+    // 
+    // numOfPagesCustom: '0',
+    // wordFileCustom: false,
+    // tailoredCustom: false,
+    // numOfFixesCustom: '1',
+    // makingTimeCustom: 'מיידי',
+    // levelOfProtectionCustom: '3',
+    // warrantyCustom: false,
+    // priceCustom: '350',
   //   imgSrc: '../assets/img/contracts/.jpg',
   //   buttonText: 'פתח עוד',
-  //   actionButtonText: 'רכוש כעת |  ₪',
+  //   actionButtonText: 'רכוש כעת | 252 ₪',
   //   href: 'contract/14',
   // h1:'',
   // h1Content:'',//
@@ -1736,14 +1931,30 @@ const previewContracts = [
   //   contractBody: ``,
   //   firstSigner: '',
   // secondSigner: '',
-  // contractPreview:parse(``),//   
+  // contractPreview:parse(``),//
   // },
 ];
 
 // {
+    //   numOfPagesBasic: '0',
+    // wordFileBasic: false,
+    // tailoredBasic: false,
+    // numOfFixesBasic: '1',
+    // makingTimeBasic: 'מיידי',
+    // levelOfProtectionBasic: '3',
+    // warrantyBasic: false,
+    // 
+    // numOfPagesCustom: '0',
+    // wordFileCustom: false,
+    // tailoredCustom: false,
+    // numOfFixesCustom: '1',
+    // makingTimeCustom: 'מיידי',
+    // levelOfProtectionCustom: '3',
+    // warrantyCustom: false,
+    // priceCustom: '350',
 //     imgSrc: '../assets/img/contracts/.jpg',
 //     buttonText: 'פתח עוד',
-//     actionButtonText: 'רכוש כעת |  ₪',
+//     actionButtonText: 'רכוש כעת | 252 ₪',
 //     href: '/contractpage',
 // h1:'',
 // h1Content:'',//
@@ -1757,6 +1968,6 @@ const previewContracts = [
 //     contractBody: ``,
 //     firstSigner: '',
 // secondSigner: '',
-// contractPreview:parse(``),//     
+// contractPreview:parse(``),//
 //   }
 export default previewContracts;

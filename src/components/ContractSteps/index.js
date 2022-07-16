@@ -38,7 +38,7 @@ const steps6 = [
 
 const Step = ({ step, text, header }) => {
   return (
-    <div className="text-right m-3 p-2">
+    <div className="text-right m-xxl-3 m-xl-3 m-lg-3 m-md-3 m-sm-0 m-0 p-2">
       <h2 className="m-0 p-0 f42 lightBlueText">{step}</h2>
       <h3 className="m-0 p-0 f30 greyText">{header}</h3>
       <span className="mt-2">{text}</span>

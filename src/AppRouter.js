@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LegalInfo from "./pages/LegalInfo";
-import Contracts from "./pages/Contracts";
-import ServicePage from "./pages/ServicePage";
-import ProductPage from "./pages/ProductPage";
-import ForCommunity from "./pages/ForCommunity";
-import Contact from "./pages/Contact";
-import ContractLawyer from "./pages/ContractLawyer";
-import Services from "./pages/Services";
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LegalInfo from './pages/LegalInfo';
+import Contracts from './pages/Contracts';
+import ServicePage from './pages/ServicePage';
+import ProductPage from './pages/ProductPage';
+import ForCommunity from './pages/ForCommunity';
+import Contact from './pages/Contact';
+import ContractLawyer from './pages/ContractLawyer';
+import Services from './pages/Services';
+import Terms from './pages/Terms';
 
 const AppRouter = () => {
   return (
@@ -22,6 +22,8 @@ const AppRouter = () => {
 
         <Route exact path="/community" element={<ForCommunity />} />
         <Route exact path="/contactus" element={<Contact />} />
+        <Route exact path="/terms" element={<Terms />} />
+
         <Route exact path="/" element={<ContractLawyer />} />
 
         {/* <Route exact path="/recovery-password" element={<RecoveryPassword/>}/> */}

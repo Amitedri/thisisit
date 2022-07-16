@@ -75,15 +75,18 @@ const Contracts = () => {
             מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט.{' '}
           </p>
           <hr className="w-90 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11" />
-          <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            באפשרותכם לרכוש במהירות:
-            <li className="w2" style={{ listStyleType: 'none' }}>
+          <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+          <span className="w3 text-center f22 greyText">
+          באפשרותכם לרכוש במהירות:
+
+            </span>
+            <li className="w2" style={{ listStyleType: 'decimal' }}>
               הסכם מקיף ומקצועי של ממשרדנו ישירות מהאתר במחיר שווה לכל נפש.
             </li>
-            <li className="w2" style={{ listStyleType: 'none' }}>
+            <li className="w2" style={{ listStyleType: 'decimal' }}>
               הסכם מקיף + 30 דקות התאמה אישית להסכם, תוך 48 שעות.
             </li>
-            <li className="w2" style={{ listStyleType: 'none' }}>
+            <li className="w2" style={{ listStyleType: 'decimal' }}>
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית תוך 7 ימי עסקים.
             </li>
           </ul>

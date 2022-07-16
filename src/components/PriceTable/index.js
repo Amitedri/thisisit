@@ -1,31 +1,63 @@
-const PriceTable = ({ iconType }) => {
+const Check = ({ value }) => {
+  if (!value) {
+    return <img src="../assets/icons/out.svg" height="23" width="23" />;
+  }
+  return <img src="../assets/icons/check.svg" height="23" width="23" />;
+};
+
+const Stars = ({ amount }) => {
+  let stars = [];
+  for (let i = 0; i < amount; i++) {
+    stars.push(<img src="../assets/icons/stargold.svg" height="15" width="15" />);
+  }
+  return stars;
+};
+const PriceTable = ({
+  iconType,
+  numOfPagesBasic,
+  wordFileBasic,
+  tailoredBasic,
+  numOfFixesBasic,
+  makingTimeBasic,
+  levelOfProtectionBasic,
+  warrantyBasic,
+  priceBasic,
+  numOfPagesCustom,
+  wordFileCustom,
+  tailoredCustom,
+  numOfFixesCustom,
+  makingTimeCustom,
+  levelOfProtectionCustom,
+  warrantyCustom,
+  priceCustom,
+}) => {
   return (
-    <div className="col-12 d-flex flex-column">
+    <div className="col-12 d-flex flex-column" id="tableDisplay">
       <table class="table bg-white">
         <thead>
           <tr>
             <th scope="col" className="col-2">
               חבילות
             </th>
-            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
+            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
               <h3 className="h-25 blueText d-flex flex-column">
                 בסיסי
                 <span className="f16 align-self-center blueText">תקציר הסכם בסיסי ללא עלות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
+            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
               <h3 className="h-25 blueText d-flex flex-column">
                 מקיף
                 <span className="f16 align-self-center blueText">רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
+            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
               <h3 className="h-25 blueText d-flex flex-column">
                 התאמה אישית
                 <span className="f16 align-self-center blueText">הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{maxHeight:"75px"}}>
+            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
               <h3 className="h-25 blueText d-flex flex-column">
                 פגישת ייעוץ
                 <span className="f16 align-self-center blueText">90 ד' פגישת ייעוץ להגנה מיטבית.</span>
@@ -38,7 +70,7 @@ const PriceTable = ({ iconType }) => {
             <th className="col-2 lightBlue border-white" scope="row">
               מס' עמודים
             </th>
-            <td>עד 3</td>
+            <td>עד {numOfPagesBasic}</td>
             <td>עד 7</td>
             <td>עד 3</td>
             <td>עד 3</td>
@@ -49,17 +81,17 @@ const PriceTable = ({ iconType }) => {
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <Check value={wordFileBasic} />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="20" width="20" />
+                <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>{' '}
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="20" width="20" />
+                <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
             <td>
@@ -74,22 +106,22 @@ const PriceTable = ({ iconType }) => {
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <Check value={tailoredBasic} />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>{' '}
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
           </tr>
@@ -98,23 +130,21 @@ const PriceTable = ({ iconType }) => {
               מס' תיקונים
             </th>
             <td>
+              <span className="fs-6 border-bottom col-12">{numOfFixesBasic}</span>
+            </td>
+            <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
-              </span>
-            </td>
-            <td>
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>{' '}
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
           </tr>
@@ -122,7 +152,7 @@ const PriceTable = ({ iconType }) => {
             <th scope="row" className="col-2 lightBlue border-white">
               זמן הכנה
             </th>
-            <td>מיידי</td>
+            <td>{makingTimeBasic}</td>
             <td>מיידי</td>
             <td>מיידי</td>
             <td>מיידי</td>
@@ -131,10 +161,21 @@ const PriceTable = ({ iconType }) => {
             <th scope="row" className="col-2 lightBlue border-white">
               רמת הגנה
             </th>
-            <td>XXX</td>
-            <td>XXX</td>
-            <td>XXX</td>
-            <td>XXX</td>
+            <td>
+              <Stars amount={levelOfProtectionBasic} />
+            </td>
+            <td>
+              {' '}
+              <Stars amount={"3"} />
+            </td>
+            <td>
+              {' '}
+              <Stars amount={"3"} />
+            </td>
+            <td>
+              {' '}
+              <Stars amount={"3"} />
+            </td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -142,22 +183,22 @@ const PriceTable = ({ iconType }) => {
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <Check value={warrantyBasic} />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="20" width="20" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
           </tr>
@@ -199,7 +240,7 @@ const PriceTable = ({ iconType }) => {
             <img src="../assets/icons/isracard.svg" height="60" width="60" />
           </div>
           <div className="col-auto p-1 ">
-            <img src="../assets/icons/visa5.png" height="60" width="60" />
+            <img src="../assets/img/visa.png" height="60" width="60" />
           </div>
         </div>
       ) : (

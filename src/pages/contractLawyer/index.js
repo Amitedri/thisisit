@@ -15,7 +15,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
       {/* text container */}
       <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center align-content-xxl-center align-content-xl-center align-content-lg-center justify-items-xxl-center justify-items-xl-center justify-items-lg-center mt-2">
         <h1 className="m-0 p-0 w5 f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center">{header}</h1>
-        <span className="m-0 p-0 fw-2  col-xl-12 col-xl-8 mt-2  text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center">{text}</span>
+        <span className="m-0 p-0 fw-2  col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-11 col-11 align-self-center mt-2  text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center">{text}</span>
         <div className=" d-flex justify-content-xxl-center justify-content-xl-center align-items-xxl-center align-items-xl-center align-items-center   align-self-center justify-content-sm-center mt-3 col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column ">
           <div className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
             <a href="#" style={{ all: 'unset' }}>
@@ -33,18 +33,18 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
           משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br /> שבו תוכלו לרכוש ישירות מהאתר:
         </h3>
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
-          <ul className="col-8 d-flex flex-column text-center justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
-            <li className="greyText f18" style={{ listStyleType: 'none' }}>
+          <ul className="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex flex-column text-center justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
+            <li className="f18" style={{ listStyleType: 'none' }}>
               חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.
             </li>
-            <li className="greyText f18" style={{ listStyleType: 'none' }}>
+            <li className="f18" style={{ listStyleType: 'none' }}>
               חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות.{' '}
             </li>
-            <li className="greyText f18" style={{ listStyleType: 'none' }}>
+            <li className="f18" style={{ listStyleType: 'none' }}>
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.
             </li>
           </ul>
-          <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center greyText">
+          <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
             תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן
           </p>
           <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
@@ -95,7 +95,7 @@ const ContractLawyer = () => {
       <SpecialTextComponent {...textComponentData} />
       {/* contract steps */}
       <div className="col-12 d-flex flex-column align-items-center cream mt-4">
-        <h1 className="f42 w3 p-3">כללים לניסוח חוזים</h1>
+        <h1 className="f42 w3 p-3 m-0">כללים לניסוח חוזים</h1>
       </div>
       <ContractSteps />
       <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />

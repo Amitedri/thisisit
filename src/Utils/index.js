@@ -1,5 +1,10 @@
-const onFilterChange = ({event,setTypeFilter}) => {
-    setTypeFilter(event.target.value);
-  };
-
-  export {onFilterChange}
+const onFilterChange = ({ event, setTypeFilter }) => {
+  setTypeFilter(event.target.value);
+};
+const scrollIntoView = (id) => {
+  let elem = document.getElementById(id);
+  console.log(elem)
+  elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  return;
+};
+export { onFilterChange ,scrollIntoView};

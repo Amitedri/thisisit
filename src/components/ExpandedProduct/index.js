@@ -9,7 +9,7 @@ const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc 
         <a href={href} className="btn blue text-white m-1 w-75">
           {buttonText}
         </a>
-        <a href="/checkout" className="btn yellowLight text-white m-1 w-75">
+        <a href="/checkout" className="btn yellowLight text-white f18  w-75">
           {actionButtonText}
         </a>
       </div>
