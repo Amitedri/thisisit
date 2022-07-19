@@ -62,9 +62,9 @@ const Services = () => {
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-11 col-11 m-auto d-flex flex-column align-items-center">
       {/* header */}
-      <div className="w-100 mt-2 d-flex flex-column align-items-center text-center mb-2">
+      <div className="col-12 mt-2 d-flex flex-column justify-content-center align-items-center text-center mb-2">
         <h1 className="f32 w5">שירותי המשרד</h1>
-        <ul className="col-xxl-7 d-flex flex-column justify-content-start text-center align-items-center">
+        <ul className="col-11 p-0 d-flex flex-column justify-content-start text-center align-items-center">
           <p className="f18 text-center m-1">
             משרד עו"ד אלעד כהן מתמחה במגוון רחב של תחומי המשפט המסחרי והאזרחי. המשרד דוגל בהענקת שירות מקצועי, יסודי, סבלני ובגובה העיניים ללקוחותיו. במסגרת
             שירותי המשרד אנו מעניקים ללקוחותינו שירות משפטי בתחומים הבאים:
