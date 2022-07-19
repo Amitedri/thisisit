@@ -4,7 +4,7 @@ import FAQ from '../../components/FAQ';
 import { general } from '../../Data/Questions';
 const serviceCategoryDrop = [
   {
-    title: 'הכל',
+    title: 'תחום משפטי',
   },
   {
     title: 'משפחה',
@@ -39,7 +39,7 @@ useEffect(() => {
         el.classList.add('d-none');
         console.log(el.dataset.cat);
       }
-      if (typeFilter === 'הכל') {
+      if (typeFilter === 'תחום משפטי') {
         el.classList.remove('d-none');
       }
     });

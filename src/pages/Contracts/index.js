@@ -5,19 +5,26 @@ import FullList from '../../components/FullList';
 import DropDown from '../../components/DropDown';
 import ExpandedProduct from '../../components/ExpandedProduct';
 import servicesList from '../../Data/Services';
-
 import previewContracts from '../../Data/ContractExport';
 import { useEffect, useState } from 'react';
+import LinksDrop from '../../components/LinksDrop';
+import { useParams } from 'react-router-dom';
+
 const Contracts = () => {
   const [typeFilter, setTypeFilter] = useState('');
+  const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...previewContracts]);
+
   const generalServices = previewContracts.filter((el) => el.categoryHeb === 'כללי');
   const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
   const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
   const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות');
+  let {cat} = useParams();
+  console.log(cat)
   const onFilterChange = (event) => {
     setTypeFilter(event.target.value);
   };
   useEffect(() => {
+
     if (typeFilter) {
       const all = document.querySelectorAll('[data-cat]');
       all.forEach((element) => element.classList.remove('d-none'));
@@ -94,44 +101,14 @@ const Contracts = () => {
             במידה ואינכם מוצאים הסכם בו אתם מעוניינים צרו קשר עם משרדנו ונשמח לשלוח לכם. משרדנו מציע גם שירותי ניהול משא ומתן וגישור מכל סוג עד לכריתת הסכם.{' '}
           </p>
         </div>
-
-        {/* <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center">
-          <div className="col-12 d-flex flex-row flex-wrap text-center justify-content-center">
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">עלות שווה לכל נפש</span>
-              <img className="mt-3" src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
-            </div>
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">התאמה אישית תוך 48 שעות</span>
-              <img className="mt-3" src="../assets/icons/man-mobile-chat.svg" height="25" width="25" />
-            </div>
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">קביעת פגישת און ליין</span>
-              <img className="mt-3" src="../assets/icons/reservation.svg" height="25" width="25" />
-            </div>
-          </div>
-          <div className="col-12 d-flex flex-row flex-wrap text-center justify-content-center">
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">שירות מקצועי ומהיר</span>
-              <img className="mt-3" src="../assets/icons/five-stars.svg" height="25" width="25" />
-            </div>
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">הסכם מלא ומקיף</span>
-              <img className="mt-3" src="../assets/icons/excellence-honor.svg" height="25" width="25" />
-            </div>
-            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center m-1 border-bottom shadow-sm border border-light">
-              <span style={{height:'50px'}} className="col-auto">ייעוץ ראשוני ללא עלות</span>
-              <img className="mt-3" src="../assets/icons/free-time.svg" height="25" width="25" />
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="col-12 d-flex flex-column justify-content-center align-items-center mt-2">
         <h3 className="f26 greyText">חפש הסכם</h3>
         <hr className="w-100 m-1" />
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center">
           <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={legalCategory} onChange={onFilterChange} />
-          <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
+          {/* <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} /> */}
+          <LinksDrop header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={filterServicesList} subdomain="contract"/>
         </div>
       </div>
       {/* documents */}

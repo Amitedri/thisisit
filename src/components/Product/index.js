@@ -4,7 +4,7 @@ export const Product = ({ title, description, buttonText, actionButtonText,href,
       <img src={imgSrc} className="card-img-top" />
       <div className="card-body col-12 d-flex flex-column align-items-center">
         <h5 className="card-title">{title}</h5>
-        <p className="card-text text-center f14">
+        <p className="card-text text-center f14 cardTxt">
         {description}</p>
         <a href={href} className="btn blue text-white m-1 w-75">
         {buttonText}

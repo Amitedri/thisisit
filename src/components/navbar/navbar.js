@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
 import Cart from '../Cart';
 const Navbar = () => {
+
+
   const [showCart,setShowCart] = useState(false)
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
@@ -121,16 +123,16 @@ const Navbar = () => {
             עורך דין חוזים
           </a>
           <div class="dropdown-menu  navDropMenu " aria-labelledby="contractLawyer">
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts">
               כללים לניסוח חוזה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts">
              הסכמים לדוגמא
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts">
               שאלות ותשובות
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts">
              שירותי המשרד
             </a>
           </div>
@@ -148,19 +150,19 @@ const Navbar = () => {
             הסכמים לדוגמא
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="exampleContracts">
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts" data-incat="מקרקעין">
               הסכמי מקרקעין
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts" data-incat="משפחה">
               הסכמי משפחה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts" data-incat="חברות">
               הסכמי חברות וסטארט-אפ
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts" data-incat="עבודה">
               הסכמי עבודה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/contracts" data-incat="כללי">
               הסכמים כלליים
             </a>
           </div>
@@ -178,17 +180,17 @@ const Navbar = () => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-          <a class="dropdown-item dropitop" href="#">
+          <a class="dropdown-item dropitop" href="/services" data-incat="חברות">
               דיני חברות
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/services" data-incat="משפחה">
               דיני משפחה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/services" data-incat="מקרקעין">
               דיני מקרקעין
             </a>
 
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/services" data-incat="כללי">
               שירותים כלליים
             </a>
           </div>
@@ -206,19 +208,19 @@ const Navbar = () => {
             מידע משפטי
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
-          <a class="dropdown-item dropitop" href="#">
+          <a class="dropdown-item dropitop" href="/legal" data-incat="חברות">
               דיני חברות
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/legal" data-incat="משפחה">
               דיני משפחה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/legal" data-incat="מקרקעין">
               דיני מקרקעין
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/legal" data-incat="עבודה">
               דיני עבודה
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/legal" data-incat="כללי">
               נושאים כלליים
             </a>
           </div>
@@ -236,10 +238,10 @@ const Navbar = () => {
             למען הקהילה
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="forCommunity">
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/community">
               קידום הגדרת ידועים בציבור
             </a>
-            <a class="dropdown-item dropitop" href="#">
+            <a class="dropdown-item dropitop" href="/community">
               עזרה בפנייה למוסדות רפואה במצב חרום
             </a>
 

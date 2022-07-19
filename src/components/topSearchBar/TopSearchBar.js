@@ -6,8 +6,8 @@ const TopSearchBar = () => {
   return (
     <div
       className="col-12 d-flex flex-row-reverse topSearchBar justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between
-     justify-content-sm-evenly
-     justify-content-evenly
+     justify-content-sm-between
+     justify-content-between
      green"
     >
       {/* contact img */}

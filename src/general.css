@@ -26,7 +26,9 @@ h1 {
 }
 .responsiveContainer {
   /* height: 50vh; */
-  min-height: 60vh;
+  /* min-height: 60vh; */
+  height: auto;
+
 }
 .letter1 {
   letter-spacing: 1px !important;
@@ -65,8 +67,15 @@ h1 {
   background-color: #4ba492 !important;
   color: white !important;
 }
+
 @media screen and (max-width: 1350px) {
   .responsiveContainer {
-    min-height: 0;
+    /* min-height: 0; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .responsiveContainer {
+    /* min-height: 0; */
   }
 }

@@ -15,7 +15,7 @@ import { compact, without } from 'lodash';
 const ServicePage = () => {
   const [pageContent, setPageContent] = useState([]);
   const [header, setHeader] = useState('');
-  const imgSrc = '../assets/img/service.png';
+  const [imgSrc,setImgSrc] = useState('../assets/img/service.png');
   const { id } = useParams();
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
   useEffect(() => {
@@ -24,7 +24,7 @@ const ServicePage = () => {
     servicesList.forEach((el) => {
       if (el.id == id) {
         setHeader(() => el.h1);
-        const { h1, h1Content, h2, h2Content, h3, h3Content, h4, h4Content, h5, h5Content, h6, h6Content } = el;
+        const { h1, h1Content, h2, h2Content, h3, h3Content, h4, h4Content, h5, h5Content, h6, h6Content,imgSrc } = el;
         const content = [
           [h1, h1Content],
           [h2, h2Content],
@@ -35,6 +35,7 @@ const ServicePage = () => {
         ];
         const cleanContent = compact(content);
         setPageContent(() => cleanContent);
+        setImgSrc(imgSrc)
       }
     });
   }, []);

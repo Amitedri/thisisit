@@ -8,20 +8,8 @@ import servicesList from '../../Data/Services';
 import { allProdcts, allServices } from '../../sampleData';
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
-const legalCategoryDrop = [
-  { title: 'הכל' },
-  {
-    title: 'משפחה',
-  },
+import LinksDrop from '../../components/LinksDrop';
 
-  { title: 'מקרקעין' },
-  {
-    title: 'חברות',
-  },
-  {
-    title: 'כללי',
-  },
-];
 const serviceCategoryDrop = [
   { title: 'הכל' },
   {
@@ -37,6 +25,8 @@ const serviceCategoryDrop = [
   },
 ];
 const Services = () => {
+  const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...servicesList]);
+
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
   const family = servicesList.filter((el) => el.categoryHeb === 'משפחה');
   const general = servicesList.filter((el) => el.categoryHeb === 'כללי');
@@ -61,7 +51,7 @@ const Services = () => {
           el.classList.add('d-none');
           console.log(el.dataset.cat);
         }
-        if (typeFilter === 'הכל') {
+        if (typeFilter === 'תחום משפטי') {
           el.classList.remove('d-none');
         }
       });
@@ -73,7 +63,7 @@ const Services = () => {
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-11 col-11 m-auto d-flex flex-column align-items-center">
       {/* header */}
       <div className="w-100 mt-2 d-flex flex-column align-items-center text-center mb-2">
-        <h1 className="f32 w5">כותרת</h1>
+        <h1 className="f32 w5">שירותי המשרד</h1>
         <ul className="col-xxl-7 d-flex flex-column justify-content-start text-center align-items-center">
           <p className="f18 text-center m-1">
             משרד עו"ד אלעד כהן מתמחה במגוון רחב של תחומי המשפט המסחרי והאזרחי. המשרד דוגל בהענקת שירות מקצועי, יסודי, סבלני ובגובה העיניים ללקוחותיו. במסגרת
@@ -93,7 +83,10 @@ const Services = () => {
           </li>
           <li style={{listStyle:"decimal"}} className="f18 text-center">
             <strong> עורך דין אזרחי </strong>- בשורותינו עורך דין בעל הסמכה מיוחדת לעריכת ייפוי כוח מתמשך, עריכת צוואה, הגשת בקשה לצו ירושה וצו קיום צוואה,
-            אימות חתימה, תביעות ספאם ומכתבי התראה לפני תביעה. גישור - המשרד מציע שירות גישור המאפשר קיום דו-שיח חופשי ונעים בין צדדי הליך הגישור לרבות: גישור
+            אימות חתימה, תביעות ספאם ומכתבי התראה לפני תביעה. 
+          </li>
+          <li style={{listStyle:"decimal"}} className="f18 text-center">
+            <strong> גישור </strong>- המשרד מציע שירות גישור המאפשר קיום דו-שיח חופשי ונעים בין צדדי הליך הגישור לרבות: גישור
             עסקי, גישור משפחתי, גישור בסכסוכי שכנים וגישור בסכסוכי ירושה. עורך דין מגשר אלעד כהן מתמחה ביצירת תקשורת טובה והקניית כלים לצדדי ההליך המאפשרים
             בחינת הסכסוך בראייה אובייקטיבית.
           </li>
@@ -101,7 +94,7 @@ const Services = () => {
         </ul>
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mt-2 d-flex flex-row">
           <DropDown header={'תחום משפטי'} key={'קasasasטגוריות'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
-          <DropDown header={'שירותים משפטיים'} key={'סוג asasasasהמסמך'} colorClass="lightBlue" values={legalCategoryDrop} onChange={onFilterChange} />
+          <LinksDrop header={'שירותים משפטיים'} key={'סוג asasasasהמסמך'} colorClass="lightBlue" values={filterServicesList}  subdomain="service" />
         </div>
       </div>
       {/* documents */}
