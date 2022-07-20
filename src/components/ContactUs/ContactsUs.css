@@ -6,22 +6,24 @@
   all: unset;
   direction: rtl;
   text-align: right;
-  /* margin-right: 15px; */
-  color:white;
+  padding-right: 5px;
+  margin-right: 15px;
 }
 .formInput::placeholder {
-  text-align: center;
+  text-align: start;
+  margin: 10px;
+  padding: 10px;
 }
 .messageInput {
   height: 190px;
   background-color: transparent;
   border: 1px solid grey;
   border-radius: 5px;
-  color:white;
   text-align: right;
+  text-align: start;
 }
 .messageInput:focus{
-  border: none;
+  /* border: none !important; */
 }
 .headerContainer{
   height: 15% !important;

@@ -41,6 +41,10 @@
     .card-img-top{
         height: 120px !important;
     }
+    .componentHeader{
+        padding-top: 10px;
+    }
+   
 
   }
 

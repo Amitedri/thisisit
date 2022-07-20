@@ -2,3 +2,19 @@
   background-color: #4ba492 !important ;
   color: white;
 }
+.contract{
+  border-bottom:1px solid #4ba492;
+}
+.service{
+  border-bottom:1px solid #043B40;
+}
+
+.contract:hover{
+  background-color: #4ba492 !important;
+  color: white !important;
+}
+
+.service:hover{
+  background-color: #043B40 !important;
+  color: white !important;
+}

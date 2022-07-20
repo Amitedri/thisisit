@@ -5,11 +5,8 @@
     background: transparent;
     direction: rtl;
     border: none;
-    color: white;
 }
-.customSearchBar::placeholder{
-    color: white !important;
-}
+
 
 .customSearchBar:focus{
     outline: none !important;

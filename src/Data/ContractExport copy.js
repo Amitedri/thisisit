@@ -3,14 +3,19 @@ import parse from 'html-react-parser';
 const previewContracts = [
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
+    numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם גירושין.jpg',
     buttonText: 'פתח עוד',
@@ -151,28 +156,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם הורות משותפת.jpg',
     buttonText: 'פתח עוד',
@@ -365,28 +378,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם מייסדים.jpg',
     buttonText: 'פתח עוד',
@@ -555,28 +576,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם מכר.jpg',
     buttonText: 'פתח עוד',
@@ -738,28 +767,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם ממון ידועים בציבור.jpg',
     buttonText: 'פתח עוד',
@@ -935,28 +972,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם סודיות.jpg',
     buttonText: 'פתח עוד',
@@ -1045,28 +1090,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה עם קבלן.jpg',
     buttonText: 'פתח עוד',
@@ -1270,28 +1323,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם שותפות.jpg',
     buttonText: 'פתח עוד',
@@ -1472,28 +1533,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם שיתוף במקרקעין.jpg',
     buttonText: 'פתח עוד',
@@ -1626,28 +1695,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה.jpg',
     buttonText: 'פתח עוד',
@@ -1775,28 +1852,36 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
+    wordFileBasic: false,
+    tailoredBasic: false,
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
+    levelOfProtectionBasic: '3',
+    warrantyBasic: false,
     priceBasic: '350',
     numOfPagesMekif: '0',
-
+    wordFileMekif: false,
+    tailoredMekif: false,
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
+    levelOfProtectionMekif: '3',
+    warrantyMekif: false,
     priceMekif: '350',
     numOfPagesCustom: '0',
-
+    wordFileCustom: false,
+    tailoredCustom: false,
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
+    levelOfProtectionCustom: '3',
+    warrantyCustom: false,
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
+    wordFileMeeting: false,
+    tailoredMeeting: false,
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
+    levelOfProtectionMeeting: '3',
+    warrantyMeeting: false,
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/יפוי כח מתמשך.jpg',
     buttonText: 'פתח עוד',
@@ -1972,12 +2057,12 @@ const previewContracts = [
   },
   // {
   //     numOfPagesBasic: '0',
-  //
-  //
+  // wordFileBasic: false,
+  // tailoredBasic: false,
   // numOfFixesBasic: '1',
   // makingTimeBasic: 'מיידי',
-  //
-  //
+  // levelOfProtectionBasic: '3',
+  // warrantyBasic: false,
   //
   // numOfPagesCustom: '0',
   // wordFileCustom: false,
@@ -2009,12 +2094,12 @@ const previewContracts = [
 
 // {
 //   numOfPagesBasic: '0',
-//
-//
+// wordFileBasic: false,
+// tailoredBasic: false,
 // numOfFixesBasic: '1',
 // makingTimeBasic: 'מיידי',
-//
-//
+// levelOfProtectionBasic: '3',
+// warrantyBasic: false,
 //
 // numOfPagesCustom: '0',
 // wordFileCustom: false,

@@ -14,22 +14,22 @@ const Stars = ({ amount }) => {
 };
 const PriceTable = ({
   iconType,
-  numOfPagesBasic,
-  wordFileBasic,
-  tailoredBasic,
-  numOfFixesBasic,
-  makingTimeBasic,
-  levelOfProtectionBasic,
-  warrantyBasic,
   priceBasic,
-  numOfPagesCustom,
-  wordFileCustom,
-  tailoredCustom,
-  numOfFixesCustom,
-  makingTimeCustom,
-  levelOfProtectionCustom,
-  warrantyCustom,
+  makingTimeBasic,
+  numOfPagesBasic,
+  numOfFixesBasic,
+  priceMekif,
+  makingTimeMekif,
+  numOfPagesMekif,
+  numOfFixesMekif,
   priceCustom,
+  makingTimeCustom,
+  numOfPagesCustom,
+  numOfFixesCustom,
+  priceMeeting,
+  makingTimeMeeting,
+  numOfPagesMeeting,
+  numOfFixesMeeting,
 }) => {
   return (
     <div className="col-12 d-flex flex-column" id="tableDisplay">
@@ -71,9 +71,10 @@ const PriceTable = ({
               מס' עמודים
             </th>
             <td>עד {numOfPagesBasic}</td>
-            <td>עד 7</td>
-            <td>עד 3</td>
-            <td>עד 3</td>
+            <td>עד {numOfPagesMekif}</td>
+            <td>עד {numOfPagesCustom}</td>
+            <td>עד {numOfPagesMeeting}</td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -81,7 +82,7 @@ const PriceTable = ({
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <Check value={wordFileBasic} />
+              <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
             <td>
@@ -106,7 +107,7 @@ const PriceTable = ({
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <Check value={tailoredBasic} />
+                <Check value={true} />
               </span>
             </td>
             <td>
@@ -162,7 +163,7 @@ const PriceTable = ({
               רמת הגנה
             </th>
             <td>
-              <Stars amount={levelOfProtectionBasic} />
+              <Stars amount={"3"} />
             </td>
             <td>
               {' '}
@@ -183,7 +184,8 @@ const PriceTable = ({
             </th>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <Check value={warrantyBasic} />
+              <img src="../assets/icons/out.svg" height="23" width="23" />
+
               </span>
             </td>
             <td>

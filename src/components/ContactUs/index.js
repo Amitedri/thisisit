@@ -33,7 +33,7 @@ const ContactsUs = () => {
           {/* message container */}
           <div className="col-10 align-self-center d-flex flex-column">
             <span className="align-self-center f20 border-bottom mb-2">הודעה</span>
-            <input type="text" className="messageInput col-auto" />
+            <textarea type="text" className="messageInput col-auto" />
             <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18">
               צור קשר עכשיו
             </button>

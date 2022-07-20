@@ -89,13 +89,22 @@ const StandUp = ({ doc }) => {
       <div className="col-12 p-0 d-flex flex-column align-items-center rounded text-center">
         <PriceTable
           iconType="payment"
-          levelOfProtectionBasic={doc.levelOfProtectionBasic}
+          priceBasic={"0"}
           makingTimeBasic={doc.makingTimeBasic}
           numOfPagesBasic={doc.numOfPagesBasic}
-          warrantyBasic={doc.warrantyBasic}
-          wordFileBasic={doc.wordFileBasic}
           numOfFixesBasic={doc.numOfFixesBasic}
-          tailoredBasic={doc.tailoredBasic}
+          priceMekif={"0"}
+          makingTimeMekif={doc.makingTimeMekif}
+          numOfPagesMekif={doc.numOfPagesMekif}
+          numOfFixesMekif={doc.numOfFixesMekif}
+          priceCustom={"0"}
+          makingTimeCustom={doc.makingTimeBasic}
+          numOfPagesCustom={doc.numOfPagesBasic}
+          numOfFixesCustom={doc.numOfFixesBasic}
+          priceMeeting={"0"}
+          makingTimeMeeting={doc.makingTimeBasic}
+          numOfPagesMeeting={doc.numOfPagesBasic}
+          numOfFixesMeeting={doc.numOfFixesBasic}
         />
       </div>
     </div>

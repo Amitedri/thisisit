@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import LinksDrop from '../../components/LinksDrop';
 
 const serviceCategoryDrop = [
-  { title: 'הכל' },
+  { title: 'תחום משפטי' },
   {
     title: 'משפחה',
   },
@@ -39,7 +39,16 @@ const Services = () => {
     setTypeFilter(event.target.value);
   };
 
-  
+  useEffect(()=>{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const cat = urlParams.get('cat')
+    console.log(cat);
+    if(cat){
+      setTypeFilter(cat)
+    }
+  },[])
+
   useEffect(() => {
     if (typeFilter) {
       const all = document.querySelectorAll('[data-cat]');
@@ -60,7 +69,7 @@ const Services = () => {
 
 
   return (
-    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-11 col-11 m-auto d-flex flex-column align-items-center">
+    <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
       {/* header */}
       <div className="col-12 mt-2 d-flex flex-column justify-content-center align-items-center text-center mb-2">
         <h1 className="f32 w5">שירותי המשרד</h1>
@@ -92,6 +101,8 @@ const Services = () => {
           </li>
           <span className="fw-bold p-1"> לייעוץ ראשוני אנא צרו קשר עם המשרד או שלחו הודעה ונחזור אליכם בהקדם.</span>
         </ul>
+        <h3 className="f26 greyText">חפש שירות</h3>
+      <hr className="w-90 m-1" />
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mt-2 d-flex flex-row">
           <DropDown header={'תחום משפטי'} key={'קasasasטגוריות'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} />
           <LinksDrop header={'שירותים משפטיים'} key={'סוג asasasasהמסמך'} colorClass="lightBlue" values={filterServicesList}  subdomain="service" />

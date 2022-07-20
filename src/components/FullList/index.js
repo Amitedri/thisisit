@@ -38,9 +38,9 @@ const ProductSlider = ({ componentHeader, dataToRender,className}) => {
 
   console.log("dataToRender",dataToRender)
   return (
-    <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded mt-5 ${className}`}>
+    <div className={`w-100 d-flex flex-column align-items-center responsiveContainer cream rounded ${className}`}>
 
-      <div className="d-flex flex-column align-items-center mb-2" style={{ width: "90%" }}>
+      <div className="d-flex flex-column align-items-center mb-2" style={{ width: "90%",}}>
         <h1 className="mt-0 align-self-center componentHeader">{componentHeader}</h1>
 
         <hr className="w-50 m-auto bg-dark" style={{opacity:"0.1"}}/>
@@ -52,10 +52,10 @@ const ProductSlider = ({ componentHeader, dataToRender,className}) => {
           pagination={false}
           disableArrowsOnEnd={false}
           isRTL="true"
-          itemPadding={[10]}
+          itemPadding={[5]}
         >
           {productsList.map((el, idx) => {
-            const description = el.h1Content.slice(0,100);
+            const description = el.h1Content.slice(0,80);
             return <Product description={description} title={el.h1} actionButtonText={el.actionButtonText} buttonText={el.buttonText} key={idx} href={el.href} imgSrc={el.imgSrc} />;
           })}
         </Carousel>

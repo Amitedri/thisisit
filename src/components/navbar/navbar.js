@@ -63,10 +63,11 @@ const Navbar = () => {
       <img src="../assets/icons/burgerMenu.svg" onClick={showMobileMenu} className="align-self-center bbbmenu align-self-end pointer" height="35" width="35" />
       <div className="col-sm-6 col-10 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer">
         <h3 className="f22 align-self-center mt-2 greyText shadow-sm">ELAD COHEN & CO</h3>
-        <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex  d-flex align-self-center position-relative py-2">
+        {/* <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex  d-flex align-self-center position-relative py-2">
           <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
           <input className="form-control p-3" type="text" placeholder="חפש.." />
-        </div>
+        </div> */}
+        <Search classlist={"col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex border rounded text-dark d-flex align-self-center position-relative py-2"} key="jkahnnsjajksnsjklansjklas"/>
         <ul className="">
           <li className="mobileitem col-12 border-bottom p-2 text-center">
             {' '}
@@ -123,16 +124,16 @@ const Navbar = () => {
             עורך דין חוזים
           </a>
           <div class="dropdown-menu  navDropMenu " aria-labelledby="contractLawyer">
-            <a class="dropdown-item dropitop" href="/contracts">
+            <a class="dropdown-item dropitop" href="/">
               כללים לניסוח חוזה
             </a>
-            <a class="dropdown-item dropitop" href="/contracts">
+            <a class="dropdown-item dropitop" href="/">
              הסכמים לדוגמא
             </a>
-            <a class="dropdown-item dropitop" href="/contracts">
+            <a class="dropdown-item dropitop" href="/">
               שאלות ותשובות
             </a>
-            <a class="dropdown-item dropitop" href="/contracts">
+            <a class="dropdown-item dropitop" href="/">
              שירותי המשרד
             </a>
           </div>
@@ -150,19 +151,19 @@ const Navbar = () => {
             הסכמים לדוגמא
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="exampleContracts">
-            <a class="dropdown-item dropitop" href="/contracts" data-incat="מקרקעין">
+            <a class="dropdown-item dropitop" href="/contracts?cat=מקרקעין" data-incat="מקרקעין">
               הסכמי מקרקעין
             </a>
-            <a class="dropdown-item dropitop" href="/contracts" data-incat="משפחה">
+            <a class="dropdown-item dropitop" href="/contracts?cat=משפחה" data-incat="משפחה">
               הסכמי משפחה
             </a>
-            <a class="dropdown-item dropitop" href="/contracts" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/contracts?cat=חברות" data-incat="חברות">
               הסכמי חברות וסטארט-אפ
             </a>
-            <a class="dropdown-item dropitop" href="/contracts" data-incat="עבודה">
+            <a class="dropdown-item dropitop" href="/contracts?cat=עבודה" data-incat="עבודה">
               הסכמי עבודה
             </a>
-            <a class="dropdown-item dropitop" href="/contracts" data-incat="כללי">
+            <a class="dropdown-item dropitop" href="/contracts?cat=כללי" data-incat="כללי">
               הסכמים כלליים
             </a>
           </div>
@@ -180,17 +181,17 @@ const Navbar = () => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-          <a class="dropdown-item dropitop" href="/services" data-incat="חברות">
+          <a class="dropdown-item dropitop" href="/services?cat=חברות" data-incat="חברות">
               דיני חברות
             </a>
-            <a class="dropdown-item dropitop" href="/services" data-incat="משפחה">
+            <a class="dropdown-item dropitop" href="/services?cat=משפחה" data-incat="משפחה">
               דיני משפחה
             </a>
-            <a class="dropdown-item dropitop" href="/services" data-incat="מקרקעין">
+            <a class="dropdown-item dropitop" href="/services?cat=מקרקעין" data-incat="מקרקעין">
               דיני מקרקעין
             </a>
 
-            <a class="dropdown-item dropitop" href="/services" data-incat="כללי">
+            <a class="dropdown-item dropitop" href="/services?cat=כללי" data-incat="כללי">
               שירותים כלליים
             </a>
           </div>
@@ -208,19 +209,19 @@ const Navbar = () => {
             מידע משפטי
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
-          <a class="dropdown-item dropitop" href="/legal" data-incat="חברות">
+          <a class="dropdown-item dropitop" href="/legal?cat=חברות" data-incat="חברות">
               דיני חברות
             </a>
-            <a class="dropdown-item dropitop" href="/legal" data-incat="משפחה">
+            <a class="dropdown-item dropitop" href="/legal?cat=משפחה" data-incat="משפחה">
               דיני משפחה
             </a>
-            <a class="dropdown-item dropitop" href="/legal" data-incat="מקרקעין">
+            <a class="dropdown-item dropitop" href="/legal?cat=מקרקעין" data-incat="מקרקעין">
               דיני מקרקעין
             </a>
-            <a class="dropdown-item dropitop" href="/legal" data-incat="עבודה">
+            <a class="dropdown-item dropitop" href="/legal?cat=עבודה" data-incat="עבודה">
               דיני עבודה
             </a>
-            <a class="dropdown-item dropitop" href="/legal" data-incat="כללי">
+            <a class="dropdown-item dropitop" href="/legal?cat=כללי" data-incat="כללי">
               נושאים כלליים
             </a>
           </div>

@@ -35,11 +35,11 @@ const ProductSlider = ({ componentHeader, dataToRender,className }) => {
           pagination={false}
           disableArrowsOnEnd={false}
           isRTL="true"
-          itemPadding={[35]}
+          itemPadding={[10]}
           
         >
           {productsList.map((el, idx) => {
-            const description = el.h1Content.slice(0,100);
+            const description = el.h1Content.slice(0,80);
 
             return <Product description={description} title={el.h1} key={idx} buttonText={el.buttonText} actionButtonText={el.actionButtonText} href={el.href} imgSrc={el.imgSrc}/>;
           })}

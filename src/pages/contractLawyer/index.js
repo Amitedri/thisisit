@@ -33,40 +33,40 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
           משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br /> שבו תוכלו לרכוש ישירות מהאתר:
         </h3>
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
-          <ul className="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex flex-column text-center justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
-            <li className="f18" style={{ listStyleType: 'none' }}>
+          <ul className="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex flex-column text-end justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
+            <li className="f18" style={{ listStyleType: 'decimal' }}>
               חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.
             </li>
-            <li className="f18" style={{ listStyleType: 'none' }}>
+            <li className="f18" style={{ listStyleType: 'decimal' }}>
               חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות.{' '}
             </li>
-            <li className="f18" style={{ listStyleType: 'none' }}>
+            <li className="f18" style={{ listStyleType: 'decimal' }}>
               פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.
             </li>
           </ul>
           <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
-            תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן
+            תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן.
           </p>
           <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
             <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
-              <a href="#" style={{ all: 'unset' }}>
+              <a href="/contracts?cat=מקרקעין" style={{ all: 'unset' }}>
                 חוזים מקרקעין
               </a>
             </div>
             <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
-              <a href="#" style={{ all: 'unset' }}>
+              <a href="/contracts?cat=חברות" style={{ all: 'unset' }}>
                 חוזים חברות
               </a>
             </div>
           </div>
           <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
             <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
-              <a href="#" style={{ all: 'unset' }}>
+              <a href="/contracts?cat=משפחה" style={{ all: 'unset' }}>
                 חוזים משפחה
               </a>
             </div>
             <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
-              <a href="#" style={{ all: 'unset' }}>
+              <a href="/contracts?cat=כללי" style={{ all: 'unset' }}>
                 חוזים כללי
               </a>
             </div>

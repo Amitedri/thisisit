@@ -13,7 +13,6 @@ import { useParams } from 'react-router-dom';
 const Contracts = () => {
   const [typeFilter, setTypeFilter] = useState('');
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...previewContracts]);
-
   const generalServices = previewContracts.filter((el) => el.categoryHeb === 'כללי');
   const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
   const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
@@ -23,6 +22,16 @@ const Contracts = () => {
   const onFilterChange = (event) => {
     setTypeFilter(event.target.value);
   };
+
+  useEffect(()=>{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const cat = urlParams.get('cat')
+    console.log(cat);
+    if(cat){
+      setTypeFilter(cat)
+    }
+  },[])
   useEffect(() => {
 
     if (typeFilter) {
@@ -81,7 +90,7 @@ const Contracts = () => {
           <p className="f18 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-center">
             מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט.{' '}
           </p>
-          <hr className="w-90 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11" />
+          {/* <hr className="w-90 m-1" /> */}
           <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
           <span className="w3 text-center f22 greyText">
           באפשרותכם לרכוש במהירות:
@@ -104,7 +113,8 @@ const Contracts = () => {
       </div>
       <div className="col-12 d-flex flex-column justify-content-center align-items-center mt-2">
         <h3 className="f26 greyText">חפש הסכם</h3>
-        <hr className="w-100 m-1" />
+        <hr className="w-90 m-1" />
+
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center">
           <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={legalCategory} onChange={onFilterChange} />
           {/* <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} /> */}
