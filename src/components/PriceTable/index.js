@@ -34,33 +34,35 @@ const PriceTable = ({
   return (
     <div className="col-12 d-flex flex-column" id="tableDisplay">
       <table class="table bg-white">
-        <thead>
+
+        <thead style={{ height: '50px' }} >
           <tr>
-            <th scope="col" className="col-2">
-              חבילות
+            <th scope="col" className="col" >
+            <h3 className="f22 align-self-center basic blueText w-50 m-auto" style={{height:"50px"}}>חבילות</h3>
+
             </th>
-            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
-              <h3 className="h-25 blueText d-flex flex-column">
+            <th scope="col" className="col-2 basic" >
+              <h3 className="f22 blueText d-flex flex-column">
                 בסיסי
-                <span className="f16 align-self-center blueText">תקציר הסכם בסיסי ללא עלות.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>תקציר הסכם בסיסי ללא עלות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
-              <h3 className="h-25 blueText d-flex flex-column">
+            <th scope="col" className="col-2" >
+              <h3 className="f22 blueText d-flex flex-column">
                 מקיף
-                <span className="f16 align-self-center blueText">רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
-              <h3 className="h-25 blueText d-flex flex-column">
+            <th scope="col" className="col-2" >
+              <h3 className="f22 blueText d-flex flex-column">
                 התאמה אישית
-                <span className="f16 align-self-center blueText">הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
               </h3>
             </th>
-            <th scope="col" className="col-2" style={{ maxHeight: '75px' }}>
-              <h3 className="h-25 blueText d-flex flex-column">
+            <th scope="col" className="col-2" >
+              <h3 className="f22 blueText d-flex flex-column">
                 פגישת ייעוץ
-                <span className="f16 align-self-center blueText">90 ד' פגישת ייעוץ להגנה מיטבית.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>90 ד' פגישת ייעוץ להגנה מיטבית.</span>
               </h3>
             </th>
           </tr>
@@ -70,7 +72,7 @@ const PriceTable = ({
             <th className="col-2 lightBlue border-white" scope="row">
               מס' עמודים
             </th>
-            <td>עד {numOfPagesBasic}</td>
+            <td className="basic">עד {numOfPagesBasic}</td>
             <td>עד {numOfPagesMekif}</td>
             <td>עד {numOfPagesCustom}</td>
             <td>עד {numOfPagesMeeting}</td>
@@ -80,7 +82,7 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               קובץ WORD
             </th>
-            <td>
+            <td className="basic">
               <span className="fs-6 border-bottom col-12">
               <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
@@ -105,7 +107,7 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               התאמה אישית
             </th>
-            <td>
+            <td className="basic">
               <span className="fs-6 border-bottom col-12">
                 <Check value={true} />
               </span>
@@ -130,7 +132,7 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               מס' תיקונים
             </th>
-            <td>
+            <td className="basic">
               <span className="fs-6 border-bottom col-12">{numOfFixesBasic}</span>
             </td>
             <td>
@@ -153,7 +155,7 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               זמן הכנה
             </th>
-            <td>{makingTimeBasic}</td>
+            <td className="basic">{makingTimeBasic}</td>
             <td>מיידי</td>
             <td>מיידי</td>
             <td>מיידי</td>
@@ -162,7 +164,7 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               רמת הגנה
             </th>
-            <td>
+            <td className="basic">
               <Stars amount={"3"} />
             </td>
             <td>
@@ -181,8 +183,8 @@ const PriceTable = ({
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
               אחריות משפטית
-            </th>
-            <td>
+            </th >
+            <td className="basic">
               <span className="fs-6 border-bottom col-12">
               <img src="../assets/icons/out.svg" height="23" width="23" />
 
@@ -208,19 +210,19 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               מחיר
             </th>
-            <td>ללא עלות</td>
+            <td className="basic">ללא עלות</td>
             <td>220 ש"ח</td>
             <td>720 ש"ח</td>
             <td>1420 ש"ח</td>
           </tr>
           <tr className="border-top-0 border-white">
-            <th scope="row" className="col-2 lightBlue border-white">
-              {' '}
+            <th scope="row" className="col-2">
+             
             </th>
-            <td className="tableBtn w3">הצג</td>
-            <td className="tableBtn w3">רכישה</td>
-            <td className="tableBtn w3">רכישה</td>
-            <td className="tableBtn w3">קבע פגישה</td>
+            <td className="w3 basic"><div className="btn p-1 border w-75 border-white tableBtn">הצג</div></td>
+            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">רכישה</div></td>
+            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">רכישה</div></td>
+            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">קבע פגישה</div></td>
           </tr>
         </tbody>
       </table>

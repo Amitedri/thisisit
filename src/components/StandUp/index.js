@@ -20,21 +20,7 @@ const buttons = [
     withBorder: false,
   },
 ];
-// const PurchaseBox = ({ header, text, buttonText, withBorder }) => {
-//   return (
-//     <div className={`col-6 p-0 d-flex flex-column align-items-center rounded text-center mt-3 ${withBorder ? 'standupBorder' : 'emptyLol'}`}>
-//       {/* header */}
-//       <h1 className="f30 w3 col-6">{header}</h1>
-//       <hr className="w-25 p-0 m-0 mb-3" />
-//       <p className="f16 w2 col-8 p-3">{text}</p>
-//       <div className="d-grid col-5">
-//         <a class="btn btn-lg yellow letter2 w3 blueText" type="button">
-//           {buttonText}
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
+
 
 const StandUp = ({ doc }) => {
   const sentences = [
@@ -105,6 +91,7 @@ const StandUp = ({ doc }) => {
           makingTimeMeeting={doc.makingTimeBasic}
           numOfPagesMeeting={doc.numOfPagesBasic}
           numOfFixesMeeting={doc.numOfFixesBasic}
+          
         />
       </div>
     </div>

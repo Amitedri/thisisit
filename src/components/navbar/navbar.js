@@ -62,7 +62,9 @@ const Navbar = () => {
       {/* Menu icon */}
       <img src="../assets/icons/burgerMenu.svg" onClick={showMobileMenu} className="align-self-center bbbmenu align-self-end pointer" height="35" width="35" />
       <div className="col-sm-6 col-10 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer">
-        <h3 className="f22 align-self-center mt-2 greyText shadow-sm">ELAD COHEN & CO</h3>
+        <h3 className="f22 align-self-center mt-2 greyText">.ELAD COHEN & CO</h3>
+        <h3 className="f22 align-self-center greyText">DIGITAL LAW OFFICE</h3>
+
         {/* <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex  d-flex align-self-center position-relative py-2">
           <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
           <input className="form-control p-3" type="text" placeholder="חפש.." />

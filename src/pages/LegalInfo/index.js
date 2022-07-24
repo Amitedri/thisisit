@@ -10,7 +10,7 @@ const serviceCategoryDrop = [
     title: 'משפחה',
   },
   {
-    title: 'ממון',
+    title: 'עבודה',
   },
   {
     title: 'חברות',
@@ -24,6 +24,8 @@ const LegalInfo = () => {
   const [typeFilter, setTypeFilter] = useState('');
 
 const onFilterChange = (event) => {
+  // let splitted = event.target.value.split(" ")[1]
+  console.log(event.target.value)
   setTypeFilter(event.target.value);
 };
 useEffect(()=>{
@@ -62,15 +64,15 @@ useEffect(() => {
       <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center mt-2">
         <DropDown header={'תחום משפטי'} key={'קטגוריותsdfsdfקטגוריות'} colorClass="lightBlueStrong" values={serviceCategoryDrop} onChange={onFilterChange} />
       </div>
-      <FAQ header={'משפחה'} questions={general} />
+      <FAQ header={'דיני משפחה'} questions={general} cat={"משפחה"} />
       
-      <FAQ header={'ממון'} questions={general} />
+      <FAQ header={'דיני עבודה'} questions={general} cat={"עבודה"} />
       
-      <FAQ header={'מקרקעין'} questions={general} />
+      <FAQ header={'דיני מקרקעין'} questions={general} cat={"מקרקעין"} />
       
-      <FAQ header={'חברות'} questions={general} />
+      <FAQ header={'דיני חברות'} questions={general} cat={"חברות"} />
       
-      <FAQ header={'כללי'} questions={general} />
+      <FAQ header={'כללי'} questions={general} cat={"משפחה"} />
       
     </div>
   );

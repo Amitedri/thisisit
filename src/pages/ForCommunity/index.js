@@ -24,7 +24,7 @@ const ForCommunity = () => {
       <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor="#fdfdf1"/>
       
       <ContactsUs key={"sdnjnnnnn"} />
-      <ProductSlider componentHeader={"שירותים לדוגמא"} dataToRender={general} key="sdsdhasdasdhhh" className="pt-4"/>
+      <ProductSlider componentHeader={"שירותי המשרד"} dataToRender={general} key="sdsdhasdasdhhh" className="pt-4"/>
       <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={general} key="sdsdsadhhhh" className="pt-4"/>
     </div>
   );

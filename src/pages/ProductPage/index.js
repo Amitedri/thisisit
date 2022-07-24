@@ -10,6 +10,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import previewContracts from '../../Data/ContractExport';
 import { scrollIntoView } from '../../Utils';
+
+
 const ProductPage = () => {
   const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const { id } = useParams();
@@ -43,6 +45,21 @@ const ProductPage = () => {
     setImgSrc(imgSrc);
     setDocWhole(doc[0]);
   }, []);
+const showBasicContract = (event) => {
+  event.preventDefault();
+  let contBtn = document.getElementById("contBtn");
+
+  if (!isAgreedConsent) {
+    window.$("#termsModal").modal("toggle")
+    // flexCheckDefault.parentElement.classList.add("border","border-danger","p-1","rounded")
+    return;
+  }
+  contBtn.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+
+  // flexCheckDefault.parentElement.classList.remove("border","border-danger","p-1","rounded")
+
+  window.$('#contractLoader').collapse('toggle');
+};
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
@@ -66,31 +83,8 @@ const ProductPage = () => {
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32 w5">{title}</h1>
             <h2 className="f18 text-muted">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
-            <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-10 col-sm-10 col-10 align-self-center d-flex flex-row align-items-center mb-1">
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span style={{ height: '50px' }} className="col-8 f16">
-                  שירות מקצועי ומהיר
-                </span>
-                <img src="../assets/icons/five-stars.svg" height="25" width="25" />
-              </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span style={{ height: '50px' }} className="col-8 f16">
-                  הסכם מלא ומקיף
-                </span>
-                <img src="../assets/icons/excellence-honor.svg" height="25" width="25" />
-              </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span style={{ height: '50px' }} className="col-8 f16">
-                  ייעוץ ראשוני ללא עלות
-                </span>
-                <img src="../assets/icons/free-time.svg" height="25" width="25" />
-              </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-flex flex-column justify-content-center align-items-center border-bottom shadow-sm border border-light">
-                <span style={{ height: '50px' }} className="col-8 f16">
-                  עלות שווה לכל נפש
-                </span>
-                <img src="../assets/icons/like-heart-round-line.svg" height="25" width="25" />
-              </div>
+            <div className="col-6 d-flex flex-column mt-2 shadow-sm">
+              <div className="btn btn-sm w-3 lightBlue text-white hoverYellow" onClick={showBasicContract}>צפייה בחוזה בסיסי</div>
             </div>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div className="btn btn-sm w-3 yellow text-white hoverGreener">רכוש הסכם מקיף 290 ש"ח</div>
@@ -107,7 +101,9 @@ const ProductPage = () => {
               <a
                 class="form-check-label"
                 href="javascript:void(0)"
-                onClick={() => window.open(window.location.origin + "/terms", 'תנאי שימוש', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes')}
+                onClick={() =>
+                  window.open(window.location.origin + '/terms', 'תנאי שימוש', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes')
+                }
                 for="flexCheckDefault"
               >
                 תנאי שימוש

@@ -3,14 +3,10 @@ import parse from 'html-react-parser';
 const previewContracts = [
   {
     numOfPagesBasic: '0',
-
     makingTimeBasic: 'מיידי',
-
     numOfPagesCustom: '0',
-
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
     priceCustom: '350',
     imgSrc: '../assets/img/contracts/הסכם גירושין.jpg',
     buttonText: 'פתח עוד',
@@ -150,28 +146,8 @@ const previewContracts = [
   </ol>`),
   },
   {
-    numOfPagesBasic: '0',
 
-    numOfFixesBasic: '1',
-    makingTimeBasic: 'מיידי',
-
-    priceBasic: '350',
-    numOfPagesMekif: '0',
-
-    numOfFixesMekif: '1',
-    makingTimeMekif: 'מיידי',
-
-    priceMekif: '350',
-    numOfPagesCustom: '0',
-
-    numOfFixesCustom: '1',
-    makingTimeCustom: 'מיידי',
-
-    priceCustom: '350',
-    numOfPagesMeeting: '0',
-
-    numOfFixesMeeting: '1',
-    makingTimeMeeting: 'מיידי',
+    
 
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם הורות משותפת.jpg',

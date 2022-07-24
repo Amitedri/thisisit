@@ -1,6 +1,5 @@
 .contactColumn{
     min-height: 25vh;
-    
     position: fixed !important;
     z-index: 999 !important;
     float: left;
@@ -16,3 +15,10 @@
     transform: scale(1.1);
 }
 
+@media screen and (max-width:600px) {
+    .contactColumn {
+        top: 72vh !important;
+        left: 3%;
+
+    }
+  }

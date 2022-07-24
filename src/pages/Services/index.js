@@ -78,23 +78,23 @@ const Services = () => {
             משרד עו"ד אלעד כהן מתמחה במגוון רחב של תחומי המשפט המסחרי והאזרחי. המשרד דוגל בהענקת שירות מקצועי, יסודי, סבלני ובגובה העיניים ללקוחותיו. במסגרת
             שירותי המשרד אנו מעניקים ללקוחותינו שירות משפטי בתחומים הבאים:
           </p>
-          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-center">
+          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-end">
             <strong>הסכמים וחוזים</strong>- המשרד בעל התמחות מיוחדת בעריכת כל סוגי ההסכמים מכל תחומי המשפט ובניהול משא ומתן עד לכריתת הסכם. כמו כן, אנו מציעים
             ללקוחותינו חוות דעת נוספת על הסכם עליו הם עתידים לחתום.
           </li>
-          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-center">
+          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-end">
             <strong> עורך דין מסחרי </strong>- ליווי עסקים וחברות משלב ההקמתם כגון: פתיחת ורישום חברה, העברת מניות, עריכת תקנון, ניסוח הסכמי שותפות ומייסדים,
             הסכמי סודיות ועוד. המשרד מציע לחברות ועסקים את שירותיו בליווי חודשי קבוע, או, באופן חד פעמי לפי דרישת הלקוח.
           </li>
-          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-center">
+          <li style={{listStyle:"decimal"}} className="mt-1 f18 text-end">
             <strong> עורך דין מקרקעין </strong>- ליווי עסקאות מקרקעין, רישום זכויות בטאבו או ברשות מקרקעי ישראל (רמ"י), ניהול נכסים פרטיים ועסקיים, ביצוע הליך
             פינוי מושכר וסילוק יד, ליווי ופיקוח בהליך בנייה.
           </li>
-          <li style={{listStyle:"decimal"}} className="f18 text-center">
+          <li style={{listStyle:"decimal"}} className="f18 text-end">
             <strong> עורך דין אזרחי </strong>- בשורותינו עורך דין בעל הסמכה מיוחדת לעריכת ייפוי כוח מתמשך, עריכת צוואה, הגשת בקשה לצו ירושה וצו קיום צוואה,
             אימות חתימה, תביעות ספאם ומכתבי התראה לפני תביעה. 
           </li>
-          <li style={{listStyle:"decimal"}} className="f18 text-center">
+          <li style={{listStyle:"decimal"}} className="f18 text-end">
             <strong> גישור </strong>- המשרד מציע שירות גישור המאפשר קיום דו-שיח חופשי ונעים בין צדדי הליך הגישור לרבות: גישור
             עסקי, גישור משפחתי, גישור בסכסוכי שכנים וגישור בסכסוכי ירושה. עורך דין מגשר אלעד כהן מתמחה ביצירת תקשורת טובה והקניית כלים לצדדי ההליך המאפשרים
             בחינת הסכסוך בראייה אובייקטיבית.
@@ -144,7 +144,7 @@ const Services = () => {
       />
 
       <ContactUs key={'dsdsdskbjnbjlknknmklmklmkdssdslmlkmlk'} />
-      <ProductSlider componentHeader={'חוזים לדוגמא'} dataToRender={family} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} />
+      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={family} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} />
     </div>
   );
 };

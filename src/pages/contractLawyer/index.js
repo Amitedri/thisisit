@@ -18,12 +18,12 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <span className="m-0 p-0 fw-2  col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-11 col-11 align-self-center mt-2  text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center f18">{text}</span>
         <div className=" d-flex justify-content-xxl-center justify-content-xl-center align-items-xxl-center align-items-xl-center align-items-center   align-self-center justify-content-sm-center mt-3 col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column ">
           <div className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
-            <a href="#" style={{ all: 'unset' }}>
+            <a href="tel:0522813907" style={{ all: 'unset' }}>
               צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>
           </div>
           <div className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
-            <a href="#" style={{ all: 'unset' }}>
+            <a href="https://wa.me/0522813907" style={{ all: 'unset' }}>
               שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
             </a>
           </div>
@@ -101,7 +101,7 @@ const ContractLawyer = () => {
       <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />
       <ContactsUs key={'dskdmasmkdmalksdmdkl'} />
       <FAQ header={'שאלות ותשובות'} withTitle="true" questions={lawyer} />
-      <ProductSlider componentHeader={'שירותים לדוגמא'} dataToRender={generalServices} />
+      <ProductSlider componentHeader={'שירותי המשרד'} dataToRender={generalServices} />
     </div>
   );
 };

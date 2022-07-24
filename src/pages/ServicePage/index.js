@@ -43,7 +43,7 @@ const ServicePage = () => {
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
       {/* large image with button */}
       <div className="col-12 p-0 position-relative serviceImageContainer">
-        <img src={imgSrc} className="w-100 h-100 rounded servicesTopImg" />
+        <img src={imgSrc} className="w-100 h-100  servicesTopImg" />
         <div className="col-12 d-flex flex-column position-absolute contentCenter z-100 h-50 m-auto">
           <h1 className="f42 align-self-center text-white">{header}</h1>
           <div className="d-grid col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-5 col-8 align-self-center">
@@ -65,9 +65,7 @@ const ServicePage = () => {
         })}
       </div>
       <ContactsUs key={'sdnjnnnnn'} />
-      <FullList componentHeader={'מקרקעין'} dataToRender={companies} key="sdsdhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
-      <FullList componentHeader={'מקרקעין'} dataToRender={companies} key="sdsdasahhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
-      <FullList componentHeader={'מקרקעין'} dataToRender={companies} key="sdsdddadhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
+      <FullList componentHeader={'הסכמים לדוגמא'} dataToRender={companies} key="sdsdhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
     </div>
   );
 };

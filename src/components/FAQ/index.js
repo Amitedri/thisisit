@@ -2,40 +2,9 @@ import './FAQ.css';
 import Question from './Question';
 import { v4 as uuidv2 } from 'uuid';
 import { useState } from 'react';
-const questions = [
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-  {
-    title: 'טסט טסט טסט טסט טסט טסט טסט ',
-    answer:
-      'טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט טסט ט',
-  },
-];
 
-const FAQ = ({ header, withTitle, questions }) => {
+
+const FAQ = ({ header, withTitle, questions,cat }) => {
   const [expanded, setIsExpanded] = useState(false);
   const id = uuidv2();
   const onClick = (e) => {
@@ -51,7 +20,7 @@ const FAQ = ({ header, withTitle, questions }) => {
 
   }
   return (
-    <div className="col-12 m-0 d-flex flex-column align-items-center mt-5" data-cat={header}>
+    <div className="col-12 m-0 d-flex flex-column align-items-center mt-2" data-cat={cat}>
       <div className="col-auto d-flex flex-column align-items-center text-center">
         <h1>{header}</h1>
       </div>
@@ -81,7 +50,7 @@ const FAQ = ({ header, withTitle, questions }) => {
         </div>
       )}
 
-      <a href="#" class="btn blue w-25 text-white f20 w3 mt-2" onClick={() => setIsExpanded((prev) => !prev)}>
+      <a  class="btn blue w-25 text-white f20 w3 mt-2" onClick={() => setIsExpanded((prev) => !prev)}>
         פתח עוד
       </a>
     </div>

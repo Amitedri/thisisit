@@ -13,7 +13,7 @@ const TopSearchBar = () => {
       {/* contact img */}
  
         <div className="col-auto align-self-center d-flex flex-column m-2 bg-white ps-2 pe-2 pt-1 pb-1 pointer" style={{ border: '2px solid #46A592' }} onClick={()=>window.location = '/'}>
-        <a href="#" className="text-dark" style={{ all: 'unset' }}>
+        <a href="/" className="text-dark" style={{ all: 'unset' }}>
           <div className="d-flex justify-content-center ">
             <span className="align-self-center f12 w5 p-1 lightBlueText" style={{ letterSpacing: '1px' }}>
               COHEN ELAD & CO
@@ -35,13 +35,13 @@ const TopSearchBar = () => {
 
       {/* contact banner */}
       <div className="col-auto align-self-center d-flex flex-column me-2 mb-2">
-        <a href="#" className="text-dark" style={{ all: 'unset' }}>
+        <a  className="text-dark" style={{ all: 'unset' }}>
           <div className="d-flex justify-content-center ">
             <span className="align-self-center f16 w3 p-1">צור קשר עכשיו</span>
           </div>
           <hr className="lineLength m-auto" />
           <div className="d-flex justify-content-center">
-            <span className="align-self-center f16 w3">052-281-3907</span>
+            <a href="tel:0522813907" className="align-self-center f16 w3">052-281-3907</a>
           </div>
         </a>
       </div>
