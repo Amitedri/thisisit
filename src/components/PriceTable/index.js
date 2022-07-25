@@ -1,3 +1,8 @@
+import { useEffect } from 'react';
+import { addProduct } from '../../Slice';
+import { useDispatch } from 'react-redux';
+import previewContracts from '../../Data/ContractExport';
+
 const Check = ({ value }) => {
   if (!value) {
     return <img src="../assets/icons/out.svg" height="23" width="23" />;
@@ -12,57 +17,103 @@ const Stars = ({ amount }) => {
   }
   return stars;
 };
-const PriceTable = ({
-  iconType,
-  priceBasic,
-  makingTimeBasic,
-  numOfPagesBasic,
-  numOfFixesBasic,
-  priceMekif,
-  makingTimeMekif,
-  numOfPagesMekif,
-  numOfFixesMekif,
-  priceCustom,
-  makingTimeCustom,
-  numOfPagesCustom,
-  numOfFixesCustom,
-  priceMeeting,
-  makingTimeMeeting,
-  numOfPagesMeeting,
-  numOfFixesMeeting,
-}) => {
+const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
+  
+  const disptach = useDispatch();
+  const addItem = (value) => {
+    disptach(addProduct(value));
+  };
+  useEffect(() => {
+    const tableBtns = document.querySelectorAll('.clickable');
+    tableBtns.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        let id = e.target.dataset.contractid;
+        let pack = e.target.dataset.pack;
+        if (pack === 'מקיף') {
+          addItem({
+            id: id,
+            name: contractName,
+            pack: pack,
+            price: mekifContractData.priceMekif,
+            numOfPages: mekifContractData.numOfPagesMekif,
+            numOfFixes: mekifContractData.numOfFixesMekif,
+            makingTime: mekifContractData.makingTimeMekif,
+          });
+        }
+        if (pack === 'אישי') {
+          addItem({
+            id: id,
+            name: contractName,
+            pack: pack,
+            price: customContractData.priceCustom,
+            numOfPages: customContractData.numOfPagesCustom,
+            numOfFixes: customContractData.numOfFixesCustom,
+            makingTime: customContractData.makingTimeCustom,
+          });
+        }
+        if (pack === 'ייעוץ') {
+          addItem({
+            id: id,
+            name: contractName,
+            pack: pack,
+            price: meetingContractData.priceMeeting,
+            numOfPages: meetingContractData.numOfPagesMeeting,
+            numOfFixes: meetingContractData.numOfFixesMeeting,
+            makingTime: meetingContractData.makingTimeMeeting,
+          });
+    console.log("mekifContractData",mekifContractData)
+
+        }
+      });
+    });
+    console.log("mekifContractData",mekifContractData)
+
+    return () => {
+      tableBtns.forEach((el) => {
+        el.removeEventListener('click', (e) => {});
+      });
+    };
+  }, []);
   return (
     <div className="col-12 d-flex flex-column" id="tableDisplay">
       <table class="table bg-white">
-
-        <thead style={{ height: '50px' }} >
+        <thead style={{ height: '50px' }}>
           <tr>
-            <th scope="col" className="col" >
-            <h3 className="f22 align-self-center basic blueText w-50 m-auto" style={{height:"50px"}}>חבילות</h3>
-
+            <th scope="col" className="col">
+              <h3 className="f22 align-self-center blueText w-50 m-auto" style={{ height: '50px' }}>
+                חבילות
+              </h3>
             </th>
-            <th scope="col" className="col-2 basic" >
+            <th scope="col" className="col-2 basic">
               <h3 className="f22 blueText d-flex flex-column">
                 בסיסי
-                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>תקציר הסכם בסיסי ללא עלות.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
+                  תקציר הסכם בסיסי ללא עלות.
+                </span>
               </h3>
             </th>
-            <th scope="col" className="col-2" >
+            <th scope="col" className="col-2">
               <h3 className="f22 blueText d-flex flex-column">
-                מקיף
-                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>רכישת הסכם מקיף בקובץ WORD במספר קליקים.</span>
+                הסכם מקיף
+                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
+                  רכישת הסכם מקיף בקובץ WORD במספר קליקים.
+                </span>
               </h3>
             </th>
-            <th scope="col" className="col-2" >
+            <th scope="col" className="col-2">
               <h3 className="f22 blueText d-flex flex-column">
                 התאמה אישית
-                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
+                  הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.
+                </span>
               </h3>
             </th>
-            <th scope="col" className="col-2" >
+            <th scope="col" className="col-2">
               <h3 className="f22 blueText d-flex flex-column">
                 פגישת ייעוץ
-                <span className="f12 align-self-center basic blueText w-50" style={{height:"50px"}}>90 ד' פגישת ייעוץ להגנה מיטבית.</span>
+                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
+                  90 ד' פגישת ייעוץ להגנה מיטבית.
+                </span>
               </h3>
             </th>
           </tr>
@@ -72,11 +123,10 @@ const PriceTable = ({
             <th className="col-2 lightBlue border-white" scope="row">
               מס' עמודים
             </th>
-            <td className="basic">עד {numOfPagesBasic}</td>
-            <td>עד {numOfPagesMekif}</td>
-            <td>עד {numOfPagesCustom}</td>
-            <td>עד {numOfPagesMeeting}</td>
-
+            <td className="basic">עד {basicContractData.numOfPagesBasic}</td>
+            <td>עד {mekifContractData.numOfPagesMekif}</td>
+            <td>עד {customContractData.numOfPagesCustom}</td>
+            <td>עד {meetingContractData.numOfPagesMeeting}</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -84,7 +134,7 @@ const PriceTable = ({
             </th>
             <td className="basic">
               <span className="fs-6 border-bottom col-12">
-              <img src="../assets/icons/check.svg" height="23" width="23" />
+                <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
             <td>
@@ -133,21 +183,21 @@ const PriceTable = ({
               מס' תיקונים
             </th>
             <td className="basic">
-              <span className="fs-6 border-bottom col-12">{numOfFixesBasic}</span>
+              <span className="fs-6 border-bottom col-12">{basicContractData.numOfFixesBasic}</span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
+                <span className="fs-6 border-bottom col-12">{mekifContractData.numOfFixesMekif}</span>
               </span>
             </td>
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
+                <span className="fs-6 border-bottom col-12">{customContractData.numOfFixesCustom}</span>
               </span>
             </td>{' '}
             <td>
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
+                <span className="fs-6 border-bottom col-12">{meetingContractData.numOfFixesMeeting}</span>
               </span>
             </td>
           </tr>
@@ -155,39 +205,38 @@ const PriceTable = ({
             <th scope="row" className="col-2 lightBlue border-white">
               זמן הכנה
             </th>
-            <td className="basic">{makingTimeBasic}</td>
-            <td>מיידי</td>
-            <td>מיידי</td>
-            <td>מיידי</td>
+            <td className="basic">{basicContractData.numOfFixesBasic}</td>
+            <td className="">{mekifContractData.numOfFixesMekif}</td>
+            <td className="">{customContractData.numOfFixesCustom}</td>
+            <td className="">{meetingContractData.numOfFixesMeeting}</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
               רמת הגנה
             </th>
             <td className="basic">
-              <Stars amount={"3"} />
+              <Stars amount={'5'} />
             </td>
             <td>
               {' '}
-              <Stars amount={"3"} />
+              <Stars amount={'5'} />
             </td>
             <td>
               {' '}
-              <Stars amount={"3"} />
+              <Stars amount={'5'} />
             </td>
             <td>
               {' '}
-              <Stars amount={"3"} />
+              <Stars amount={'5'} />
             </td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
               אחריות משפטית
-            </th >
+            </th>
             <td className="basic">
               <span className="fs-6 border-bottom col-12">
-              <img src="../assets/icons/out.svg" height="23" width="23" />
-
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td>
@@ -211,18 +260,53 @@ const PriceTable = ({
               מחיר
             </th>
             <td className="basic">ללא עלות</td>
-            <td>220 ש"ח</td>
-            <td>720 ש"ח</td>
-            <td>1420 ש"ח</td>
+            <td>{mekifContractData.priceMekif} ש"ח</td>
+            <td>{customContractData.priceCustom} ש"ח</td>
+            <td>{meetingContractData.priceMeeting} ש"ח</td>
           </tr>
           <tr className="border-top-0 border-white">
-            <th scope="row" className="col-2">
-             
-            </th>
-            <td className="w3 basic"><div className="btn p-1 border w-75 border-white tableBtn">הצג</div></td>
-            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">רכישה</div></td>
-            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">רכישה</div></td>
-            <td className="w3"><div className="btn p-1 border w-75 border-white tableBtn">קבע פגישה</div></td>
+            <th scope="row" className="col-2"></th>
+            <td className="w3 basic">
+              <div
+                className="btn p-1 border w-75 border-white tableBtn f16"
+                data-free={true}
+                data-contractid={id}
+                data-pack={'basic'}
+                data-localImg={'asjmdlkasjmdlkajsdlajisdasdasdasdjsioidj'}
+              >
+                הצג
+              </div>
+            </td>
+            <td className="w3">
+              <div
+                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                data-contractid={id}
+                data-pack={'מקיף'}
+                data-localImg={'fsmklndfsdnhdjfkisnfjksndfkjsndfkjsnkfjnsd'}
+              >
+                בצע רכישה
+              </div>
+            </td>
+            <td className="w3">
+              <div
+                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                data-contractid={id}
+                data-pack={'אישי'}
+                data-localImg={'aslkjdauiohdhdghdbaybsascyubcsyabcysc'}
+              >
+                בצע רכישה
+              </div>
+            </td>
+            <td className="w3">
+              <div
+                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                data-contractid={id}
+                data-pack={'ייעוץ'}
+                data-localImg={'sdifbnidkfnsudfdflndfuiosdfiusndfuisndu'}
+              >
+                קבע פגישה
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

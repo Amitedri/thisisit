@@ -1,5 +1,5 @@
 import './StandUp.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import $ from 'jquery';
 import PriceTable from '../PriceTable';
 const buttons = [
@@ -21,13 +21,12 @@ const buttons = [
   },
 ];
 
-
-const StandUp = ({ doc }) => {
+const StandUp = ({ doc, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
   const sentences = [
     { text: 'שירות משפטי דיגיטלי חדש', color: '#4ba492' },
-    { color: '#fdfdf1', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
+    { color: '#f0cc76', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
     { text: 'און ליין ישירות מהאתר', color: '#4ba492' },
-    { text: 'להגנה מיטבית על זכויותיכם', color: '#f0cc76' },
+    { text: 'להגנה מיטבית על זכויותיכם', color: '#4ba492' },
   ];
   const [counter, setcounter] = useState(0);
   useEffect(() => {
@@ -40,7 +39,7 @@ const StandUp = ({ doc }) => {
         } else {
           setcounter(0);
         }
-      }, 1000);
+      }, 3000);
     };
     doit();
   }, [counter]);
@@ -57,10 +56,24 @@ const StandUp = ({ doc }) => {
       }
     });
   }, [counter]);
+  const Table = useCallback(
+    () => (
+      <PriceTable
+        iconType="payment"
+        basicContractData={basicContractData}
+        mekifContractData={mekifContractData}
+        customContractData={customContractData}
+        meetingContractData={meetingContractData}
+        contractName={contractName}
+        id={id}
+      />
+    ),
+    [basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id]
+  );
   return (
-    <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 rounded">
+    <div className="col-12 cream d-flex flex-column flex-wrap align-items-center responsiveContainer p-0 ">
       {/* standup header */}
-      <div className="col-12 p-0 blue d-flex flex-row align-items-center p-0 headerContainer rounded ">
+      <div className="col-12 p-0 blue d-flex flex-row align-items-center p-0 headerContainer  ">
         <h2 className="m-auto specialStandHeader p-0 text-center tntarget" style={{ color: sentences[counter].color }}>
           {sentences[counter].text}
         </h2>
@@ -72,27 +85,8 @@ const StandUp = ({ doc }) => {
         <span className="m-1 onurs full" id="five"></span>
       </div>
       {/* Content */}
-      <div className="col-12 p-0 d-flex flex-column align-items-center rounded text-center">
-        <PriceTable
-          iconType="payment"
-          priceBasic={"0"}
-          makingTimeBasic={doc.makingTimeBasic}
-          numOfPagesBasic={doc.numOfPagesBasic}
-          numOfFixesBasic={doc.numOfFixesBasic}
-          priceMekif={"0"}
-          makingTimeMekif={doc.makingTimeMekif}
-          numOfPagesMekif={doc.numOfPagesMekif}
-          numOfFixesMekif={doc.numOfFixesMekif}
-          priceCustom={"0"}
-          makingTimeCustom={doc.makingTimeBasic}
-          numOfPagesCustom={doc.numOfPagesBasic}
-          numOfFixesCustom={doc.numOfFixesBasic}
-          priceMeeting={"0"}
-          makingTimeMeeting={doc.makingTimeBasic}
-          numOfPagesMeeting={doc.numOfPagesBasic}
-          numOfFixesMeeting={doc.numOfFixesBasic}
-          
-        />
+      <div className="col-12 p-0 d-flex flex-column align-items-center text-center">
+        <Table />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 }
 
 .purContainer{
-    height: 35vh !important;
+    max-height: 50vh !important;
     overflow-y: auto;
 }
 .productsTotal{

@@ -31,34 +31,37 @@
   border-radius: 50%;
 }
 .tableBtn {
-  background-color:  #f0cc76 !important;
+  background-color: #f0cc76 !important;
   cursor: pointer;
-   border-right:1px solid white;
-   transition:all 0.3s ease-in-out;
+  border-right: 1px solid white;
+  transition: all 0.3s ease-in-out;
 }
 
-.tableBtn:hover{
+.tableBtn:hover {
   background-color: #4ba492 !important;
   color: black;
 }
 
-@media screen and (max-width:1200px) {
-  .specialStandHeader{
-   font-size: 40px !important;
+@media screen and (max-width: 1200px) {
+  .specialStandHeader {
+    font-size: 40px !important;
   }
 }
-
-@media screen and (max-width:600px) {
-  .specialStandHeader{
-   font-size: 38px !important;
-   letter-spacing: 0px !important;
-  }
-}
-
-@media screen and (max-width:863px) {
-
-  .basic{
+@media screen and (max-width: 863px) {
+  .basic {
     display: none !important;
   }
 }
 
+@media screen and (max-width: 600px) {
+  .specialStandHeader {
+    font-size: 38px !important;
+    letter-spacing: 0px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .tableBtn {
+    height: 50px;
+  }
+}

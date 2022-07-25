@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import LinksDrop from '../../components/LinksDrop';
 import { useParams } from 'react-router-dom';
 
+
+
 const Contracts = () => {
   const [typeFilter, setTypeFilter] = useState('');
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...previewContracts]);

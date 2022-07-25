@@ -11,3 +11,29 @@
     max-height: none !important;
   }
 }
+.moreProtectionBtn{
+  background-color: #f0cc76;
+}
+.blink{
+  animation-name: blink;
+  animation-duration: 2s;
+  /* animation-iteration-count: 2; */
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+@keyframes blink{
+  0%{
+    background-color: white;
+  }
+  50%{
+      background-color: #f0cc76;
+
+  }
+  75%{
+    background-color: white;
+  }
+  100%{
+      background-color: #f0cc76;
+
+  }
+}

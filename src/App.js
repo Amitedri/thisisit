@@ -9,15 +9,11 @@ import QuickContact from './components/QuickContact';
 import Footer from './components/Footer';
 import Notifications from './components/Notification';
 import { useState } from 'react';
-function App() {
-  const [notificationState, setNotificationState] = useState(0);
 
-  const setNotificationNum = (value) => {
-    setNotificationState(value);
-  };
+function App() {
+  
   return (
     <div className="App">
-      <Notifications state={notificationState} />
       <TopSearchBar />
       <Navbar />
       <QuickContact />

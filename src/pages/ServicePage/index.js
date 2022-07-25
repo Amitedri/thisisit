@@ -66,6 +66,8 @@ const ServicePage = () => {
       </div>
       <ContactsUs key={'sdnjnnnnn'} />
       <FullList componentHeader={'הסכמים לדוגמא'} dataToRender={companies} key="sdsdhhhh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
+      <FullList componentHeader={'שירותי המשרד'} dataToRender={companies} key="sdsdhhhdsfsdfsdfh" Children={ProductSlider} ExpandedProducts={ExpandedProducs} />
+
     </div>
   );
 };

@@ -37,11 +37,11 @@ const TopSearchBar = () => {
       <div className="col-auto align-self-center d-flex flex-column me-2 mb-2">
         <a  className="text-dark" style={{ all: 'unset' }}>
           <div className="d-flex justify-content-center ">
-            <span className="align-self-center f16 w3 p-1">צור קשר עכשיו</span>
+            <span className="align-self-center f16 w3 p-1" >צור קשר עכשיו</span>
           </div>
           <hr className="lineLength m-auto" />
           <div className="d-flex justify-content-center">
-            <a href="tel:0522813907" className="align-self-center f16 w3">052-281-3907</a>
+            <a href="tel:0522813907" style={{textDecoration:"none"}} className="align-self-center f16 w3 blueText">052-281-3907</a>
           </div>
         </a>
       </div>

@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
 import Cart from '../Cart';
 const Navbar = () => {
-
-
-  const [showCart,setShowCart] = useState(false)
+  const [showCart, setShowCart] = useState(false);
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
     $(elem)
@@ -54,22 +52,21 @@ const Navbar = () => {
     }
   };
 
-  const showCartFunc = ()=>{
-    setShowCart((prev)=>!prev)
-  }
+  const showCartFunc = () => {
+    setShowCart((prev) => !prev);
+  };
   return (
     <div className="container-fluid shadow-sm blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-between justify-content-sm-between justify-content-between sticky-top ">
       {/* Menu icon */}
       <img src="../assets/icons/burgerMenu.svg" onClick={showMobileMenu} className="align-self-center bbbmenu align-self-end pointer" height="35" width="35" />
       <div className="col-sm-6 col-10 bg-light position-absolute end-0 mobileMenu d-none d-flex flex-column justify-content-start mobileContainer">
-        <h3 className="f22 align-self-center mt-2 greyText">.ELAD COHEN & CO</h3>
+        <h3 className="f22 align-self-center mt-2 greyText">.COHEN ELAD & CO</h3>
         <h3 className="f22 align-self-center greyText">DIGITAL LAW OFFICE</h3>
 
-        {/* <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex  d-flex align-self-center position-relative py-2">
-          <i className="fa fa-duotone fa-magnifying-glass  searchIcon fa-2x align-self-center m-2" id="searchIcon"></i>
-          <input className="form-control p-3" type="text" placeholder="חפש.." />
-        </div> */}
-        <Search classlist={"col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex border rounded text-dark d-flex align-self-center position-relative py-2"} key="jkahnnsjajksnsjklansjklas"/>
+        <Search
+          classlist={'col-sm-10 col-10 d-xxl-flex d-xl-flex d-lg-flex d-md-flex border rounded text-dark d-flex align-self-center position-relative py-2'}
+          key="jkahnnsjajksnsjklansjklas"
+        />
         <ul className="">
           <li className="mobileitem col-12 border-bottom p-2 text-center">
             {' '}
@@ -109,7 +106,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    <Cart openCart={showCart} setOpenCart={showCartFunc}/>
+      <Cart openCart={showCart} setOpenCart={showCartFunc} />
 
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
@@ -130,13 +127,13 @@ const Navbar = () => {
               כללים לניסוח חוזה
             </a>
             <a class="dropdown-item dropitop" href="/">
-             הסכמים לדוגמא
+              הסכמים לדוגמא
             </a>
             <a class="dropdown-item dropitop" href="/">
               שאלות ותשובות
             </a>
             <a class="dropdown-item dropitop" href="/">
-             שירותי המשרד
+              שירותי המשרד
             </a>
           </div>
         </div>
@@ -183,7 +180,7 @@ const Navbar = () => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-          <a class="dropdown-item dropitop" href="/services?cat=חברות" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/services?cat=חברות" data-incat="חברות">
               דיני חברות
             </a>
             <a class="dropdown-item dropitop" href="/services?cat=משפחה" data-incat="משפחה">
@@ -211,7 +208,7 @@ const Navbar = () => {
             מידע משפטי
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="legalInfo">
-          <a class="dropdown-item dropitop" href="/legal?cat=חברות" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/legal?cat=חברות" data-incat="חברות">
               דיני חברות
             </a>
             <a class="dropdown-item dropitop" href="/legal?cat=משפחה" data-incat="משפחה">
@@ -247,7 +244,6 @@ const Navbar = () => {
             <a class="dropdown-item dropitop" href="/community">
               עזרה בפנייה למוסדות רפואה במצב חרום
             </a>
-
           </div>
         </span>
         <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
@@ -262,9 +258,7 @@ const Navbar = () => {
           >
             צור קשר
           </a>
-          {/* <div class="dropdown-menu navDropMenu" aria-labelledby="contact">
 
-          </div> */}
         </span>
       </div>
       <div className="col-1 d-flex flex-row justify-content-center align-items-center position-relative pointer" onClick={showCartFunc}>
@@ -274,7 +268,7 @@ const Navbar = () => {
         >
           0
         </span>
-        <img src="../assets/icons/cart.svg" className='cartImg' height="50" width="50"  />
+        <img src="../assets/icons/cart.svg" className="cartImg" height="50" width="50" />
       </div>
     </div>
   );

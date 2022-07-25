@@ -1,6 +1,36 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux/es/exports';
 import './Cart.css';
 
+const Product = ({ productName, price }) => {
+  return <div className="col-12 d-flex align-items-center  d-flex flex-column shadow-sm prProd border-bottom mt-2">
+    <div className="col-11 d-flex flex-row align-items-center position-relative">
+      <span
+        className="position-absolute top-0 start-0 f28 border rounded text-center pointer blueText"
+        style={{ height: '25px', width: '25px', lineHeight: '15px' }}
+      >
+        x
+      </span>
+      {/* img */}
+      <img className="rounded col-3 figure-img" src={`../assets/img/contracts/${productName}.jpg`} height="150" />
+      {/* product info */}
+      <div className="col-8 d-flex flex-column align-items-center">
+        <span className="f26 mt-1">{productName}</span>
+        <span className="mt-1">עו"ד אלעד כהן</span>
+        <div className="col-12 d-flex flex-row align-items-center justify-content-center">
+          <span className="me-3 mt-1">{price} ₪</span>
+        </div>
+      </div>
+    </div>
+  </div>;
+};
 const Cart = ({ openCart, setOpenCart }) => {
+  const products = useSelector((state) => state.productSlice.products);
+  const [localProducts, setLocalProducts] = useState([]);
+  useEffect(() => {
+    setLocalProducts(() => localProducts);
+    console.log('products change', products);
+  }, [products]);
   if (!openCart) {
     return null;
   }
@@ -21,30 +51,10 @@ const Cart = ({ openCart, setOpenCart }) => {
 
         <hr className="w-90 blue" />
         <div className="col-12 d-flex flex-column align-items-center purContainer">
-        {/* product */}
-          <div className="col-12 d-flex align-items-center  d-flex flex-column shadow-sm prProd border-bottom mt-2">
-            <div className="col-11 d-flex flex-row align-items-center position-relative">
-              <span
-                className="position-absolute top-0 start-0 f28 border rounded text-center pointer blueText"
-                style={{ height: '25px', width: '25px', lineHeight: '15px' }}
-              >
-                x
-              </span>
-              {/* img */}
-              <img className="rounded col-3 figure-img" src="../assets/img/מדיניות פרטיות.jpg" height="150" />
-              {/* product info */}
-              <div className="col-8 d-flex flex-column align-items-center">
-                <span className="f26 mt-1">שם המוצר</span>
-                <span className="mt-1">עו"ד אלעד כהן</span>
-                <div className="col-12 d-flex flex-row align-items-center justify-content-center">
-                  <span className=" mt-1 greyText" style={{ textDecoration: 'line-through', opacity: 0.5 }}>
-                    250 ₪
-                  </span>
-                  <span className="me-3 mt-1">210 ₪</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* product */}
+          {products.map((el) => {
+            return <Product price={el.price} productName={el.name} />;
+          })}
         </div>
         <div className="col-12 d-flex flex-column align-items-center shadow-sm position-absolute bottom-0 h-25 mt-5">
           <hr className="w-90 blue" style={{ opacity: 0.3 }} />

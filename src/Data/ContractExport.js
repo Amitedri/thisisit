@@ -3,13 +3,31 @@ import parse from 'html-react-parser';
 const previewContracts = [
   {
     numOfPagesBasic: '0',
+    numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
+    priceBasic: '350',
+    numOfPagesMekif: '0',
+    numOfFixesMekif: '1',
+    makingTimeMekif: 'מיידי',
+    priceMekif: '350',
     numOfPagesCustom: '0',
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
     priceCustom: '350',
+    numOfPagesMeeting: '0',
+    numOfFixesMeeting: '1',
+    makingTimeMeeting: 'מיידי',
+    priceMeeting: '350',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     imgSrc: '../assets/img/contracts/הסכם גירושין.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/1',
     h1: 'הסכם גירושין',
@@ -146,12 +164,28 @@ const previewContracts = [
   </ol>`),
   },
   {
-
-    
-
+    numOfPagesBasic: '0',
+    numOfFixesBasic: '1',
+    makingTimeBasic: 'מיידי',
+    priceBasic: '350',
+    numOfPagesMekif: '0',
+    numOfFixesMekif: '1',
+    makingTimeMekif: 'מיידי',
+    priceMekif: '350',
+    numOfPagesCustom: '0',
+    numOfFixesCustom: '1',
+    makingTimeCustom: 'מיידי',
+    priceCustom: '350',
+    numOfPagesMeeting: '0',
+    numOfFixesMeeting: '1',
+    makingTimeMeeting: 'מיידי',
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם הורות משותפת.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/2',
     h1: 'הסכם הורות משותפת',
@@ -341,31 +375,27 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
     priceBasic: '350',
     numOfPagesMekif: '0',
-
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
     priceMekif: '350',
     numOfPagesCustom: '0',
-
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם מייסדים.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/3',
     h1: 'הסכם מייסדים',
@@ -531,31 +561,27 @@ const previewContracts = [
   },
   {
     numOfPagesBasic: '0',
-
     numOfFixesBasic: '1',
     makingTimeBasic: 'מיידי',
-
     priceBasic: '350',
     numOfPagesMekif: '0',
-
     numOfFixesMekif: '1',
     makingTimeMekif: 'מיידי',
-
     priceMekif: '350',
     numOfPagesCustom: '0',
-
     numOfFixesCustom: '1',
     makingTimeCustom: 'מיידי',
-
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם מכר.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: '/contract/4',
     h1: 'הסכם מכר',
@@ -739,6 +765,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם ממון ידועים בציבור.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/5',
     h1: 'הסכם ידועים בציבור',
@@ -936,6 +966,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם סודיות.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/6',
     h1: 'הסכם סודיות',
@@ -1046,6 +1080,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה עם קבלן.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/7',
     h1: 'הסכם עבודה עם קבלן',
@@ -1271,6 +1309,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם שותפות.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/8',
     h1: 'הסכם שותפות',
@@ -1473,6 +1515,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם שיתוף במקרקעין.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/9',
 
@@ -1627,6 +1673,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/10',
     h1: 'חוזה עבודה',
@@ -1776,6 +1826,10 @@ const previewContracts = [
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/יפוי כח מתמשך.jpg',
     buttonText: 'פתח עוד',
+    hasBasicColumn: true,
+    hasMekifColumn: true,
+    hasCustomColum: true,
+    hasMeetingColumn: true,
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/11',
     h1: 'יפוי כח מתמשך',
@@ -1946,76 +2000,6 @@ const previewContracts = [
     <p>דואר אלקטרוני: _________________</p>
     <p>טלפון נייד (סימון סעיף זה מהווה הסכמה לקבלת מסרונים): _________________</p>`),
   },
-  // {
-  //     numOfPagesBasic: '0',
-  //
-  //
-  // numOfFixesBasic: '1',
-  // makingTimeBasic: 'מיידי',
-  //
-  //
-  //
-  // numOfPagesCustom: '0',
-  // wordFileCustom: false,
-  // tailoredCustom: false,
-  // numOfFixesCustom: '1',
-  // makingTimeCustom: 'מיידי',
-  // levelOfProtectionCustom: '3',
-  // warrantyCustom: false,
-  // priceCustom: '350',
-  //   imgSrc: '../assets/img/contracts/.jpg',
-  //   buttonText: 'פתח עוד',
-  //   actionButtonText: 'רכוש כעת | 252 ₪',
-  //   href: 'contract/14',
-  // h1:'',
-  // h1Content:'',//
-  // categoryEnglish: '',
-  //   categoryHeb: 'משפחה',
-  //   id: '14',
-  //   price: 85,
-  //   disclaimer: '',
-  //   title: ``,
-  //   signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-  //   contractBody: ``,
-  //   firstSigner: '',
-  // secondSigner: '',
-  // contractPreview:parse(``),//
-  // },
 ];
 
-// {
-//   numOfPagesBasic: '0',
-//
-//
-// numOfFixesBasic: '1',
-// makingTimeBasic: 'מיידי',
-//
-//
-//
-// numOfPagesCustom: '0',
-// wordFileCustom: false,
-// tailoredCustom: false,
-// numOfFixesCustom: '1',
-// makingTimeCustom: 'מיידי',
-// levelOfProtectionCustom: '3',
-// warrantyCustom: false,
-// priceCustom: '350',
-//     imgSrc: '../assets/img/contracts/.jpg',
-//     buttonText: 'פתח עוד',
-//     actionButtonText: 'רכוש כעת | 252 ₪',
-//     href: '/contractpage',
-// h1:'',
-// h1Content:'',//
-// categoryEnglish: '',
-//     categoryHeb: 'משפחה',
-//     id: '1',
-//     price: 85,
-//     disclaimer:"",
-//     title: ``,
-//     signInDate: `שנערך ונחתם ב___________ ביום ________ בחודש ________ בשנת ________`,
-//     contractBody: ``,
-//     firstSigner: '',
-// secondSigner: '',
-// contractPreview:parse(``),//
-//   }
 export default previewContracts;
