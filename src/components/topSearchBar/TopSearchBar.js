@@ -41,7 +41,7 @@ const TopSearchBar = () => {
           </div>
           <hr className="lineLength m-auto" />
           <div className="d-flex justify-content-center">
-            <a href="tel:0522813907" style={{textDecoration:"none"}} className="align-self-center f16 w3 blueText">052-281-3907</a>
+            <a href="tel:0508081119" style={{textDecoration:"none"}} className="align-self-center f16 w3 blueText">052-281-3907</a>
           </div>
         </a>
       </div>

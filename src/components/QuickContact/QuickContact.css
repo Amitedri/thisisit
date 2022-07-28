@@ -8,6 +8,7 @@
     top: 35vh;
     left: 0;
 }
+
 .contactItem{
     transition: all 1s ease-in-out;
 }
@@ -17,8 +18,7 @@
 
 @media screen and (max-width:600px) {
     .contactColumn {
-        top: 72vh !important;
-        left: 3%;
-
+        top: 79vh !important;
+        right: 3%;
     }
   }

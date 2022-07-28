@@ -7,7 +7,7 @@ import FAQ from '../../components/FAQ';
 import servicesList from '../../Data/Services';
 import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import previewContracts from '../../Data/ContractExport';
 import { scrollIntoView } from '../../Utils';
 import { addProduct } from '../../Slice';
@@ -107,6 +107,7 @@ const ProductPage = () => {
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
       flexCheckDefault.parentElement.classList.add('text-danger');
+      window.$('#contractLoader').collapse('hide');
 
       return;
     }
@@ -116,7 +117,11 @@ const ProductPage = () => {
     window.$('#contractLoader').collapse('toggle');
     return;
   };
-
+  const InnerCheck = ()=>{
+    return <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />
+     
+  }
+  const Checkbox = useCallback(()=><InnerCheck/>,[])
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
@@ -124,7 +129,7 @@ const ProductPage = () => {
           <div class="modal-content">
             <div class="modal-header"></div>
             <div class="modal-body text-center mt-3">
-              <p>יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר לפני צפייה בהסכם.</p>
+              <p>טרם צפייה בהסכם יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn lightBlue text-white w3 m-auto" data-bs-dismiss="modal">
@@ -167,14 +172,15 @@ const ProductPage = () => {
               <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">הצג אפשרויות הגנה נוספות</div>
             </div>
             <p className="text-muted f12 w-75 m-0 d-flex flex-column justify-content-center align-content-center align-items-center">
-              <p className="text-muted f16 w-75 m-0">תניית פטור</p>
+              <p className="text-muted f16 w-75 m-0" style={{textDecoration:"underline"}}>תניית פטור</p>
               כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
-            <div class="form-check f12 mt-1">
-              <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />
+            <div class="form-check f12 mt-1 terms">
+              <Checkbox/>
+              {/* <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" /> */}
               <p>
-                קראתי את תניית הפטור,{' '}
+              הריני מסכים ומאשר את תניית הפטור,{' '}
                 <a
                   class="form-check-label"
                   href="javascript:void(0)"
@@ -185,7 +191,7 @@ const ProductPage = () => {
                 >
                   תנאי השימוש
                 </a>{' '}
-                ומדיניות פרטיות באתר ואני מאשר/ת אותם
+                ומדיניות פרטיות באתר
               </p>
             </div>
           </div>
@@ -206,6 +212,7 @@ const ProductPage = () => {
         contractBody={contractBody}
         contractPreview={contractPreview}
         signInDate={signInDate}
+        isAgreedConsent={isAgreedConsent}
       />
       <StandUp
         key={'asdasadasdasdsfffa'}

@@ -59,7 +59,7 @@ const ServicePage = () => {
           return (
             <div className='col-12 text-end d-flex flex-column p-3'>
               <h1 className="f28">{el[0]}</h1>
-              <p className="f16">{el[1]}</p>
+              <p className="f18">{el[1]}</p>
             </div>
           );
         })}

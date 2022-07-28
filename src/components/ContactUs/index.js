@@ -7,7 +7,7 @@ const ContactsUs = () => {
       {/* standup header */}
       <div className="col-12 p-0 lightBlue d-flex flex-row align-items-center justify-content-center p-0  ">
         <h1 className="specialHeader yellowText text-center">יצירת קשר</h1>
-        <a href="tel:0522813907" className=''>
+        <a href="tel:0508081119" className=''>
           <img src="../assets/icons/phone.svg" height="75" width="75" className="me-xxl-5 me-xl-5 me-xl-5 me-lg-5 me-md-0 me-sm-0 me-0 p-xxl-0 p-xl-0 p-lg-0 p-md-2 p-sm-2 p-3" />
         </a>
       </div>
@@ -50,11 +50,11 @@ const ContactsUs = () => {
 
             <span className="greyText w3">או שלחו הודעת טקסט למספר 052-12121212</span>
             <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
-            <a href="mailto:colead6@gmail.com" className="pointer" style={{ all: 'unset' }}>
-              <span className="greyText w3  ">mailto:office@ceco.com</span>
+            <a href="mailto:office@ceco.com" className="pointer" style={{ all: 'unset' }}>
+              <span className="greyText w3  ">office@ceco.com</span>
             </a>
           </div>
-          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-3 text-center">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mb-xxl-0 mb-xxl-0 mb-xl-0 mb-lg-4 mb-md-4 mb-sm-4 mb-4  mt-xxl-3 mt-xxl-3 mt-xl-3 mt-lg-0 mt-md-0 mt-sm-0 mt-0 text-center">
             <h2 className="greyText w6 f20  m-0 mt-1">שעות פעילות המשרד</h2>
             <span>ימים א'-ה' 08:00 - 20:00</span>
             <span>ימי ו' וערבי חג 08:00-13:00</span>

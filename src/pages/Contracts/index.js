@@ -94,7 +94,7 @@ const Contracts = () => {
           </p>
           {/* <hr className="w-90 m-1" /> */}
           <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-          <span className="w3 text-center f22 yellowText" style={{textDecoration:"underline"}}>
+          <span className="w3 text-center f22 lightBlueText" style={{textDecoration:"underline"}}>
           באפשרותכם לרכוש במהירות:
 
             </span>

@@ -10,6 +10,12 @@
   .productTopImg{
     max-height: none !important;
   }
+  .terms{
+    max-width: 75%;
+  }
+  .terms input{
+    padding: 10px !important;
+  }
 }
 .moreProtectionBtn{
   background-color: #f0cc76;
