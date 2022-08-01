@@ -15,7 +15,7 @@ const Stars = ({ amount }) => {
   for (let i = 0; i < amount; i++) {
     stars.push(<img src="../assets/icons/stargold.svg" height="15" width="15" />);
   }
-  return stars;
+  return <div className='col-8 m-auto d-flex flex-row flex-wrap justify-content-center align-items-center align-content-center'>{stars}</div>;
 };
 const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
   
@@ -311,23 +311,23 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
         </tbody>
       </table>
       {iconType == 'payment' ? (
-        <div className="col-10 d-flex flex-row justify-content-between align-items-center align-self-center ">
-          <div className="col-auto p-1 ">
+        <div className="col-10 d-flex flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/ssl.svg" height="85" width="85" />
           </div>
-          <div className="col-auto p-1 ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/mc_symbol.svg" height="60" width="60" />
           </div>
-          <div className="col-auto p-1 ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/pci.svg" height="85" width="85" />
           </div>
-          <div className="col-auto p-1 ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/bit.svg" height="60" width="60" />
           </div>
-          <div className="col-auto p-1 ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/isracard.svg" height="60" width="60" />
           </div>
-          <div className="col-auto p-1 ">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/img/visa.png" height="60" width="60" />
           </div>
         </div>

@@ -1682,7 +1682,7 @@ const previewContracts = [
     h1: 'חוזה עבודה',
     h1Content: '',
     categoryEnglish: '',
-    categoryHeb: 'כללי',
+    categoryHeb: 'עבודה',
     id: '10',
     price: 85,
     disclaimer: '',

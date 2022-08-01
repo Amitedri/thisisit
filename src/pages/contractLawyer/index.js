@@ -30,7 +30,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         </div>
         <h1 className="m-0 p-0 lightBlueText f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center mt-2">משרד עורך דין חוזים דיגיטלי</h1>
         <h3 className="m-0 p-0 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center  mt-2 m-2 f22 greyText">
-          משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br /> <span className='lightBlueText'>שבו תוכלו לרכוש ישירות מהאתר:</span>
+          משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br /> <span className='lightBlueText fw-bold'>שבו תוכלו לרכוש ישירות מהאתר:</span>
         </h3>
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
           <ul className="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex flex-column text-end justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">

@@ -15,7 +15,7 @@ const breakPoints = [
 
 export const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc }) => {
   return (
-    <div className="card align-items-center p-0 col-12">
+    <div className="card align-items-center p-0 col-12" style={{maxWidth:"550px"}}>
       <img src={imgSrc} className="card-img-top" />
       <div className="card-body col-12 d-flex flex-column align-items-center text-center">
         <h5 className="card-title">{title}</h5>

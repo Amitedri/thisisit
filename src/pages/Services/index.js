@@ -9,6 +9,7 @@ import { allProdcts, allServices } from '../../sampleData';
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
 import LinksDrop from '../../components/LinksDrop';
+import previewContracts from '../../Data/ContractExport';
 
 const serviceCategoryDrop = [
   { title: 'תחום משפטי' },
@@ -26,7 +27,7 @@ const serviceCategoryDrop = [
 ];
 const Services = () => {
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...servicesList]);
-
+  const generalContracts = previewContracts.filter((el) => el.categoryHeb === 'כללי');
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
   const family = servicesList.filter((el) => el.categoryHeb === 'משפחה');
   const general = servicesList.filter((el) => el.categoryHeb === 'כללי');
@@ -73,7 +74,7 @@ const Services = () => {
       {/* header */}
       <div className="col-12 mt-2 d-flex flex-column justify-content-center align-items-center text-center mb-2">
         <h1 className="f32 w5">שירותי המשרד</h1>
-        <ul className="col-11 p-0 d-flex flex-column justify-content-start text-center align-items-center">
+        <ul className="col-11 p-0 d-flex flex-column justify-content-start text-center align-items-xxl-start align-items-xl-start align-items-lg-center align-items-md-center align-items-sm-center  align-items-center me-3">
           <p className="f18 text-center m-1">
             משרד עו"ד אלעד כהן מתמחה במגוון רחב של תחומי המשפט המסחרי והאזרחי. המשרד דוגל בהענקת שירות מקצועי, יסודי, סבלני ובגובה העיניים ללקוחותיו. במסגרת
             שירותי המשרד אנו מעניקים ללקוחותינו שירות משפטי בתחומים הבאים:
@@ -144,7 +145,7 @@ const Services = () => {
       />
 
       <ContactUs key={'dsdsdskbjnbjlknknmklmklmkdssdslmlkmlk'} />
-      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={family} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} />
+      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} />
     </div>
   );
 };

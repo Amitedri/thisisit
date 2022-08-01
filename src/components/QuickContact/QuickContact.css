@@ -13,12 +13,16 @@
     transition: all 1s ease-in-out;
 }
 .contactItem img:hover{
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 @media screen and (max-width:600px) {
     .contactColumn {
         top: 79vh !important;
         right: 3%;
+    }
+    .whtImg{
+        /* transform: scaleX(-1); */
+        transform: rotate(-90deg);
     }
   }

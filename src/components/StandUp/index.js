@@ -25,7 +25,7 @@ const StandUp = ({ doc, basicContractData, mekifContractData, customContractData
   const sentences = [
     { text: 'שירות משפטי דיגיטלי חדש', color: '#4ba492' },
     { color: '#f0cc76', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
-    { text: 'און ליין ישירות מהאתר', color: '#4ba492' },
+    { text: 'ישירות מהאתר במספר קליקים', color: '#4ba492' },
     { text: 'להגנה מיטבית על זכויותיכם', color: '#4ba492' },
   ];
   const [counter, setcounter] = useState(0);

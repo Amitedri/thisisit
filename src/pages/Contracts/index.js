@@ -19,6 +19,8 @@ const Contracts = () => {
   const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
   const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
   const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות');
+  const workServices = previewContracts.filter((el) => el.categoryHeb === 'עבודה');
+  
   let {cat} = useParams();
   console.log(cat)
   const onFilterChange = (event) => {
@@ -94,7 +96,7 @@ const Contracts = () => {
           </p>
           {/* <hr className="w-90 m-1" /> */}
           <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-          <span className="w3 text-center f22 lightBlueText" style={{textDecoration:"underline"}}>
+          <span className="fw-bold text-center f22 lightBlueText " style={{textDecoration:"underline"}}>
           באפשרותכם לרכוש במהירות:
 
             </span>
@@ -149,6 +151,14 @@ const Contracts = () => {
         key="dsfnjsdkndfjjkfnsdjmkljmklmklmjkf"
       />
       <FullList
+        category={'עבודה'}
+        dataToRender={workServices}
+        componentHeader={'עבודה'}
+        Children={ProductSlider}
+        ExpandedProducts={ExpandedProduct}
+        key="fsdklfjsiondfiosnfiosniofnsidfnsiodf"
+      />
+      <FullList
         category={'כללי'}
         dataToRender={generalServices}
         componentHeader={'כללי'}
@@ -156,6 +166,8 @@ const Contracts = () => {
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjksndfjksndjkfsndjkfnsdjkf"
       />
+
+
       <ContactUs key={'dsdsdskbjnbjlkmklmklmlkmlk'} />
       <ProductSlider componentHeader={'שירותי המשרד'} dataToRender={servicesList} key={'dsdsdskbjnbjlmklmlkmdlk'} />
     </div>

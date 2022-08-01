@@ -15,11 +15,11 @@ const ContactsUs = () => {
       <div className="col-12 h-100 p-0 d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column flex-wrap align-items-center  m-auto">
         {/* form */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
-          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between">
+          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between ">
             <span className="align-self-start f20 w2 ">שם מלא</span>
             <input className="formInput" type="text" placeholder="הקלד כאן" />
           </div>
-          <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center ">
+          <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center mt-2">
             <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between m-1">
               <span className="align-self-start f20 w2 ">אימייל</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" />
@@ -48,7 +48,7 @@ const ContactsUs = () => {
               <img src="../assets/icons/whatsapp.svg" height="20" width="20" className="m-1" />
             </span>
 
-            <span className="greyText w3">או שלחו הודעת טקסט למספר 052-12121212</span>
+            <span className="greyText w3">או שלחו הודעת טקסט למספר 052-8081119</span>
             <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
             <a href="mailto:office@ceco.com" className="pointer" style={{ all: 'unset' }}>
               <span className="greyText w3  ">office@ceco.com</span>

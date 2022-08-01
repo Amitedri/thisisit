@@ -78,4 +78,7 @@ h1 {
   .responsiveContainer {
     /* min-height: 0; */
   }
+  .itemsLine:nth-last-child(){
+    display: none  !important;
+  }
 }
