@@ -1666,10 +1666,8 @@ const previewContracts = [
 
     priceCustom: '350',
     numOfPagesMeeting: '0',
-
     numOfFixesMeeting: '1',
     makingTimeMeeting: 'מיידי',
-
     priceMeeting: '350',
     imgSrc: '../assets/img/contracts/הסכם עבודה.jpg',
     buttonText: 'פתח עוד',

@@ -40,7 +40,7 @@ const TopSearchBar = () => {
             <span className="align-self-center f16 w3 p-1" >צור קשר עכשיו</span>
           </div>
           <div className="d-flex justify-content-center mt-1">
-            <a href="tel:0508081119" style={{textDecoration:"underline"}} className="align-self-center f16 w3 blueText">052-281-3907</a>
+            <a href="tel:050-8081119" style={{textDecoration:"underline"}} className="align-self-center f16 fw-bold lightBlueText">050-8081119</a>
           </div>
         </a>
       </div>

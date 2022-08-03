@@ -18,7 +18,7 @@
 
 @media screen and (max-width:600px) {
     .contactColumn {
-        top: 79vh !important;
+        top: 80% !important;
         right: 3%;
     }
     .whtImg{
