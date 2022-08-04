@@ -15,10 +15,9 @@ const Stars = ({ amount }) => {
   for (let i = 0; i < amount; i++) {
     stars.push(<img src="../assets/icons/stargold.svg" height="15" width="15" />);
   }
-  return <div className='col-8 m-auto d-flex flex-row flex-wrap justify-content-center align-items-center align-content-center'>{stars}</div>;
+  return <div className="col-8 m-auto d-flex flex-row flex-wrap justify-content-center align-items-center align-content-center">{stars}</div>;
 };
 const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
-  
   const disptach = useDispatch();
   const addItem = (value) => {
     disptach(addProduct(value));
@@ -61,18 +60,44 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: meetingContractData.numOfFixesMeeting,
             makingTime: meetingContractData.makingTimeMeeting,
           });
-    console.log("mekifContractData",mekifContractData)
-
+          console.log('mekifContractData', mekifContractData);
         }
       });
     });
-    console.log("mekifContractData",mekifContractData)
+    console.log('mekifContractData', mekifContractData);
 
     return () => {
       tableBtns.forEach((el) => {
         el.removeEventListener('click', (e) => {});
       });
     };
+  }, []);
+  useEffect(() => {
+    let allBasic = document.querySelectorAll('.basic');
+    let allMekif = document.querySelectorAll('.mekif');
+    let allCustom = document.querySelectorAll('.custom');
+    let allMeeting = document.querySelectorAll('.meeting');
+
+    if (!basicContractData.hasBasicColumn) {
+      allBasic.forEach((el) => {
+        window.$(el).hide();
+      });
+    }
+    if (!mekifContractData.hasMekifColumn) {
+      allMekif.forEach((el) => {
+        window.$(el).hide();
+      });
+    }
+    if (!customContractData.hasCustomColumn) {
+      allCustom.forEach((el) => {
+        window.$(el).hide();
+      });
+    }
+    if (!meetingContractData.hasMeetingColumn) {
+      allMeeting.forEach((el) => {
+        window.$(el).hide();
+      });
+    }
   }, []);
   return (
     <div className="col-12 d-flex flex-column" id="tableDisplay">
@@ -92,7 +117,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 </span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2 mekif">
               <h3 className="f22 blueText d-flex flex-column">
                 הסכם מקיף
                 <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
@@ -100,7 +125,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 </span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2 custom">
               <h3 className="f22 blueText d-flex flex-column">
                 התאמה אישית
                 <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
@@ -108,7 +133,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 </span>
               </h3>
             </th>
-            <th scope="col" className="col-2">
+            <th scope="col" className="col-2 meeting">
               <h3 className="f22 blueText d-flex flex-column">
                 פגישת ייעוץ
                 <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
@@ -124,9 +149,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               מס' עמודים
             </th>
             <td className="basic">עד {basicContractData.numOfPagesBasic}</td>
-            <td>עד {mekifContractData.numOfPagesMekif}</td>
-            <td>עד {customContractData.numOfPagesCustom}</td>
-            <td>עד {meetingContractData.numOfPagesMeeting}</td>
+            <td className="mekif">עד {mekifContractData.numOfPagesMekif}</td>
+            <td className="custom">עד {customContractData.numOfPagesCustom}</td>
+            <td className="meeting">עד {meetingContractData.numOfPagesMeeting}</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -137,17 +162,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="mekif">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>{' '}
-            <td>
+            <td className="custom">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="meeting">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
@@ -162,17 +187,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 <Check value={true} />
               </span>
             </td>
-            <td>
+            <td className="mekif">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="custom">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>{' '}
-            <td>
+            <td className="meeting">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
@@ -185,17 +210,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="basic">
               <span className="fs-6 border-bottom col-12">{basicContractData.numOfFixesBasic}</span>
             </td>
-            <td>
+            <td className="mekif">
               <span className="fs-6 border-bottom col-12">
                 <span className="fs-6 border-bottom col-12">{mekifContractData.numOfFixesMekif}</span>
               </span>
             </td>
-            <td>
+            <td className="custom">
               <span className="fs-6 border-bottom col-12">
                 <span className="fs-6 border-bottom col-12">{customContractData.numOfFixesCustom}</span>
               </span>
             </td>{' '}
-            <td>
+            <td className="meeting">
               <span className="fs-6 border-bottom col-12">
                 <span className="fs-6 border-bottom col-12">{meetingContractData.numOfFixesMeeting}</span>
               </span>
@@ -206,9 +231,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               זמן הכנה
             </th>
             <td className="basic">{basicContractData.numOfFixesBasic}</td>
-            <td className="">{mekifContractData.numOfFixesMekif}</td>
-            <td className="">{customContractData.numOfFixesCustom}</td>
-            <td className="">{meetingContractData.numOfFixesMeeting}</td>
+            <td className="mekif">{mekifContractData.numOfFixesMekif}</td>
+            <td className="custom">{customContractData.numOfFixesCustom}</td>
+            <td className="meeting">{meetingContractData.numOfFixesMeeting}</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -217,15 +242,15 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="basic">
               <Stars amount={'5'} />
             </td>
-            <td>
+            <td className="mekif">
               {' '}
               <Stars amount={'5'} />
             </td>
-            <td>
+            <td className="custom">
               {' '}
               <Stars amount={'5'} />
             </td>
-            <td>
+            <td className="meeting">
               {' '}
               <Stars amount={'5'} />
             </td>
@@ -239,17 +264,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="mekif">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="custom">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
-            <td>
+            <td className="meeting">
               <span className="fs-6 border-bottom col-12">
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
@@ -260,9 +285,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               מחיר
             </th>
             <td className="basic">ללא עלות</td>
-            <td>{mekifContractData.priceMekif} ש"ח</td>
-            <td>{customContractData.priceCustom} ש"ח</td>
-            <td>{meetingContractData.priceMeeting} ש"ח</td>
+            <td className="mekif">{mekifContractData.priceMekif} ש"ח</td>
+            <td className="custom">{customContractData.priceCustom} ש"ח</td>
+            <td className="meeting">{meetingContractData.priceMeeting} ש"ח</td>
           </tr>
           <tr className="border-top-0 border-white">
             <th scope="row" className="col-2"></th>
@@ -277,7 +302,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 הצג
               </div>
             </td>
-            <td className="w3">
+            <td className="w3 mekif">
               <div
                 className="btn p-1 border w-75 border-white tableBtn clickable f16"
                 data-contractid={id}
@@ -287,7 +312,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 בצע רכישה
               </div>
             </td>
-            <td className="w3">
+            <td className="w3 custom">
               <div
                 className="btn p-1 border w-75 border-white tableBtn clickable f16"
                 data-contractid={id}
@@ -297,7 +322,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 בצע רכישה
               </div>
             </td>
-            <td className="w3">
+            <td className="w3 meeting">
               <div
                 className="btn p-1 border w-75 border-white tableBtn clickable f16"
                 data-contractid={id}
@@ -327,9 +352,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
           <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/icons/isracard.svg" height="60" width="60" />
           </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+          {/* <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
             <img src="../assets/img/visa.png" height="60" width="60" />
-          </div>
+          </div> */}
         </div>
       ) : (
         <div className="col-12 d-flex flex-row ">

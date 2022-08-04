@@ -35,6 +35,9 @@ const ProductPage = () => {
     numOfPagesBasic: '',
     numOfFixesBasic: '',
     hasBasicColumn: true,
+    tailoredBasic:false,
+    levelOfProtectionBasic:"2",
+    warrantyBasic:false
   });
   const [mekifContractData, setMekifContractData] = useState({
     priceMekif: '',
@@ -42,6 +45,9 @@ const ProductPage = () => {
     numOfFixesMekif: '',
     numOfPagesMekif: '',
     hasMekifColumn: true,
+    tailoredMekif:false,
+    levelOfProtectionMekif:"2",
+    warrantyMekif:false
   });
   const [customContractData, setCustomContractData] = useState({
     priceCustom: '',
@@ -49,6 +55,9 @@ const ProductPage = () => {
     makingTimeCustom: '',
     numOfFixesCustom: '',
     hasCustomColumn: true,
+    tailoredCustom:false,
+    levelOfProtectionCustom:"2",
+    warrantyCustom:false
   });
   const [meetingContractData, setMeetingContractData] = useState({
     priceMeeting: '',
@@ -56,6 +65,9 @@ const ProductPage = () => {
     makingTimeMeeting: '',
     numOfPagesMeeting: '',
     hasMeetingColumn: true,
+    tailoredMeeting:false,
+    levelOfProtectionMeeting:"2",
+    warrantyMeeting:false
   });
   const addItem = (value) => {
     disptach(addProduct(value));
@@ -63,10 +75,10 @@ const ProductPage = () => {
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1 } = doc[0];
-    const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn } = doc[0];
-    const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn } = doc[0];
-    const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn } = doc[0];
-    const { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn } = doc[0];
+    const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn,tailoredBasic,levelOfProtectionBasic,warrantyBasic } = doc[0];
+    const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn,tailoredMekif,levelOfProtectionMekif,warrantyMekif } = doc[0];
+    const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn,tailoredCustom,levelOfProtectionCustom,warrantyCustom } = doc[0];
+    const { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn,tailoredMeeting,levelOfProtectionMeeting,warrantyMeeting } = doc[0];
 
     console.log(doc);
     setTitle(title);
@@ -85,11 +97,12 @@ const ProductPage = () => {
       numOfPagesBasic,
       numOfFixesBasic,
       hasBasicColumn,
+      tailoredBasic,levelOfProtectionBasic,warrantyBasic
     };
 
-    const mekif = { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn };
-    const custom = { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn };
-    const meeting = { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn };
+    const mekif = { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn,tailoredMekif,levelOfProtectionMekif,warrantyMekif };
+    const custom = { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn,tailoredCustom,levelOfProtectionCustom,warrantyCustom };
+    const meeting = { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn,tailoredMeeting,levelOfProtectionMeeting,warrantyMeeting };
     setBasicContractData(basic);
     setMekifContractData(mekif);
     setCustomContractData(custom);
