@@ -4,7 +4,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
     numOfPagesBasic: '3',
     wordFileBasic: false,
@@ -177,7 +177,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -403,7 +403,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -605,7 +605,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -800,9 +800,8 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
-
     numOfPagesBasic: '4',
     wordFileBasic: false,
     tailoredBasic: false,
@@ -1009,7 +1008,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '2',
@@ -1131,7 +1130,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -1368,7 +1367,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -1582,7 +1581,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -1747,7 +1746,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -1908,7 +1907,7 @@ const previewContracts = [
   {
     hasBasicColumn: false,
     hasMekifColumn: false,
-    hasCustomColum: false,
+    hasCustomColumn: false,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',

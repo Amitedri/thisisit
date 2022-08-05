@@ -56,6 +56,7 @@ const StandUp = ({ doc, basicContractData, mekifContractData, customContractData
       }
     });
   }, [counter]);
+  
   const Table = useCallback(
     () => (
       <PriceTable

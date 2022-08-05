@@ -8,3 +8,11 @@
     border: 1px solid white;
 
 }
+
+.footerBtn:hover{
+border: none !important;
+background-color: white !important;
+color: #1d9d83 !important;
+border-radius: 5px;
+font-weight: 500;
+}

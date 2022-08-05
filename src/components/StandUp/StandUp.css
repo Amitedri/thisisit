@@ -51,6 +51,9 @@
   .basic {
     display: none !important;
   }
+  .packageHeader{
+    line-height: 55px !important;
+  }
 }
 
 @media screen and (max-width: 600px) {

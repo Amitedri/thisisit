@@ -105,7 +105,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
         <thead style={{ height: '50px' }}>
           <tr>
             <th scope="col" className="col">
-              <h3 className="f22 align-self-center blueText w-50 m-auto" style={{ height: '50px' }}>
+              <h3  className="f22 align-self-center blueText w-50 m-auto packageHeader" style={{ height: '50px'}}>
                 חבילות
               </h3>
             </th>
@@ -151,7 +151,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="basic">עד {basicContractData.numOfPagesBasic}</td>
             <td className="mekif">עד {mekifContractData.numOfPagesMekif}</td>
             <td className="custom">עד {customContractData.numOfPagesCustom}</td>
-            <td className="meeting">עד {meetingContractData.numOfPagesMeeting}</td>
+            <td className="meeting">{meetingContractData.numOfPagesMeeting == 0 ? 'ללא הגבלה' : ` עד ${meetingContractData.numOfPagesMeeting}`}</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -159,7 +159,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="23" width="23" />
+                <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
             <td className="mekif">
@@ -184,23 +184,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">
               <span className="fs-6 border-bottom col-12">
-                <Check value={true} />
+                <Check value={false} />
               </span>
             </td>
             <td className="mekif">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
-              </span>
+              <Check value={mekifContractData.tailoredMekif} />
             </td>
             <td className="custom">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
-              </span>
+              <Check value={customContractData.tailoredCustom} />
             </td>{' '}
             <td className="meeting">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
-              </span>
+              <Check value={meetingContractData.tailoredMeeting} />
             </td>
           </tr>
           <tr>
@@ -208,18 +202,23 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               מס' תיקונים
             </th>
             <td className="basic">
-              <span className="fs-6 border-bottom col-12">{basicContractData.numOfFixesBasic}</span>
+              <span className="fs-6 border-bottom col-12">
+                {' '}
+                <Check value={false} />
+              </span>
             </td>
             <td className="mekif">
               <span className="fs-6 border-bottom col-12">
-                <span className="fs-6 border-bottom col-12">{mekifContractData.numOfFixesMekif}</span>
+                <span className="fs-6 border-bottom col-12">
+                  <Check value={false} />
+                </span>
               </span>
             </td>
             <td className="custom">
               <span className="fs-6 border-bottom col-12">
                 <span className="fs-6 border-bottom col-12">{customContractData.numOfFixesCustom}</span>
               </span>
-            </td>{' '}
+            </td>
             <td className="meeting">
               <span className="fs-6 border-bottom col-12">
                 <span className="fs-6 border-bottom col-12">{meetingContractData.numOfFixesMeeting}</span>
@@ -240,19 +239,19 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               רמת הגנה
             </th>
             <td className="basic">
-              <Stars amount={'5'} />
+              <Stars amount={basicContractData.levelOfProtectionBasic} />
             </td>
             <td className="mekif">
               {' '}
-              <Stars amount={'5'} />
+              <Stars amount={mekifContractData.levelOfProtectionMekif} />
             </td>
             <td className="custom">
               {' '}
-              <Stars amount={'5'} />
+              <Stars amount={customContractData.levelOfProtectionCustom} />
             </td>
             <td className="meeting">
               {' '}
-              <Stars amount={'5'} />
+              <Stars amount={meetingContractData.levelOfProtectionMeeting} />
             </td>
           </tr>
           <tr>
@@ -276,7 +275,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </td>
             <td className="meeting">
               <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
+                <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>
           </tr>
@@ -293,18 +292,18 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <th scope="row" className="col-2"></th>
             <td className="w3 basic">
               <div
-                className="btn p-1 border w-75 border-white tableBtn f16"
+                className="btn p-1 border w-75 border-white tableBtn f16 w3"
                 data-free={true}
                 data-contractid={id}
                 data-pack={'basic'}
                 data-localImg={'asjmdlkasjmdlkajsdlajisdasdasdasdjsioidj'}
               >
-                הצג
+                הורד
               </div>
             </td>
             <td className="w3 mekif">
               <div
-                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
                 data-contractid={id}
                 data-pack={'מקיף'}
                 data-localImg={'fsmklndfsdnhdjfkisnfjksndfkjsndfkjsnkfjnsd'}
@@ -314,7 +313,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </td>
             <td className="w3 custom">
               <div
-                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
                 data-contractid={id}
                 data-pack={'אישי'}
                 data-localImg={'aslkjdauiohdhdghdbaybsascyubcsyabcysc'}
@@ -324,7 +323,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </td>
             <td className="w3 meeting">
               <div
-                className="btn p-1 border w-75 border-white tableBtn clickable f16"
+                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
                 data-contractid={id}
                 data-pack={'ייעוץ'}
                 data-localImg={'sdifbnidkfnsudfdflndfuiosdfiusndfuisndu'}
@@ -336,20 +335,20 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
         </tbody>
       </table>
       {iconType == 'payment' ? (
-        <div className="col-10 d-flex flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+        <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
+          <div className="col-xxl-3 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/ssl.svg" height="85" width="85" />
           </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/mc_symbol.svg" height="60" width="60" />
           </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/pci.svg" height="85" width="85" />
           </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/bit.svg" height="60" width="60" />
           </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/isracard.svg" height="60" width="60" />
           </div>
           {/* <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-2 p-1 itemsLine">
