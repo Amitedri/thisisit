@@ -3,7 +3,12 @@ import $ from 'jquery';
 import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
 import Cart from '../Cart';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+  const products = useSelector((state) => state.prods.products);
+
+  console.log(products)
+
   const [showCart, setShowCart] = useState(false);
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
@@ -266,7 +271,7 @@ const Navbar = () => {
           className="fw-bold text-white m-1 position-absolute lightBlue rounded-circle text-center start-50 f14"
           style={{ height: '25px', width: '25px', lineHeight: '25px' }}
         >
-          0
+         {products.length}
         </span>
         <img src="../assets/icons/cart.svg" className="cartImg" height="50" width="50" />
       </div>

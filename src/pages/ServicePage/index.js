@@ -12,16 +12,16 @@ import { compact, without } from 'lodash';
 import previewContracts from '../../Data/ContractExport';
 
 const ServicePage = () => {
+
   const [pageContent, setPageContent] = useState([]);
   const [header, setHeader] = useState('');
   const [imgSrc, setImgSrc] = useState('../assets/img/service.png');
   const { id } = useParams();
-  const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
-
   const [relatedDocs, setRelatedDocs] = useState([]);
   const [relatedContracts, setRelatedContracts] = useState([]);
-
   const [relatedCat, setRelatedCat] = useState('');
+  const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
+
 
   useEffect(() => {
     servicesList.forEach((el) => {

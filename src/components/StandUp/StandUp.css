@@ -52,7 +52,7 @@
     display: none !important;
   }
   .packageHeader{
-    line-height: 55px !important;
+    /* line-height: 55px !important; */
   }
 }
 
@@ -66,5 +66,12 @@
 @media screen and (max-width: 450px) {
   .tableBtn {
     height: 50px;
+  }
+}
+
+@media screen and (max-height: 863px) {
+
+  .packageHeader{
+    /* line-height: 100px !important; */
   }
 }

@@ -27,7 +27,6 @@ const ProductPage = () => {
   const [secondSigner, setSecondSigner] = useState('');
   const [signInDate, setSignInDate] = useState('');
   const [contractName, setContractName] = useState('');
-
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
@@ -35,9 +34,9 @@ const ProductPage = () => {
     numOfPagesBasic: '',
     numOfFixesBasic: '',
     hasBasicColumn: true,
-    tailoredBasic:false,
-    levelOfProtectionBasic:"2",
-    warrantyBasic:false
+    tailoredBasic: false,
+    levelOfProtectionBasic: '2',
+    warrantyBasic: false,
   });
   const [mekifContractData, setMekifContractData] = useState({
     priceMekif: '',
@@ -45,9 +44,9 @@ const ProductPage = () => {
     numOfFixesMekif: '',
     numOfPagesMekif: '',
     hasMekifColumn: true,
-    tailoredMekif:false,
-    levelOfProtectionMekif:"2",
-    warrantyMekif:false
+    tailoredMekif: false,
+    levelOfProtectionMekif: '2',
+    warrantyMekif: false,
   });
   const [customContractData, setCustomContractData] = useState({
     priceCustom: '',
@@ -55,9 +54,9 @@ const ProductPage = () => {
     makingTimeCustom: '',
     numOfFixesCustom: '',
     hasCustomColumn: true,
-    tailoredCustom:false,
-    levelOfProtectionCustom:"2",
-    warrantyCustom:false
+    tailoredCustom: false,
+    levelOfProtectionCustom: '2',
+    warrantyCustom: false,
   });
   const [meetingContractData, setMeetingContractData] = useState({
     priceMeeting: '',
@@ -65,20 +64,44 @@ const ProductPage = () => {
     makingTimeMeeting: '',
     numOfPagesMeeting: '',
     hasMeetingColumn: true,
-    tailoredMeeting:false,
-    levelOfProtectionMeeting:"2",
-    warrantyMeeting:false
+    tailoredMeeting: false,
+    levelOfProtectionMeeting: '2',
+    warrantyMeeting: false,
   });
   const addItem = (value) => {
     disptach(addProduct(value));
   };
+
+  useEffect(() => {
+    let elem = document.querySelector('.hoverGreener');
+    elem.addEventListener('click', (e) => {
+      if (!isAgreedConsent) {
+        e.preventDefault();
+        console.log('no');
+        return
+      }
+      console.log("yes")
+    });
+
+
+  }, []);
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1 } = doc[0];
-    const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn,tailoredBasic,levelOfProtectionBasic,warrantyBasic } = doc[0];
-    const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn,tailoredMekif,levelOfProtectionMekif,warrantyMekif } = doc[0];
-    const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn,tailoredCustom,levelOfProtectionCustom,warrantyCustom } = doc[0];
-    const { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn,tailoredMeeting,levelOfProtectionMeeting,warrantyMeeting } = doc[0];
+    const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
+    const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
+    const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
+      doc[0];
+    const {
+      priceMeeting,
+      makingTimeMeeting,
+      numOfPagesMeeting,
+      numOfFixesMeeting,
+      hasMeetingColumn,
+      tailoredMeeting,
+      levelOfProtectionMeeting,
+      warrantyMeeting,
+    } = doc[0];
 
     console.log(doc);
     setTitle(title);
@@ -97,21 +120,38 @@ const ProductPage = () => {
       numOfPagesBasic,
       numOfFixesBasic,
       hasBasicColumn,
-      tailoredBasic,levelOfProtectionBasic,warrantyBasic
+      tailoredBasic,
+      levelOfProtectionBasic,
+      warrantyBasic,
     };
 
-    const mekif = { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn,tailoredMekif,levelOfProtectionMekif,warrantyMekif };
-    const custom = { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn,tailoredCustom,levelOfProtectionCustom,warrantyCustom };
-    const meeting = { priceMeeting, makingTimeMeeting, numOfPagesMeeting, numOfFixesMeeting, hasMeetingColumn,tailoredMeeting,levelOfProtectionMeeting,warrantyMeeting };
+    const mekif = { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif };
+    const custom = {
+      priceCustom,
+      makingTimeCustom,
+      numOfPagesCustom,
+      numOfFixesCustom,
+      hasCustomColumn,
+      tailoredCustom,
+      levelOfProtectionCustom,
+      warrantyCustom,
+    };
+    const meeting = {
+      priceMeeting,
+      makingTimeMeeting,
+      numOfPagesMeeting,
+      numOfFixesMeeting,
+      hasMeetingColumn,
+      tailoredMeeting,
+      levelOfProtectionMeeting,
+      warrantyMeeting,
+    };
     setBasicContractData(basic);
     setMekifContractData(mekif);
     setCustomContractData(custom);
     setMeetingContractData(meeting);
   }, []);
 
-
-
-  
   const showBasicContract = (event) => {
     event.preventDefault();
     let contBtn = document.getElementById('contBtn');
@@ -126,15 +166,13 @@ const ProductPage = () => {
     }
     contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
     flexCheckDefault.parentElement.classList.remove('text-danger');
-
     window.$('#contractLoader').collapse('toggle');
     return;
   };
-  const InnerCheck = ()=>{
-    return <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />
-     
-  }
-  const Checkbox = useCallback(()=><InnerCheck/>,[])
+  const InnerCheck = () => {
+    return <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />;
+  };
+  const Checkbox = useCallback(() => <InnerCheck />, []);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
@@ -169,7 +207,7 @@ const ProductPage = () => {
                 onClick={() =>
                   addItem({
                     name: contractName,
-                    id:id,
+                    id: id,
                     pack: 'מקיף',
                     price: mekifContractData.priceMekif,
                     numOfPages: mekifContractData.numOfPagesMekif,
@@ -185,15 +223,17 @@ const ProductPage = () => {
               <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">הצג אפשרויות הגנה נוספות</div>
             </div>
             <p className="text-muted f12 w-75 m-0 d-flex flex-column justify-content-center align-content-center align-items-center">
-              <p className="text-muted f16 w-75 m-0" style={{textDecoration:"underline"}}>תניית פטור</p>
+              <p className="text-muted f16 w-75 m-0" style={{ textDecoration: 'underline' }}>
+                תניית פטור
+              </p>
               כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
               ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
             </p>
             <div class="form-check f12 mt-1 terms">
-              <Checkbox/>
+              <Checkbox />
               {/* <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" /> */}
               <p>
-              הריני מסכים ומאשר את תניית הפטור,{' '}
+                הריני מסכים ומאשר את תניית הפטור,{' '}
                 <a
                   class="form-check-label"
                   href="javascript:void(0)"

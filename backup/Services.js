@@ -593,4 +593,4 @@ const servicesList = [
       `,
   },
 ];
-export default servicesList;
+module.exports = servicesList;

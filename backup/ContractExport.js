@@ -1,4 +1,4 @@
-import parse from 'html-react-parser';
+const parse = require ("html-react-parser")
 const previewContracts = [
   {
     hasBasicColumn: true,
@@ -2138,4 +2138,4 @@ const previewContracts = [
   },
 ];
 
-export default previewContracts;
+module.exports = previewContracts;

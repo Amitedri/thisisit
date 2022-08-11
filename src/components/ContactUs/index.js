@@ -48,10 +48,10 @@ const ContactsUs = () => {
               <img src="../assets/icons/whatsapp.svg" height="20" width="20" className="m-1" />
             </span>
 
-            <span className="greyText w3">או שלחו הודעת טקסט למספר 052-8081119</span>
+            <span className="greyText w3">או שלחו הודעת טקסט למספר <a className='text-dark' href="tel:0528081119">052-8081119</a></span>
             <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
             <a href="mailto:office@ceco.com" className="pointer" style={{ all: 'unset' }}>
-              <span className="greyText w3  ">office@ceco.com</span>
+              <a className="greyText w3  " href="mailto:office@ceco.com">office@ceco.com</a>
             </a>
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mb-xxl-0 mb-xxl-0 mb-xl-0 mb-lg-4 mb-md-4 mb-sm-4 mb-4  mt-xxl-3 mt-xxl-3 mt-xl-3 mt-lg-0 mt-md-0 mt-sm-0 mt-0 text-center">
@@ -63,9 +63,9 @@ const ContactsUs = () => {
           </div>
 
           <div className="col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
-            <a className="greyText w3 btn border border-dark m-2 btn-sm">
+            <a className="greyText w3 btn border border-dark m-2 btn-sm" >
               הוראות הגעה ב-
-              <img src="../assets/icons/waze.svg" height="20" width="20" className="m-1" />
+             <a href="https://www.waze.com/en/live-map/directions/%D7%99%D7%A4%D7%95-97-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D?place=w.23068990.230755434.325972" target="_blank"> <img src="../assets/icons/waze.svg" height="20" width="20" className="m-1" /></a>
             </a>
             <iframe
               className="col-10 border border-1 rounded"
