@@ -18,11 +18,15 @@
 
 @media screen and (max-width:600px) {
     .contactColumn {
-        top: 80% !important;
+        top: 87% !important;
         right: 3%;
+    }
+    .whatsImg{
+        bottom: 0;
     }
     .whtImg{
         /* transform: scaleX(-1); */
         transform: rotate(-90deg);
+
     }
   }

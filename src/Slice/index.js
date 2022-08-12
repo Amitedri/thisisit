@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
+  modalText: "",
 };
 
 export const productsSlice = createSlice({
@@ -13,7 +14,7 @@ export const productsSlice = createSlice({
       if (item == false) {
         state.products = [...state.products, action.payload];
       }
-      if(item == true){
+      if (item == true) {
         let items = state.products.filter((el) => el.id != action.payload.id);
         items.push(item);
         state.products = items;
@@ -29,13 +30,16 @@ export const productsSlice = createSlice({
     removeProduct: (state, action) => {
       let copy = [...state.products];
       let newArr = copy.filter((el) => el.id != action.payload.id);
-      console.log(newArr)
+      console.log(newArr);
       state.products = newArr;
+    },
+    setModalText: (state, action) => {
+      state.modalText = action.payload.text;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addProduct, setProducts,removeProduct } = productsSlice.actions;
+export const { addProduct, setProducts, removeProduct,setModalText } = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -38,7 +38,7 @@ const Product = ({ productName, price, id, disptach, packName }) => {
 
 const Cart = ({ openCart, setOpenCart }) => {
   const disptach = useDispatch();
-  const products = useSelector((state) => state.prods.products);
+  const products = useSelector((state) => state.prods.products) || []
   const [localProducts, setLocalProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [isNext, setIsNext] = useState(0);
@@ -74,7 +74,7 @@ const Cart = ({ openCart, setOpenCart }) => {
   };
   useEffect(() => {
     let total = 0;
-    products.forEach((el) => {
+    localProducts.forEach((el) => {
       let parsed = parseInt(el.price);
       total += parsed;
     });

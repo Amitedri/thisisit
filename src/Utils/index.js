@@ -1,3 +1,4 @@
+import {setModalText} from "../Slice"
 
 const onFilterChange = ({ event, setTypeFilter }) => {
   setTypeFilter(event.target.value);
@@ -8,4 +9,8 @@ const scrollIntoView = (id) => {
   elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
   return;
 };
-export { onFilterChange ,scrollIntoView};
+
+const setModalTextFunc = (value,dispatch)=>{
+  dispatch(setModalText(value))
+}
+export { onFilterChange ,scrollIntoView,setModalTextFunc};

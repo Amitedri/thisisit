@@ -30,7 +30,9 @@ app.get('*', (req, res) => {
     return res.send(htmlWithSeo);
   }
 
-  return res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+  let htmlWithSeo = html.toString().replace('__SEO_TITLE__', "ELAD COHEN&CO").replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
+  return res.send(htmlWithSeo);
 });
 
 const port = process.env.PORT || 80;
