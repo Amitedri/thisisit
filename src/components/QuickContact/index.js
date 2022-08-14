@@ -12,7 +12,7 @@ const QuickContact = () => {
   return (
     <div className="col-auto d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex d-flex flex-column contactColumn mt-3 pointer">
       <div className="contactItem d-flex flex-column align-items-center position-relative">
-        <a>
+        <a href="tel:0528081119">
           <img
             src="../assets/icons/phone.svg"
             height="50"
@@ -28,7 +28,7 @@ const QuickContact = () => {
             className="p-2 whtImg mb-3 d-block d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block d-block pointer"
           />
         </a>
-        <a>
+        <a href='mailto:office@ceco.co.il'>
           <img
             src="../assets/icons/maildotru.svg"
             height="50"

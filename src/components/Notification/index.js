@@ -9,8 +9,7 @@ const Notifications = ({ state }) => {
   const [currentState, setCurrentState] = useState('');
 
   useEffect(() => {
-    setText(modalText)
-   window.$('#staticBackdrop').modal('show');
+
     console.log(modalText)
 
   }, [modalText]);

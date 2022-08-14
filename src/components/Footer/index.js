@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="col-12 footerHeight rounded d-flex flex-row justify-content-center align-items-center">
         <div className="col-12 rounded d-flex flex-row flex-wrap justify-content-center align-content-center ">
           <div className="m-2 d-flex col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-8 col-8 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
-            <h4 className=" w3 text-center m-3 lightBlueText">ניווט</h4>
+            <h1 className="w3 text-center m-3 lightBlueText">ניווט</h1>
 
             <a style={{ textDecoration: 'none' }} href="/" className=" col-12 mt-1 text-center  footerBtn m-2 border-white  text-white">
               עורך דין חוזים
@@ -31,9 +31,18 @@ const Footer = () => {
             <h4 className=" w3 text-center m-3 lightBlueText">צור קשר</h4>
             <div className="col-auto d-flex flex-row  p-3">
               <div className="contactItem d-flex flex-row align-items-center">
-                <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2" />
-                <img src="../assets/icons/whatsapp.svg" height="50" width="50" className="p-2" />
-                <img src="../assets/icons/maildotru.svg" height="50" width="50" className="p-2" />
+                <a href="tel:0528081119">
+                  {' '}
+                  <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2 pointer" />
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=0528081119" target="_blank">
+                  {' '}
+                  <img src="../assets/icons/whatsapp.svg" height="50" width="50" className="p-2 pointer" />
+                </a>
+                <a href="mailto:office@ceco.co.il">
+                  {' '}
+                  <img src="../assets/icons/maildotru.svg" height="50" width="50" className="p-2 pointer" />
+                </a>
               </div>
             </div>
           </div>

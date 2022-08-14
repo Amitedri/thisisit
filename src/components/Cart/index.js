@@ -70,7 +70,7 @@ const Cart = ({ openCart, setOpenCart }) => {
 
       return;
     }
-    setpaymentStatus(true);
+    setpaymentStatus((prev)=>!prev);
   };
   useEffect(() => {
     let total = 0;

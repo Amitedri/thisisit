@@ -98,8 +98,8 @@ const ContactsUs = () => {
 
             <span className="greyText w3">
               או שלחו הודעת טקסט למספר{' '}
-              <a className="text-dark" href="tel:0528081119">
-                052-8081119
+              <a className="text-dark" href="tel:0508081119">
+                050-8081119
               </a>
             </span>
             <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
