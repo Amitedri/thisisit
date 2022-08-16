@@ -5,7 +5,7 @@ import ServicePage from './pages/ServicePage';
 import ProductPage from './pages/ProductPage';
 import ForCommunity from './pages/ForCommunity';
 import Contact from './pages/Contact';
-import ContractLawyer from './pages/ContractLawyer';
+import ContractLawyer from './pages/contractLawyer';
 import Services from './pages/Services';
 import Terms from './pages/Terms';
 
