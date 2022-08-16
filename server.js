@@ -6,7 +6,8 @@ const services = require('./backup/Services');
 const previewContracts = require('./backup/ContractExport');
 const axios = require('axios');
 const bodyParser = require('body-parser');
-
+const cors = require("cors");
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
