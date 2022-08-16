@@ -92,7 +92,7 @@ const Cart = ({ openCart, setOpenCart }) => {
   useEffect(async () => {
     console.log('out');
     if (paymentStatus) {
-      let req = await axios.post('http://localhost/payment', {
+      let req = await axios.post('https://eladcohen.herokuapp.com/payment', {
         clientData: {
           name,
           phone,
