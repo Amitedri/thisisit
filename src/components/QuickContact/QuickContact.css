@@ -1,32 +1,29 @@
-.contactColumn{
-    min-height: 25vh;
-    position: fixed !important;
-    z-index: 999 !important;
-    float: left;
-    width: 5vw;
-    position: sticky;
-    top: 35vh;
-    left: 0;
+.contactColumn {
+  min-height: 25vh;
+  position: fixed !important;
+  z-index: 999 !important;
+  float: left;
+  width: 5vw;
+  position: sticky;
+  top: 35vh;
+  left: 0;
 }
 
-.contactItem{
-    transition: all 1s ease-in-out;
+.contactItem {
+  transition: all 1s ease-in-out;
 }
-.contactItem img:hover{
-    /* transform: scale(1.1); */
+.contactItem img:hover {
+  /* transform: scale(1.1); */
 }
 
-@media screen and (max-width:600px) {
-    .contactColumn {
-        top: 87% !important;
-        right: 3%;
-    }
-    .whatsImg{
-        bottom: 0;
-    }
-    .whtImg{
-        /* transform: scaleX(-1); */
-        transform: rotate(-90deg);
-
-    }
+@media screen and (max-width: 600px) {
+  .contactColumn {
+    top: 79% !important;
+    right: 3%;
   }
+
+  .whtImg {
+    /* transform: scaleX(-1); */
+    transform: rotate(-90deg);
+  }
+}

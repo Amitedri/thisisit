@@ -38,7 +38,7 @@ const Product = ({ productName, price, id, disptach, packName }) => {
 
 const Cart = ({ openCart, setOpenCart }) => {
   const disptach = useDispatch();
-  const products = useSelector((state) => state.prods.products) || []
+  const products = useSelector((state) => state.prods.products) || [];
   const [localProducts, setLocalProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [isNext, setIsNext] = useState(0);
@@ -47,17 +47,15 @@ const Cart = ({ openCart, setOpenCart }) => {
   const [name, setName] = useState('');
   const [paymentsNum, setPaymentsNum] = useState(1);
   const [iframeUrl, setIframeUrl] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('');
 
   const [paymentStatus, setpaymentStatus] = useState(false);
   const setPaymentDetails = (e) => {
+    console.log('click');
+    let dataFormInput = document.querySelectorAll('.dataFormInput');
     let nameSplit = name.split(' ');
     if (nameSplit.length == 1 || nameSplit.length == 0) {
-      console.log('name wrong');
-      return;
-    }
-    if (phone.length < 8) {
-      console.log(phone.length);
-      console.log('phone wrong');
+      dataFormInput[0].classList.add('border', 'border-warning');
       return;
     }
     let isEmailOk = String(email)
@@ -66,11 +64,17 @@ const Cart = ({ openCart, setOpenCart }) => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
     if (!isEmailOk) {
-      console.log('email wrong');
+      dataFormInput[1].classList.add('border', 'border-warning');
 
       return;
     }
-    setpaymentStatus((prev)=>!prev);
+    if (!phone || phone.length != 10) {
+      dataFormInput[2].classList.add('border', 'border-warning');
+
+      return;
+    }
+
+    setpaymentStatus((prev) => !prev);
   };
   useEffect(() => {
     let total = 0;
@@ -78,18 +82,22 @@ const Cart = ({ openCart, setOpenCart }) => {
       let parsed = parseInt(el.price);
       total += parsed;
     });
-    setLocalProducts(() => products);
-
+    console.log(total)
     setTotal(total);
+
+    setLocalProducts(products);
+
   }, [products]);
+
   useEffect(async () => {
+    console.log('out');
     if (paymentStatus) {
       let req = await axios.post('http://localhost/payment', {
         clientData: {
           name,
           phone,
           email,
-          paymentsNum,
+          paymentMethod,
         },
         products: products,
       });
@@ -99,15 +107,25 @@ const Cart = ({ openCart, setOpenCart }) => {
       setIframeUrl(req.data);
     }
   }, [paymentStatus]);
-  const goNextStep = () => {
-    if (products.length > 0) {
-      setIsNext(true);
+
+  useEffect(() => {
+    console.log(paymentMethod);
+    let paymentMethodBtn = document.querySelectorAll('.paymentMethodBtn');
+    if (paymentMethod === 'card') {
+      paymentMethodBtn[0].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+
+      paymentMethodBtn[1].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
     }
-  };
+    if (paymentMethod === 'bit') {
+      paymentMethodBtn[1].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+      paymentMethodBtn[0].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+    }
+  }, [paymentMethod]);
 
   useEffect(() => {
     setpaymentStatus(false);
   }, [isNext]);
+
   useEffect(() => {
     setIsNext(false);
   }, [openCart]);
@@ -115,6 +133,58 @@ const Cart = ({ openCart, setOpenCart }) => {
   if (!openCart) {
     return null;
   }
+  const goNextStep = () => {
+    if (products.length > 0) {
+      setIsNext(true);
+    }
+  };
+  const CardPaymentFrame = ({ iframeUrl }) => {
+    if (!iframeUrl) {
+      return null;
+    }
+    return (
+      <div className="col-12 d-flex flex-column justify-content-center align-content-center">
+        <div className="col-12 d-flex flex-column justify-content-center align-content-center align-items-center">
+          <span className="">סכום לחיוב: ₪{total}</span>
+          <span className="col-10 text-center">התשלום מאובטח ופרטי האשראי אינם נשמרים במערכת</span>
+        </div>
+        <iframe src={iframeUrl} className="col-12" style={{ minHeight: '50vh' }}></iframe>
+        <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
+          <div className="col-xxl-3 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
+            <img src="../assets/icons/ssl.svg" height="85" width="85" />
+          </div>
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
+            <img src="../assets/icons/mc_symbol.svg" height="60" width="60" />
+          </div>
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
+            <img src="../assets/icons/pci.svg" height="85" width="85" />
+          </div>
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
+            <img src="../assets/icons/bit.svg" height="60" width="60" />
+          </div>
+          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
+            <img src="../assets/icons/isracard.svg" height="60" width="60" />
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const LoadingButton = ({ text, setPaymentDetails, isNext, iframeUrl }) => {
+    if (!isNext || iframeUrl) {
+      return null;
+    }
+    return (
+      <>
+        <div className="col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-5 col-5 btn btn-primary" onClick={setPaymentDetails}>
+          {text}
+        </div>
+        <div class="spinner-border d-none" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="col-12 position-absolute start-0 top-100 position-relative shadow-lg border border-dark" style={{ zIndex: '9999' }}>
       <span
@@ -132,13 +202,13 @@ const Cart = ({ openCart, setOpenCart }) => {
               <div className="mb-3 col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-10 col-10 d-flex flex-row-reverse">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control dataFormInput "
                   placeholder="הקלד כאן"
                   aria-label="הקלד כאן"
                   aria-describedby="basic-addon2"
                   required
                   id="name"
-                  onInput={(e) => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
                 <span className="input-group-text col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-4 col-4" id="basic-addon2">
                   שם מלא*
@@ -147,12 +217,12 @@ const Cart = ({ openCart, setOpenCart }) => {
               <div className="mb-3 col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-10 col-10 d-flex flex-row-reverse">
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control dataFormInput "
                   placeholder="הקלד כאן"
                   aria-label="הקלד כאן"
                   aria-describedby="basic-addon2"
                   pattern=".+@.+"
-                  onInput={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   id="email"
                 />
                 <span className="input-group-text col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-4 col-4" id="basic-addon2">
@@ -162,77 +232,42 @@ const Cart = ({ openCart, setOpenCart }) => {
               <div className="mb-3 col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-10 col-10 d-flex flex-row-reverse">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control dataFormInput "
                   placeholder="הקלד כאן"
                   aria-label="הקלד כאן"
                   aria-describedby="basic-addon2"
                   required
                   id="phone"
-                  onInput={(e) => setPhone(e.target.value)}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
                 <span className="input-group-text col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-4 col-4" id="basic-addon2">
                   טלפון
                 </span>
               </div>
-              <div className="mb-3 col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-10 col-10 d-flex flex-row-reverse">
-                <select className="form-select form-control" onChange={(e) => setPaymentsNum(e.target.value)}>
-                  <option value="1"> 1</option>
-                  <option value="2"> 2</option>
-                  <option value="3"> 3</option>
-                  <option value="4"> 4</option>
-                  <option value="5"> 5</option>
-                  <option value="6"> 6</option>
-                  <option value="7"> 7</option>
-                  <option value="8"> 8</option>
-                  <option value="9"> 9</option>
-                  <option value="10"> 10</option>
-                  <option value="11"> 11</option>
-                  <option value="12"> 12</option>
-                </select>
-                <span className="input-group-text col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-6 col-6" id="basic-addon2">
-                  מספר תשלומים
-                </span>
+              <div className="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">
+                <h1 className="">בחירת אמצעי תשלום</h1>
+                <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center flex-wrap">
+                  <div
+                    onClick={() => setPaymentMethod('card')}
+                    className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
+                    style={{ height: '200px' }}
+                  >
+                    <img height="75" width="75" className="" src="../assets/icons/card.svg"></img>
+                  </div>
+                  <div
+                    onClick={() => setPaymentMethod('bit')}
+                    className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
+                    style={{ height: '200px' }}
+                  >
+                    <img height="75" width="75" className="" src="../assets/icons/bit.svg"></img>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center">
-              {iframeUrl ? (
-                <div className="col-12 d-flex flex-column justify-content-center align-content-center">
-                  <div className="col-12 d-flex flex-column justify-content-center align-content-center align-items-center">
-                    <span className="">סכום לחיוב:{' '}₪{total}</span>
-                    <span className="col-10 text-center">התשלום מאובטח ופרטי האשראי אינם נשמרים במערכת</span>
-                  </div>
+              <CardPaymentFrame iframeUrl={iframeUrl} />
 
-                  <iframe src={iframeUrl} className="col-12" style={{ minHeight: '35vh' }}></iframe>
-                  <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
-          <div className="col-xxl-3 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
-            <img src="../assets/icons/ssl.svg" height="85" width="85" />
-          </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
-            <img src="../assets/icons/mc_symbol.svg" height="60" width="60" />
-          </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
-            <img src="../assets/icons/pci.svg" height="85" width="85" />
-          </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
-            <img src="../assets/icons/bit.svg" height="60" width="60" />
-          </div>
-          <div className="col-xxl-2 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
-            <img src="../assets/icons/isracard.svg" height="60" width="60" />
-          </div>
-         
-        </div>
-                </div>
-              ) : (
-                <>
-                  {' '}
-                  <div className="col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-5 col-5 btn btn-primary" onClick={setPaymentDetails}>
-                    המשך
-                  </div>
-                  <div class="spinner-border d-none" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                </>
-              )}
+              <LoadingButton text="המשך" setPaymentDetails={setPaymentDetails} isNext={isNext} iframeUrl={iframeUrl} />
             </div>
           </div>
         ) : (
