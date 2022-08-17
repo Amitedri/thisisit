@@ -10,9 +10,12 @@ const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use('/assets', express.static(path.join(__dirname, 'build/assets')));
 app.use('/static', express.static(path.join(__dirname, 'build/static')));
+app.get("/success",(req,res)=>{
+  console.log("success");
+  res.status("200").send("success")
+})
 app.post('/payment', async (req, res) => {
   console.log(req.body);
   const { name, phone, email, paymentMethod } = req.body.clientData;

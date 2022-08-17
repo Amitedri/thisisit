@@ -198,7 +198,7 @@ const ProductPage = () => {
             <h2 className="f18 text-muted col-7">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div className="btn btn-sm w-3 lightBlue text-white hoverYellow" onClick={showBasicContract}>
-                צפייה בחוזה בסיסי
+                צפייה בהסכם בסיסי
               </div>
             </div>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">

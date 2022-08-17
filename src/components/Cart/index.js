@@ -22,7 +22,7 @@ const Product = ({ productName, price, id, disptach, packName }) => {
           x
         </span>
         {/* img */}
-        <img className="rounded figure-img" src={`../assets/img/contracts/${productName}.jpg`} height="150" />
+        <img className="rounded figure-img" src={`../assets/img/contracts/${productName}.jpg`} height="150" width="150" />
         {/* product info */}
         <div className="col-8 d-flex flex-column align-items-xxl-start align-items-xl-start align-items-lg-start align-items-md-start align-items-sm-center align-items-center m-3">
           <span className="f26 mt-1 text-center">
@@ -78,17 +78,21 @@ const Cart = ({ openCart, setOpenCart }) => {
   };
   useEffect(() => {
     let total = 0;
-    localProducts.forEach((el) => {
+    products.forEach((el) => {
       let parsed = parseInt(el.price);
       total += parsed;
     });
-    console.log(total)
-    setTotal(total);
+    console.log(total);
+    window.scrollTo(0,0)
 
-    setLocalProducts(products);
+    setTotal(()=>total);
+    setLocalProducts(()=>products);
 
   }, [products]);
+  useEffect(()=>{
+    setOpenCart(true)
 
+  },[localProducts])
   useEffect(async () => {
     console.log('out');
     if (paymentStatus) {

@@ -4,10 +4,10 @@ import servicesList from '../../Data/Services';
 const Footer = () => {
   return (
     <div className="col-12 footerHeight rounded d-flex flex-column justify-content-center align-items-center align-items-center mb-2 mt-5 blue ">
-      <h1 className=" w3 text-white m-3 lightBlueText">אלעד כהן עו"ד</h1>
+      <h1 className=" w3 text-white m-3 lightBlueText">.COHEN ELAD & CO DIGITAL LAW OFFICE</h1>
       <div className="col-12 footerHeight rounded d-flex flex-row justify-content-center align-items-center">
         <div className="col-12 rounded d-flex flex-row flex-wrap justify-content-center align-content-center ">
-          <div className="m-2 d-flex col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-8 col-8 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
+          <div className="m-2 d-flex flex-wrap col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-8 col-8 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
             <h1 className="w3 text-center m-3 lightBlueText">ניווט</h1>
 
             <a style={{ textDecoration: 'none' }} href="/" className=" col-12 mt-1 text-center  footerBtn m-2 border-white  text-white">
@@ -31,11 +31,11 @@ const Footer = () => {
             <h4 className=" w3 text-center m-3 lightBlueText">צור קשר</h4>
             <div className="col-auto d-flex flex-row  p-3">
               <div className="contactItem d-flex flex-row align-items-center">
-                <a href="tel:0528081119">
+                <a href="tel:972503811119">
                   {' '}
                   <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2 pointer" />
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=0528081119" target="_blank">
+                <a href="https://api.whatsapp.com/send?phone=972503811119" target="_blank">
                   {' '}
                   <img src="../assets/icons/whatsapp.svg" height="50" width="50" className="p-2 pointer" />
                 </a>
@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="m-2 d-flex border-end  col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-5 col-5 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
+          <div className="m-2 d-flex flex-wrap border-xxl-end  border-xl-end  border-lg-end  border-md-end  border-sm-none border-none col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-5 col-5 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
             <h1 className=" w3 text-center m-3 lightBlueText">הסכמים</h1>
 
             {previewContracts.map((el) => {
@@ -67,6 +67,23 @@ const Footer = () => {
               );
             })}
           </div>
+        </div>
+      </div>
+      <div className="col-6 links d-flex flex-column m-3">
+        <span className="f12 text-center text-white">
+          כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת ייעוץ
+          משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
+        </span>
+        <div className="col-12 links d-flex flex-row flex-wrap justify-content-evenly mt-3 ">
+          <a herf="#" className="text-white">
+            לינק לתנאי השימוש
+          </a>
+          <a herf="#" className="text-white">
+            לינק להצהרת נגישות
+          </a>
+          <a herf="#" className="text-white">
+            לינק להצהרת פרטיות
+          </a>
         </div>
       </div>
     </div>

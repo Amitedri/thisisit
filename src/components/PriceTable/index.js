@@ -48,6 +48,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: mekifContractData.numOfFixesMekif,
             makingTime: mekifContractData.makingTimeMekif,
           });
+          console.log('mekifContractData', mekifContractData);
+
         }
         if (pack === 'התאמה אישית') {
           addItem({
@@ -59,6 +61,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: customContractData.numOfFixesCustom,
             makingTime: customContractData.makingTimeCustom,
           });
+          console.log('mekifContractData', mekifContractData);
+
         }
         if (pack === 'פגישת ייעוץ') {
           addItem({
@@ -70,7 +74,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: meetingContractData.numOfFixesMeeting,
             makingTime: meetingContractData.makingTimeMeeting,
           });
-          console.log('mekifContractData', mekifContractData);
+          console.log('meetingContractData', meetingContractData);
+
         }
       });
     });
@@ -124,7 +129,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               <h3 className="f22 blueText d-flex flex-column">
                 בסיסי
                 <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
-                  תקציר הסכם בסיסי ללא עלות.
+                   הסכם בסיסי ללא עלות.
                 </span>
               </h3>
             </th>
