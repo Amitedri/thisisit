@@ -4,7 +4,6 @@
   z-index: 999 !important;
   float: left;
   width: 5vw;
-  position: sticky;
   top: 35vh;
   left: 0;
 }
@@ -18,10 +17,12 @@
 
 @media screen and (max-width: 600px) {
   .contactColumn {
-    top: 79% !important;
+    top: 85% !important;
     right: 3%;
   }
-
+.whtcontrainer{
+  bottom: 0;
+}
   .whtImg {
     /* transform: scaleX(-1); */
     transform: rotate(-90deg);
