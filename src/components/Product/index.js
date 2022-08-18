@@ -1,4 +1,4 @@
-export const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc }) => {
+export const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc,BtnChildren,id }) => {
   return (
     <div className="card align-items-center p-0  col-12">
       <img src={imgSrc} className="card-img-top" />
@@ -9,8 +9,8 @@ export const Product = ({ title, description, buttonText, actionButtonText,href,
         <a href={href} className="btn blue text-white m-1 w-75">
         {buttonText}
           </a>
-          <a href="/checkout" className="btn yellowLight text-white f18  w-75">
-          {actionButtonText}
+          <a  className={`btn yellowLight text-white f18  w-75`} data-purchaseid={id}>
+          {BtnChildren}
           </a>
       </div>
     </div>

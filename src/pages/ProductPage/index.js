@@ -1,19 +1,18 @@
 import './ProductPage.css';
 import ContactsUs from '../../components/ContactUs';
-import ProductSlider from '../../components/ProductSlider';
 import ContractPreview from '../../components/ContractPreview';
 import StandUp from '../../components/StandUp';
-import FAQ from '../../components/FAQ';
-import servicesList from '../../Data/Services';
+import FAQ from '../../components/FAQ'
 import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
-import previewContracts from '../../Data/ContractExport';
 import { scrollIntoView } from '../../Utils';
 import { addProduct } from '../../Slice';
 import { useDispatch } from 'react-redux';
-const ProductPage = () => {
-  const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
+
+
+
+const ProductPage = ({previewContracts,servicesList}) => {
   const disptach = useDispatch();
 
   const { id } = useParams();
@@ -73,18 +72,24 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
+    let flexCheckDefault = document.getElementById('flexCheckDefault');
+
     let elem = document.querySelector('.hoverGreener');
     elem.addEventListener('click', (e) => {
       if (!isAgreedConsent) {
         e.preventDefault();
-        console.log('no');
-        return
+        window.$('#termsModal').modal('toggle');
+        flexCheckDefault.parentElement.classList.add('text-danger');
+        return;
       }
-      console.log("yes")
+      flexCheckDefault.parentElement.classList.remove('text-danger');
+      console.log('yes');
+
+      return () => {
+        elem.removeEventListener('click', () => {});
+      };
     });
-
-
-  }, []);
+  }, [isAgreedConsent]);
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1 } = doc[0];

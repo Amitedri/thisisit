@@ -24,7 +24,8 @@ const servicesList = [
   },
 
   {
-    imgSrc: '../assets/img/service.png',
+    imgSrc: '../assets/img/contracts/פירוק חברה.jpg',
+
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת',
     href: 'service/13',
@@ -184,7 +185,7 @@ const servicesList = [
       `,
   },
   {
-    imgSrc:"../assets/img/service.png",
+    imgSrc:"../assets/img/חוות דעת משפטית.jpg",
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת',
     href: 'service/9',

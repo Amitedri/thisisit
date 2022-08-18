@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './ContactsUs.css';
 import { setModalTextFunc } from '../../Utils';
-import { setModalText } from '../../Slice';
+
+
 const ContactsUs = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -10,6 +11,8 @@ const ContactsUs = () => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [submit, setSubmit] = useState(false);
+  const [wazeLinkType,setWazeLinkType] = useState("")
+
   useEffect(() => {
       let formInputItem = document.querySelectorAll('.formInputItem');
     if(submit){
@@ -43,6 +46,22 @@ const ContactsUs = () => {
       // dispatch(setModalText({text:"asdasdasd"}))
     }
   }, [submit]);
+
+
+
+  useEffect(()=>{
+    let width = document.body.clientWidth;
+      if(width <= 650){
+        
+        setWazeLinkType("waze://?h=sv9hc64sytf7&n=T&utm_source=waze_website&utm_medium=web-livemap-mobile-openapp-w_place&utm_campaign=default")
+        return
+      }
+        
+      setWazeLinkType("https://www.waze.com/en/live-map/directions/%D7%99%D7%A4%D7%95-97-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D?place=w.23068990.230755434.325972")
+        return
+      
+  
+    },[])
 
   return (
     <div className="col-12 cream d-flex flex-column flex-wrap justify-content-center align-items-center responsiveContainer mb-5 p-0 mt-5  standupContainer">
@@ -120,7 +139,8 @@ const ContactsUs = () => {
           <div className="col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
             <a
               className="greyText w3 btn border border-dark m-2 btn-sm"
-              href="https://www.waze.com/en/live-map/directions/%D7%99%D7%A4%D7%95-97-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D?place=w.23068990.230755434.325972"
+              href="javascript:;"
+              onClick={()=>window.open(wazeLinkType)}
             >
               הוראות הגעה ב-
               <a target="_blank">

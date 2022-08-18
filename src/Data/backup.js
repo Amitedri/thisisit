@@ -22,7 +22,8 @@ const servicesList = [
   },
 
   {
-    imgSrc: '../assets/img/service.png',
+    imgSrc: '../assets/img/contracts/פירוק חברה.jpg',
+
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת',
     href: 'service/13',

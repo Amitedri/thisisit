@@ -1,3 +1,11 @@
 .spaceProductContainer{
     height: 85vh !important;
 }
+
+
+@media screen and (max-width: 650px) {
+    .withText {
+      display: none !important;
+
+    }
+  }

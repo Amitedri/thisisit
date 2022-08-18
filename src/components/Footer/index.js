@@ -4,7 +4,7 @@ import servicesList from '../../Data/Services';
 const Footer = () => {
   return (
     <div className="col-12 footerHeight rounded d-flex flex-column justify-content-center align-items-center align-items-center mb-2 mt-5 blue ">
-      <h1 className=" w3 text-white m-3 lightBlueText">.COHEN ELAD & CO DIGITAL LAW OFFICE</h1>
+      <h1 className=" w3 text-white m-3 lightBlueText text-center">.COHEN ELAD & CO DIGITAL LAW OFFICE</h1>
       <div className="col-12 footerHeight rounded d-flex flex-row justify-content-center align-items-center">
         <div className="col-12 rounded d-flex flex-row flex-wrap justify-content-center align-content-center ">
           <div className="m-2 d-flex flex-wrap col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-8 col-8 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">
@@ -31,7 +31,7 @@ const Footer = () => {
             <h4 className=" w3 text-center m-3 lightBlueText">צור קשר</h4>
             <div className="col-auto d-flex flex-row  p-3">
               <div className="contactItem d-flex flex-row align-items-center">
-                <a href="tel:972503811119">
+                <a href="tel:0503811119">
                   {' '}
                   <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2 pointer" />
                 </a>

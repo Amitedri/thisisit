@@ -1,17 +1,14 @@
 import './ServicePage.css';
 import ContactsUs from '../../components/ContactUs';
 import ProductSlider from '../../components/ProductSlider';
-import { allProdcts, allServices } from '../../sampleData';
-import FAQ from '../../components/FAQ';
 import { useCallback, useEffect, useState } from 'react';
 import FullList from '../../components/FullList';
 import ExpandedProducs from '../../components/ExpandedProduct';
 import { useParams } from 'react-router-dom';
-import servicesList from '../../Data/Services';
-import { compact, without } from 'lodash';
-import previewContracts from '../../Data/ContractExport';
+import { compact} from 'lodash';
+import ServiceButton from '../../components/ServiceButton';
 
-const ServicePage = () => {
+const ServicePage = ({previewContracts,servicesList}) => {
 
   const [pageContent, setPageContent] = useState([]);
   const [header, setHeader] = useState('');
@@ -20,7 +17,6 @@ const ServicePage = () => {
   const [relatedDocs, setRelatedDocs] = useState([]);
   const [relatedContracts, setRelatedContracts] = useState([]);
   const [relatedCat, setRelatedCat] = useState('');
-  const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
 
 
   useEffect(() => {
@@ -82,9 +78,9 @@ const ServicePage = () => {
         <div className="col-12 d-flex flex-column position-absolute contentCenter z-100 h-50 m-auto">
           <h1 className="f42 align-self-center text-white">{header}</h1>
           <div className="d-grid col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-5 col-8 align-self-center">
-            <button className="btn yellow f36 w3 p-2" type="button">
-              קבע פגישת ייעוץ
-            </button>
+            <div className="btn yellow f36 w3 p-2 shadow-sm">
+              <ServiceButton withText="true"/>
+            </div>
           </div>
         </div>
       </div>

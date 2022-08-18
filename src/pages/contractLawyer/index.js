@@ -3,12 +3,10 @@ import ContractSteps from '../../components/ContractSteps';
 import FAQ from '../../components/FAQ';
 import ProductSlider from '../../components/ProductSlider';
 import './ContractLawyer.css';
-import { allProdcts, allServices } from '../../sampleData';
-import Footer from '../../components/Footer';
 import { lawyer } from '../../Data/Questions';
 import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
-const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor, textColor }) => {
+const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor, textHeaderColor }) => {
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-row flex-wrap rounded" style={{ backgroundColor: backgroundColor, color: textHeaderColor }}>
 
@@ -17,16 +15,16 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <h1 className="m-0 p-0 w5 f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center">{header}</h1>
         <span className="m-0 p-0 fw-2  col-xxl-10 col-xl-10 col-lg-10 col-md-12 col-sm-11 col-11 align-self-center mt-2  text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center f18">{text}</span>
         <div className=" d-flex justify-content-xxl-center justify-content-xl-center align-items-xxl-center align-items-xl-center align-items-center   align-self-center justify-content-sm-center mt-3 col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column ">
-          <div className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
-            <a href="tel:0508081119" style={{ all: 'unset' }}>
+          <a href="tel:0503811119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
+            <a  style={{ all: 'unset' }}>
               צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>
-          </div>
-          <div className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
-            <a href="https://wa.me/0508081119" style={{ all: 'unset' }}>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=972503811119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
+            <a  style={{ all: 'unset' }}>
               שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
             </a>
-          </div>
+          </a>
         </div>
         <h1 className="m-0 p-0 lightBlueText f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center mt-2">משרד עורך דין חוזים דיגיטלי</h1>
         <h3 className="m-0 p-0 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center  mt-2 m-2 f22 greyText">
@@ -76,6 +74,8 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
     </div>
   );
 };
+
+
 const ContractLawyer = () => {
   const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const generalContracts = previewContracts.filter((el) => (el.categoryHeb = 'כללי'));
@@ -98,7 +98,7 @@ const ContractLawyer = () => {
         <h1 className="f42 w3 p-3 m-0">כללים לניסוח חוזים</h1>
       </div>
       <ContractSteps />
-      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} />
+      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} type="contract" />
       <ContactsUs key={'dskdmasmkdmalksdmdkl'} />
       <FAQ header={'שאלות ותשובות'} withTitle="true" questions={lawyer} />
       <ProductSlider componentHeader={'שירותי המשרד'} dataToRender={generalServices} />

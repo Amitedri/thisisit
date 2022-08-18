@@ -4,12 +4,8 @@ import ContactUs from '../../components/ContactUs';
 import FullList from '../../components/FullList';
 import DropDown from '../../components/DropDown';
 import ExpandedProduct from '../../components/ExpandedProduct';
-import servicesList from '../../Data/Services';
-import { allProdcts, allServices } from '../../sampleData';
-import $ from 'jquery';
 import { useEffect, useState } from 'react';
 import LinksDrop from '../../components/LinksDrop';
-import previewContracts from '../../Data/ContractExport';
 
 const serviceCategoryDrop = [
   { title: 'תחום משפטי' },
@@ -25,7 +21,7 @@ const serviceCategoryDrop = [
     title: 'כללי',
   },
 ];
-const Services = () => {
+const Services = ({previewContracts,servicesList}) => {
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...servicesList]);
   const generalContracts = previewContracts.filter((el) => el.categoryHeb === 'כללי');
   const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
@@ -115,6 +111,7 @@ const Services = () => {
         componentHeader={'חברות'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="service"
         key="dfdfdfDsdddd"
         category={'חברות'}
       />
@@ -123,15 +120,18 @@ const Services = () => {
         componentHeader={'כללי'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="service"
         key="dffddfddffffdfDsdddd"
         category={'כללי'}
       />
-      {/* <FullList dataToRender={money} componentHeader={'ממון'} Children={ProductSlider} ExpandedProducts={ExpandedProduct} key="sdsdsdsdsdbsfdfdf5"  category={'חברות'}/> */}
+      {/* <FullList dataToRender={money} componentHeader={'ממון'} Children={ProductSlider} ExpandedProducts={ExpandedProduct}
+      type="service" key="sdsdsdsdsdbsfdfdf5"  category={'חברות'}/> */}
       <FullList
         dataToRender={family}
         componentHeader={'משפחה'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="service"
         key="dfdfdfdd75b5b4b4b5afDsdddd"
         category={'משפחה'}
       />
@@ -140,12 +140,13 @@ const Services = () => {
         componentHeader={'מקרקעין'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="service"
         key="dfdfdfddafDsdddd"
         category={'מקרקעין'}
       />
 
       <ContactUs key={'dsdsdskbjnbjlknknmklmklmkdssdslmlkmlk'} />
-      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} />
+      <ProductSlider componentHeader={'הסכמים לדוגמא'} dataToRender={generalContracts} key={'dsdsdskbjnbjlmklssssdSmlkmdlk'} type="contract" />
     </div>
   );
 };

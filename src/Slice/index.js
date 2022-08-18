@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
-  modalText: "",
+  modalText: '',
 };
 
 export const productsSlice = createSlice({
@@ -11,13 +11,12 @@ export const productsSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       let item = state.products.filter((el) => el.id == action.payload.id);
-      if (item == false) {
+      if (item[0] === undefined) {
         state.products = [...state.products, action.payload];
       }
-      if (item == true) {
-        let items = state.products.filter((el) => el.id != action.payload.id);
-        items.push(item);
-        state.products = items;
+      if (item[0] !== undefined) {
+        let items = [...state.products].filter((el) => el.id !== action.payload.id);
+        state.products = [...items,action.payload];
       }
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -40,6 +39,6 @@ export const productsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addProduct, setProducts, removeProduct,setModalText } = productsSlice.actions;
+export const { addProduct, setProducts, removeProduct, setModalText } = productsSlice.actions;
 
 export default productsSlice.reducer;

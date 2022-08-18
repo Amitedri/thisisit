@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { addProduct } from '../../Slice';
 import { useDispatch } from 'react-redux';
-import previewContracts from '../../Data/ContractExport';
 
 const Check = ({ value }) => {
   if (!value) {

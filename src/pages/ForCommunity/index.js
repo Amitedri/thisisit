@@ -2,9 +2,8 @@ import "./ForCommunity.css";
 import ContactsUs from "../../components/ContactUs";
 import ProductSlider from "../../components/ProductSlider";
 import TextComponent from "../../components/TextComponent";
-import servicesList from "../../Data/Services";
 
-const ForCommunity = () => {
+const ForCommunity = ({previewContracts,servicesList}) => {
   const  general = servicesList.filter((el)=>el.categoryHeb === "כללי");
 
   const textComponentData = {
@@ -24,8 +23,8 @@ const ForCommunity = () => {
       <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor="#fdfdf1"/>
       
       <ContactsUs key={"sdnjnnnnn"} />
-      <ProductSlider componentHeader={"שירותי המשרד"} dataToRender={general} key="sdsdhasdasdhhh" className="pt-4"/>
-      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={general} key="sdsdsadhhhh" className="pt-4"/>
+      <ProductSlider componentHeader={"שירותי המשרד"} dataToRender={general} key="sdsdhasdasdhhh" className="pt-4" />
+      <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={general} key="sdsdsadhhhh" className="pt-4"  type="contract"/>
     </div>
   );
 };

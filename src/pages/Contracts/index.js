@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const Contracts = () => {
+const Contracts = ({previewContracts,servicesList}) => {
   const [typeFilter, setTypeFilter] = useState('');
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...previewContracts]);
   const generalServices = previewContracts.filter((el) => el.categoryHeb === 'כללי');
@@ -132,6 +132,7 @@ const Contracts = () => {
         componentHeader={'מקרקעין'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="contract"
         key="dfjksndfjksndjkfsndjkfnsdjkf"
       />
       <FullList
@@ -140,6 +141,7 @@ const Contracts = () => {
         componentHeader={'משפחה'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="contract"
         key="dsfnjsdkndfjjkfnsdjkf"
       />
       <FullList
@@ -148,6 +150,7 @@ const Contracts = () => {
         componentHeader={'חברות'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="contract"
         key="dsfnjsdkndfjjkfnsdjmkljmklmklmjkf"
       />
       <FullList
@@ -156,6 +159,7 @@ const Contracts = () => {
         componentHeader={'עבודה'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
+        type="contract"
         key="fsdklfjsiondfiosnfiosniofnsidfnsiodf"
       />
       <FullList

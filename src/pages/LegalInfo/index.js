@@ -20,7 +20,7 @@ const serviceCategoryDrop = [
   },
 ];
 
-const LegalInfo = () => {
+const LegalInfo = ({previewContracts,servicesList}) => {
   const [typeFilter, setTypeFilter] = useState('');
 
 const onFilterChange = (event) => {

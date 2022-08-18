@@ -4,7 +4,7 @@ import ProductSlider from "../../components/ProductSlider";
 import TextComponent from "../../components/TextComponent";
 import servicesList from "../../Data/Services";
 
-const Contact = () => {
+const Contact = ({previewContracts,servicesList}) => {
 const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
 
   const textComponentData = {
@@ -18,7 +18,7 @@ const generalServices= servicesList.filter((el)=>el.categoryHeb === "כללי")
       <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor="#4ba492"/>   
       <ContactsUs key={"sdnjnnnnn"} />
       <ProductSlider componentHeader={"מקרקעין"} dataToRender={generalServices} key="sdsdhasdasdhhh" />
-      <ProductSlider componentHeader={"מקרקעין"} dataToRender={generalServices} key="sdsdsadhhhh" />
+      <ProductSlider componentHeader={"מקרקעין"} dataToRender={generalServices} key="sdsdsadhhhh" type='contract' />
     </div>
   );
 };

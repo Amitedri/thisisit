@@ -35,31 +35,31 @@
     font-size: 12px !important;
   }
   .f14 {
-    font-size: 12px !important;
-  }
-  .f16 {
-    font-size: 12px !important;
-  }
-  .f18 {
     font-size: 14px !important;
   }
+  .f16 {
+    font-size: 14px !important;
+  }
+  .f18 {
+    font-size: 16px !important;
+  }
   .f20 {
-    font-size: 16px !important;
-  }
-  .f22 {
-    font-size: 16px !important;
-  }
-  .f24 {
     font-size: 18px !important;
   }
-  .f26 {
+  .f22 {
     font-size: 20px !important;
   }
-  .f28 {
+  .f24 {
     font-size: 22px !important;
   }
-  .f30 {
+  .f26 {
+    font-size: 24px !important;
+  }
+  .f28 {
     font-size: 26px !important;
+  }
+  .f30 {
+    font-size: 28px !important;
   }
   .f42{
     font-size: 32px !important;

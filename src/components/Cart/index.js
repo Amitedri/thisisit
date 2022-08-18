@@ -48,8 +48,9 @@ const Cart = ({ openCart, setOpenCart }) => {
   const [paymentsNum, setPaymentsNum] = useState(1);
   const [iframeUrl, setIframeUrl] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
-
   const [paymentStatus, setpaymentStatus] = useState(false);
+
+
   const setPaymentDetails = (e) => {
     console.log('click');
     let dataFormInput = document.querySelectorAll('.dataFormInput');
@@ -73,9 +74,9 @@ const Cart = ({ openCart, setOpenCart }) => {
 
       return;
     }
-
     setpaymentStatus((prev) => !prev);
   };
+
   useEffect(() => {
     let total = 0;
     products.forEach((el) => {
@@ -87,11 +88,11 @@ const Cart = ({ openCart, setOpenCart }) => {
 
     setTotal(()=>total);
     setLocalProducts(()=>products);
-
   }, [products]);
+
+
   useEffect(()=>{
     setOpenCart(true)
-
   },[localProducts])
   useEffect(async () => {
     console.log('out');
