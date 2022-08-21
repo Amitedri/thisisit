@@ -25,7 +25,9 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/doc" element={<Doc />} />
+        <Route exact path="/success" element={<div>success</div>} />
+        <Route exact path="/failed" element={<div>failed</div>} />
+
 
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
