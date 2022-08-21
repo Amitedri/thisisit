@@ -139,7 +139,7 @@ app.post("/paymentaccept",(req,res)=>{
   console.log(req.body);
   res.send('ok')
 })
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');
   if (isContract) {
