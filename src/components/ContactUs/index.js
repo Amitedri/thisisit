@@ -62,7 +62,7 @@ const ContactsUs = () => {
       const asyncReq = async ({ payload }) => {
         const req = await axios({
           method: 'post',
-          url: 'http://localhost/message',
+          url: '/message',
           data: payload,
         });
 

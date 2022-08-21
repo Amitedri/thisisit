@@ -125,7 +125,7 @@ const Cart = ({ openCart, setOpenCart }) => {
 
   useEffect(async () => {
     if (paymentStatus) {
-      let req = await axios.post('http://localhost/payment', {
+      let req = await axios.post('/payment', {
         clientData: {
           name,
           phone,
