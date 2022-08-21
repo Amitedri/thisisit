@@ -12,7 +12,7 @@ const QuickContact = () => {
   return (
     <div className="col-auto d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex d-flex flex-column contactColumn mt-3 pointer">
       <div className="contactItem d-flex flex-column align-items-center position-relative">
-        <a href="tel:0503811119">
+        <a href="tel:0508081119">
           <img
             src="../assets/icons/phone.svg"
             height="50"

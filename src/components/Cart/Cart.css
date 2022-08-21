@@ -1,5 +1,5 @@
 .cartContainer{
-    height: 80vh !important;
+    min-height: 80vh !important;
 }
 
 .purContainer{
@@ -9,4 +9,8 @@
 .productsTotal{
     height: 10vh !important;
     overflow-y: auto;
+}
+.yellowBorder{
+    border:5px solid grey;
+    
 }

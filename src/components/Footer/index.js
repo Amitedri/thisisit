@@ -31,7 +31,7 @@ const Footer = () => {
             <h4 className=" w3 text-center m-3 lightBlueText">צור קשר</h4>
             <div className="col-auto d-flex flex-row  p-3">
               <div className="contactItem d-flex flex-row align-items-center">
-                <a href="tel:0503811119">
+                <a href="tel:0508081119">
                   {' '}
                   <img src="../assets/icons/phone.svg" height="50" width="50" className="p-2 pointer" />
                 </a>

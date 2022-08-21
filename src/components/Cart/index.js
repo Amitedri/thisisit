@@ -50,14 +50,17 @@ const Cart = ({ openCart, setOpenCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [paymentStatus, setpaymentStatus] = useState(false);
 
-
   const setPaymentDetails = (e) => {
     console.log('click');
     let dataFormInput = document.querySelectorAll('.dataFormInput');
     let nameSplit = name.split(' ');
     if (nameSplit.length == 1 || nameSplit.length == 0) {
-      dataFormInput[0].classList.add('border', 'border-warning');
+      setpaymentStatus((prev) => false);
+
+      dataFormInput[0].classList.add('border', 'border-danger');
       return;
+    } else {
+      dataFormInput[0].classList.remove('border', 'border-danger');
     }
     let isEmailOk = String(email)
       .toLowerCase()
@@ -65,16 +68,26 @@ const Cart = ({ openCart, setOpenCart }) => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
     if (!isEmailOk) {
-      dataFormInput[1].classList.add('border', 'border-warning');
+      dataFormInput[1].classList.add('border', 'border-danger');
+      setpaymentStatus((prev) => false);
 
       return;
+    } else {
+      dataFormInput[1].classList.remove('border', 'border-danger');
     }
     if (!phone || phone.length != 10) {
-      dataFormInput[2].classList.add('border', 'border-warning');
+      dataFormInput[2].classList.add('border', 'border-danger');
+      setpaymentStatus((prev) => false);
 
       return;
+    } else {
+      dataFormInput[2].classList.remove('border', 'border-danger');
     }
-    setpaymentStatus((prev) => !prev);
+    let paymentMethodBtn = document.querySelectorAll('.paymentMethodBtn');
+    if (!paymentMethod) {
+      paymentMethodBtn.forEach((el) => el.classList.add('border-danger'));
+    }
+    setpaymentStatus((prev) => true);
   };
 
   useEffect(() => {
@@ -84,20 +97,35 @@ const Cart = ({ openCart, setOpenCart }) => {
       total += parsed;
     });
     console.log(total);
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
 
-    setTotal(()=>total);
-    setLocalProducts(()=>products);
+    setTotal(() => total);
+    setLocalProducts(() => products);
   }, [products]);
+  useEffect(() => {
+    let paymentMethodBtn = document.querySelectorAll('.paymentMethodBtn');
+    if (paymentMethod === 'card') {
+      paymentMethodBtn[0].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+      paymentMethodBtn[1].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+      paymentMethodBtn.forEach((el) => el.classList.remove('border-danger'));
+    }
+    if (paymentMethod === 'bit') {
+      paymentMethodBtn[1].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+      paymentMethodBtn[0].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
+      paymentMethodBtn.forEach((el) => el.classList.remove('border-danger'));
+    }
+  }, [paymentMethod]);
 
 
-  useEffect(()=>{
-    setOpenCart(true)
-  },[localProducts])
+
+  useEffect(() => {
+    setOpenCart(true);
+  }, [localProducts]);
+
+
   useEffect(async () => {
-    console.log('out');
     if (paymentStatus) {
-      let req = await axios.post('/payment', {
+      let req = await axios.post('http://localhost/payment', {
         clientData: {
           name,
           phone,
@@ -113,19 +141,7 @@ const Cart = ({ openCart, setOpenCart }) => {
     }
   }, [paymentStatus]);
 
-  useEffect(() => {
-    console.log(paymentMethod);
-    let paymentMethodBtn = document.querySelectorAll('.paymentMethodBtn');
-    if (paymentMethod === 'card') {
-      paymentMethodBtn[0].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
 
-      paymentMethodBtn[1].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
-    }
-    if (paymentMethod === 'bit') {
-      paymentMethodBtn[1].classList.add('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
-      paymentMethodBtn[0].classList.remove('border', 'border-5', 'shadow-sm', 'p-3', 'yellowBorder', 'rounded');
-    }
-  }, [paymentMethod]);
 
   useEffect(() => {
     setpaymentStatus(false);
@@ -153,7 +169,7 @@ const Cart = ({ openCart, setOpenCart }) => {
           <span className="">סכום לחיוב: ₪{total}</span>
           <span className="col-10 text-center">התשלום מאובטח ופרטי האשראי אינם נשמרים במערכת</span>
         </div>
-        <iframe src={iframeUrl} className="col-12" style={{ minHeight: '50vh' }}></iframe>
+        <iframe src={iframeUrl} className="col-12" style={{ minHeight: '80vh' }}></iframe>
         <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
           <div className="col-xxl-3 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/ssl.svg" height="85" width="85" />
@@ -180,7 +196,7 @@ const Cart = ({ openCart, setOpenCart }) => {
     }
     return (
       <>
-        <div className="col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-5 col-5 btn btn-primary" onClick={setPaymentDetails}>
+        <div className="col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-5 col-5 btn btn-primary m-2" onClick={setPaymentDetails}>
           {text}
         </div>
         <div class="spinner-border d-none" role="status">
@@ -253,14 +269,14 @@ const Cart = ({ openCart, setOpenCart }) => {
                 <h1 className="">בחירת אמצעי תשלום</h1>
                 <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center flex-wrap">
                   <div
-                    onClick={() => setPaymentMethod('card')}
+                    onClick={() => setPaymentMethod(()=>'card')}
                     className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
                     style={{ height: '200px' }}
                   >
                     <img height="75" width="75" className="" src="../assets/icons/card.svg"></img>
                   </div>
                   <div
-                    onClick={() => setPaymentMethod('bit')}
+                    onClick={() => setPaymentMethod(()=>'bit')}
                     className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
                     style={{ height: '200px' }}
                   >
@@ -271,7 +287,6 @@ const Cart = ({ openCart, setOpenCart }) => {
             </div>
             <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center">
               <CardPaymentFrame iframeUrl={iframeUrl} />
-
               <LoadingButton text="המשך" setPaymentDetails={setPaymentDetails} isNext={isNext} iframeUrl={iframeUrl} />
             </div>
           </div>
@@ -287,7 +302,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                 return <Product price={el.price} productName={el.name} id={el.id} key={el.name} disptach={disptach} packName={el.pack} />;
               })}
             </div>
-            <div className="col-12 d-flex flex-column align-items-center shadow-sm position-absolute bottom-0 h-25 mt-5">
+            <div className="col-12 d-flex flex-column align-items-center shadow-sm">
               <hr className="w-90 blue" style={{ opacity: 0.3 }} />
 
               <div className="col-12 d-flex flex-row align-self-center justify-content-center">

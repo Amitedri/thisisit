@@ -21,13 +21,13 @@ console.log(width)
   
   return (
     <div className="d-flex flex-row justify-content-evenly align-items-center">
-      <a href="tel:0503811119">
+      <a href="tel:0508081119">
         <img style={{height:"20x",width:"20px"}} src="../assets/icons/phoneWhite.svg" height="20" width="20" className="d-md-block d-lg-block d-xl-block d-xxl-block d-block iconSize" />
       </a>
       {show ? (
         <span className="withText">צור קשר עכשיו</span>
       ) : (
-        <a href="tel:0503811119">
+        <a href="https://api.whatsapp.com/send?phone=972508081119">
           <img style={{height:"20x",width:"20px"}} src="../assets/icons/whatsappWhite.svg" height="20" width="20" className="d-md-block d-lg-block d-xl-block d-xxl-block d-block iconSize" />
         </a>
       )}

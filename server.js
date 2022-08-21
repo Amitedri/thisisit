@@ -12,13 +12,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/assets', express.static(path.join(__dirname, 'build/assets')));
 app.use('/static', express.static(path.join(__dirname, 'build/static')));
+
+
 app.get("/success",(req,res)=>{
   console.log("success");
   res.status("200").send("success")
 })
+app.get("/failed",(req,res)=>{
+  console.log("failed");
+  res.status("200").send("success")
+})
 app.post('/payment', async (req, res) => {
   console.log(req.body);
-  const { name, phone, email, paymentMethod } = req.body.clientData;
+  const { name, phone, email, paymentMethod,pack } = req.body.clientData;
   const { products } = req.body;
   // let purcahseArr = 0;
   products.forEach((el) => {});
@@ -26,10 +32,10 @@ app.post('/payment', async (req, res) => {
   let BitPageCode = 'e428a2740341';
   let userId = 'aee113fccf3ed35b';
   let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=10.99&cFields1=12345678&successUrl
-  =http://5.100.252.128:3854/pp-incoming&cancelUrl=http://5.100.252.128:3854/pp-incoming&description=${'test payment'}
+  =https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/success&cancelUrl=https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/failed&description=${'test payment'}
   &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
   let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=10.99&cFields1=12345678&successUrl
-  =http://5.100.252.128:3854/pp-incoming&cancelUrl=http://5.100.252.128:3854/pp-incoming&description=${'test payment'}
+  =https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/success&cancelUrl=https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/failed&description=${'test payment'}
   &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
   let url = paymentMethod === "card" ? cardUrl : bitUrl
   url = encodeURI(url);
@@ -43,7 +49,7 @@ app.post("message",(req,res)=>{
   console.log(req.body);
   res.status(200).send("ok")
 });
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');
   if (isContract) {

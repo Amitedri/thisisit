@@ -15,7 +15,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <h1 className="m-0 p-0 w5 f32 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center">{header}</h1>
         <span className="m-0 p-0 fw-2  col-xxl-10 col-xl-10 col-lg-10 col-md-12 col-sm-11 col-11 align-self-center mt-2  text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center f18">{text}</span>
         <div className=" d-flex justify-content-xxl-center justify-content-xl-center align-items-xxl-center align-items-xl-center align-items-center   align-self-center justify-content-sm-center mt-3 col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column ">
-          <a href="tel:0503811119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
+          <a href="tel:0508081119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
             <a  style={{ all: 'unset' }}>
               צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>

@@ -10,11 +10,23 @@ import Services from './pages/Services';
 import Terms from './pages/Terms';
 import servicesList from './Data/Services';
 import previewContracts from './Data/ContractExport';
+import DocViewer, { PDFRenderer } from 'react-doc-viewer';
+const Doc = () => {
+  const docs = [{ uri: require('./localPdf.pdf') }];
+
+  return (
+    <div className='col-12'>
+      <h1>Sample react-doc-viewer</h1>
+      </div>
+  );
+};
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
+        <Route exact path="/doc" element={<Doc />} />
+
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/contracts/:cat" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
