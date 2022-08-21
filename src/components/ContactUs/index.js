@@ -16,6 +16,7 @@ const ContactsUs = () => {
 
   useEffect(() => {
     let formInputItem = document.querySelectorAll('.formInputItem');
+    let messageInput = document.querySelector('.messageInput');
     if (submit) {
       const reg = new RegExp('^[0-9]+$');
       if (!name || name.length < 2) {
@@ -50,15 +51,14 @@ const ContactsUs = () => {
 
       if (!message || message.length <= 10) {
         setSubmit(() => false);
-        formInputItem[3].classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        messageInput.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
-        formInputItem[3].parentElement.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        messageInput.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
       }
       const payload = { message, name, email, phone };
       console.log(payload);
-      setModalTextFunc({ value: 'הודעתך התקבלה ואנו ניצור עמך קשר.', dispatch: dispatch });
-      console.log(state);
+
       const asyncReq = async ({ payload }) => {
         const req = await axios({
           method: 'post',
@@ -69,10 +69,11 @@ const ContactsUs = () => {
         console.log(req.data);
       };
       asyncReq({ payload });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("")
+      setName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+      setModalTextFunc({ value: 'הודעתך התקבלה ואנו ניצור עמך קשר.', dispatch: dispatch });
     }
   }, [submit]);
 
@@ -115,7 +116,15 @@ const ContactsUs = () => {
           <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center mt-2">
             <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between m-1">
               <span className="align-self-start f20 w2 formInputItem ">אימייל</span>
-              <input className="formInput" type="email" required placeholder="הקלד כאן" value={email} autoComplete="true" onInput={(e) => setEmail(e.target.value)} />
+              <input
+                className="formInput"
+                type="email"
+                required
+                placeholder="הקלד כאן"
+                value={email}
+                autoComplete="true"
+                onInput={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem me-xxl-5 justify-content-between m-2">
               <span className="align-self-start f20 w2 formInputItem ">טלפון</span>
@@ -128,7 +137,7 @@ const ContactsUs = () => {
             <span className="align-self-center f20 border-bottom mb-2 " placeholder="ההודעה צריכה להכיל לפחות 10 תוים">
               הודעה
             </span>
-            <textarea type="text" className="messageInput col-auto"  value={message} maxlength="300" onInput={(e) => setMessage(e.target.value)} />
+            <textarea type="text" className="messageInput col-auto" value={message} maxlength="300" onInput={(e) => setMessage(e.target.value)} />
             <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => true)}>
               צור קשר עכשיו
             </button>

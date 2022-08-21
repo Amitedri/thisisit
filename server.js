@@ -6,49 +6,139 @@ const services = require('./backup/Services');
 const previewContracts = require('./backup/ContractExport');
 const axios = require('axios');
 const bodyParser = require('body-parser');
-const cors = require("cors");
+const cors = require('cors');
+const child = require('child_process');
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'cecotechside@gmail.com',
+    pass: 'rtenznfhkzohjzju',
+  },
+});
+const makeMessageEmailTemplate = ({ name, phone, email, message }) => {
+  return `<html>
+  <head>
+      <style>
+      body{
+        display:flex !important;
+            flexDirection:column !important;
+            justify-content:evenly !important;
+      }
+          div{
+            display:block !important;
+            text-align:center !important;
+  
+          }
+          
+          .total{
+            text-align:center !important;
+          }
+          .oneTwo{
+            border-bottom:1px solid grey;
+            margin-bottom:5px;
+          }
+          span{
+            font-size:15px;
+            margin:5px !important;
+            padding:5px !important;
+            display:block !important;
+          }
+      </style>
+  </head>
+  <body class="col-12 d-flex flex-column">
+  <h1 class"total">הודעה חדשה </h1>
+  <div class"total">שם מלא: ${name}</div>
+  <div class"total">טלפון: ${phone}</div>
+  <div class"total">אימייל: ${email}</div>  
+      <span class"total">הודעה - ${message}</span>
+  </body>
+  </html>`;
+};
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/assets', express.static(path.join(__dirname, 'build/assets')));
 app.use('/static', express.static(path.join(__dirname, 'build/static')));
 
-
-app.get("/success",(req,res)=>{
-  console.log("success");
-  res.status("200").send("success")
-})
-app.get("/failed",(req,res)=>{
-  console.log("failed");
-  res.status("200").send("success")
-})
-app.post('/payment', async (req, res) => {
+app.get('/success', (req, res) => {
+  console.log('success');
+  res.status('200').send('success');
+});
+app.get('/failed', (req, res) => {
+  console.log('failed');
+  res.status('200').send('success');
+});
+app.post('/message', async (req, res) => {
+  if (!req.body.hasOwnProperty('message') || !req.body.hasOwnProperty('email') || !req.body.hasOwnProperty('name') || !req.body.hasOwnProperty('phone')) {
+    return res.status(401).send('request denied');
+  }
+  const { name, email, phone, message } = req.body;
+  const messageTemplate = makeMessageEmailTemplate({ email, name, phone, message });
   console.log(req.body);
-  const { name, phone, email, paymentMethod,pack } = req.body.clientData;
+  const request = await sendEmail({ data: messageTemplate, name, phone, subject: `הודעה חדשה מהאתר מ - ${name}` });
+  console.log(request);
+  res.status(200).send('request.body');
+});
+const sendEmail = async ({ name, phone, data, subject }) => {
+  const result = await transporter.sendMail({
+    from: 'harelmiddle@gmail.com',
+    // to: "Sale@hareli.co.il
+    to: 'amitedri778@gmail.com',
+    subject: subject,
+    html: data,
+    encoding: 'utf8',
+  });
+  console.log(result);
+};
+
+app.post('/payment', async (req, res) => {
+  var total = 0;
+  // console.log(req.body);
+  const { name, phone, email, paymentMethod } = req.body.clientData;
   const { products } = req.body;
-  // let purcahseArr = 0;
-  products.forEach((el) => {});
+  products.forEach((el) => {
+    let item = previewContracts.filter((elem) => elem.id == el.id);
+    if (item == false) {
+      total += 0;
+      console.log('fake item');
+    }
+    if (item.length == 1) {
+      console.log('found item');
+      if (el.pack === 'מקיף') {
+        total += parseFloat(item[0].priceMekif);
+      }
+      if (el.pack === 'התאמה אישית') {
+        total += parseFloat(item[0].priceCustom);
+      }
+      if (el.pack === 'פגישת ייעוץ') {
+        total += parseFloat(item[0].priceMeeting);
+      }
+    }
+  });
+
   let CardageCode = 'f129ea785b71';
   let BitPageCode = 'e428a2740341';
   let userId = 'aee113fccf3ed35b';
-  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=10.99&cFields1=12345678&successUrl
+  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl
   =https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/success&cancelUrl=https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/failed&description=${'test payment'}
   &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
-  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=10.99&cFields1=12345678&successUrl
+  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl
   =https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/success&cancelUrl=https://85ad-2a00-a040-198-6655-70a6-5672-fda-f8bc.ngrok.io/failed&description=${'test payment'}
   &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
-  let url = paymentMethod === "card" ? cardUrl : bitUrl
+  let url = paymentMethod === 'card' ? cardUrl : bitUrl;
   url = encodeURI(url);
   let tokenReq = await axios.get(url);
-  console.log(products)
-  res.status(200).send(tokenReq.data.data.url);
-
+  if (total > 0) {
+    return res.status(200).send(tokenReq.data.data.url);
+  }
+  return res.status(200).send(`invalid req`);
 });
-
-app.post("message",(req,res)=>{
+app.post("/paymentaccept",(req,res)=>{
   console.log(req.body);
-  res.status(200).send("ok")
-});
+  res.send('ok')
+})
 app.get('/', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');

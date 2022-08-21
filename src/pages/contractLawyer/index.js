@@ -45,29 +45,35 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
           <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
             תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן.
           </p>
-          <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
-            <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
+          <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex flex-row flex-wrap justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
+            <a href="/contracts?cat=מקרקעין" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
               <a href="/contracts?cat=מקרקעין" style={{ all: 'unset' }}>
                 חוזים מקרקעין
               </a>
-            </div>
-            <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
+            </a>
+            <a href="/contracts?cat=חברות וסטארט אפ" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
               <a href="/contracts?cat=חברות וסטארט אפ" style={{ all: 'unset' }}>
                 חוזים חברות וסטארט אפ
               </a>
-            </div>
+            </a>
           </div>
-          <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
-            <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
+          <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex flex-row flex-wrap justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
+            <a href="/contracts?cat=משפחה" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
               <a href="/contracts?cat=משפחה" style={{ all: 'unset' }}>
                 חוזים משפחה
               </a>
-            </div>
-            <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
+            </a>
+            <a href="/contracts?cat=עבודה" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
+              <a href="/contracts?cat=עבודה" style={{ all: 'unset' }}>
+                חוזים עבודה
+              </a>
+            </a>
+            <a href="/contracts?cat=כללי" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
               <a href="/contracts?cat=כללי" style={{ all: 'unset' }}>
                 חוזים כללי
               </a>
-            </div>
+            </a>
+           
           </div>
         </div>
       </div>
