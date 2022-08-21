@@ -105,7 +105,7 @@ const FullList = ({ dataToRender, componentHeader, ExpandedProducts, category,ty
         {isExpanded ? <ExpandedProducts dataToRender={dataToRender} /> : <ProductSlider componentHeader={componentHeader} dataToRender={dataToRender} type={type}/>}
       </div>
       <a
-        class={`btn col-xxl-3 col-xl-3 col-lg-3 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none d-none openMoreBtn yellow text-white f20 w3 mb-5 mt-2 ${
+        class={`btn col-xxl-3 col-xl-3 col-lg-3 d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none d-none openMoreBtn lightBlue text-white f20 w3 mb-5 mt-2 ${
           isExpanded ? 'mt-5' : 'nothing'
         }`}
         onClick={setTrigger}

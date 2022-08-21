@@ -246,8 +246,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">{MakingTime(basicContractData.numOfFixesBasic)}</td>
             <td className="mekif">{MakingTime(mekifContractData.numOfFixesMekif)}</td>
-            <td className="custom">{MakingTime(customContractData.numOfFixesCustom)}</td>
-            <td className="meeting">{MakingTime(meetingContractData.numOfFixesMeeting)}</td>
+            <td className="custom">{MakingTime(customContractData.numOfFixesCustom)}*</td>
+            <td className="meeting">{MakingTime(meetingContractData.numOfFixesMeeting)}*</td>
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -304,7 +304,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="meeting">{meetingContractData.priceMeeting} ש"ח</td>
           </tr>
           <tr className="border-top-0 border-white">
-            <th scope="row" className="col-2"></th>
+            <th scope="row" className="col-2 text-muted ">בכפוף לתנאי השימוש*</th>
             <td className="w3 basic">
               <div
                 className="btn p-1 border w-75 border-white tableBtn f16 w3"

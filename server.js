@@ -39,6 +39,10 @@ app.post('/payment', async (req, res) => {
 
 });
 
+app.post("message",(req,res)=>{
+  console.log(req.body);
+  res.status(200).send("ok")
+});
 app.get('*', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');

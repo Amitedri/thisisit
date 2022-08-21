@@ -2,7 +2,7 @@ import './ProductPage.css';
 import ContactsUs from '../../components/ContactUs';
 import ContractPreview from '../../components/ContractPreview';
 import StandUp from '../../components/StandUp';
-import FAQ from '../../components/FAQ'
+import FAQ from '../../components/FAQ';
 import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
@@ -10,9 +10,7 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct } from '../../Slice';
 import { useDispatch } from 'react-redux';
 
-
-
-const ProductPage = ({previewContracts,servicesList}) => {
+const ProductPage = ({ previewContracts, servicesList }) => {
   const disptach = useDispatch();
 
   const { id } = useParams();
@@ -73,7 +71,6 @@ const ProductPage = ({previewContracts,servicesList}) => {
 
   useEffect(() => {
     let flexCheckDefault = document.getElementById('flexCheckDefault');
-
     let elem = document.querySelector('.hoverGreener');
     elem.addEventListener('click', (e) => {
       if (!isAgreedConsent) {
@@ -209,16 +206,19 @@ const ProductPage = ({previewContracts,servicesList}) => {
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div
                 className="btn btn-sm w-3 yellow  hoverGreener"
-                onClick={() =>
-                  addItem({
-                    name: contractName,
-                    id: id,
-                    pack: 'מקיף',
-                    price: mekifContractData.priceMekif,
-                    numOfPages: mekifContractData.numOfPagesMekif,
-                    numOfFixes: mekifContractData.numOfFixesMekif,
-                    makingTime: mekifContractData.makingTimeMekif,
-                  })
+                onClick={
+                  isAgreedConsent
+                    ? () =>
+                        addItem({
+                          name: contractName,
+                          id: id,
+                          pack: 'מקיף',
+                          price: mekifContractData.priceMekif,
+                          numOfPages: mekifContractData.numOfPagesMekif,
+                          numOfFixes: mekifContractData.numOfFixesMekif,
+                          makingTime: mekifContractData.makingTimeMekif,
+                        })
+                    : () => window.$('#termsModal').modal('toggle')
                 }
               >
                 רכוש הסכם מקיף 290 ש"ח

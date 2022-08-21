@@ -15,7 +15,7 @@ const serviceCategoryDrop = [
 
   { title: 'מקרקעין' },
   {
-    title: 'חברות',
+    title: 'חברות וסטארט אפ',
   },
   {
     title: 'כללי',
@@ -23,8 +23,8 @@ const serviceCategoryDrop = [
 ];
 const Services = ({previewContracts,servicesList}) => {
   const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...servicesList]);
-  const generalContracts = previewContracts.filter((el) => el.categoryHeb === 'כללי');
-  const companies = servicesList.filter((el) => el.categoryHeb === 'חברות');
+  const generalContracts = previewContracts.filter((el) => el);
+  const companies = servicesList.filter((el) => el.categoryHeb === 'חברות וסטארט אפ');
   const family = servicesList.filter((el) => el.categoryHeb === 'משפחה');
   const general = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const money = servicesList.filter((el) => el.categoryHeb === 'ממון');
@@ -108,12 +108,12 @@ const Services = ({previewContracts,servicesList}) => {
       {/* documents */}
       <FullList
         dataToRender={companies}
-        componentHeader={'חברות'}
+        componentHeader={'חברות וסטארט אפ'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         type="service"
         key="dfdfdfDsdddd"
-        category={'חברות'}
+        category={'חברות וסטארט אפ'}
       />
       <FullList
         dataToRender={general}

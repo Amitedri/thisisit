@@ -10,7 +10,7 @@ const scrollIntoView = (id) => {
   return;
 };
 
-const setModalTextFunc = (value,dispatch)=>{
+const setModalTextFunc = ({value,dispatch})=>{
   dispatch(setModalText(value))
 }
 export { onFilterChange ,scrollIntoView,setModalTextFunc};

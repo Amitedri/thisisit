@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <TopSearchBar />
       <Navbar />
-      <Notifications state={""}/>
+      <Notifications />
       <QuickContact />
       <AppRouter />
       <Footer />

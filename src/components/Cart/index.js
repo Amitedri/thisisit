@@ -246,7 +246,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
                 <span className="input-group-text col-xxl-2 col-xl-2 col-md-3 col-lg-3 col-sm-4 col-4" id="basic-addon2">
-                  טלפון
+                  טלפון*
                 </span>
               </div>
               <div className="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">

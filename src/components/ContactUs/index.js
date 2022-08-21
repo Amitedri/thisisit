@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ContactsUs.css';
 import { setModalTextFunc } from '../../Utils';
-
+import axios from 'axios';
 
 const ContactsUs = () => {
   const dispatch = useDispatch();
@@ -11,57 +11,83 @@ const ContactsUs = () => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [submit, setSubmit] = useState(false);
-  const [wazeLinkType,setWazeLinkType] = useState("")
+  const [wazeLinkType, setWazeLinkType] = useState('');
+  const state = useSelector((state) => state.prods);
 
   useEffect(() => {
-      let formInputItem = document.querySelectorAll('.formInputItem');
-    if(submit){
-      // setTimeout(() => {
-      //   formInputItem.forEach((el)=>{
-      //     el.classList.remove('border', 'border-warning', 'p-1', 'rounded', 'shadow-sm')
-      //   })
-      // }, 1500);
+    let formInputItem = document.querySelectorAll('.formInputItem');
+    if (submit) {
       const reg = new RegExp('^[0-9]+$');
-      if (name.length <= 2) {
-        formInputItem[0].parentElement.classList.add('border', 'border-warning', 'p-1', 'rounded', 'shadow-sm');
+      if (!name || name.length < 2) {
+        setSubmit(() => false);
+        formInputItem[0].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        return;
+      } else {
+        formInputItem[0].parentElement.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
       }
 
-      if (!email.toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      )) {
-        formInputItem[1].parentElement.classList.add('border', 'border-warning', 'p-1', 'rounded', 'shadow-sm');
+      if (
+        !email
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          )
+      ) {
+        setSubmit(() => false);
+        formInputItem[1].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        return;
+      } else {
+        formInputItem[1].parentElement.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
       }
 
-      if (!reg.test(phone) && phone <= 8) {
-        formInputItem[2].parentElement.classList.add('border', 'border-warning', 'p-1', 'rounded', 'shadow-sm');
+      if (!reg.test(phone) || phone.length !== 10) {
+        setSubmit(() => false);
+        formInputItem[2].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        return;
+      } else {
+        formInputItem[2].parentElement.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
       }
 
-      if (!message.length <= 15) {
-        formInputItem[3].classList.add('border', 'border-warning', 'p-1', 'rounded', 'shadow-sm');
+      if (!message || message.length <= 10) {
+        setSubmit(() => false);
+        formInputItem[3].classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
+        return;
+      } else {
+        formInputItem[3].parentElement.classList.remove('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
       }
+      const payload = { message, name, email, phone };
+      console.log(payload);
+      setModalTextFunc({ value: 'הודעתך התקבלה ואנו ניצור עמך קשר.', dispatch: dispatch });
+      console.log(state);
+      const asyncReq = async ({ payload }) => {
+        const req = await axios({
+          method: 'post',
+          url: 'http://localhost/message',
+          data: payload,
+        });
 
-      console.log("yrha")
-      setModalTextFunc({text:'הודעתך התקבלה ואנו ניצור עמך קשר.'},dispatch)
-      // dispatch(setModalText({text:"asdasdasd"}))
+        console.log(req.data);
+      };
+      asyncReq({ payload });
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("")
     }
   }, [submit]);
 
-
-
-  useEffect(()=>{
+  useEffect(() => {
     let width = document.body.clientWidth;
-      if(width <= 650){
-        
-        setWazeLinkType("waze://?h=sv9hc64sytf7&n=T&utm_source=waze_website&utm_medium=web-livemap-mobile-openapp-w_place&utm_campaign=default")
-        return
-      }
-        
-      setWazeLinkType("https://www.waze.com/en/live-map/directions/%D7%99%D7%A4%D7%95-97-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D?place=w.23068990.230755434.325972")
-        return
-      
-  
-    },[])
+    if (width <= 650) {
+      setWazeLinkType('waze://?h=sv9hc64sytf7&n=T&utm_source=waze_website&utm_medium=web-livemap-mobile-openapp-w_place&utm_campaign=default');
+      return;
+    }
+
+    setWazeLinkType(
+      'https://www.waze.com/en/live-map/directions/%D7%99%D7%A4%D7%95-97-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D?place=w.23068990.230755434.325972'
+    );
+    return;
+  }, []);
 
   return (
     <div className="col-12 cream d-flex flex-column flex-wrap justify-content-center align-items-center responsiveContainer mb-5 p-0 mt-5  standupContainer">
@@ -82,37 +108,39 @@ const ContactsUs = () => {
       <div className="col-12 h-100 p-0 d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column flex-wrap align-items-center  m-auto">
         {/* form */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
-          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between ">
+          <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between mt-1">
             <span className="align-self-start f20 w2 formInputItem">שם מלא</span>
-            <input className="formInput" type="text" placeholder="הקלד כאן" onInput={(e) => setName(e.target.value)} />
+            <input className="formInput" type="text" placeholder="הקלד כאן" value={name} onInput={(e) => setName(e.target.value)} />
           </div>
           <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center mt-2">
-            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem justify-content-between m-1">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between m-1">
               <span className="align-self-start f20 w2 formInputItem ">אימייל</span>
-              <input className="formInput" type="email" required placeholder="הקלד כאן" autoComplete='true' onInput={(e) => setEmail(e.target.value)} />
+              <input className="formInput" type="email" required placeholder="הקלד כאן" value={email} autoComplete="true" onInput={(e) => setEmail(e.target.value)} />
             </div>
-            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-10 col-10 d-flex flex-row formItem me-xxl-5 justify-content-between m-2">
+            <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem me-xxl-5 justify-content-between m-2">
               <span className="align-self-start f20 w2 formInputItem ">טלפון</span>
-              <input className="formInput" type="text" placeholder="הקלד כאן" onInput={(e) => setPhone(e.target.value)} />
+              <input className="formInput" type="text" placeholder="הקלד כאן" value={phone} onInput={(e) => setPhone(e.target.value)} />
             </div>
           </div>
 
           {/* message container */}
           <div className="col-10 align-self-center d-flex flex-column">
-            <span className="align-self-center f20 border-bottom mb-2 ">הודעה</span>
-            <textarea type="text" className="messageInput col-auto formInputItem" maxlength="300" onInput={(e) => setMessage(e.target.value)} />
-            <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => !prev)}>
+            <span className="align-self-center f20 border-bottom mb-2 " placeholder="ההודעה צריכה להכיל לפחות 10 תוים">
+              הודעה
+            </span>
+            <textarea type="text" className="messageInput col-auto"  value={message} maxlength="300" onInput={(e) => setMessage(e.target.value)} />
+            <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => true)}>
               צור קשר עכשיו
             </button>
           </div>
         </div>
         {/* left */}
         {/* contact container */}
-        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-row flex-wrap justify-content-center align-items-center p-0 mt-2 text-center">
-          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
-            <span className="greyText w3 f20  m-0">
+        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-row flex-wrap justify-content-start align-items-start text-center">
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center">
+            <span className="greyText w3 f20">
               צרו כעת קשר עם משרדנו ב-
-              <img src="../assets/icons/whatsapp.svg" height="20" width="20" className="m-1" />
+              <img src="../assets/icons/whatsapp.svg" alt="אייקון של וואסטאפ" height="20" width="20" className="m-1" />
             </span>
 
             <span className="greyText w3">
@@ -128,24 +156,20 @@ const ContactsUs = () => {
               </a>
             </a>
           </div>
-          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mb-xxl-0 mb-xxl-0 mb-xl-0 mb-lg-4 mb-md-4 mb-sm-4 mb-4  mt-xxl-3 mt-xxl-3 mt-xl-3 mt-lg-0 mt-md-0 mt-sm-0 mt-0 text-center">
-            <h2 className="greyText w6 f20  m-0 mt-1">שעות פעילות המשרד</h2>
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center justify-content-start mt-1">
+            <h2 className="greyText w6 f20 ">שעות פעילות המשרד</h2>
             <span>ימים א'-ה' 08:00 - 20:00</span>
             <span>ימי ו' וערבי חג 08:00-13:00</span>
-            <h3 className="greyText w6 f20  m-0 mt-1">כתובת המשרד</h3>
+            <h3 className="greyText w6 f20">כתובת המשרד</h3>
             <span>יפו 97, ירושלים קומה 7 משרד 317</span>
           </div>
 
           <div className="col-12 p-2 contactInfo d-flex flex-column align-items-center p-0 mt-2 text-center">
-            <a
-              className="greyText w3 btn border border-dark m-2 btn-sm"
-              href="javascript:;"
-              onClick={()=>window.open(wazeLinkType)}
-            >
+            <a className="greyText w3 btn border border-dark m-2 btn-sm" href="javascript:;" onClick={() => window.open(wazeLinkType)}>
               הוראות הגעה ב-
               <a target="_blank">
                 {' '}
-                <img src="../assets/icons/waze.svg" height="20" width="20" className="m-1" />
+                <img alt="אייקון וויז" src="../assets/icons/waze.svg" height="20" width="20" className="m-1" />
               </a>
             </a>
             <iframe

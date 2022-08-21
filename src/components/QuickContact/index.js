@@ -20,7 +20,7 @@ const QuickContact = () => {
             className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block"
           />
         </a>
-        <a className='d-flex position-relative whtcontrainer' style={{height:"70px",width:"70px"}} href="https://api.whatsapp.com/send?phone=972503811119" target="_blank">
+        <a className='d-flex position-relative whtcontrainer' style={{height:"70px",width:"70px"}} href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
           <img
             src={isMobile ? '../assets/icons/wha.png' : '../assets/icons/whatsapp.svg'}
             height={isMobile ? '75' : '50'}

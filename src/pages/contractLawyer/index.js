@@ -20,7 +20,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
               צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>
           </a>
-          <a href="https://api.whatsapp.com/send?phone=972503811119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
+          <a href="https://api.whatsapp.com/send?phone=972508081119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
             <a  style={{ all: 'unset' }}>
               שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
             </a>
@@ -52,8 +52,8 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
               </a>
             </div>
             <div className="btn lightBlue hoverGreen text-white  col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
-              <a href="/contracts?cat=חברות" style={{ all: 'unset' }}>
-                חוזים חברות
+              <a href="/contracts?cat=חברות וסטארט אפ" style={{ all: 'unset' }}>
+                חוזים חברות וסטארט אפ
               </a>
             </div>
           </div>

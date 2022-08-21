@@ -6,38 +6,47 @@ import DropDown from '../../components/DropDown';
 import ExpandedProduct from '../../components/ExpandedProduct';
 import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import LinksDrop from '../../components/LinksDrop';
 import { useParams } from 'react-router-dom';
 
-
-
-const Contracts = ({previewContracts,servicesList}) => {
+const Contracts = ({ previewContracts, servicesList }) => {
   const [typeFilter, setTypeFilter] = useState('');
-  const [filterServicesList, setFilterServicesList] = useState([{h1:"לפי שם"},...previewContracts]);
+  const [filterServicesList, setFilterServicesList] = useState([{ h1: 'לפי שם' }, ...previewContracts]);
   const generalServices = previewContracts.filter((el) => el.categoryHeb === 'כללי');
   const realestateServices = previewContracts.filter((el) => el.categoryHeb === 'מקרקעין');
   const familyServices = previewContracts.filter((el) => el.categoryHeb === 'משפחה');
-  const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות');
+  const companyServices = previewContracts.filter((el) => el.categoryHeb === 'חברות וסטארט אפ');
   const workServices = previewContracts.filter((el) => el.categoryHeb === 'עבודה');
-  
-  let {cat} = useParams();
-  console.log(cat)
+  const [relatedList, setRelatedList] = useState([]);
+  let { cat } = useParams();
+
+  console.log(cat);
   const onFilterChange = (event) => {
     setTypeFilter(event.target.value);
   };
 
-  useEffect(()=>{
+
+  useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const cat = urlParams.get('cat')
+    const cat = urlParams.get('cat');
     console.log(cat);
-    if(cat){
-      setTypeFilter(cat)
+    if (cat) {
+      setTypeFilter(cat);
+      const relatedCategoryService = servicesList.filter((el) => el.categoryHeb === cat);
+      console.log("relatedCategoryService yes",relatedCategoryService)
+      setRelatedList(relatedCategoryService);
+      return
     }
-  },[])
-  useEffect(() => {
+    else{
+      const relatedCategoryService = servicesList.filter((el) => el.categoryHeb === "כללי");
+      console.log("relatedCategoryService no",relatedCategoryService)
 
+      setRelatedList(relatedCategoryService);
+    }
+  }, []);
+  useEffect(() => {
     if (typeFilter) {
       const all = document.querySelectorAll('[data-cat]');
       all.forEach((element) => element.classList.remove('d-none'));
@@ -63,7 +72,7 @@ const Contracts = ({previewContracts,servicesList}) => {
     },
 
     {
-      title: 'כללי',
+      title: 'חברות וסטארט אפ',
     },
     {
       title: 'מקרקעין',
@@ -76,15 +85,23 @@ const Contracts = ({previewContracts,servicesList}) => {
     {
       title: 'משפחה',
     },
-
+    {
+      title: 'חברות וסטארט אפ',
+    },
     {
       title: 'כללי',
     },
     {
       title: 'מקרקעין',
+      
+    },
+    {
+      title: 'עבודה',
+      
     },
   ];
-
+      
+      const BackedSlider = useCallback(()=><ProductSlider componentHeader={'שירותי המשרד'} dataToRender={relatedList} key={'dsdsdskbjnbjlmklmlkmdlk'} />,[relatedList])
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center justify-content-center align-content-center mt-2">
       {/* header */}
@@ -95,10 +112,9 @@ const Contracts = ({previewContracts,servicesList}) => {
             מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט.{' '}
           </p>
           {/* <hr className="w-90 m-1" /> */}
-          <ul className="f18 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-          <span className="fw-bold text-center f22 lightBlueText " style={{textDecoration:"underline"}}>
-          באפשרותכם לרכוש במהירות:
-
+          <ul className="f18 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3">
+            <span className="fw-bold text-center f22 lightBlueText " style={{ textDecoration: 'underline' }}>
+              באפשרותכם לרכוש במהירות:
             </span>
             <li className="w2" style={{ listStyleType: 'decimal' }}>
               הסכם מקיף ומקצועי של ממשרדנו ישירות מהאתר במחיר שווה לכל נפש.
@@ -122,7 +138,7 @@ const Contracts = ({previewContracts,servicesList}) => {
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center">
           <DropDown header={'תחום משפטי'} key={'קטגוריות'} colorClass="lightBlue" values={legalCategory} onChange={onFilterChange} />
           {/* <DropDown header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={serviceCategoryDrop} onChange={onFilterChange} /> */}
-          <LinksDrop header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={filterServicesList} subdomain="contract"/>
+          <LinksDrop header={'הסכמים וחוזים'} key={'סוג המסמך'} colorClass="lightBlue" values={filterServicesList} subdomain="contract" />
         </div>
       </div>
       {/* documents */}
@@ -145,9 +161,9 @@ const Contracts = ({previewContracts,servicesList}) => {
         key="dsfnjsdkndfjjkfnsdjkf"
       />
       <FullList
-        category={'חברות'}
+        category={'חברות וסטארט אפ'}
         dataToRender={companyServices}
-        componentHeader={'חברות'}
+        componentHeader={'חברות וסטארט אפ'}
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         type="contract"
@@ -169,11 +185,11 @@ const Contracts = ({previewContracts,servicesList}) => {
         Children={ProductSlider}
         ExpandedProducts={ExpandedProduct}
         key="dsfnjsdkndfjksndfjksndjkfsndjkfnsdjkf"
+        type="contract"
       />
 
-
       <ContactUs key={'dsdsdskbjnbjlkmklmklmlkmlk'} />
-      <ProductSlider componentHeader={'שירותי המשרד'} dataToRender={servicesList} key={'dsdsdskbjnbjlmklmlkmdlk'} />
+      <BackedSlider/>
     </div>
   );
 };

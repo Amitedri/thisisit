@@ -33,7 +33,7 @@ export const productsSlice = createSlice({
       state.products = newArr;
     },
     setModalText: (state, action) => {
-      state.modalText = action.payload.text;
+      state.modalText = action.payload;
     },
   },
 });
