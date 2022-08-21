@@ -69,24 +69,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     disptach(addProduct(value));
   };
 
-  useEffect(() => {
-    let flexCheckDefault = document.getElementById('flexCheckDefault');
-    let elem = document.querySelector('.hoverGreener');
-    elem.addEventListener('click', (e) => {
-      if (!isAgreedConsent) {
-        e.preventDefault();
-        window.$('#termsModal').modal('toggle');
-        flexCheckDefault.parentElement.classList.add('text-danger');
-        return;
-      }
-      flexCheckDefault.parentElement.classList.remove('text-danger');
-      console.log('yes');
 
-      return () => {
-        elem.removeEventListener('click', () => {});
-      };
-    });
-  }, [isAgreedConsent]);
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1 } = doc[0];
@@ -171,9 +154,32 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     window.$('#contractLoader').collapse('toggle');
     return;
   };
+  const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
   const InnerCheck = () => {
-    return <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" />;
+    return <input class="form-check-input" type="checkbox" value="" onChange={changeConsent} id="flexCheckDefault" />;
   };
+
+  const onConsent = useCallback(
+    ({ isAgreedConsent, contractName, id, price, pages, fixes, makingTime }) => {
+      console.log(isAgreedConsent);
+      if (!isAgreedConsent) {
+        window.$('#termsModal').modal('toggle');
+      }
+      if (isAgreedConsent) {
+        addItem({
+          name: contractName,
+          id: id,
+          pack: 'מקיף',
+          numOfPages: pages,
+          numOfFixes: fixes,
+          makingTime: makingTime,
+          price,
+        });
+        return;
+      }
+    },
+    [isAgreedConsent]
+  );
   const Checkbox = useCallback(() => <InnerCheck />, []);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
@@ -205,20 +211,17 @@ const ProductPage = ({ previewContracts, servicesList }) => {
             </div>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div
-                className="btn btn-sm w-3 yellow  hoverGreener"
-                onClick={
-                  isAgreedConsent
-                    ? () =>
-                        addItem({
-                          name: contractName,
-                          id: id,
-                          pack: 'מקיף',
-                          price: mekifContractData.priceMekif,
-                          numOfPages: mekifContractData.numOfPagesMekif,
-                          numOfFixes: mekifContractData.numOfFixesMekif,
-                          makingTime: mekifContractData.makingTimeMekif,
-                        })
-                    : () => window.$('#termsModal').modal('toggle')
+                className="btn btn-sm w-3 yellow"
+                onClick={() =>
+                  onConsent({
+                    isAgreedConsent,
+                    contractName,
+                    id,
+                    price: mekifContractData.priceMekif,
+                    pages: mekifContractData.numOfPagesMekif,
+                    fixes: mekifContractData.numOfFixesMekif,
+                    makingTime: mekifContractData.makingTimeMekif,
+                  })
                 }
               >
                 רכוש הסכם מקיף 290 ש"ח
@@ -282,6 +285,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         meetingContractData={meetingContractData}
         contractName={contractName}
         id={id}
+        
       />
       <FAQ header={'שאלות ותשובות בנושא משפחה'} withTitle="true" questions={general} />
       <ContactsUs key={'sdnjnnnnn'} />

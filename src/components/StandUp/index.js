@@ -21,7 +21,7 @@ const buttons = [
   },
 ];
 
-const StandUp = ({ doc, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
+const StandUp = ({ doc, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id,onConsent }) => {
   const sentences = [
     { text: 'שירות משפטי דיגיטלי חדש', color: '#4ba492' },
     { color: '#f0cc76', text: 'רכישת הסכם מקיף או פגישת ייעוץ' },
@@ -67,6 +67,7 @@ const StandUp = ({ doc, basicContractData, mekifContractData, customContractData
         meetingContractData={meetingContractData}
         contractName={contractName}
         id={id}
+        
       />
     ),
     [basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id]

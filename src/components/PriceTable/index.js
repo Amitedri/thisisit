@@ -8,17 +8,17 @@ const Check = ({ value }) => {
   }
   return <img src="../assets/icons/check.svg" height="23" width="23" />;
 };
-const MakingTime = (value)=>{
-  if(value==="0"){
-    return "מיידי"
+const MakingTime = (value) => {
+  if (value === '0') {
+    return 'מיידי';
   }
-  if(value==="1"){
-    return "עד 2 ימי עסקים"
+  if (value === '1') {
+    return 'עד 2 ימי עסקים';
   }
-  if(value==="2"){
-    return "עד 7 ימי עסקים"
+  if (value === '2') {
+    return 'עד 7 ימי עסקים';
   }
-}
+};
 const Stars = ({ amount }) => {
   let stars = [];
   for (let i = 0; i < amount; i++) {
@@ -35,6 +35,13 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
     const tableBtns = document.querySelectorAll('.clickable');
     tableBtns.forEach((el) => {
       el.addEventListener('click', (e) => {
+        let elem = document.getElementById('flexCheckDefault');
+        if (!elem.checked) {
+          window.$('#termsModal').modal('toggle');
+          elem.scrollIntoView()
+
+          return;
+        }
         let id = e.target.dataset.contractid;
         let pack = e.target.dataset.pack;
         if (pack === 'מקיף') {
@@ -48,7 +55,6 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             makingTime: mekifContractData.makingTimeMekif,
           });
           console.log('mekifContractData', mekifContractData);
-
         }
         if (pack === 'התאמה אישית') {
           addItem({
@@ -61,7 +67,6 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             makingTime: customContractData.makingTimeCustom,
           });
           console.log('mekifContractData', mekifContractData);
-
         }
         if (pack === 'פגישת ייעוץ') {
           addItem({
@@ -74,7 +79,6 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             makingTime: meetingContractData.makingTimeMeeting,
           });
           console.log('meetingContractData', meetingContractData);
-
         }
       });
     });
@@ -87,7 +91,6 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
     };
   }, []);
   useEffect(() => {
-
     let allBasic = document.querySelectorAll('.basic');
     let allMekif = document.querySelectorAll('.mekif');
     let allCustom = document.querySelectorAll('.custom');
@@ -119,8 +122,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
       <table class="table bg-white">
         <thead style={{ height: '50px' }}>
           <tr>
-            <th scope="col" className="col d-flex justify-content-center" style={{borderBottom:"none"}}>
-              <h3  className="f22 align-self-center blueText w-50 m-auto packageHeader pt-1" style={{ height: '50px'}}>
+            <th scope="col" className="col d-flex justify-content-center" style={{ borderBottom: 'none' }}>
+              <h3 className="f22 align-self-center blueText w-50 m-auto packageHeader pt-1" style={{ height: '50px' }}>
                 חבילות
               </h3>
             </th>
@@ -128,7 +131,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               <h3 className="f22 blueText d-flex flex-column">
                 בסיסי
                 <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
-                   הסכם בסיסי ללא עלות.
+                  הסכם בסיסי ללא עלות.
                 </span>
               </h3>
             </th>
@@ -304,7 +307,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="meeting">{meetingContractData.priceMeeting} ש"ח</td>
           </tr>
           <tr className="border-top-0 border-white">
-            <th scope="row" className="col-2 text-muted ">בכפוף לתנאי השימוש*</th>
+            <th scope="row" className="col-2 text-muted ">
+              בכפוף לתנאי השימוש*
+            </th>
             <td className="w3 basic">
               <div
                 className="btn p-1 border w-75 border-white tableBtn f16 w3"
