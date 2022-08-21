@@ -15,9 +15,9 @@ const Doc = () => {
   const docs = [{ uri: require('./localPdf.pdf') }];
 
   return (
-    <div className='col-12'>
+    <div className="col-12">
       <h1>Sample react-doc-viewer</h1>
-      </div>
+    </div>
   );
 };
 
@@ -27,8 +27,6 @@ const AppRouter = () => {
       <Routes>
         <Route exact path="/success" element={<div>success</div>} />
         <Route exact path="/failed" element={<div>failed</div>} />
-
-
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/contracts/:cat" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
