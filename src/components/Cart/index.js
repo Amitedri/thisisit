@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { setProducts, removeProduct } from '../../Slice';
+import { setProducts, removeProduct, setShowCart, setClientData } from '../../Slice';
 import './Cart.css';
 import axios from 'axios';
 const removeCurrentProduct = (id, disptach) => {
@@ -36,7 +36,9 @@ const Product = ({ productName, price, id, disptach, packName }) => {
   );
 };
 
-const Cart = ({ openCart, setOpenCart }) => {
+const Cart = ({ setPurchaseData }) => {
+  const [openCart, setOpenCart] = useState(false);
+  const showCartSelector = useSelector((state) => state.prods.showCart);
   const disptach = useDispatch();
   const products = useSelector((state) => state.prods.products) || [];
   const [localProducts, setLocalProducts] = useState([]);
@@ -49,6 +51,7 @@ const Cart = ({ openCart, setOpenCart }) => {
   const [iframeUrl, setIframeUrl] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [paymentStatus, setpaymentStatus] = useState(false);
+  const [lastNumOfProducts, setLastNumOfProducts] = useState(0);
 
   const setPaymentDetails = (e) => {
     console.log('click');
@@ -98,10 +101,10 @@ const Cart = ({ openCart, setOpenCart }) => {
     });
     console.log(total);
     window.scrollTo(0, 0);
-
     setTotal(() => total);
     setLocalProducts(() => products);
   }, [products]);
+
   useEffect(() => {
     let paymentMethodBtn = document.querySelectorAll('.paymentMethodBtn');
     if (paymentMethod === 'card') {
@@ -116,39 +119,59 @@ const Cart = ({ openCart, setOpenCart }) => {
     }
   }, [paymentMethod]);
 
-
+  useEffect(() => {
+    console.log('showCartSelector', showCartSelector);
+    setOpenCart(() => showCartSelector);
+  }, [showCartSelector]);
 
   useEffect(() => {
-    setOpenCart(true);
-  }, [localProducts]);
-
+    if (!openCart) {
+      setIframeUrl('');
+    }
+  }, [openCart]);
 
   useEffect(async () => {
     if (paymentStatus) {
-      let req = await axios.post('/payment', {
-        clientData: {
+      disptach(
+        setClientData({
           name,
           phone,
           email,
-          paymentMethod,
+        })
+      );
+      let req = await axios.post(
+        '/payment',
+        {
+          clientData: {
+            name,
+            phone,
+            email,
+            paymentMethod,
+          },
+          products: products,
         },
-        products: products,
-      });
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
       let detailsPanel = document.querySelector('.detailsPanel');
       detailsPanel.classList.add('d-none');
       console.log(req);
-      setIframeUrl(req.data);
+      setIframeUrl(req.data.url);
+      setPurchaseData(req.data);
     }
   }, [paymentStatus]);
-
-
 
   useEffect(() => {
     setpaymentStatus(false);
   }, [isNext]);
 
   useEffect(() => {
-    setIsNext(false);
+    if (!openCart) {
+      setIsNext(false);
+    }
   }, [openCart]);
 
   if (!openCart) {
@@ -159,17 +182,23 @@ const Cart = ({ openCart, setOpenCart }) => {
       setIsNext(true);
     }
   };
+
+  const closeCart = () => {
+    disptach(setShowCart(false));
+  };
   const CardPaymentFrame = ({ iframeUrl }) => {
     if (!iframeUrl) {
       return null;
     }
     return (
-      <div className="col-12 d-flex flex-column justify-content-center align-content-center">
+      <div className="col-12 d-flex flex-column justify-content-center align-content-center align-items-center">
         <div className="col-12 d-flex flex-column justify-content-center align-content-center align-items-center">
           <span className="">סכום לחיוב: ₪{total}</span>
           <span className="col-10 text-center">התשלום מאובטח ופרטי האשראי אינם נשמרים במערכת</span>
         </div>
-        <iframe src={iframeUrl} className="col-12" style={{ minHeight: '80vh' }}></iframe>
+        <div className="col-6 align-self-center" style={{ height: '500px' }}>
+          <iframe src={iframeUrl} style={{ height: '100%', margin: '0 auto', border: 'unset', display: 'block', minWidth: '100%' }}></iframe>
+        </div>
         <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">
           <div className="col-xxl-3 col-xl-1 col-lg-1 col-md-2 col-sm-3 col-4 p-1 itemsLine">
             <img src="../assets/icons/ssl.svg" height="85" width="85" />
@@ -211,7 +240,7 @@ const Cart = ({ openCart, setOpenCart }) => {
       <span
         className="position-absolute top-0 mt-2 ms-2 start-0 f30 fw-bold border rounded text-center pointer blueText"
         style={{ height: '25px', width: '25px', lineHeight: '15px', zIndex: 9999 }}
-        onClick={setOpenCart}
+        onClick={closeCart}
       >
         x
       </span>
@@ -269,14 +298,14 @@ const Cart = ({ openCart, setOpenCart }) => {
                 <h1 className="">בחירת אמצעי תשלום</h1>
                 <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center flex-wrap">
                   <div
-                    onClick={() => setPaymentMethod(()=>'card')}
+                    onClick={() => setPaymentMethod(() => 'card')}
                     className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
                     style={{ height: '200px' }}
                   >
                     <img height="75" width="75" className="" src="../assets/icons/card.svg"></img>
                   </div>
                   <div
-                    onClick={() => setPaymentMethod(()=>'bit')}
+                    onClick={() => setPaymentMethod(() => 'bit')}
                     className="col-5 border  d-flex justify-content-center align-items-center shadow-sm m-2 paymentMethodBtn"
                     style={{ height: '200px' }}
                   >

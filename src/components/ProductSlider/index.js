@@ -3,7 +3,7 @@ import Product from '../Product';
 import Carousel from 'react-elastic-carousel';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProduct } from '../../Slice';
+import { addProduct, setShowCart } from '../../Slice';
 import MekifPurchase from '../MekifButton';
 import ServiceButton from '../ServiceButton';
 
@@ -23,6 +23,8 @@ const ProductSlider = ({ componentHeader, dataToRender, className, type }) => {
   const disptach = useDispatch();
 
   const addItem = (value) => {
+    disptach(setShowCart(true))
+
     disptach(addProduct(value));
   };
   const [productsList, setProductsList] = useState(dataToRender);

@@ -4,7 +4,7 @@ import servicesList from '../../Data/Services';
 const Footer = () => {
   return (
     <div className="col-12 footerHeight rounded d-flex flex-column justify-content-center align-items-center align-items-center mb-2 mt-5 blue ">
-      <h1 className=" w3 text-white m-3 lightBlueText text-center f32">.COHEN ELAD & CO DIGITAL LAW OFFICE</h1>
+      <h1 className=" w3 text-white m-3 lightBlueText text-center f32">COHEN ELAD & CO DIGITAL LAW OFFICE</h1>
       <div className="col-12 footerHeight rounded d-flex flex-row justify-content-center align-items-center">
         <div className="col-12 rounded d-flex flex-row flex-wrap justify-content-center align-content-center ">
           <div className="m-2 d-flex flex-wrap col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-8 col-8 align-items-center flex-column justify-content-start align-content-center align-items-center mt-xxl-1 mt-xl-1 mt-lg-0 mt-md-0 mt-sm-0 mt-0">

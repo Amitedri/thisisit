@@ -53,7 +53,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
             </a>
             <a href="/contracts?cat=חברות וסטארט אפ" className="btn lightBlue hoverGreen text-white  col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-5 col-5 m-1  shadow-sm ">
               <a href="/contracts?cat=חברות וסטארט אפ" style={{ all: 'unset' }}>
-                חוזים חברות וסטארט אפ
+              חוזים חברות 
               </a>
             </a>
           </div>

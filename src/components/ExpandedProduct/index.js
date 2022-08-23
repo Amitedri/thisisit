@@ -2,8 +2,7 @@ import { allProdcts, allServices } from '../../sampleData';
 import MekifPurchase from '../MekifButton';
 import ServiceButton from '../ServiceButton';
 import { useDispatch } from 'react-redux';
-import { addProduct } from '../../Slice';
-
+import { addProduct,setShowCart} from '../../Slice';
 
 const Product = ({ title, description, buttonText, actionButtonText,href,imgSrc,BtnChildren,id }) => {
   return (
@@ -26,6 +25,7 @@ const ExpandedProducs = ({ dataToRender,type  }) => {
   const disptach = useDispatch();
 
   const addItem = (value) => {
+    disptach(setShowCart(true))
     disptach(addProduct(value));
   };
 

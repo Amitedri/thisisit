@@ -17,7 +17,6 @@ const { default: axios } = require('axios');
 // });
 
 const asyncWhat = async () => {
-  // await axios.post("http://localhost:3200/messagees",JSON.stringify({walla:"ken"})).catch((err)=>console.log(err))
   console.log(
     JSON.stringify({
       clientData: {

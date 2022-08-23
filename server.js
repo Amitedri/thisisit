@@ -7,7 +7,7 @@ const previewContracts = require('./backup/ContractExport');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const child = require('child_process');
+const child_process = require('child_process');
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -55,6 +55,50 @@ const makeMessageEmailTemplate = ({ name, phone, email, message }) => {
   </body>
   </html>`;
 };
+const makeProductEmailTemplate = ({ name, phone, email, productName, pack, description }) => {
+  return `<html>
+  <head>
+      <style>
+      body{
+        display:flex !important;
+            flexDirection:column !important;
+            justify-content:evenly !important;
+      }
+          div{
+            display:block !important;
+            text-align:center !important;
+  
+          }
+          
+          .total{
+            text-align:center !important;
+          }
+          .oneTwo{
+            border-bottom:1px solid grey;
+            margin-bottom:5px;
+          }
+          span{
+            font-size:15px;
+            margin:5px !important;
+            padding:5px !important;
+            display:block !important;
+          }
+      </style>
+  </head>
+  <body class="col-12 d-flex flex-column">
+  <h1 class"total">פרטי הרכישה שלך</h1>
+  <div class"total">שם מלא: ${name}</div>
+  <div class"total">טלפון: ${phone}</div>
+  <div class"total">אימייל: ${email}</div>  
+      <span class"total">
+      שם החוזה ${productName} - חבילה - ${pack}
+      </span>
+      <span class"total">
+      ${description}
+      </span>
+  </body>
+  </html>`;
+};
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -62,14 +106,6 @@ app.use(bodyParser.json());
 app.use('/assets', express.static(path.join(__dirname, 'build/assets')));
 app.use('/static', express.static(path.join(__dirname, 'build/static')));
 
-app.get('/success', (req, res) => {
-  console.log('success');
-  res.status('200').send('success');
-});
-app.get('/failed', (req, res) => {
-  console.log('failed');
-  res.status('200').send('success');
-});
 app.post('/message', async (req, res) => {
   if (!req.body.hasOwnProperty('message') || !req.body.hasOwnProperty('email') || !req.body.hasOwnProperty('name') || !req.body.hasOwnProperty('phone')) {
     return res.status(401).send('request denied');
@@ -79,6 +115,7 @@ app.post('/message', async (req, res) => {
   console.log(req.body);
   const request = await sendEmail({ data: messageTemplate, name, phone, subject: `הודעה חדשה מהאתר מ - ${name}` });
   console.log(request);
+
   res.status(200).send('request.body');
 });
 const sendEmail = async ({ name, phone, data, subject }) => {
@@ -92,10 +129,17 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
+app.post('/paymentdone', (req, res) => {
+  if (!req.body.hasOwnProperty('clientData') || !req.body.hasOwnProperty('products')) {
+    return res.status(401).send('request denied');
+  }
+
+  //send email templates
+  return res.status(200).send('request.body');
+});
 
 app.post('/payment', async (req, res) => {
   var total = 0;
-  // console.log(req.body);
   const { name, phone, email, paymentMethod } = req.body.clientData;
   const { products } = req.body;
   products.forEach((el) => {
@@ -117,28 +161,22 @@ app.post('/payment', async (req, res) => {
       }
     }
   });
+  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=http://localhost:3000/paymentres/true&cancelUrl=http://localhost:3000/paymentres/false&description=${'test payment'}&paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
+  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=http://localhost:3000/paymentres/true&cancelUrl=http://localhost:3000/paymentres/false&description=${'test payment'}
+  &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
 
-  let CardageCode = 'f129ea785b71';
-  let BitPageCode = 'e428a2740341';
-  let userId = 'aee113fccf3ed35b';
-  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl
-  =https://eladcohen.herokuapp.com/success&cancelUrl=https://eladcohen.herokuapp.com/failed&description=${'test payment'}
-  &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
-  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl
-  =https://eladcohen.herokuapp.com/success&cancelUrl=https://eladcohen.herokuapp.com/failed&description=${'test payment'}
-  &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
   let url = paymentMethod === 'card' ? cardUrl : bitUrl;
   url = encodeURI(url);
   let tokenReq = await axios.get(url);
   if (total > 0) {
-    return res.status(200).send(tokenReq.data.data.url);
+    return res.status(200).send({ url: tokenReq.data.data.url, products, clientData: req.body.clientData });
   }
   return res.status(200).send(`invalid req`);
 });
-app.post("/paymentaccept",(req,res)=>{
+app.post('/paymentaccept', (req, res) => {
   console.log(req.body);
-  res.send('ok')
-})
+  res.send('ok');
+});
 app.get('*', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');

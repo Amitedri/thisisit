@@ -3,13 +3,15 @@ import $ from 'jquery';
 import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
 import Cart from '../Cart';
-import { useSelector } from 'react-redux';
-const Navbar = () => {
+import { setShowCart } from '../../Slice';
+import { useSelector,useDispatch } from 'react-redux';
+const Navbar = ({setPurchaseData}) => {
   const products = useSelector((state) => state.prods.products);
+  const showCart = useSelector((state) => state.prods.showCart);
 
+const disptach = useDispatch();
   console.log(products)
 
-  const [showCart, setShowCart] = useState(false);
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
     $(elem)
@@ -58,7 +60,7 @@ const Navbar = () => {
   };
 
   const showCartFunc = () => {
-    setShowCart((prev) => !prev);
+    disptach(setShowCart(!showCart))
   };
   return (
     <div className="container-fluid shadow-sm blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-between justify-content-sm-between justify-content-between sticky-top ">
@@ -111,7 +113,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <Cart openCart={showCart} setOpenCart={showCartFunc} />
+      <Cart openCart={showCart} setOpenCart={showCartFunc} setPurchaseData={setPurchaseData} />
 
       {/* Navigation */}
       <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">

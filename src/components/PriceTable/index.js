@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { addProduct } from '../../Slice';
+import { addProduct, setShowCart } from '../../Slice';
 import { useDispatch } from 'react-redux';
 
 const Check = ({ value }) => {
@@ -29,6 +29,8 @@ const Stars = ({ amount }) => {
 const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
   const disptach = useDispatch();
   const addItem = (value) => {
+    disptach(setShowCart(true))
+
     disptach(addProduct(value));
   };
   useEffect(() => {

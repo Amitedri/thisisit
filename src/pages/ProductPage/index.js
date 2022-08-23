@@ -7,13 +7,16 @@ import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
-import { addProduct } from '../../Slice';
+import { addProduct, setShowCart } from '../../Slice';
 import { useDispatch } from 'react-redux';
 
 const ProductPage = ({ previewContracts, servicesList }) => {
   const disptach = useDispatch();
+  const [questions, setQuestions] = useState([]);
 
   const { id } = useParams();
+  const [category, setCategory] = useState('');
+
   const [title, setTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
   const [contractPreview, setContractPreview] = useState('');
@@ -66,13 +69,17 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     warrantyMeeting: false,
   });
   const addItem = (value) => {
+    disptach(setShowCart(true))
+
     disptach(addProduct(value));
   };
 
-
   useEffect(() => {
+    //get questions
+
+    //handle doc
     const doc = previewContracts.filter((el) => el.id == id);
-    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1 } = doc[0];
+    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1,categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
@@ -99,6 +106,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     setImgSrc(imgSrc);
     setContractName(h1);
     setDocWhole(doc[0]);
+    setCategory(categoryHeb)
     const basic = {
       priceBasic,
       makingTimeBasic,
@@ -135,6 +143,15 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     setMekifContractData(mekif);
     setCustomContractData(custom);
     setMeetingContractData(meeting);
+    var question = general.filter((el) => el.relatedContract === title);
+    if (question == false) {
+      question = general.filter((el) => el.category === categoryHeb);
+    }
+    if (question == false) {
+      question = general.filter((el) => el.category === "כללי");
+    }
+    console.log('question', question);
+    setQuestions(() => question);
   }, []);
 
   const showBasicContract = (event) => {
@@ -181,6 +198,8 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     [isAgreedConsent]
   );
   const Checkbox = useCallback(() => <InnerCheck />, []);
+
+  const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
       <div class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" id="termsModal">
@@ -285,10 +304,10 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         meetingContractData={meetingContractData}
         contractName={contractName}
         id={id}
-        
       />
-      <FAQ header={'שאלות ותשובות בנושא משפחה'} withTitle="true" questions={general} />
+      <BackedFaq/>
       <ContactsUs key={'sdnjnnnnn'} />
+
     </div>
   );
 };

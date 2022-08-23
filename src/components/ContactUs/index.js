@@ -12,6 +12,8 @@ const ContactsUs = () => {
   const [message, setMessage] = useState('');
   const [submit, setSubmit] = useState(false);
   const [wazeLinkType, setWazeLinkType] = useState('');
+  const [errorText, setErrorText] = useState('');
+
   const state = useSelector((state) => state.prods);
 
   useEffect(() => {
@@ -19,8 +21,12 @@ const ContactsUs = () => {
     let messageInput = document.querySelector('.messageInput');
     if (submit) {
       const reg = new RegExp('^[0-9]+$');
+      setTimeout(() => {
+        setErrorText("")
+      }, 1500);
       if (!name || name.length < 2) {
         setSubmit(() => false);
+        setErrorText(()=>"יש להזין שם מלא")
         formInputItem[0].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -35,6 +41,7 @@ const ContactsUs = () => {
           )
       ) {
         setSubmit(() => false);
+        setErrorText(()=>"נא להזין אימייל תקני.")
         formInputItem[1].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -43,6 +50,7 @@ const ContactsUs = () => {
 
       if (!reg.test(phone) || phone.length !== 10) {
         setSubmit(() => false);
+        setErrorText(()=>"יש להזין מספר טלפון ללא מקף וללא רווחים.")
         formInputItem[2].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -51,6 +59,7 @@ const ContactsUs = () => {
 
       if (!message || message.length <= 10) {
         setSubmit(() => false);
+        setErrorText(()=>"ההודעה צריכה להכיל לפחות 10 תווים.")
         messageInput.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -134,6 +143,7 @@ const ContactsUs = () => {
 
           {/* message container */}
           <div className="col-10 align-self-center d-flex flex-column">
+            {errorText && <span className='align-self-center text-danger border-bottom text-center border-danger col'>{errorText}</span>}
             <span className="align-self-center f20 border-bottom mb-2 " placeholder="ההודעה צריכה להכיל לפחות 10 תוים">
               הודעה
             </span>
