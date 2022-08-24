@@ -20,16 +20,16 @@ const QuickContact = () => {
             className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block"
           />
         </a>
-        <a className='d-flex position-relative whtcontrainer' style={{height:"70px",width:"70px"}} href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
+        <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
           <img
-            src={isMobile ? '../assets/icons/wha.png' : '../assets/icons/whatsapp.svg'}
-            height={isMobile ? '75' : '50'}
-            width={isMobile ? '75' : '50'}
-            className="p-2  mb-3 d-block d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block d-block pointer position-absolute bottom-0 "
-            style={{transform:"rotate(-90deg)"}}
+            src={'../assets/icons/whatsapp.svg'}
+            height={'50'}
+            width={'50'}
+            className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block pointer"
+            style={{ transform: 'rotate(-90deg)' }}
           />
         </a>
-        <a href='mailto:office@ceco.co.il'>
+        <a href="mailto:office@ceco.co.il">
           <img
             src="../assets/icons/maildotru.svg"
             height="50"

@@ -13,20 +13,25 @@ const ContactsUs = () => {
   const [submit, setSubmit] = useState(false);
   const [wazeLinkType, setWazeLinkType] = useState('');
   const [errorText, setErrorText] = useState('');
+  const [isSubmitted, setisSubmitted] = useState(false);
 
   const state = useSelector((state) => state.prods);
 
   useEffect(() => {
     let formInputItem = document.querySelectorAll('.formInputItem');
     let messageInput = document.querySelector('.messageInput');
-    if (submit) {
+    if (!submit && isSubmitted || submit && isSubmitted) {
+      setModalTextFunc({ value:"ניתן לשלוח הודעה אחת, לשליחת הודעה נוספת יש לרענן את הדף.", dispatch: dispatch });
+      return;
+    }
+    if (submit && !isSubmitted) {
       const reg = new RegExp('^[0-9]+$');
       setTimeout(() => {
-        setErrorText("")
+        setErrorText('');
       }, 1500);
       if (!name || name.length < 2) {
         setSubmit(() => false);
-        setErrorText(()=>"יש להזין שם מלא")
+        setErrorText(() => 'יש להזין שם מלא');
         formInputItem[0].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -41,7 +46,7 @@ const ContactsUs = () => {
           )
       ) {
         setSubmit(() => false);
-        setErrorText(()=>"נא להזין אימייל תקני.")
+        setErrorText(() => 'נא להזין אימייל תקני.');
         formInputItem[1].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -50,7 +55,7 @@ const ContactsUs = () => {
 
       if (!reg.test(phone) || phone.length !== 10) {
         setSubmit(() => false);
-        setErrorText(()=>"יש להזין מספר טלפון ללא מקף וללא רווחים.")
+        setErrorText(() => 'יש להזין מספר טלפון ללא מקף וללא רווחים.');
         formInputItem[2].parentElement.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -59,7 +64,7 @@ const ContactsUs = () => {
 
       if (!message || message.length <= 10) {
         setSubmit(() => false);
-        setErrorText(()=>"ההודעה צריכה להכיל לפחות 10 תווים.")
+        setErrorText(() => 'ההודעה צריכה להכיל לפחות 10 תווים.');
         messageInput.classList.add('border', 'border-danger', 'p-1', 'rounded', 'shadow-sm');
         return;
       } else {
@@ -83,6 +88,7 @@ const ContactsUs = () => {
       setPhone('');
       setMessage('');
       setModalTextFunc({ value: 'הודעתך התקבלה ואנו ניצור עמך קשר.', dispatch: dispatch });
+      setisSubmitted(() => true);
     }
   }, [submit]);
 
@@ -119,12 +125,12 @@ const ContactsUs = () => {
         {/* form */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
           <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between mt-1">
-            <span className="align-self-start f20 w2 formInputItem">שם מלא</span>
+            <span className="align-self-start f20 w2 formInputItem">שם מלא* </span>
             <input className="formInput" type="text" placeholder="הקלד כאן" value={name} onInput={(e) => setName(e.target.value)} />
           </div>
           <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center mt-2">
             <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between m-1">
-              <span className="align-self-start f20 w2 formInputItem ">אימייל</span>
+              <span className="align-self-start f20 w2 formInputItem ">אימייל*</span>
               <input
                 className="formInput"
                 type="email"
@@ -136,19 +142,19 @@ const ContactsUs = () => {
               />
             </div>
             <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem me-xxl-5 justify-content-between m-2">
-              <span className="align-self-start f20 w2 formInputItem ">טלפון</span>
+              <span className="align-self-start f20 w2 formInputItem ">טלפון*</span>
               <input className="formInput" type="text" placeholder="הקלד כאן" value={phone} onInput={(e) => setPhone(e.target.value)} />
             </div>
           </div>
 
           {/* message container */}
           <div className="col-10 align-self-center d-flex flex-column">
-            {errorText && <span className='align-self-center text-danger border-bottom text-center border-danger col'>{errorText}</span>}
+            {errorText && <span className="align-self-center text-danger border-bottom text-center border-danger col">{errorText}</span>}
             <span className="align-self-center f20 border-bottom mb-2 " placeholder="ההודעה צריכה להכיל לפחות 10 תוים">
-              הודעה
+              הודעה*
             </span>
             <textarea type="text" className="messageInput col-auto" value={message} maxlength="300" onInput={(e) => setMessage(e.target.value)} />
-            <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => true)}>
+            <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => !prev)}>
               צור קשר עכשיו
             </button>
           </div>

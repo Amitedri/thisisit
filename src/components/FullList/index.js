@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import './ProductSlider.css';
 import Carousel from 'react-elastic-carousel';
-import { useDispatch } from 'react-redux';
-import { addProduct, setShowCart } from '../../Slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import MekifPurchase from '../MekifButton';
 import ServiceButton from '../ServiceButton';
 const breakPoints = [
@@ -35,12 +35,16 @@ export const Product = ({ title, description, buttonText, actionButtonText, href
 };
 const ProductSlider = ({ componentHeader, dataToRender, className, type }) => {
   const [productsList, setProductsList] = useState(dataToRender);
+  const generalConsent = useSelector((state) => state.prods.generalConsent);
+
   const disptach = useDispatch();
 
   const addItem = (value) => {
-    disptach(setShowCart(true))
-
-    disptach(addProduct(value));
+    disptach(setTermsModal(true));
+    if (generalConsent) {
+      disptach(setShowCart(true));
+      disptach(addProduct(value));
+    }
   };
   const sliderRef = useRef(null);
 

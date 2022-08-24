@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import Search from '../Search';
 import Cart from '../Cart';
 import { setShowCart } from '../../Slice';
-import { useSelector,useDispatch } from 'react-redux';
-const Navbar = ({setPurchaseData}) => {
+import { useSelector, useDispatch } from 'react-redux';
+const Navbar = ({ setPurchaseData }) => {
   const products = useSelector((state) => state.prods.products);
   const showCart = useSelector((state) => state.prods.showCart);
 
-const disptach = useDispatch();
-  console.log(products)
+  const disptach = useDispatch();
+  console.log(products);
 
   useEffect(() => {
     let elem = document.querySelectorAll('.myItem');
@@ -60,7 +60,7 @@ const disptach = useDispatch();
   };
 
   const showCartFunc = () => {
-    disptach(setShowCart(!showCart))
+    disptach(setShowCart(!showCart));
   };
   return (
     <div className="container-fluid shadow-sm blue d-flex flex-row justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-between justify-content-sm-between justify-content-between sticky-top ">
@@ -116,7 +116,7 @@ const disptach = useDispatch();
       <Cart openCart={showCart} setOpenCart={showCartFunc} setPurchaseData={setPurchaseData} />
 
       {/* Navigation */}
-      <div className="col navbarCustom f22 d-flex flex-row justify-content-center ">
+      <div className=" col f22 d-xxl-flex d-xl-flex d-lg-flex  d-md-none  d-sm-none d-none flex-row justify-content-center ">
         <div className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3 dropdown">
           <a
             id="contractLawyer"
@@ -265,7 +265,6 @@ const disptach = useDispatch();
           >
             צור קשר
           </a>
-
         </span>
       </div>
       <div className="col-1 d-flex flex-row justify-content-center align-items-center position-relative pointer" onClick={showCartFunc}>
@@ -273,7 +272,7 @@ const disptach = useDispatch();
           className="fw-bold text-white m-1 position-absolute lightBlue rounded-circle text-center start-50 f14"
           style={{ height: '25px', width: '25px', lineHeight: '25px' }}
         >
-         {products.length}
+          {products.length}
         </span>
         <img src="../assets/icons/cart.svg" className="cartImg" height="50" width="50" />
       </div>

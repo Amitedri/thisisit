@@ -3,8 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   products: [],
   modalText: '',
-  showCart:false,
-  clientData:{}
+  showCart: false,
+  clientData: {},
+  termsModal: false,
+  generalConsent: false,
 };
 
 export const productsSlice = createSlice({
@@ -18,7 +20,7 @@ export const productsSlice = createSlice({
       }
       if (item[0] !== undefined) {
         let items = [...state.products].filter((el) => el.id !== action.payload.id);
-        state.products = [...items,action.payload];
+        state.products = [...items, action.payload];
       }
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -28,8 +30,14 @@ export const productsSlice = createSlice({
     setProducts: (state, action) => {
       state.products = action.payload;
     },
+    setTermsModal: (state, action) => {
+      state.termsModal = action.payload;
+    },
     setShowCart: (state, action) => {
       state.showCart = action.payload;
+    },
+    setGeneralConsent: (state, action) => {
+      state.generalConsent = action.payload;
     },
     setClientData: (state, action) => {
       state.clientData = action.payload;
@@ -47,6 +55,6 @@ export const productsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addProduct, setProducts, removeProduct, setModalText,setShowCart,setClientData } = productsSlice.actions;
+export const { addProduct, setProducts, removeProduct, setModalText, setShowCart, setClientData, setTermsModal, setGeneralConsent } = productsSlice.actions;
 
 export default productsSlice.reducer;

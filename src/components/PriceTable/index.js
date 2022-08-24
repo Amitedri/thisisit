@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { addProduct, setShowCart } from '../../Slice';
-import { useDispatch } from 'react-redux';
+import { addProduct, setShowCart, setTermsModal } from '../../Slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Check = ({ value }) => {
   if (!value) {
@@ -27,11 +27,16 @@ const Stars = ({ amount }) => {
   return <div className="col-8 m-auto d-flex flex-row flex-wrap justify-content-center align-items-center align-content-center">{stars}</div>;
 };
 const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
-  const disptach = useDispatch();
-  const addItem = (value) => {
-    disptach(setShowCart(true))
+  const generalConsent = useSelector((state) => state.prods.generalConsent);
 
-    disptach(addProduct(value));
+  const disptach = useDispatch();
+
+  const addItem = (value) => {
+    disptach(setTermsModal(true));
+    if (generalConsent) {
+      disptach(setShowCart(true));
+      disptach(addProduct(value));
+    }
   };
   useEffect(() => {
     const tableBtns = document.querySelectorAll('.clickable');

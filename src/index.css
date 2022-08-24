@@ -9,6 +9,7 @@ body {
   background-color: #D6E2CE;
   direction: rtl !important;
   overflow-x:hidden !important ;
+  background-color: #D6E2CE !important;
 }
 
 code {
@@ -19,7 +20,4 @@ code {
 
 .pointersm{
   cursor: pointer;
-}
-li{
-  /* list-style: none; */
 }

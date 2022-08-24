@@ -7,10 +7,12 @@ import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
-import { addProduct, setShowCart } from '../../Slice';
-import { useDispatch } from 'react-redux';
+import { addProduct, setShowCart, setTermsModal } from '../../Slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductPage = ({ previewContracts, servicesList }) => {
+  const generalConsent = useSelector((state) => state.prods.generalConsent);
+
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
 
@@ -69,9 +71,12 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     warrantyMeeting: false,
   });
   const addItem = (value) => {
-    disptach(setShowCart(true))
+    disptach(setTermsModal(true));
+    if (generalConsent) {
+      disptach(setShowCart(true));
 
-    disptach(addProduct(value));
+      disptach(addProduct(value));
+    }
   };
 
   useEffect(() => {
@@ -79,7 +84,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
 
     //handle doc
     const doc = previewContracts.filter((el) => el.id == id);
-    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1,categoryHeb } = doc[0];
+    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
@@ -106,7 +111,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     setImgSrc(imgSrc);
     setContractName(h1);
     setDocWhole(doc[0]);
-    setCategory(categoryHeb)
+    setCategory(categoryHeb);
     const basic = {
       priceBasic,
       makingTimeBasic,
@@ -148,7 +153,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       question = general.filter((el) => el.category === categoryHeb);
     }
     if (question == false) {
-      question = general.filter((el) => el.category === "כללי");
+      question = general.filter((el) => el.category === 'כללי');
     }
     console.log('question', question);
     setQuestions(() => question);
@@ -305,9 +310,8 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         contractName={contractName}
         id={id}
       />
-      <BackedFaq/>
+      <BackedFaq />
       <ContactsUs key={'sdnjnnnnn'} />
-
     </div>
   );
 };

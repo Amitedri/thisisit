@@ -9,6 +9,7 @@ const Notifications = () => {
 
   const modalText = useSelector((state) => state.prods.modalText);
 
+
   const [text, setText] = useState('');
   const [color, setColor] = useState('blue');
   const [currentState, setCurrentState] = useState('');

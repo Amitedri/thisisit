@@ -199,7 +199,7 @@ app.get('*', (req, res) => {
   }
 
   let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
-  let htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'ELAD COHEN&CO').replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
+  let htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'ce & co. law office').replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
   return res.send(htmlWithSeo);
 });
 

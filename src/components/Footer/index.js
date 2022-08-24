@@ -14,7 +14,7 @@ const Footer = () => {
               עורך דין חוזים
             </a>
             <a style={{ textDecoration: 'none' }} href="/contracts" className=" col-12 col-10 mt-1 text-center  footerBtn m-2 border-white  text-white">
-              הסכמים
+              הסכמים לדוגמא
             </a>
             <a style={{ textDecoration: 'none' }} href="/services" className=" col-12 col-10 mt-1 text-center  footerBtn m-2 border-white  text-white">
               שירותי המשרד
