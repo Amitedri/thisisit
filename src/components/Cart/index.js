@@ -147,6 +147,7 @@ const Cart = ({ setPurchaseData }) => {
             phone,
             email,
             paymentMethod,
+            paymentsNum,
           },
           products: products,
         },
@@ -234,7 +235,17 @@ const Cart = ({ setPurchaseData }) => {
       </>
     );
   };
-
+  const payments = (total) => {
+    if (total < 1000) {
+      return <option value="1">1</option>;
+    }
+    if (total > 1000 && total <= 1500) {
+      return <option value="2">2</option>;
+    }
+    if (total > 1500) {
+      return <option value="3">3</option>;
+    }
+  };
   return (
     <div className="col-12 position-absolute start-0 top-100 position-relative shadow-lg border border-dark" style={{ zIndex: '9999' }}>
       <span
@@ -294,6 +305,10 @@ const Cart = ({ setPurchaseData }) => {
                   טלפון*
                 </span>
               </div>
+              <select className="form-select col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-10 col-10">
+                <option value="1">מספר תשלומים</option>
+                {payments(total)}
+              </select>
               <div className="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">
                 <h1 className="">בחירת אמצעי תשלום</h1>
                 <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-content-center flex-wrap">

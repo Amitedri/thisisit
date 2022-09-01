@@ -163,7 +163,7 @@ const Navbar = ({ setPurchaseData }) => {
             <a class="dropdown-item dropitop" href="/contracts?cat=משפחה" data-incat="משפחה">
               הסכמי משפחה
             </a>
-            <a class="dropdown-item dropitop" href="/contracts?cat=חברות" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/contracts?cat=חברות וסטארט אפ" data-incat="חברות">
               הסכמי חברות וסטארט-אפ
             </a>
             <a class="dropdown-item dropitop" href="/contracts?cat=עבודה" data-incat="עבודה">

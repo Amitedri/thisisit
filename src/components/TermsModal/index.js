@@ -23,12 +23,11 @@ const TermsModal = () => {
         window.$('#termsBackdrop').modal('hide');
       }
     }
-  }, [termsModal]);
+  }, [termsModal,generalConsent]);
 
   useEffect(() => {
     dispatch(setGeneralConsent(localConsent));
   }, [localConsent]);
-  let test = `<div>hello</div>`;
   const BackedCheckbox = useCallback(() => <Checkbox setValue={setLocalConsent} title="" value={localConsent} key="jubcrdcfguljklnlkjnml" />, [localConsent]);
   return (
     <div
@@ -49,16 +48,19 @@ const TermsModal = () => {
           </div>
           <div className="modal-body text-center">{text}</div>
           <div className="col-12 d-flex flex-row align-self-center justify-content-center align-items-center">
-            <span className="align-self-center pb-1">
-              הריני מאשר
+            <span className="align-self-center pb-1 text-center">
+       הריני מסכים ומאשר את
+        
               <a className="m-1" href="#">
-                תנאי שימוש
+             תניית הפטור
               </a>
+              ,
               <a className="m-1" href="#">
-                עוד תנאי
+              תנאי השימוש
               </a>
+              ו
               <a className="m-1" href="#">
-                ועוד תנאי
+              מדיניות הפרטיות באתר
               </a>
             </span>
             <BackedCheckbox  />

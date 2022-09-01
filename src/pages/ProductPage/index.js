@@ -11,13 +11,13 @@ import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductPage = ({ previewContracts, servicesList }) => {
-  const generalConsent = useSelector((state) => state.prods.generalConsent);
 
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
 
   const { id } = useParams();
   const [category, setCategory] = useState('');
+  const generalConsent = useSelector((state) => state.prods.generalConsent);
 
   const [title, setTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
@@ -71,14 +71,19 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     warrantyMeeting: false,
   });
   const addItem = (value) => {
-    disptach(setTermsModal(true));
-    if (generalConsent) {
+    if (isAgreedConsent) {
       disptach(setShowCart(true));
 
       disptach(addProduct(value));
     }
   };
-
+  useEffect(()=>{
+    if(generalConsent){
+      let elem = document.getElementById("flexCheckDefaultOdsdsd");
+      elem.checked = true;
+      setisAgreedConsent(true)
+    }
+  },[generalConsent])
   useEffect(() => {
     //get questions
 
@@ -178,7 +183,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
   };
   const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
   const InnerCheck = () => {
-    return <input class="form-check-input" type="checkbox" value="" onChange={changeConsent} id="flexCheckDefault" />;
+    return <input class="form-check-input" type="checkbox" onChange={changeConsent} id="flexCheckDefaultOdsdsd" />;
   };
 
   const onConsent = useCallback(
@@ -212,7 +217,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
           <div class="modal-content">
             <div class="modal-header"></div>
             <div class="modal-body text-center mt-3">
-              <p>טרם צפייה בהסכם יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר.</p>
+              <p className='text-danger'>טרם צפייה בהסכם יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn lightBlue text-white w3 m-auto" data-bs-dismiss="modal">
@@ -263,7 +268,6 @@ const ProductPage = ({ previewContracts, servicesList }) => {
             </p>
             <div class="form-check f12 mt-1 terms">
               <Checkbox />
-              {/* <input class="form-check-input" type="checkbox" value="" onChange={() => setisAgreedConsent((prev) => !prev)} id="flexCheckDefault" /> */}
               <p>
                 הריני מסכים ומאשר את תניית הפטור,{' '}
                 <a
@@ -274,9 +278,14 @@ const ProductPage = ({ previewContracts, servicesList }) => {
                   }
                   for="flexCheckDefault"
                 >
-                  תנאי השימוש
+                 <a href='#'>
+                 תנאי השימוש
+                 </a>
                 </a>{' '}
-                ומדיניות פרטיות באתר
+                ו
+                <a href='#'>
+               מדיניות הפרטיות
+                 </a>
               </p>
             </div>
           </div>
@@ -309,6 +318,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         meetingContractData={meetingContractData}
         contractName={contractName}
         id={id}
+
       />
       <BackedFaq />
       <ContactsUs key={'sdnjnnnnn'} />

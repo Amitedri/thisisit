@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
+import { scrollIntoView } from '../../Utils';
 
 const Check = ({ value }) => {
   if (!value) {
@@ -26,27 +27,26 @@ const Stars = ({ amount }) => {
   }
   return <div className="col-8 m-auto d-flex flex-row flex-wrap justify-content-center align-items-center align-content-center">{stars}</div>;
 };
-const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id }) => {
+const PriceTable = ({ iconType, basicContractData, mekifContractData, customContractData, meetingContractData, contractName, id,isAgreedConsent }) => {
   const generalConsent = useSelector((state) => state.prods.generalConsent);
 
   const disptach = useDispatch();
 
   const addItem = (value) => {
-    disptach(setTermsModal(true));
-    if (generalConsent) {
-      disptach(setShowCart(true));
-      disptach(addProduct(value));
-    }
+    disptach(setShowCart(true));
+    disptach(addProduct(value));
+    return;
   };
+
   useEffect(() => {
     const tableBtns = document.querySelectorAll('.clickable');
     tableBtns.forEach((el) => {
       el.addEventListener('click', (e) => {
-        let elem = document.getElementById('flexCheckDefault');
-        if (!elem.checked) {
+        let elem = document.getElementById('flexCheckDefaultOdsdsd');
+        if (!isAgreedConsent) {
+          elem.scrollIntoView();
+          console.log("yall")
           window.$('#termsModal').modal('toggle');
-          elem.scrollIntoView()
-
           return;
         }
         let id = e.target.dataset.contractid;
@@ -96,7 +96,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
         el.removeEventListener('click', (e) => {});
       });
     };
-  }, []);
+  }, [isAgreedConsent]);
   useEffect(() => {
     let allBasic = document.querySelectorAll('.basic');
     let allMekif = document.querySelectorAll('.mekif');
@@ -355,7 +355,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 data-pack={'פגישת ייעוץ'}
                 data-localImg={'sdifbnidkfnsudfdflndfuiosdfiusndfuisndu'}
               >
-                קבע פגישה
+                בצע רכישה
               </div>
             </td>
           </tr>

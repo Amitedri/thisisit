@@ -125,7 +125,7 @@ const ContactsUs = () => {
         {/* form */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 formContainer d-flex flex-column flex-wrap align-items-center justify-content-center  standupBorder">
           <div className="col-xxl-auto col-xl-auto col-lg-auto formItem col-md-auto col-sm-8 col-8 d-flex flex-row formItem justify-content-between mt-1">
-            <span className="align-self-start f20 w2 formInputItem">שם מלא* </span>
+            <span className="align-self-start f20 w2 formInputItem">שם מלא </span>
             <input className="formInput" type="text" placeholder="הקלד כאן" value={name} onInput={(e) => setName(e.target.value)} />
           </div>
           <div className="col-12 d-flex flex-row flex-wrap align-items-center align-content-center justify-content-center justify-content-center mt-2">
@@ -151,7 +151,7 @@ const ContactsUs = () => {
           <div className="col-10 align-self-center d-flex flex-column">
             {errorText && <span className="align-self-center text-danger border-bottom text-center border-danger col">{errorText}</span>}
             <span className="align-self-center f20 border-bottom mb-2 " placeholder="ההודעה צריכה להכיל לפחות 10 תוים">
-              הודעה*
+              הודעה
             </span>
             <textarea type="text" className="messageInput col-auto" value={message} maxlength="300" onInput={(e) => setMessage(e.target.value)} />
             <button className="btn btn-lg col-6 yellow align-self-center mt-2 w3 f18" onClick={(e) => setSubmit((prev) => !prev)}>

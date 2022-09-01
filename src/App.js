@@ -15,7 +15,6 @@ import { setShowCart } from './Slice';
 import { useDispatch } from 'react-redux';
 import TermsModal from './components/TermsModal';
 
-
 function App() {
   const [transactionData, setTransactionData] = useState({});
   const disptach = useDispatch();
@@ -24,8 +23,6 @@ function App() {
     setTransactionData(value);
     return;
   };
-
-
 
   useEffect(() => {
     let mashulam = 'https://sandbox.meshulam.co.il';
@@ -40,12 +37,12 @@ function App() {
         if (res === 'close') {
           let url = encodeURI('https://www.ceco.co.il/paymentres/failed');
           window.location = url;
-          disptach(setShowCart(false))
+          disptach(setShowCart(false));
         }
         if (res === 'payment' && result.data.status == 1) {
           let url = encodeURI('https://www.ceco.co.il/paymentres/success');
           let productsReq = await axios.post('/paymentdone', transactionData);
-          disptach(setShowCart(false))
+          disptach(setShowCart(false));
           window.location = url;
         }
       }
@@ -56,16 +53,15 @@ function App() {
     };
   }, [transactionData]);
 
-
   return (
     <div className="App">
       <TopSearchBar />
       <Navbar setPurchaseData={setPurchaseData} />
       <Notifications />
-      <TermsModal/>
-      <QuickContact />
-      <div className='col-2 position-fixed end-0' style={{minHeight:"50px",top:"76%"}}>
-      <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
+      <TermsModal />
+      <QuickContact/>
+      <div className="col-2 position-fixed end-0" style={{ minHeight: '50px', top: '76%', zIndex: '9999' }}>
+        <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
           <img
             src={'../assets/icons/wha.png'}
             height={'75'}
@@ -76,7 +72,7 @@ function App() {
         </a>
         <a className="d-flex" href="tel:0508081119" target="_blank">
           <img
-            src={'../assets/icons/phone.svg'}
+            src={'../assets/icons/call.svg'}
             height={'75'}
             width={'75'}
             className="p-2 d-block d-sm-block d-md-none d-lg-none d-xl-none d-xxl-none pointer"
