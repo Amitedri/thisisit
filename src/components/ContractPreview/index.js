@@ -67,7 +67,7 @@ const ContractPreview = ({
   return (
     <div className="col-12 d-flex flex-column align-items-center text-center cream p-0 rounded" ref={headerRef}>
       <h1 className="f42 w3 mt-5" id="mainContractHeader">
-        {title}
+        {title}{title === "יפוי כח מתמשך" ? "" : " " + "בסיסי" }
       </h1>
       <h2 className="f32 text-muted p-0"></h2>
       <div className="col-xxl-12 col-xl-12 col-lg-11 col-md-11 col-sm-11 col-11 d-flex flex-column align-items-start">

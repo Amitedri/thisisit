@@ -232,7 +232,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       <div className="col-12 p-0 d-flex flex-row">
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-column text-center bg-white border-bottom">
           <div className="col d-flex flex-column align-items-center position-relative">
-            <h1 className="f32 w5">תקציר {title}</h1>
+            <h1 className="f32 w5">{title}</h1>
             <h2 className="f18 text-muted col-7">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div className="btn btn-sm w-3 lightBlue text-white hoverYellow" onClick={showBasicContract}>
@@ -270,7 +270,10 @@ const ProductPage = ({ previewContracts, servicesList }) => {
             <div class="form-check f12 mt-1 terms">
               <Checkbox />
               <p>
-                הריני מסכים ומאשר את תניית הפטור,{' '}
+                הריני מסכים ומאשר את
+                <a className="m-1" href="#" onClick={() => window.open('./assets/files/תניית הפטור.pdf')} target="_blank">
+                תניית הפטור
+              </a>
                 <a
                   class="form-check-label"
                   href="javascript:void(0)"
