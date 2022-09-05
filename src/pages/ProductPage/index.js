@@ -11,13 +11,13 @@ import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductPage = ({ previewContracts, servicesList }) => {
-
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
 
   const { id } = useParams();
   const [category, setCategory] = useState('');
   const generalConsent = useSelector((state) => state.prods.generalConsent);
+  const [h1, seth1] = useState('');
 
   const [title, setTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
@@ -77,13 +77,13 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       disptach(addProduct(value));
     }
   };
-  useEffect(()=>{
-    if(generalConsent){
-      let elem = document.getElementById("flexCheckDefaultOdsdsd");
+  useEffect(() => {
+    if (generalConsent) {
+      let elem = document.getElementById('flexCheckDefaultOdsdsd');
       elem.checked = true;
-      setisAgreedConsent(true)
+      setisAgreedConsent(true);
     }
-  },[generalConsent])
+  }, [generalConsent]);
   useEffect(() => {
     //get questions
 
@@ -117,6 +117,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     setContractName(h1);
     setDocWhole(doc[0]);
     setCategory(categoryHeb);
+    seth1(h1);
     const basic = {
       priceBasic,
       makingTimeBasic,
@@ -217,7 +218,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
           <div class="modal-content">
             <div class="modal-header"></div>
             <div class="modal-body text-center mt-3">
-              <p className='text-danger'>טרם צפייה בהסכם יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר.</p>
+              <p className="text-danger">טרם צפייה בהסכם יש לאשר את תניית הפטור, תנאי השימוש ומדיניות פרטיות באתר.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn lightBlue text-white w3 m-auto" data-bs-dismiss="modal">
@@ -231,7 +232,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       <div className="col-12 p-0 d-flex flex-row">
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-column text-center bg-white border-bottom">
           <div className="col d-flex flex-column align-items-center position-relative">
-            <h1 className="f32 w5">{title}</h1>
+            <h1 className="f32 w5">תקציר {title}</h1>
             <h2 className="f18 text-muted col-7">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
             <div className="col-6 d-flex flex-column mt-2 shadow-sm">
               <div className="btn btn-sm w-3 lightBlue text-white hoverYellow" onClick={showBasicContract}>
@@ -273,19 +274,18 @@ const ProductPage = ({ previewContracts, servicesList }) => {
                 <a
                   class="form-check-label"
                   href="javascript:void(0)"
-                  onClick={() =>
-                    window.open(window.location.origin + '/terms', 'תנאי שימוש', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes')
-                  }
+                  onClick={() => window.open('./assets/files/תניית הפטור.pdf')}
+                  target="_blank"
                   for="flexCheckDefault"
                 >
-                 <a href='#'>
-                 תנאי השימוש
-                 </a>
+                  <a className="m-1" href="#" onClick={() => window.open('./assets/files/תנאי שימוש.pdf')} target="_blank">
+                    תנאי השימוש
+                  </a>
                 </a>{' '}
                 ו
-                <a href='#'>
-               מדיניות הפרטיות
-                 </a>
+                <a className="m-1" href="#" onClick={() => window.open('./assets/files/מדיניות פרטיות.pdf')} target="_blank">
+                  מדיניות הפרטיות באתר
+                </a>
               </p>
             </div>
           </div>
@@ -301,7 +301,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         key={'asdasaasdsddasdasdsa'}
         firstSigner={firstSigner}
         seocondSigner={secondSigner}
-        title={title}
+        title={h1}
         whoSign={whoSignLine}
         contractBody={contractBody}
         contractPreview={contractPreview}
@@ -318,7 +318,6 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         meetingContractData={meetingContractData}
         contractName={contractName}
         id={id}
-
       />
       <BackedFaq />
       <ContactsUs key={'sdnjnnnnn'} />

@@ -1,10 +1,9 @@
 import parse from 'html-react-parser';
-
 const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
     numOfPagesBasic: '3',
     wordFileBasic: false,
@@ -43,6 +42,8 @@ const previewContracts = [
     href: 'contract/1',
     h1: 'הסכם גירושין',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'משפחה',
     id: '1',
@@ -177,7 +178,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -217,6 +218,8 @@ const previewContracts = [
     href: 'contract/2',
     h1: 'הסכם הורות משותפת',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'משפחה',
     id: '2',
@@ -403,7 +406,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -443,8 +446,10 @@ const previewContracts = [
     href: 'contract/3',
     h1: 'הסכם מייסדים',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
-    categoryHeb: 'חברות',
+    categoryHeb: 'חברות וסטארט אפ',
     id: '3',
     price: 85,
     disclaimer: `תניית פטור ו/או הצהרת אי אחריות (Disclaimer) - אין לעשות כל שימוש בהסכם מייסדים המפורט מטה! המידע מטה מסופק ע"י משרד ce&co לידע כללי על תחומי העיסוק של המשרד ואינו מחליף ו/או מהווה ייעוץ עורך דין ו/או משפטי ו/או מקצועי כנדרש. הסכם מייסדים המפורט מטה ו/או הסכם מייסדים להקמת חברה ו/או אחר הינו הסכם מייסדים לדוגמא שאינו ממצה ו/או מכיל את מלוא הזכויות ו/או החובות ו/או ההגנות הנדרשות מצדדים ו/או ממייסדים בבואם להתקשר חוזית זה עם זה ולכן פסול לשימוש. כל העושה בו שימוש עושה זאת על אחריותו המלאה תוך ידיעה ברורה כי הוא מסתכן ופוגע בזכויותיו והגנותיו. יצויין, כי בכל התקשרות חוזית יש לבדוק את הנסיבות והעובדות ולהתאים עבורן חוזה בעל תוכן ספציפי וממוקד. יובהר כי משרד ce&co לא יהא אחראי כלפי אף אדם ו/או גוף המסתמך בכל צורה ו/או דרך על הסכם מייסדים ו/או הסכם מייסדים סטארט אפ ו/או במידע המוצג מטה. צרו קשר כעת עם משרד ce&co ונערוך עבורכם הסכם מייסדים מקיף המתאים לעובדות והנסיבות הספציפיות שלכם. באפשרותכם לרכוש הסכם מייסדים מקיף און ליין באתר, לחצו כאן.`,
@@ -605,7 +610,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -645,6 +650,8 @@ const previewContracts = [
     href: '/contract/4',
     h1: 'הסכם מכר',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'מקרקעין',
     id: '4',
@@ -800,9 +807,8 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
-
     numOfPagesBasic: '4',
     wordFileBasic: false,
     tailoredBasic: false,
@@ -834,12 +840,16 @@ const previewContracts = [
     levelOfProtectionMeeting: '5',
     warrantyMeeting: true,
     priceMeeting: '1320',
+    seoHeader:`ידועים בציבור - מידע מקיף וייעוץ ראשוני / רכישת הסכם און ליין / עו"ד אלעד כהן`,
+    seoDescription:`חיים משותפים - רכישת הסכם חיים משותפים ידועים בציבור מקיף במהירות ובפשטות און ליין - ידועים בציבור עורך דין`,
     imgSrc: '../assets/img/contracts/הסכם ידועים בציבור.jpg',
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/5',
     h1: 'הסכם ידועים בציבור',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'משפחה',
     id: '5',
@@ -1009,7 +1019,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '2',
@@ -1049,6 +1059,8 @@ const previewContracts = [
     href: 'contract/6',
     h1: 'הסכם סודיות',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'כללי',
     id: '6',
@@ -1131,7 +1143,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -1171,6 +1183,8 @@ const previewContracts = [
     href: 'contract/7',
     h1: 'הסכם עבודה עם קבלן',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'כללי',
     id: '7',
@@ -1368,7 +1382,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '4',
@@ -1408,8 +1422,10 @@ const previewContracts = [
     href: 'contract/8',
     h1: 'הסכם שותפות',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
-    categoryHeb: 'חברות',
+    categoryHeb: 'חברות וסטארט אפ',
     id: '8',
     price: 85,
     disclaimer: '',
@@ -1582,7 +1598,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -1622,6 +1638,8 @@ const previewContracts = [
     href: 'contract/9',
     h1: 'הסכם שיתוף במקרקעין',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'מקרקעין',
     id: '9',
@@ -1747,7 +1765,7 @@ const previewContracts = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
-    hasCustomColum: true,
+    hasCustomColumn: true,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -1785,10 +1803,12 @@ const previewContracts = [
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/10',
-    h1: 'הסכם עבודה',
+    h1: 'חוזה עבודה',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
-    categoryHeb: 'כללי',
+    categoryHeb: 'עבודה',
     id: '10',
     price: 85,
     disclaimer: '',
@@ -1908,7 +1928,7 @@ const previewContracts = [
   {
     hasBasicColumn: false,
     hasMekifColumn: false,
-    hasCustomColum: false,
+    hasCustomColumn: false,
     hasMeetingColumn: true,
 
     numOfPagesBasic: '3',
@@ -1948,6 +1968,8 @@ const previewContracts = [
     href: 'contract/11',
     h1: 'יפוי כח מתמשך',
     h1Content: '',
+    seoHeader:``,
+    seoDescription:``,
     categoryEnglish: '',
     categoryHeb: 'כללי',
     id: '11',

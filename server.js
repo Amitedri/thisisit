@@ -122,7 +122,7 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   const result = await transporter.sendMail({
     from: 'harelmiddle@gmail.com',
     // to: "Sale@hareli.co.il
-    to: 'amitedri778@gmail.com',
+    to: 'cecotechside@gmail.com',
     subject: subject,
     html: data,
     encoding: 'utf8',

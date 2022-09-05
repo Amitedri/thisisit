@@ -74,15 +74,16 @@ const Footer = () => {
           כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת ייעוץ
           משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
         </span>
-        <div className="col-12 links d-flex flex-row flex-wrap justify-content-evenly mt-3 ">
-          <a herf="#" className="text-white">
-             תנאי שימוש
+        <div className="col-12 links d-flex flex-row flex-wrap justify-content-center mt-3 ">
+          <a className="text-white m-2" href="#" onClick={() => window.open('./assets/files/תנאי שימוש.pdf')} target="_blank">
+            תנאי השימוש
           </a>
-          <a herf="#" className="text-white">
-           הצהרת נגישות
-          </a>
-          <a herf="#" className="text-white">
+          ו
+          <a className="text-white m-2" href="#" onClick={() => window.open('./assets/files/מדיניות פרטיות.pdf')} target="_blank">
             הצהרת פרטיות
+          </a>
+          <a herf="#" className="text-white m-2" onClick={() => window.open('./assets/files/הצהרת נגישות.pdf')} target="_blank">
+            הצהרת נגישות
           </a>
         </div>
       </div>

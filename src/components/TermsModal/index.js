@@ -20,10 +20,12 @@ const TermsModal = () => {
       if (termsModal && !generalConsent) {
         window.$('#termsBackdrop').modal('show');
       } else {
-        window.$('#termsBackdrop').modal('hide');
+        try {
+          window.$('#termsBackdrop').modal('hide');
+        } catch (err) {}
       }
     }
-  }, [termsModal,generalConsent]);
+  }, [termsModal, generalConsent]);
 
   useEffect(() => {
     dispatch(setGeneralConsent(localConsent));
@@ -49,21 +51,20 @@ const TermsModal = () => {
           <div className="modal-body text-center">{text}</div>
           <div className="col-12 d-flex flex-row align-self-center justify-content-center align-items-center">
             <span className="align-self-center pb-1 text-center">
-       הריני מסכים ומאשר את
-        
-              <a className="m-1" href="#">
-             תניית הפטור
+              הריני מסכים ומאשר את
+              <a className="m-1" href="#" onClick={() => window.open('./assets/files/תניית הפטור.pdf')} target="_blank">
+                תניית הפטור
               </a>
               ,
-              <a className="m-1" href="#">
-              תנאי השימוש
+              <a className="m-1" href="#" onClick={() => window.open('./assets/files/תנאי שימוש.pdf')} target="_blank">
+                תנאי השימוש
               </a>
               ו
-              <a className="m-1" href="#">
-              מדיניות הפרטיות באתר
+              <a className="m-1" href="#" onClick={() => window.open('./assets/files/מדיניות פרטיות.pdf')} target="_blank">
+                מדיניות הפרטיות באתר
               </a>
             </span>
-            <BackedCheckbox  />
+            <BackedCheckbox />
           </div>
 
           <div className="modal-footer">

@@ -318,15 +318,17 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               בכפוף לתנאי השימוש*
             </th>
             <td className="w3 basic">
-              <div
-                className="btn p-1 border w-75 border-white tableBtn f16 w3"
+              <a
+                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
                 data-free={true}
                 data-contractid={id}
                 data-pack={'בסיסי'}
                 data-localImg={'asjmdlkasjmdlkajsdlajisdasdasdasdjsioidj'}
+                href={isAgreedConsent ? `./assets/files/${contractName}.pdf` : "#" }
+                download
               >
                 הורד
-              </div>
+              </a>
             </td>
             <td className="w3 mekif">
               <div
