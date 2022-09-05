@@ -163,7 +163,7 @@ const Navbar = ({ setPurchaseData }) => {
             <a class="dropdown-item dropitop" href="/contracts?cat=משפחה" data-incat="משפחה">
               הסכמי משפחה
             </a>
-            <a class="dropdown-item dropitop" href="/contracts?cat=חברות וסטארט אפ" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/contracts?cat=חברות וסטארט אפ" data-incat="חברות וסטארט אפ">
               הסכמי חברות וסטארט-אפ
             </a>
             <a class="dropdown-item dropitop" href="/contracts?cat=עבודה" data-incat="עבודה">
@@ -187,7 +187,7 @@ const Navbar = ({ setPurchaseData }) => {
             שירותי המשרד
           </a>
           <div class="dropdown-menu navDropMenu" aria-labelledby="officeServices">
-            <a class="dropdown-item dropitop" href="/services?cat=חברות" data-incat="חברות">
+            <a class="dropdown-item dropitop" href="/services?cat=חברות וסטארט אפ" data-incat="חברות">
               דיני חברות
             </a>
             <a class="dropdown-item dropitop" href="/services?cat=משפחה" data-incat="משפחה">
