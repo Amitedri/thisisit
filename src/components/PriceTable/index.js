@@ -324,8 +324,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 data-contractid={id}
                 data-pack={'בסיסי'}
                 data-localImg={'asjmdlkasjmdlkajsdlajisdasdasdasdjsioidj'}
-                href={isAgreedConsent ? `./assets/files/${contractName}.pdf` : "#" }
-                download
+                href={isAgreedConsent ? `./assets/files/${contractName}.pdf` : null }
+                download={isAgreedConsent ? true :false}
               >
                 הורד
               </a>
