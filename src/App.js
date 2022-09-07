@@ -17,33 +17,42 @@ import TermsModal from './components/TermsModal';
 
 function App() {
   const [transactionData, setTransactionData] = useState({});
+  const [isPaymentOk, setisPaymentOk] = useState(false);
+
   const disptach = useDispatch();
 
   const setPurchaseData = (value) => {
     setTransactionData(value);
     return;
   };
-
+  useEffect(async () => {
+    if (isPaymentOk) {
+      let url = encodeURI('http://localhost:3000/paymentres/success');
+      let productsReq = await axios.post('http://localhost/paymentdone', transactionData);
+      console.log('productsReq', productsReq);
+      disptach(setShowCart(false));
+      window.location.href = url;
+    }
+  }, [isPaymentOk]);
   useEffect(() => {
     let mashulam = 'https://sandbox.meshulam.co.il';
     window.addEventListener('message', async (result) => {
       if (result.origin === mashulam) {
         console.log(result.data);
 
-        // disptach(setShowCart(false));
-
         const res = result.data.action;
 
         if (res === 'close') {
-          let url = encodeURI('https://www.ceco.co.il/paymentres/failed');
+          console.log(' on close');
+
+          let url = encodeURI('http://localhost:3000/paymentres/failed');
           window.location = url;
           disptach(setShowCart(false));
+          setisPaymentOk(false);
         }
         if (res === 'payment' && result.data.status == 1) {
-          let url = encodeURI('https://www.ceco.co.il/paymentres/success');
-          let productsReq = await axios.post('/paymentdone', transactionData);
-          disptach(setShowCart(false));
-          window.location = url;
+          console.log(' on payment');
+          setisPaymentOk(true);
         }
       }
     });
@@ -51,7 +60,7 @@ function App() {
     return () => {
       window.removeEventListener('message', () => {});
     };
-  }, [transactionData]);
+  }, []);
 
   return (
     <div className="App">
@@ -59,7 +68,7 @@ function App() {
       <Navbar setPurchaseData={setPurchaseData} />
       <Notifications />
       <TermsModal />
-      <QuickContact/>
+      <QuickContact />
       <div className="col-2 position-fixed end-0" style={{ minHeight: '50px', top: '76%', zIndex: '9999' }}>
         <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
           <img

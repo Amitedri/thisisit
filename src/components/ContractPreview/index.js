@@ -2,17 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Checkbox from '../Checkbox';
 import $ from 'jquery';
 import './ContractPreview.css';
-const ContractPreview = ({
-  title,
-  whoSign,
-  firstSigner,
-  seocondSigner,
-  contractBody,
-  contractPreview,
-  signInDate,
-  isAgreedConsent,
-
-}) => {
+const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody, contractPreview, signInDate, isAgreedConsent }) => {
   const headerRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isAgreedTerms, setIsAgreedTerms] = useState(false);
@@ -45,13 +35,14 @@ const ContractPreview = ({
   const closeContract = (event) => {
     event.preventDefault();
     let flexCheckDefault = document.getElementById('flexCheckDefault');
-    let contractLoader = document.getElementById('contractLoader');
 
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
       flexCheckDefault.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
       flexCheckDefault.parentElement.classList.add('text-danger');
       window.$('#contractLoader').collapse('hide');
+      const up = document.querySelector('.moreProtectionBtn');
+      up.scrollIntoView();
 
       return;
     }
@@ -67,7 +58,8 @@ const ContractPreview = ({
   return (
     <div className="col-12 d-flex flex-column align-items-center text-center cream p-0 rounded" ref={headerRef}>
       <h1 className="f42 w3 mt-5" id="mainContractHeader">
-        {title}{title === "יפוי כח מתמשך" ? "" : " " + "בסיסי" }
+        {title}
+        {title === 'יפוי כח מתמשך' ? '' : ' ' + 'בסיסי'}
       </h1>
       <h2 className="f32 text-muted p-0"></h2>
       <div className="col-xxl-12 col-xl-12 col-lg-11 col-md-11 col-sm-11 col-11 d-flex flex-column align-items-start">
@@ -90,7 +82,12 @@ const ContractPreview = ({
               </div>
             </div>
             <div className="d-grid d-flex justify-content-center">
-              <a className="btn yellow  letter2 w3 mb-2 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6" id="dbtnus" href="#contractLoader" onClick={closeContract}>
+              <a
+                className="btn yellow  letter2 w3 mb-2 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6"
+                id="dbtnus"
+                href="#contractLoader"
+                onClick={closeContract}
+              >
                 {isExpanded ? 'סגור' : 'פתח עוד'}
               </a>
             </div>

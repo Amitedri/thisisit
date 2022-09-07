@@ -13,18 +13,20 @@ import previewContracts from './Data/ContractExport';
 import { useEffect, useState } from 'react';
 
 const ResultPage = () => {
-  const {res} = useParams();
+  const { res } = useParams();
 
   const [wazeLinkType, setWazeLinkType] = useState('');
   const [isLocalSuccess, setIsLocalSuccess] = useState(false);
   useEffect(() => {
-   
     console.log(res);
-    if (res === "success") {
-      setIsLocalSuccess(()=>true);
+    let splitted = res.split('=');
+    splitted = splitted[1];
+
+    if (splitted === 'success' || res === "success") {
+      setIsLocalSuccess(() => true);
     }
-    if (res === "failed") {
-      setIsLocalSuccess(()=>false);
+    if (splitted === 'failed'|| res === "failed") {
+      setIsLocalSuccess(() => false);
     }
     let width = document.body.clientWidth;
     if (width <= 650) {
@@ -94,7 +96,7 @@ const AppRouter = ({ transactionSuccess }) => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/paymentres/:res" element={<ResultPage  />} />
+        <Route exact path="/paymentres/:res" element={<ResultPage />} />
         <Route exact path="/legal" element={<LegalInfo />} />
         <Route exact path="/contracts" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/contracts/:cat" element={<Contracts servicesList={servicesList} previewContracts={previewContracts} />} />

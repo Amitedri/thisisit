@@ -45,8 +45,9 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
         let elem = document.getElementById('flexCheckDefaultOdsdsd');
         if (!isAgreedConsent) {
           elem.scrollIntoView();
-          console.log("yall")
           window.$('#termsModal').modal('toggle');
+          const up  =document.querySelector(".moreProtectionBtn");
+          up.scrollIntoView()
           return;
         }
         let id = e.target.dataset.contractid;

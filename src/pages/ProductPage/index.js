@@ -9,16 +9,15 @@ import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
+import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
 
-const ProductPage = ({ previewContracts, servicesList }) => {
+const ProductPage = ({ previewContracts}) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
-
   const { id } = useParams();
   const [category, setCategory] = useState('');
   const generalConsent = useSelector((state) => state.prods.generalConsent);
   const [h1, seth1] = useState('');
-
   const [title, setTitle] = useState('');
   const [contractBody, setContractBody] = useState('');
   const [contractPreview, setContractPreview] = useState('');
@@ -30,6 +29,9 @@ const ProductPage = ({ previewContracts, servicesList }) => {
   const [signInDate, setSignInDate] = useState('');
   const [contractName, setContractName] = useState('');
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
+  const [showFull, setShowFull] = useState(false);
+
+  const [docs,setDocs] = useState([]);
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
     makingTimeBasic: '',
@@ -70,6 +72,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     levelOfProtectionMeeting: '2',
     warrantyMeeting: false,
   });
+
   const addItem = (value) => {
     if (isAgreedConsent) {
       disptach(setShowCart(true));
@@ -77,6 +80,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       disptach(addProduct(value));
     }
   };
+
   useEffect(() => {
     if (generalConsent) {
       let elem = document.getElementById('flexCheckDefaultOdsdsd');
@@ -84,11 +88,11 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       setisAgreedConsent(true);
     }
   }, [generalConsent]);
-  useEffect(() => {
-    //get questions
 
-    //handle doc
+
+  useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
+    
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
@@ -104,8 +108,11 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       levelOfProtectionMeeting,
       warrantyMeeting,
     } = doc[0];
-
-    console.log(doc);
+    isAgreedConsent && showFull ?setDocs(()=>[
+      {uri:require(`../../Data/files/${h1}.pdf`)}
+    ]) :  setDocs(()=>[
+      {uri:require(`../../Data/preview/${h1}.pdf`)}
+    ])
     setTitle(title);
     setContractBody(contractBody);
     setWhoSignLine(title);
@@ -130,6 +137,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     };
 
     const mekif = { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif };
+
     const custom = {
       priceCustom,
       makingTimeCustom,
@@ -163,23 +171,20 @@ const ProductPage = ({ previewContracts, servicesList }) => {
     }
     console.log('question', question);
     setQuestions(() => question);
-  }, []);
+
+  }, [showFull]);
 
   const showBasicContract = (event) => {
     event.preventDefault();
-    let contBtn = document.getElementById('contBtn');
-    let flexCheckDefault = document.getElementById('flexCheckDefault');
-
+    let flexCheckDefault = document.getElementById('flexCheckDefaultOdsdsd');
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
       flexCheckDefault.parentElement.classList.add('text-danger');
-      window.$('#contractLoader').collapse('hide');
-
       return;
     }
-    contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
     flexCheckDefault.parentElement.classList.remove('text-danger');
-    window.$('#contractLoader').collapse('toggle');
+    console.log("doing")
+    setShowFull((prev)=>!prev)
     return;
   };
   const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
@@ -192,6 +197,8 @@ const ProductPage = ({ previewContracts, servicesList }) => {
       console.log(isAgreedConsent);
       if (!isAgreedConsent) {
         window.$('#termsModal').modal('toggle');
+        let contBtn = document.getElementById('contBtn');
+        contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
       }
       if (isAgreedConsent) {
         addItem({
@@ -272,8 +279,8 @@ const ProductPage = ({ previewContracts, servicesList }) => {
               <p>
                 הריני מסכים ומאשר את
                 <a className="m-1" href="#" onClick={() => window.open('./assets/files/תניית הפטור.pdf')} target="_blank">
-                תניית הפטור
-              </a>
+                  תניית הפטור
+                </a>
                 <a
                   class="form-check-label"
                   href="javascript:void(0)"
@@ -300,7 +307,7 @@ const ProductPage = ({ previewContracts, servicesList }) => {
           <img src={imgSrc} className="w-100 h-100 productTopImg" />
         </div>
       </div>
-      <ContractPreview
+      {/* <ContractPreview
         key={'asdasaasdsddasdasdsa'}
         firstSigner={firstSigner}
         seocondSigner={secondSigner}
@@ -310,7 +317,18 @@ const ProductPage = ({ previewContracts, servicesList }) => {
         contractPreview={contractPreview}
         signInDate={signInDate}
         isAgreedConsent={isAgreedConsent}
+      /> */}
+      <DocViewer
+        documents={docs}
+        pluginRenderers={DocViewerRenderers}
+        className={['backgroundMain', 'col-12']}
+        config={{ pdfZoom: { defaultZoom: 0.7 }, header: { disableFileName: true, disableHeader: true } }}
+        theme={{ disableThemeScrollbar: true }}
       />
+      <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
+        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? "סגור":"הצג את ההסכם המלא"}</div>
+      </div>
+
       <StandUp
         key={'asdasadasdasdsfffa'}
         doc={docWhole}

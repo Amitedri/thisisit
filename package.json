@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cyntler/react-doc-viewer": "^1.6.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -17,8 +18,8 @@
     "mammoth": "^1.4.21",
     "nodemailer": "^6.7.8",
     "pdf-to-text": "^0.0.7",
+    "pdf2html": "^2.6.7",
     "react": "^17.0.2",
-    "react-doc-viewer": "^0.1.5",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
     "react-redux": "^8.0.2",
@@ -31,7 +32,7 @@
     "word-to-html": "^3.0.3"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -115,7 +115,6 @@ app.post('/message', async (req, res) => {
   console.log(req.body);
   const request = await sendEmail({ data: messageTemplate, name, phone, subject: `הודעה חדשה מהאתר מ - ${name}` });
   console.log(request);
-
   res.status(200).send('request.body');
 });
 const sendEmail = async ({ name, phone, data, subject }) => {
@@ -129,11 +128,11 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
+
 app.post('/paymentdone', (req, res) => {
   if (!req.body.hasOwnProperty('clientData') || !req.body.hasOwnProperty('products')) {
     return res.status(401).send('request denied');
   }
-
   //send email templates
   return res.status(200).send('request.body');
 });
@@ -161,10 +160,9 @@ app.post('/payment', async (req, res) => {
       }
     }
   });
-  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=https://www.ceco.co.il/paymentres/success&cancelUrl=https://www.ceco.co.il/paymentres/failed&description=${'test payment'}&paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
-  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=https://www.ceco.co.il/paymentres/success&cancelUrl=https://www.ceco.co.il/paymentres/failed&description=${'test payment'}
+  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=http://localhost:3000/paymentres/success&cancelUrl=http://localhost:3000/paymentres/failed&description=${'test payment'}&paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
+  let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=http://localhost:3000/paymentres/success&cancelUrl=http://localhost:3000/paymentres/failed&description=${'test payment'}
   &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
-
   let url = paymentMethod === 'card' ? cardUrl : bitUrl;
   url = encodeURI(url);
   let tokenReq = await axios.get(url);
@@ -173,10 +171,12 @@ app.post('/payment', async (req, res) => {
   }
   return res.status(200).send(`invalid req`);
 });
+
 app.post('/paymentaccept', (req, res) => {
   console.log(req.body);
   res.send('ok');
 });
+
 app.get('*', (req, res) => {
   const splittedParams = Object.values(req.params)[0].split('/');
   let isContract = splittedParams.includes('contract');
@@ -197,7 +197,6 @@ app.get('*', (req, res) => {
     let htmlWithSeo = html.toString().replace('__SEO_TITLE__', service.seoHeader).replace('__SEO_DESCRIPTION__', service.seoDescription);
     return res.send(htmlWithSeo);
   }
-
   let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
   let htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'ce & co. law office').replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
   return res.send(htmlWithSeo);

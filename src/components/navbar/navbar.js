@@ -196,7 +196,6 @@ const Navbar = ({ setPurchaseData }) => {
             <a class="dropdown-item dropitop" href="/services?cat=מקרקעין" data-incat="מקרקעין">
               דיני מקרקעין
             </a>
-
             <a class="dropdown-item dropitop" href="/services?cat=כללי" data-incat="כללי">
               שירותים כלליים
             </a>

@@ -140,7 +140,7 @@ const Cart = ({ setPurchaseData }) => {
         })
       );
       let req = await axios.post(
-        '/payment',
+        'http://localhost/payment',
         {
           clientData: {
             name,
@@ -197,7 +197,7 @@ const Cart = ({ setPurchaseData }) => {
           <span className="">סכום לחיוב: ₪{total}</span>
           <span className="col-10 text-center">התשלום מאובטח ופרטי האשראי אינם נשמרים במערכת</span>
         </div>
-        <div className="col-6 align-self-center" style={{ height: '500px' }}>
+        <div className="col-12 align-self-center" style={{ height: '500px' }}>
           <iframe src={iframeUrl} style={{ height: '100%', margin: '0 auto', border: 'unset', display: 'block', minWidth: '100%' }}></iframe>
         </div>
         <div className="col-10 d-flex mb-xxl-0 mb-xl-0 mb-lg-3 mb-md-3 mb-sm-3 mb-3 flex-row flex-wrap justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center justify-content-center align-items-center align-self-center ">

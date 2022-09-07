@@ -18,7 +18,9 @@ const TermsModal = () => {
     if (localShow != termsModal) {
       setLocalShow(termsModal);
       if (termsModal && !generalConsent) {
-        window.$('#termsBackdrop').modal('show');
+        try {
+          window.$('#termsBackdrop').modal('show');
+        } catch (err) {}
       } else {
         try {
           window.$('#termsBackdrop').modal('hide');
