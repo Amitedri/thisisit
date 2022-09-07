@@ -27,8 +27,8 @@ function App() {
   };
   useEffect(async () => {
     if (isPaymentOk) {
-      let url = encodeURI('http://localhost:3000/paymentres/success');
-      let productsReq = await axios.post('http://localhost/paymentdone', transactionData);
+      let url = encodeURI('https://www.ceco.co.il/paymentres/success');
+      let productsReq = await axios.post('/paymentdone', transactionData);
       console.log('productsReq', productsReq);
       disptach(setShowCart(false));
       window.location.href = url;
@@ -45,7 +45,7 @@ function App() {
         if (res === 'close') {
           console.log(' on close');
 
-          let url = encodeURI('http://localhost:3000/paymentres/failed');
+          let url = encodeURI('https://www.ceco.co.il/paymentres/failed');
           window.location = url;
           disptach(setShowCart(false));
           setisPaymentOk(false);
