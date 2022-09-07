@@ -10,7 +10,7 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-
+const path = require("path");
 const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
@@ -109,8 +109,8 @@ const ProductPage = ({ previewContracts }) => {
     } = doc[0];
     try {
       isAgreedConsent && showFull
-        ? setDocs(() => [{ uri: require(`../../Data/files/${h1}.pdf`) }])
-        : setDocs(() => [{ uri: require(`../../Data/preview/${h1}.pdf`) }]);
+        ? setDocs(() => [{ uri: path.resolve(__dirname, 'Data', 'files'`${h1}.pdf`) }])
+        : setDocs(() => [{ uri: path.resolve(__dirname, 'Data', 'preview'`${h1}.pdf`) }]);
     } catch (err) {}
     setTitle(title);
     setContractBody(contractBody);
