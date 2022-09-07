@@ -10,8 +10,8 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-const path = require("path")
-const ProductPage = ({ previewContracts}) => {
+const path = require('path');
+const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
   const { id } = useParams();
@@ -31,7 +31,7 @@ const ProductPage = ({ previewContracts}) => {
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
 
-  const [docs,setDocs] = useState([]);
+  const [docs, setDocs] = useState([]);
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
     makingTimeBasic: '',
@@ -89,16 +89,15 @@ const ProductPage = ({ previewContracts}) => {
     }
   }, [generalConsent]);
 
-
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
-    
+
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
       doc[0];
-const h1 = doc[0].h1 || "wait"
+    const h1 = doc[0].h1 || 'wait';
     const {
       priceMeeting,
       makingTimeMeeting,
@@ -109,11 +108,9 @@ const h1 = doc[0].h1 || "wait"
       levelOfProtectionMeeting,
       warrantyMeeting,
     } = doc[0];
-    isAgreedConsent && showFull ?setDocs(()=>[
-      {uri:path.resolve(__dirname,"Data","files",`${h1}.pdf`)}
-    ]) :  setDocs(()=>[
-      {uri:path.resolve(__dirname,"Data","preview",`${h1}.pdf`)}
-    ])
+    isAgreedConsent && showFull
+      ? setDocs(() => [{ uri: require(`../../Data/files/${h1}.pdf`) }])
+      : setDocs(() => [{ uri: require(`../../Data/preview/${h1}.pdf`) }]);
     setTitle(title);
     setContractBody(contractBody);
     setWhoSignLine(title);
@@ -172,7 +169,6 @@ const h1 = doc[0].h1 || "wait"
     }
     console.log('question', question);
     setQuestions(() => question);
-
   }, [showFull]);
 
   const showBasicContract = (event) => {
@@ -184,8 +180,8 @@ const h1 = doc[0].h1 || "wait"
       return;
     }
     flexCheckDefault.parentElement.classList.remove('text-danger');
-    console.log("doing")
-    setShowFull((prev)=>!prev)
+    console.log('doing');
+    setShowFull((prev) => !prev);
     return;
   };
   const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
@@ -327,7 +323,7 @@ const h1 = doc[0].h1 || "wait"
         theme={{ disableThemeScrollbar: true }}
       />
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
-        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? "סגור":"הצג את ההסכם המלא"}</div>
+        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
       </div>
 
       <StandUp
