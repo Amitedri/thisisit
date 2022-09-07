@@ -1,13 +1,14 @@
 const express = require('express');
 const path = require('path');
+const child_process = require('child_process');
+
 const fs = require('fs');
 const app = new express();
 const services = require('./backup/Services');
-const previewContracts = require('./backup/ContractExport').default;
+const previewContracts = require('./backup/ContractExport');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const child_process = require('child_process');
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -128,7 +129,11 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
-
+app.get('/contract', (req, res) => {
+let file = fs.readFileSync(path.resolve(__dirname,"src","Data","locals","הסכם גירושין.pdf"));
+console.log(file)
+  return res.status(200).sendFile(path.resolve(__dirname,"src","Data","locals","הסכם גירושין.pdf"));
+});
 app.post('/paymentdone', (req, res) => {
   if (!req.body.hasOwnProperty('clientData') || !req.body.hasOwnProperty('products')) {
     return res.status(401).send('request denied');
@@ -183,8 +188,6 @@ app.get('*', (req, res) => {
   if (isContract) {
     let id = splittedParams[2];
     let contract = previewContracts.filter((el) => el.id == id)[0];
-    console.log('contract', splittedParams[2]);
-    console.log(contract);
     let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
     let htmlWithSeo = html.toString().replace('__SEO_TITLE__', contract.seoHeader).replace('__SEO_DESCRIPTION__', contract.seoDescription);
     return res.send(htmlWithSeo);

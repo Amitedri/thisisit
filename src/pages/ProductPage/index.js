@@ -10,8 +10,8 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-
-const ProductPage = ({ previewContracts }) => {
+import axios from 'axios';
+const ProductPage = ({ previewContracts}) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
   const { id } = useParams();
@@ -31,7 +31,7 @@ const ProductPage = ({ previewContracts }) => {
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
 
-  const [docs, setDocs] = useState([]);
+  const [docs,setDocs] = useState([]);
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
     makingTimeBasic: '',
@@ -89,10 +89,11 @@ const ProductPage = ({ previewContracts }) => {
     }
   }, [generalConsent]);
 
+
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
-
-    const {  firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc,h1, categoryHeb,contract } = doc[0];
+    
+    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
@@ -107,10 +108,21 @@ const ProductPage = ({ previewContracts }) => {
       levelOfProtectionMeeting,
       warrantyMeeting,
     } = doc[0];
-    isAgreedConsent && showFull
-      ? setDocs(() => [{ uri: contract }])
-      : setDocs(() => [{ uri: contractPreview }]);
+    const fireAsync = async (name)=>{
+      let elem =  require(`../../Data/locals/${name}.pdf`)
+       return elem
+    }
+    fireAsync(h1).then((file=>{
+      isAgreedConsent && showFull ?setDocs(()=>[
+        {uri:file}
+      ]) :  setDocs(()=>[
+        {uri:file}
+      ])
+    }))
+   
+
     setTitle(title);
+    setContractBody(contractBody);
     setWhoSignLine(title);
     setFirstSigner(firstSigner);
     setSecondSigner(secondSigner);
@@ -167,6 +179,7 @@ const ProductPage = ({ previewContracts }) => {
     }
     console.log('question', question);
     setQuestions(() => question);
+
   }, [showFull]);
 
   const showBasicContract = (event) => {
@@ -178,8 +191,8 @@ const ProductPage = ({ previewContracts }) => {
       return;
     }
     flexCheckDefault.parentElement.classList.remove('text-danger');
-    console.log('doing');
-    setShowFull((prev) => !prev);
+    console.log("doing")
+    setShowFull((prev)=>!prev)
     return;
   };
   const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
@@ -321,7 +334,7 @@ const ProductPage = ({ previewContracts }) => {
         theme={{ disableThemeScrollbar: true }}
       />
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
-        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
+        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? "סגור":"הצג את ההסכם המלא"}</div>
       </div>
 
       <StandUp
