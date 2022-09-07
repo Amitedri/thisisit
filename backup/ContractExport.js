@@ -688,4 +688,4 @@ const previewContract = [
   },
 ];
 
-export default previewContract;
+module.exports = previewContract;
