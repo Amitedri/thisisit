@@ -1,13 +1,12 @@
 import './ProductPage.css';
 import ContactsUs from '../../components/ContactUs';
-import ContractPreview from '../../components/ContractPreview';
 import StandUp from '../../components/StandUp';
 import FAQ from '../../components/FAQ';
 import { general } from '../../Data/Questions';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
-import { addProduct, setShowCart, setTermsModal } from '../../Slice';
+import { addProduct, setShowCart} from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
 const path = require("path")
@@ -112,8 +111,8 @@ const ProductPage = ({ previewContracts }) => {
     }
     try {
       isAgreedConsent && showFull
-        ? setDocs(() => [{ uri: require(`../../Data/files/${h11}.pdf`) }])
-        : setDocs(() => [{ uri: require(`../../Data/preview/${h11}.pdf`) }]);
+        ? setDocs(() => [{ uri: path.resolve(__dirnamem,"Data","files",`${h11}.pdf`) }])
+        : setDocs(() => [{ uri: path.resolve(__dirnamem,"Data","preview",`${h11}.pdf`) }]);
     } catch (err) {}
     setTitle(title);
     setContractBody(contractBody);
