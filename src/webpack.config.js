@@ -3,6 +3,7 @@ module.exports = {
     alias: {
       path: require.resolve('path-browserify'),
     },
-    fallback: { path: require.resolve('path-browserify') },
+    fallback: { 
+      path: require.resolve('path-browserify') },
   },
 };

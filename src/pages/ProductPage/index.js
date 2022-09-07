@@ -93,11 +93,12 @@ const ProductPage = ({ previewContracts}) => {
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
     
-    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
+    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
       doc[0];
+const h1 = doc[0].h1 || "wait"
     const {
       priceMeeting,
       makingTimeMeeting,
@@ -109,9 +110,9 @@ const ProductPage = ({ previewContracts}) => {
       warrantyMeeting,
     } = doc[0];
     isAgreedConsent && showFull ?setDocs(()=>[
-      {uri:require(path.resolve(__dirname,"Data","files",`${h1}.pdf`))}
+      {uri:path.resolve(__dirname,"Data","files",`${h1}.pdf`)}
     ]) :  setDocs(()=>[
-      {uri:require(path.resolve(__dirname,"Data","preview",`${h1}.pdf`))}
+      {uri:path.resolve(__dirname,"Data","preview",`${h1}.pdf`)}
     ])
     setTitle(title);
     setContractBody(contractBody);
