@@ -43,7 +43,7 @@ const previewContracts = [
     tags: ['הסכם גירושין', 'הסכם גירושין בהסכמה', 'עורך דין הסכם גירושין', 'הסכם גירושין לדוגמא'],
     
     contractPreview:require("./preview/הסכם גירושין.pdf"),
-    ontract:require("./files/הסכם גירושין.pdf"),
+    contract:require("./files/הסכם גירושין.pdf"),
     h1Content: '',
     seoHeader: `הסכם גירושין לדוגמא - הסכם גירושין לרכישה און ליין שירות חדש  / עו"ד אלעד כהן
 `,
