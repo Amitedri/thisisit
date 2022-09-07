@@ -10,7 +10,7 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-const path = require("path");
+const path = require("path")
 const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
@@ -91,7 +91,7 @@ const ProductPage = ({ previewContracts }) => {
 
   useEffect(() => {
     const doc = previewContracts.filter((el) => el.id == id);
-
+    var h11 = "wait"
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
@@ -107,10 +107,13 @@ const ProductPage = ({ previewContracts }) => {
       levelOfProtectionMeeting,
       warrantyMeeting,
     } = doc[0];
+    if(h1){
+      h11 = h1
+    }
     try {
       isAgreedConsent && showFull
-        ? setDocs(() => [{ uri: path.resolve(__dirname, 'Data', 'files'`${h1}.pdf`) }])
-        : setDocs(() => [{ uri: path.resolve(__dirname, 'Data', 'preview'`${h1}.pdf`) }]);
+        ? setDocs(() => [{ uri: require(`../../Data/files/${h11}.pdf`) }])
+        : setDocs(() => [{ uri: require(`../../Data/preview/${h11}.pdf`) }]);
     } catch (err) {}
     setTitle(title);
     setContractBody(contractBody);
