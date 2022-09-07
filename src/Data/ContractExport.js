@@ -1,4 +1,4 @@
-const previewContracts = [
+const previewContract = [
   {
     hasBasicColumn: true,
     hasMekifColumn: true,
@@ -41,8 +41,8 @@ const previewContracts = [
     href: 'contract/1',
     h1: 'הסכם גירושין',
     tags: ['הסכם גירושין', 'הסכם גירושין בהסכמה', 'עורך דין הסכם גירושין', 'הסכם גירושין לדוגמא'],
-    contractPreview:require("./previewcontracts/gerushim.pdf"),
-    contract:require("./locals/divorce.pdf"),
+    contractPreview:require("./previewcontract/gerushim.pdf"),
+    contract:require("./local/divorce.pdf"),
     h1Content: '',
     seoHeader: `הסכם גירושין לדוגמא - הסכם גירושין לרכישה און ליין שירות חדש  / עו"ד אלעד כהן
 `,
@@ -100,9 +100,9 @@ const previewContracts = [
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/2',
-    contract:require("./locals/agreedCutidy.pdf"),
+    contract:require("./local/agreedCutidy.pdf"),
 
-    contractPreview:require("./previewcontracts/horutmeshutefet.pdf"),
+    contractPreview:require("./previewcontract/horutmeshutefet.pdf"),
     h1: 'הסכם הורות משותפת',
     tags: ['הסכם הורות משותפת', 'הסכם הורות משותפת להפריה', 'נוסח הסכם הורות משותפת', 'הורות משותפת'],
 
@@ -167,9 +167,9 @@ const previewContracts = [
     href: 'contract/3',
     h1: 'הסכם מייסדים',
     tags: ['הסכם מייסדים', 'הסכם מייסדים סטארט אפ', 'הסכם מייסדים בעלי מניות בחברה', 'הסכם מייסדים להקמת חברה'],
-    contract:require("./locals/foundersagreement.pdf"),
+    contract:require("./local/foundersagreement.pdf"),
 
-    contractPreview:require("./previewcontracts/meysadim.pdf"),
+    contractPreview:require("./previewcontract/meysadim.pdf"),
     h1Content: '',
     seoHeader: `הסכם מייסדים לדוגמא - הסכם מייסדים לרכישה און ליין שירות חדש / עו"ד אלעד כהן`,
     seoDescription: `הסכם מייסדים - שאלות ותשובות בנושא הסכם מייסדים סטארט אפ - רכישת הסכם מייסדים מקיף און ליין במהירות ובפשטות. הסכם מייסדים להקמת חברה.`,
@@ -229,9 +229,9 @@ const previewContracts = [
     href: '/contract/4',
     h1: 'הסכם מכר',
     tags: ['עורך דין מקרקעין', ' עורך דין נדלן', 'הסכם מכר דירה', 'חוזה מכר'],
-    contract:require("./locals/sells.pdf"),
+    contract:require("./local/sells.pdf"),
 
-    contractPreview:require("./previewcontracts/meher.pdf"),
+    contractPreview:require("./previewcontract/meher.pdf"),
     h1Content: '',
     seoHeader: `הסכם מכר לדוגמא - הסכם מכר לרכישה און ליין שירות חדש / עו"ד אלעד כהן
     `,
@@ -293,9 +293,9 @@ const previewContracts = [
     href: 'contract/5',
     h1: 'הסכם  ממון ידועים בציבור',
     tags: ['הסכם  ממון ידועים בציבור','הסכם ממון לפני נישואין','עורך דין הסכם ממון',"הסכם ממון דוגמא"],
-    contract:require("./locals/yeduim.pdf"),
+    contract:require("./local/yeduim.pdf"),
 
-    contractPreview:require("./previewcontracts/yeduim.pdf"),
+    contractPreview:require("./previewcontract/yeduim.pdf"),
     h1Content: '',
     seoHeader: `הסכם ממון לדוגמא - הסכם ממון לרכישה און ליין שירות חדש / עו"ד אלעד כהן
     `,
@@ -356,9 +356,9 @@ const previewContracts = [
     href: 'contract/6',
     h1: 'הסכם סודיות',
     tags: ['הסכם סודיות', 'הסכם סודיות דוגמא', 'הסכם סודיות הדדי', ' חוזה סודיות', 'הסכם סודיות סטארט אפ'],
-    contract:require("./locals/soduyut.pdf"),
+    contract:require("./local/soduyut.pdf"),
 
-    contractPreview:require("./previewcontracts/sodiut.pdf"),
+    contractPreview:require("./previewcontract/sodiut.pdf"),
     h1Content: '',
     seoHeader: ``,
     seoDescription: `עו"ד אלעד כהן`,
@@ -419,9 +419,9 @@ const previewContracts = [
     href: 'contract/7',
     h1: 'הסכם עבודה עם קבלן',
     tags: ['הסכם עבודה עם קבלן שיפוצים', 'הסכם עבודה עם קבלן שיפוצים דוגמא', 'הסכם  שיפוץ דירה'],
-    contract:require("./locals/kablan.pdf"),
+    contract:require("./local/kablan.pdf"),
 
-    contractPreview:require("./previewcontracts/kablan.pdf"),
+    contractPreview:require("./previewcontract/kablan.pdf"),
     h1Content: '',
     seoHeader: `הסכם עבודה עם קבלן לדוגמא - הסכם לרכישה און ליין שירות חדש  / עו"ד אלעד כהן`,
     seoDescription: `הסכם עבודה עם קבלן - שאלות ותשובות בנושא הסכם עבודה עם קבלן שיפוצים - רכישת הסכם עבודה עם קבלן מקיף און ליין במהירות ובפשטות. הסכם שיפוץ דירה`,
@@ -485,9 +485,9 @@ const previewContracts = [
     seoHeader: `הסכם שותפות דוגמא - הסכם שותפות לרכישה און ליין שירות חדש / עו"ד אלעד כהן`,
     seoDescription: `הסכם שותפות  - שאלות ותשובות בנושא הסכם שותפות בעסק - רכישת הסכם שותפות מקיף און ליין במהירות ובפשטות. עורך דין הסכם שותפות עוסק מורשה`,
     categoryEnglish: '',
-    contract:require("./locals/suhtfut.pdf"),
+    contract:require("./local/suhtfut.pdf"),
 
-    contractPreview:require("./previewcontracts/suhftfut.pdf"),
+    contractPreview:require("./previewcontract/suhftfut.pdf"),
     categoryHeb: 'חברות וסטארט אפ',
     id: '8',
     price: 85,
@@ -543,9 +543,9 @@ const previewContracts = [
     h1: 'הסכם שיתוף במקרקעין',
     tags: ['הסכם שיתוף במקרקעין', 'הסכם שיתוף במקרקעין דוגמא', 'הסכם שיתוף במקרקעין דו משפחתי', 'דוגמת הסכם שיתוף במקרקעין'],
     h1Content: '',
-    contract:require("./locals/shitufmekarakein.pdf"),
+    contract:require("./local/shitufmekarakein.pdf"),
 
-    contractPreview:require("./previewcontracts/shutifmekrakein.pdf"),
+    contractPreview:require("./previewcontract/shutifmekrakein.pdf"),
     seoHeader: `הסכם שיתוף במקרקעין דוגמא - הסכם לרכישה און ליין שירות חדש  / עו"ד אלעד כהן`,
     seoDescription: `הסכם שיתוף במקרקעין - שאלות ותשובות בנושא הסכם שיתוף במקרקעין - רכישת הסכם שיתוף במקרקעין דו משפחתי מקיף און ליין במהירות ובפשטות.`,
     categoryEnglish: '',
@@ -603,9 +603,9 @@ const previewContracts = [
     href: 'contract/10',
     h1: 'חוזה עבודה',
     tags: ['חוזה עבודה אישי', 'חוזה עבודה סטנדרטי', 'חוזה העסקה'],
-    contract:require("./locals/hozeavoda.pdf"),
+    contract:require("./local/hozeavoda.pdf"),
 
-    contractPreview:require("./previewcontracts/hozaavoda.pdf"),
+    contractPreview:require("./previewcontract/hozaavoda.pdf"),
     h1Content: '',
     seoHeader: `חוזה עבודה לדוגמא - חוזה עבודה לרכישה און ליין שירות חדש / עו"ד אלעד כהן`,
     seoDescription: `חוזה עבודה - שאלות ותשובות בנושא חוזה עבודה אישי - רכישת חוזה עבודה מקיף און ליין במהירות ובפשטות. עורך דין חוזה עבודה אלעד כהן.`,
@@ -665,9 +665,9 @@ const previewContracts = [
     href: 'contract/11',
     h1: 'יפוי כח מתמשך',
     tags: ['הסכם שותפות', 'הסכם שותפות דוגמא', 'הסכם שותפות פשוט', ' חוזה שותפות', 'הסכם שותפות בעסק', 'הסכם שותפות עוסק מורשה'],
-    contract:require("./locals/yipuikoah.pdf"),
+    contract:require("./local/yipuikoah.pdf"),
 
-    contractPreview:require("./previewcontracts/yipukoah.pdf"),
+    contractPreview:require("./previewcontract/yipukoah.pdf"),
     h1Content: '',
     seoHeader: `ייפוי כוח מתמשך לדוגמא - ייפוי כוח מתמשך שירות חדש / עו"ד אלעד כהן`,
     seoDescription: `ייפוי כוח מתמשך לדוגמא - שאלות ותשובות בנושא ייפוי כוח מתמשך - עורך דין ייפוי כוח מתמשך - עריכת יפוי כח מתמשך `,
@@ -688,4 +688,4 @@ const previewContracts = [
   },
 ];
 
-export default previewContracts;
+export default previewContract;
