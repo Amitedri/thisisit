@@ -1,4 +1,3 @@
-const parse = require('html-react-parser');
 const previewContracts = [
   {
     hasBasicColumn: true,
