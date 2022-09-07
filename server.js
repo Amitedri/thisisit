@@ -119,7 +119,7 @@ app.post('/message', async (req, res) => {
 });
 const sendEmail = async ({ name, phone, data, subject }) => {
   const result = await transporter.sendMail({
-    from: 'harelmiddle@gmail.com',
+    from: 'cecotechside@gmail.com',
     // to: "Sale@hareli.co.il
     to: 'cecotechside@gmail.com',
     subject: subject,
