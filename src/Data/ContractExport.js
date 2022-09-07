@@ -42,7 +42,7 @@ const previewContracts = [
     h1: 'הסכם גירושין',
     tags: ['הסכם גירושין', 'הסכם גירושין בהסכמה', 'עורך דין הסכם גירושין', 'הסכם גירושין לדוגמא'],
     contractPreview:require("./preview/הסכם גירושין.pdf"),
-    contract:require("./files/הסכם גירושין.pdf"),
+    contract:require("./locals/הסכם גירושין.pdf"),
     h1Content: '',
     seoHeader: `הסכם גירושין לדוגמא - הסכם גירושין לרכישה און ליין שירות חדש  / עו"ד אלעד כהן
 `,
@@ -100,7 +100,7 @@ const previewContracts = [
     buttonText: 'פתח עוד',
     actionButtonText: 'רכוש כעת | 252 ₪',
     href: 'contract/2',
-    contract:require("./files/הסכם הורות משותפת.pdf"),
+    contract:require("./locals/הסכם הורות משותפת.pdf"),
 
     contractPreview:require("./preview/הסכם הורות משותפת.pdf"),
     h1: 'הסכם הורות משותפת',
@@ -167,7 +167,7 @@ const previewContracts = [
     href: 'contract/3',
     h1: 'הסכם מייסדים',
     tags: ['הסכם מייסדים', 'הסכם מייסדים סטארט אפ', 'הסכם מייסדים בעלי מניות בחברה', 'הסכם מייסדים להקמת חברה'],
-    contract:require("./files/הסכם מייסדים.pdf"),
+    contract:require("./locals/הסכם מייסדים.pdf"),
 
     contractPreview:require("./preview/הסכם מייסדים.pdf"),
     h1Content: '',
@@ -229,7 +229,7 @@ const previewContracts = [
     href: '/contract/4',
     h1: 'הסכם מכר',
     tags: ['עורך דין מקרקעין', ' עורך דין נדלן', 'הסכם מכר דירה', 'חוזה מכר'],
-    contract:require("./files/הסכם מכר.pdf"),
+    contract:require("./locals/הסכם מכר.pdf"),
 
     contractPreview:require("./preview/הסכם מכר.pdf"),
     h1Content: '',
@@ -293,7 +293,7 @@ const previewContracts = [
     href: 'contract/5',
     h1: 'הסכם  ממון ידועים בציבור',
     tags: ['הסכם  ממון ידועים בציבור','הסכם ממון לפני נישואין','עורך דין הסכם ממון',"הסכם ממון דוגמא"],
-    contract:require("./files/הסכם ממון ידועים בציבור.pdf"),
+    contract:require("./locals/הסכם ממון ידועים בציבור.pdf"),
 
     contractPreview:require("./preview/הסכם ממון ידועים בציבור.pdf"),
     h1Content: '',
@@ -356,7 +356,7 @@ const previewContracts = [
     href: 'contract/6',
     h1: 'הסכם סודיות',
     tags: ['הסכם סודיות', 'הסכם סודיות דוגמא', 'הסכם סודיות הדדי', ' חוזה סודיות', 'הסכם סודיות סטארט אפ'],
-    contract:require("./files/הסכם סודיות.pdf"),
+    contract:require("./locals/הסכם סודיות.pdf"),
 
     contractPreview:require("./preview/הסכם סודיות.pdf"),
     h1Content: '',
@@ -419,7 +419,7 @@ const previewContracts = [
     href: 'contract/7',
     h1: 'הסכם עבודה עם קבלן',
     tags: ['הסכם עבודה עם קבלן שיפוצים', 'הסכם עבודה עם קבלן שיפוצים דוגמא', 'הסכם  שיפוץ דירה'],
-    contract:require("./files/הסכם עבודה עם קבלן.pdf"),
+    contract:require("./locals/הסכם עבודה עם קבלן.pdf"),
 
     contractPreview:require("./preview/הסכם עבודה עם קבלן.pdf"),
     h1Content: '',
@@ -485,7 +485,7 @@ const previewContracts = [
     seoHeader: `הסכם שותפות דוגמא - הסכם שותפות לרכישה און ליין שירות חדש / עו"ד אלעד כהן`,
     seoDescription: `הסכם שותפות  - שאלות ותשובות בנושא הסכם שותפות בעסק - רכישת הסכם שותפות מקיף און ליין במהירות ובפשטות. עורך דין הסכם שותפות עוסק מורשה`,
     categoryEnglish: '',
-    contract:require("./files/הסכם שותפות.pdf"),
+    contract:require("./locals/הסכם שותפות.pdf"),
 
     contractPreview:require("./preview/הסכם שותפות.pdf"),
     categoryHeb: 'חברות וסטארט אפ',
@@ -543,7 +543,7 @@ const previewContracts = [
     h1: 'הסכם שיתוף במקרקעין',
     tags: ['הסכם שיתוף במקרקעין', 'הסכם שיתוף במקרקעין דוגמא', 'הסכם שיתוף במקרקעין דו משפחתי', 'דוגמת הסכם שיתוף במקרקעין'],
     h1Content: '',
-    contract:require("./files/הסכם שיתוף במקרקעין.pdf"),
+    contract:require("./locals/הסכם שיתוף במקרקעין.pdf"),
 
     contractPreview:require("./preview/הסכם שיתוף במקרקעין.pdf"),
     seoHeader: `הסכם שיתוף במקרקעין דוגמא - הסכם לרכישה און ליין שירות חדש  / עו"ד אלעד כהן`,
@@ -603,7 +603,7 @@ const previewContracts = [
     href: 'contract/10',
     h1: 'חוזה עבודה',
     tags: ['חוזה עבודה אישי', 'חוזה עבודה סטנדרטי', 'חוזה העסקה'],
-    contract:require("./files/חוזה עבודה.pdf"),
+    contract:require("./locals/חוזה עבודה.pdf"),
 
     contractPreview:require("./preview/חוזה עבודה.pdf"),
     h1Content: '',
@@ -665,7 +665,7 @@ const previewContracts = [
     href: 'contract/11',
     h1: 'יפוי כח מתמשך',
     tags: ['הסכם שותפות', 'הסכם שותפות דוגמא', 'הסכם שותפות פשוט', ' חוזה שותפות', 'הסכם שותפות בעסק', 'הסכם שותפות עוסק מורשה'],
-    contract:require("./files/ייפוי כוח מתמשך.pdf"),
+    contract:require("./locals/ייפוי כוח מתמשך.pdf"),
 
     contractPreview:require("./preview/ייפוי כוח מתמשך.pdf"),
     h1Content: '',
