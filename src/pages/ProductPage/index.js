@@ -9,7 +9,7 @@ import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart} from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-const path = require("path")
+import path from "path"
 const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
