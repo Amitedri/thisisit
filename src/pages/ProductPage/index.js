@@ -36,7 +36,7 @@ const ProductPage = ({ previewContracts }) => {
   const [contractName, setContractName] = useState('');
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
-  const [zoom,setZoom] = useState(0.7)
+  const [zoom, setZoom] = useState(0.7);
 
   const [docs, setDocs] = useState([]);
   const [basicContractData, setBasicContractData] = useState({
@@ -97,10 +97,9 @@ const ProductPage = ({ previewContracts }) => {
   }, [generalConsent]);
 
   useEffect(() => {
-
     let width = document.body.clientWidth;
     if (width <= 650) {
-      setZoom(1.2)
+      setZoom(1.2);
     }
     const doc = previewContracts.filter((el) => el.id == id);
 
@@ -109,9 +108,9 @@ const ProductPage = ({ previewContracts }) => {
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
       doc[0];
-      fireAsync({name:h1,path:"previews"}).then((file) => {
-        setDocs(() => [{ uri: file }]);
-      });
+    fireAsync({ name: h1, path: 'previews' }).then((file) => {
+      setDocs(() => [{ uri: file }]);
+    });
     const {
       priceMeeting,
       makingTimeMeeting,
@@ -185,6 +184,10 @@ const ProductPage = ({ previewContracts }) => {
 
   const showBasicContract = (event) => {
     event.preventDefault();
+
+    if (showFull) {
+      return;
+    }
     let flexCheckDefault = document.getElementById('flexCheckDefaultOdsdsd');
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
@@ -201,38 +204,41 @@ const ProductPage = ({ previewContracts }) => {
     return <input class="form-check-input" type="checkbox" onChange={changeConsent} id="flexCheckDefaultOdsdsd" />;
   };
 
-  const onConsent = useCallback(({ isAgreedConsent, contractName, id, price, pages, fixes, makingTime }) => {
-    console.log(isAgreedConsent);
-    if (!isAgreedConsent) {
-      window.$('#termsModal').modal('toggle');
-      let contBtn = document.getElementById('contBtn');
-      contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-    }
-    if (isAgreedConsent) {
-      addItem({
-        name: contractName,
-        id: id,
-        pack: 'מקיף',
-        numOfPages: pages,
-        numOfFixes: fixes,
-        makingTime: makingTime,
-        price,
-      });
-      return;
-    }
-  }, [isAgreedConsent]);
+  const onConsent = useCallback(
+    ({ isAgreedConsent, contractName, id, price, pages, fixes, makingTime }) => {
+      console.log(isAgreedConsent);
+      if (!isAgreedConsent) {
+        window.$('#termsModal').modal('toggle');
+        let contBtn = document.getElementById('contBtn');
+        contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      }
+      if (isAgreedConsent) {
+        addItem({
+          name: contractName,
+          id: id,
+          pack: 'מקיף',
+          numOfPages: pages,
+          numOfFixes: fixes,
+          makingTime: makingTime,
+          price,
+        });
+        return;
+      }
+    },
+    [isAgreedConsent]
+  );
   useEffect(() => {
     if (isAgreedConsent) {
-      fireAsync({name:h1,path:"locals"}).then((file) => {
+      fireAsync({ name: h1, path: 'locals' }).then((file) => {
         setDocs(() => [{ uri: file }]);
       });
     }
-    if(!isAgreedConsent && h1){
-      fireAsync({name:h1,path:"previews"}).then((file) => {
+    if (!isAgreedConsent && h1) {
+      fireAsync({ name: h1, path: 'previews' }).then((file) => {
         setDocs(() => [{ uri: file }]);
       });
     }
-  }, [showFull,isAgreedConsent]);
+  }, [showFull, isAgreedConsent]);
   const Checkbox = useCallback(() => <InnerCheck />, []);
 
   const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
