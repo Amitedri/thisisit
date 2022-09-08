@@ -140,7 +140,7 @@ const Cart = ({ setPurchaseData }) => {
         })
       );
       let req = await axios.post(
-        'http://localhost/payment',
+        '/payment',
         {
           clientData: {
             name,

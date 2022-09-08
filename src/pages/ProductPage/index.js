@@ -11,7 +11,13 @@ import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
 import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
 import axios from 'axios';
-const ProductPage = ({ previewContracts}) => {
+
+const fireAsync = async ({ name, path }) => {
+  let elem = require(`../../Data/${path}/${name}.pdf`);
+  return elem;
+};
+
+const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
   const { id } = useParams();
@@ -30,8 +36,9 @@ const ProductPage = ({ previewContracts}) => {
   const [contractName, setContractName] = useState('');
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
+  const [zoom,setZoom] = useState(0.7)
 
-  const [docs,setDocs] = useState([]);
+  const [docs, setDocs] = useState([]);
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
     makingTimeBasic: '',
@@ -89,15 +96,22 @@ const ProductPage = ({ previewContracts}) => {
     }
   }, [generalConsent]);
 
-
   useEffect(() => {
+
+    let width = document.body.clientWidth;
+    if (width <= 650) {
+      setZoom(1.2)
+    }
     const doc = previewContracts.filter((el) => el.id == id);
-    
+
     const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
       doc[0];
+      fireAsync({name:h1,path:"previews"}).then((file) => {
+        setDocs(() => [{ uri: file }]);
+      });
     const {
       priceMeeting,
       makingTimeMeeting,
@@ -108,18 +122,6 @@ const ProductPage = ({ previewContracts}) => {
       levelOfProtectionMeeting,
       warrantyMeeting,
     } = doc[0];
-    const fireAsync = async (name)=>{
-      let elem =  require(`../../Data/locals/${name}.pdf`)
-       return elem
-    }
-    fireAsync(h1).then((file=>{
-      isAgreedConsent && showFull ?setDocs(()=>[
-        {uri:file}
-      ]) :  setDocs(()=>[
-        {uri:file}
-      ])
-    }))
-   
 
     setTitle(title);
     setContractBody(contractBody);
@@ -179,7 +181,6 @@ const ProductPage = ({ previewContracts}) => {
     }
     console.log('question', question);
     setQuestions(() => question);
-
   }, [showFull]);
 
   const showBasicContract = (event) => {
@@ -191,8 +192,8 @@ const ProductPage = ({ previewContracts}) => {
       return;
     }
     flexCheckDefault.parentElement.classList.remove('text-danger');
-    console.log("doing")
-    setShowFull((prev)=>!prev)
+    console.log('doing');
+    setShowFull((prev) => !prev);
     return;
   };
   const changeConsent = useCallback(() => setisAgreedConsent((prev) => !prev), []);
@@ -200,29 +201,38 @@ const ProductPage = ({ previewContracts}) => {
     return <input class="form-check-input" type="checkbox" onChange={changeConsent} id="flexCheckDefaultOdsdsd" />;
   };
 
-  const onConsent = useCallback(
-    ({ isAgreedConsent, contractName, id, price, pages, fixes, makingTime }) => {
-      console.log(isAgreedConsent);
-      if (!isAgreedConsent) {
-        window.$('#termsModal').modal('toggle');
-        let contBtn = document.getElementById('contBtn');
-        contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-      }
-      if (isAgreedConsent) {
-        addItem({
-          name: contractName,
-          id: id,
-          pack: 'מקיף',
-          numOfPages: pages,
-          numOfFixes: fixes,
-          makingTime: makingTime,
-          price,
-        });
-        return;
-      }
-    },
-    [isAgreedConsent]
-  );
+  const onConsent = useCallback(({ isAgreedConsent, contractName, id, price, pages, fixes, makingTime }) => {
+    console.log(isAgreedConsent);
+    if (!isAgreedConsent) {
+      window.$('#termsModal').modal('toggle');
+      let contBtn = document.getElementById('contBtn');
+      contBtn.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    }
+    if (isAgreedConsent) {
+      addItem({
+        name: contractName,
+        id: id,
+        pack: 'מקיף',
+        numOfPages: pages,
+        numOfFixes: fixes,
+        makingTime: makingTime,
+        price,
+      });
+      return;
+    }
+  }, [isAgreedConsent]);
+  useEffect(() => {
+    if (isAgreedConsent) {
+      fireAsync({name:h1,path:"locals"}).then((file) => {
+        setDocs(() => [{ uri: file }]);
+      });
+    }
+    if(!isAgreedConsent && h1){
+      fireAsync({name:h1,path:"previews"}).then((file) => {
+        setDocs(() => [{ uri: file }]);
+      });
+    }
+  }, [showFull,isAgreedConsent]);
   const Checkbox = useCallback(() => <InnerCheck />, []);
 
   const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
@@ -330,11 +340,11 @@ const ProductPage = ({ previewContracts}) => {
         documents={docs}
         pluginRenderers={DocViewerRenderers}
         className={['backgroundMain', 'col-12']}
-        config={{ pdfZoom: { defaultZoom: 0.7 }, header: { disableFileName: true, disableHeader: true } }}
+        config={{ pdfZoom: { defaultZoom: zoom }, header: { disableFileName: true, disableHeader: true } }}
         theme={{ disableThemeScrollbar: true }}
       />
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
-        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? "סגור":"הצג את ההסכם המלא"}</div>
+        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
       </div>
 
       <StandUp
