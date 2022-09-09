@@ -4,7 +4,9 @@
   max-width: 100%;
 }
 
-
+.speicalopsitus{
+  height: 100vh;
+}
 .specialk{
   position: relative !important;
 }

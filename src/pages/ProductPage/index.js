@@ -245,6 +245,7 @@ const ProductPage = ({ previewContracts }) => {
     () => (
       <DocViewer
         documents={docs}
+        className={"speicalopsitus"}
         pluginRenderers={DocViewerRenderers}
         config={{ pdfZoom: { defaultZoom: zoom } }}
         theme={{ disableThemeScrollbar: false, primary: '#e5e5e5' }}
