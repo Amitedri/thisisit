@@ -5,7 +5,19 @@
 }
 
 
-
+.specialk{
+  position: relative !important;
+}
+.specialk::before{
+  content:" ";
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  z-index: 9992;
+  background-color: transparent;
+}
 @media screen and (max-width:600px) {
   .productTopImg{
     max-height: none !important;

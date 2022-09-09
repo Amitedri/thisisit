@@ -100,6 +100,7 @@ const ProductPage = ({ previewContracts }) => {
     let width = document.body.clientWidth;
     if (width <= 650) {
       setZoom(1.2);
+      document.querySelector(".contractLayer").classList.add("specialk")
     }
     const doc = previewContracts.filter((el) => el.id == id);
 
@@ -342,13 +343,15 @@ const ProductPage = ({ previewContracts }) => {
         signInDate={signInDate}
         isAgreedConsent={isAgreedConsent}
       /> */}
+      <div className="contractLayer col-12">
       <DocViewer
         documents={docs}
         pluginRenderers={DocViewerRenderers}
         className={['backgroundMain', 'col-12']}
-        config={{ pdfZoom: { defaultZoom: zoom }, header: { disableFileName: true, disableHeader: true } }}
-        theme={{ disableThemeScrollbar: true }}
+        config={{ pdfZoom: { defaultZoom: zoom }}}
+        theme={{ disableThemeScrollbar: false }}
       />
+      </div>
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
         <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
       </div>
