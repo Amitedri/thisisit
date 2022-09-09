@@ -100,7 +100,7 @@ const ProductPage = ({ previewContracts }) => {
     let width = document.body.clientWidth;
     if (width <= 650) {
       setZoom(1.2);
-      document.querySelector(".contractLayer").classList.add("specialk")
+      document.querySelector('.contractLayer').classList.add('specialk');
     }
     const doc = previewContracts.filter((el) => el.id == id);
 
@@ -241,7 +241,18 @@ const ProductPage = ({ previewContracts }) => {
     }
   }, [showFull, isAgreedConsent]);
   const Checkbox = useCallback(() => <InnerCheck />, []);
-
+  const BackedDoc = useCallback(
+    () => (
+      <DocViewer
+        documents={docs}
+        pluginRenderers={DocViewerRenderers}
+        config={{ pdfZoom: { defaultZoom: zoom } }}
+        theme={{ disableThemeScrollbar: false, primary: '#e5e5e5' }}
+        key="dsfskljdklsdjfklsdjlkjsflkdjfkls"
+      />
+    ),
+    [docs]
+  );
   const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
@@ -344,13 +355,7 @@ const ProductPage = ({ previewContracts }) => {
         isAgreedConsent={isAgreedConsent}
       /> */}
       <div className="contractLayer col-12">
-      <DocViewer
-        documents={docs}
-        pluginRenderers={DocViewerRenderers}
-        className={['backgroundMain', 'col-12']}
-        config={{ pdfZoom: { defaultZoom: zoom }}}
-        theme={{ disableThemeScrollbar: false }}
-      />
+        <BackedDoc/>
       </div>
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
         <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
