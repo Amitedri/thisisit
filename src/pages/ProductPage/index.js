@@ -250,6 +250,7 @@ const ProductPage = ({ previewContracts }) => {
         config={{ pdfZoom: { defaultZoom: zoom } }}
         theme={{ disableThemeScrollbar: false, primary: '#e5e5e5' }}
         key="dsfskljdklsdjfklsdjlkjsflkdjfkls"
+        style={{height:"800px"}}
       />
     ),
     [docs]
