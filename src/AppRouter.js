@@ -11,6 +11,9 @@ import Terms from './pages/Terms';
 import servicesList from './Data/Services';
 import previewContracts from './Data/ContractExport';
 import { useEffect, useState } from 'react';
+import AddContract from './pages/AddContract';
+import AddService from './pages/AddService';
+import AddServices from './pages/AddService';
 
 const ResultPage = () => {
   const { res } = useParams();
@@ -22,10 +25,10 @@ const ResultPage = () => {
     let splitted = res.split('=');
     splitted = splitted[1];
 
-    if (splitted === 'success' || res === "success") {
+    if (splitted === 'success' || res === 'success') {
       setIsLocalSuccess(() => true);
     }
-    if (splitted === 'failed'|| res === "failed") {
+    if (splitted === 'failed' || res === 'failed') {
       setIsLocalSuccess(() => false);
     }
     let width = document.body.clientWidth;
@@ -92,6 +95,32 @@ const ResultPage = () => {
   );
 };
 
+const MangaeBar = () => {
+  const SetComp = ({view})=>{
+    if(!view){
+      return <AddContract/>
+    }
+    if(view === "service"){
+      return <AddServices/>
+    }
+    if(view === "payment"){
+      return <div className='text-center fs-3'>חיוב ידני ושליחת חוזה</div>
+    }
+  }
+  const [view, setView] = useState('');
+  return (
+    <div className="col-12 d-flex flex-column justify-content-center">
+    <div className="col-6 d-flex flex-row justify-content-center align-self-center">
+      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView(""))}>יצירת הסכם</div>
+      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("service"))}>יצירת שירות משרד</div>
+      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>חיוב לקוח</div>
+      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>שליחת הסכמים </div>
+    </div>
+    <SetComp view={view}/>
+  </div>
+
+  );
+};
 const AppRouter = ({ transactionSuccess }) => {
   return (
     <Router>
@@ -103,9 +132,11 @@ const AppRouter = ({ transactionSuccess }) => {
         <Route exact path="/contract/:id" element={<ProductPage servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/services" element={<Services servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/service/:id" element={<ServicePage servicesList={servicesList} previewContracts={previewContracts} />} />
-        <Route exact path="/community" element={<ForCommunity servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/contactus" element={<Contact servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route exact path="/terms" element={<Terms />} />
+        <Route exact path="/addContract" element={<MangaeBar />} />
+        <Route exact path="/addService" element={<AddService />} />
+
         <Route exact path="/" element={<ContractLawyer servicesList={servicesList} previewContracts={previewContracts} />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>

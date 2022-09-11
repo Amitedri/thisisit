@@ -1,10 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
 var _ref;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -527,5 +522,4 @@ var previewContract = [{
   price: 85,
   title: "\u05D9\u05E4\u05D5\u05D9 \u05DB\u05D7 \u05DE\u05EA\u05DE\u05E9\u05DA"
 }];
-var _default = previewContract;
-exports["default"] = _default;
+module.exports = previewContract;

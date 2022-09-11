@@ -56,7 +56,7 @@ const makeMessageEmailTemplate = ({ name, phone, email, message }) => {
   </body>
   </html>`;
 };
-const makeProductEmailTemplate = ({ name, phone, email, productName, pack, description }) => {
+const makeProductEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
   return `<html>
   <head>
       <style>
@@ -92,7 +92,10 @@ const makeProductEmailTemplate = ({ name, phone, email, productName, pack, descr
   <div class"total">טלפון: ${phone}</div>
   <div class"total">אימייל: ${email}</div>  
       <span class"total">
-      שם החוזה ${productName} - חבילה - ${pack}
+      שם המוצר: ${productName} ${pack}
+      </span>
+      <span class"total">
+      סה"כ שולם : ${total}
       </span>
       <span class"total">
       ${description}
@@ -129,22 +132,55 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
-app.get('/contract', (req, res) => {
-let file = fs.readFileSync(path.resolve(__dirname,"src","Data","locals","הסכם גירושין.pdf"));
-console.log(file)
-  return res.status(200).sendFile(path.resolve(__dirname,"src","Data","locals","הסכם גירושין.pdf"));
-});
+const sendEmailWithAttachment = async ({ data, subject, contractName }) => {
+  const result = await transporter.sendMail({
+    from: 'cecotechside@gmail.com',
+    // to: "Sale@hareli.co.il
+    to: 'cecotechside@gmail.com',
+    subject: subject,
+    html: data,
+    encoding: 'utf8',
+    attachments: [
+      {
+        filename: `${contractName}.pdf`,
+        content: fs.createReadStream(path.resolve(__dirname, 'public', 'assets', 'files', `${contractName}.pdf`)),
+      },
+    ],
+  });
+  console.log(result);
+};
+
 app.post('/paymentdone', (req, res) => {
   if (!req.body.hasOwnProperty('clientData') || !req.body.hasOwnProperty('products')) {
     return res.status(401).send('request denied');
   }
+  const { products, clientData } = req.body;
+
+  products.forEach(async (el) => {
+    let template = makeProductEmailTemplate({
+      description: '',
+      email: clientData.email,
+      name: clientData.name,
+      pack: 'מקיף',
+      phone: clientData.phone,
+      productName: el.name,
+      total: `${el.price}₪`,
+    });
+    const email = await sendEmailWithAttachment({
+      subject: 'פרטי הרכישה מאלעד כהן',
+      data: template,
+      contractName: el.name,
+    });
+    console.log(email);
+  });
   //send email templates
-  return res.status(200).send('request.body');
+
+  return res.status(200).send('received');
 });
 
 app.post('/payment', async (req, res) => {
   var total = 0;
-  const { name, phone, email, paymentMethod } = req.body.clientData;
+  const { name, phone, email, paymentMethod, paymentsNum } = req.body.clientData;
   const { products } = req.body;
   products.forEach((el) => {
     let item = previewContracts.filter((elem) => elem.id == el.id);
@@ -165,9 +201,9 @@ app.post('/payment', async (req, res) => {
       }
     }
   });
-  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=https://www.ceco.co.il/paymentres/success&cancelUrl=https://www.ceco.co.il/paymentres/failed&description=${'test payment'}&paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
+  let cardUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=f129ea785b71&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=https://www.ceco.co.il/paymentres/success&cancelUrl=https://www.ceco.co.il/paymentres/failed&description=${'test payment'}&paymentNum=${paymentsNum}&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
   let bitUrl = `https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess/?pageCode=e428a2740341&userId=aee113fccf3ed35b&apiKey=&sum=${total}&cFields1=12345678&successUrl=https://www.ceco.co.il/paymentres/success&cancelUrl=https://www.ceco.co.il/paymentres/failed&description=${'test payment'}
-  &paymentNum=&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
+  &paymentNum=${paymentsNum}&maxPaymentNum=&pageField=&companyCommission=&saveCardToken=&pageField[fullName]=${name} &pageField[phone]=${phone}&pageField[email]=${email}`;
   let url = paymentMethod === 'card' ? cardUrl : bitUrl;
   url = encodeURI(url);
   let tokenReq = await axios.get(url);
@@ -178,6 +214,7 @@ app.post('/payment', async (req, res) => {
 });
 
 app.post('/paymentaccept', (req, res) => {
+  console.log('paymentaccept');
   console.log(req.body);
   res.send('ok');
 });

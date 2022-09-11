@@ -39,7 +39,7 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
       ) : (
         <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
           {questions.map((el, idx) => {
-             if (idx >= 3) {
+             if (idx >= 6) {
               return null;
             }
             //change to real value later

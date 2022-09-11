@@ -99,12 +99,7 @@ const Navbar = ({ setPurchaseData }) => {
               מידע משפטי
             </a>
           </li>
-          <li className=" mobileitem col-12 border-bottom p-2 text-center">
-            {' '}
-            <a id="forCommunity" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/community">
-              למען הקהילה
-            </a>
-          </li>
+
           <li className=" mobileitem col-12 border-bottom p-2 text-center">
             {' '}
             <a id="contact" as="button" className="navmobileitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/contactus">
@@ -231,27 +226,7 @@ const Navbar = ({ setPurchaseData }) => {
             </a>
           </div>
         </span>
-        <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
-          <a
-            id="forCommunity"
-            as="button"
-            className=" navItemCustom text-white costumeItem"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            href="/community"
-          >
-            למען הקהילה
-          </a>
-          <div class="dropdown-menu navDropMenu" aria-labelledby="forCommunity">
-            <a class="dropdown-item dropitop" href="/community">
-              קידום הגדרת ידועים בציבור
-            </a>
-            <a class="dropdown-item dropitop" href="/community">
-              עזרה בפנייה למוסדות רפואה במצב חרום
-            </a>
-          </div>
-        </span>
+
         <span className="pe-2 ps-3 pb-2 align-self-center  pointer myItem m-3">
           <a
             id="contact"

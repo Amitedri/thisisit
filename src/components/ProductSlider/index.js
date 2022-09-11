@@ -51,7 +51,7 @@ const ProductSlider = ({ componentHeader, dataToRender, className, type }) => {
           itemPadding={[10]}
         >
           {productsList.map((el, idx) => {
-            const description = el.h1Content.slice(0, 80);
+            const description = ""
             return (
               <Product
                 description={description}

@@ -35,7 +35,7 @@ const ExpandedProducs = ({ dataToRender, type }) => {
   };
 
   return dataToRender.map((el, idx) => {
-    const description = el.h1Content.slice(0, 120);
+    const description = ""
     return (
       <Product
         description={description}

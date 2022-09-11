@@ -30,10 +30,13 @@ function App() {
       let url = encodeURI('https://www.ceco.co.il/paymentres/success');
       let productsReq = await axios.post('/paymentdone', transactionData);
       console.log('productsReq', productsReq);
+      console.log('isPaymentOk', isPaymentOk);
+
       disptach(setShowCart(false));
       window.location.href = url;
     }
   }, [isPaymentOk]);
+
   useEffect(() => {
     let mashulam = 'https://sandbox.meshulam.co.il';
     window.addEventListener('message', async (result) => {
@@ -44,14 +47,13 @@ function App() {
 
         if (res === 'close') {
           console.log(' on close');
-
           let url = encodeURI('https://www.ceco.co.il/paymentres/failed');
           window.location = url;
           disptach(setShowCart(false));
           setisPaymentOk(false);
         }
         if (res === 'payment' && result.data.status == 1) {
-          console.log(' on payment');
+          console.log('on payment');
           setisPaymentOk(true);
         }
       }

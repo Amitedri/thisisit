@@ -25,9 +25,7 @@ const Footer = () => {
             <a style={{ textDecoration: 'none' }} href="/contactus" className=" col-12 mt-1 text-center  footerBtn m-2 border-white  text-white">
               צור קשר
             </a>
-            <a style={{ textDecoration: 'none' }} href="/community" className=" col-12 mt-1 text-center  footerBtn m-2 border-white  text-white">
-              למען הקהילה
-            </a>
+          
             <h4 className=" w3 text-center m-3 lightBlueText">צור קשר</h4>
             <div className="col-auto d-flex flex-row  p-3">
               <div className="contactItem d-flex flex-row align-items-center">

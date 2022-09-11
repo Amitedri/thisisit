@@ -9,8 +9,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
-import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
-import axios from 'axios';
+import DocViewer, { DocRenderer } from '@cyntler/react-doc-viewer';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
+import '@react-pdf-viewer/core/lib/styles/index.css';
 
 const fireAsync = async ({ name, path }) => {
   let elem = require(`../../Data/${path}/${name}.pdf`);
@@ -37,8 +38,9 @@ const ProductPage = ({ previewContracts }) => {
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
   const [zoom, setZoom] = useState(0.7);
+  const [pdfString, setpdfString] = useState('');
 
-  const [docs, setDocs] = useState([]);
+  const [docs, setDocs] = useState('');
   const [basicContractData, setBasicContractData] = useState({
     priceBasic: '',
     makingTimeBasic: '',
@@ -104,13 +106,13 @@ const ProductPage = ({ previewContracts }) => {
     }
     const doc = previewContracts.filter((el) => el.id == id);
 
-    const { contractBody, firstSigner, title, secondSigner, signInDate, contractPreview, imgSrc, h1, categoryHeb } = doc[0];
+    const {imgSrc, h1, categoryHeb,title } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
       doc[0];
     fireAsync({ name: h1, path: 'previews' }).then((file) => {
-      setDocs(() => [{ uri: file }]);
+      setDocs(file);
     });
     const {
       priceMeeting,
@@ -124,12 +126,6 @@ const ProductPage = ({ previewContracts }) => {
     } = doc[0];
 
     setTitle(title);
-    setContractBody(contractBody);
-    setWhoSignLine(title);
-    setFirstSigner(firstSigner);
-    setSecondSigner(secondSigner);
-    setContractPreview(contractPreview);
-    setSignInDate(signInDate);
     setImgSrc(imgSrc);
     setContractName(h1);
     setDocWhole(doc[0]);
@@ -231,30 +227,21 @@ const ProductPage = ({ previewContracts }) => {
   useEffect(() => {
     if (isAgreedConsent) {
       fireAsync({ name: h1, path: 'locals' }).then((file) => {
-        setDocs(() => [{ uri: file }]);
+        fireAsync({ name: h1, path: 'locals' }).then((file) => {
+          setDocs(file);
+        });
       });
     }
     if (!isAgreedConsent && h1) {
       fireAsync({ name: h1, path: 'previews' }).then((file) => {
-        setDocs(() => [{ uri: file }]);
+        fireAsync({ name: h1, path: 'previews' }).then((file) => {
+          setDocs(file);
+        });
       });
     }
   }, [showFull, isAgreedConsent]);
+
   const Checkbox = useCallback(() => <InnerCheck />, []);
-  const BackedDoc = useCallback(
-    () => (
-      <DocViewer
-        documents={docs}
-        className={"speicalopsitus"}
-        pluginRenderers={DocViewerRenderers}
-        config={{ pdfZoom: { defaultZoom: zoom } }}
-        theme={{ disableThemeScrollbar: false, primary: '#e5e5e5' }}
-        key="dsfskljdklsdjfklsdjlkjsflkdjfkls"
-        style={{height:"800px"}}
-      />
-    ),
-    [docs]
-  );
   const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center p-0 overflow-hidden rounded-2">
@@ -345,22 +332,14 @@ const ProductPage = ({ previewContracts }) => {
           <img src={imgSrc} className="w-100 h-100 productTopImg" />
         </div>
       </div>
-      {/* <ContractPreview
-        key={'asdasaasdsddasdasdsa'}
-        firstSigner={firstSigner}
-        seocondSigner={secondSigner}
-        title={h1}
-        whoSign={whoSignLine}
-        contractBody={contractBody}
-        contractPreview={contractPreview}
-        signInDate={signInDate}
-        isAgreedConsent={isAgreedConsent}
-      /> */}
+
       <div className="contractLayer col-12">
-        <BackedDoc/>
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
+          <Viewer fileUrl={docs} />
+        </Worker>
       </div>
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
-        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{showFull ? 'סגור' : 'הצג את ההסכם המלא'}</div>
+        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{isAgreedConsent ? 'סגור' : 'הצג את ההסכם המלא'}</div>
       </div>
 
       <StandUp
