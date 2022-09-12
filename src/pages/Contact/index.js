@@ -14,7 +14,6 @@ const Contact = ({previewContracts,servicesList}) => {
   };
   return (
     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12 m-auto d-flex flex-column align-items-center">
-      <TextComponent header={textComponentData.header} imgSrc={textComponentData.imgSrc} subHeader={textComponentData.subHeader} text={textComponentData.text} key={textComponentData.header} backgroundColor=""/>   
       <ContactsUs key={"sdnjnnnnn"} />
       <ProductSlider componentHeader={"הסכמים לדוגמא"} dataToRender={previewContracts} key="sdsdhasdasdhhh" />
       <ProductSlider componentHeader={"שירותי המשרד"} dataToRender={servicesList} key="sdsdsadhhhh" type='contract' />

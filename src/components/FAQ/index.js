@@ -51,7 +51,7 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
       )}
 
       <a  class="btn blue w-25 text-white f20 w3 mt-2" onClick={() => setIsExpanded((prev) => !prev)}>
-        פתח עוד
+       {expanded ? "סגור" : "פתח עוד"}
       </a>
     </div>
   );

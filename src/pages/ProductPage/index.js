@@ -183,6 +183,9 @@ const ProductPage = ({ previewContracts }) => {
     event.preventDefault();
 
     if (showFull) {
+      fireAsync({ name: h1, path: 'previews' }).then((file) => {
+        setDocs(file);
+      });
       return;
     }
     let flexCheckDefault = document.getElementById('flexCheckDefaultOdsdsd');
