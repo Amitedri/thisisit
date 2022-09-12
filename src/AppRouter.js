@@ -115,6 +115,8 @@ const MangaeBar = () => {
       <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("service"))}>יצירת שירות משרד</div>
       <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>חיוב לקוח</div>
       <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>שליחת הסכמים </div>
+      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>היסטורית רכישות</div>
+
     </div>
     <SetComp view={view}/>
   </div>

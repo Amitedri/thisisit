@@ -5,17 +5,17 @@ const AddContract = () => {
     <div className="col-12 d-flex flex-column align-items-center justify-content-center align-content-center">
       <h1 className="">הוספת הסכם חדש</h1>
       <div className="col-12 d-flex flex-column justify-content-center align-items-center justify-content-center m-2">
-        <div class="form-group col-6">
+        <div class="form-group col-xxl-6 col-xl-6 col-12">
           <label for="contracth1">כותרת ראשית לעמוד</label>
           <input type="text" class="form-control" id="contracth1" placeholder="כותרת ראשית לעמוד" />
         </div>
-        <div class="input-group-prepend  col-6 m-2 d-flex flex-column justify-content-center">
+        <div class="input-group-prepend  col-xxl-6 col-xl-6 col-12 m-2 d-flex flex-column justify-content-center">
           <label class="input-group-text" for="category">
             כותרת SEO
           </label>
           <textarea className="form-control" type="text" />
         </div>
-        <div class="input-group-prepend  col-6 m-2 d-flex flex-column justify-content-center">
+        <div class="input-group-prepend  col-xxl-6 col-xl-6 col-12 m-2 d-flex flex-column justify-content-center">
           <label class="input-group-text" for="category">
             תיאור SEO
           </label>
@@ -24,7 +24,7 @@ const AddContract = () => {
 
       </div>
 
-      <div className="col-6 d-flex flex-row justify-content-center align-items-center m-2">
+      <div className="col-xxl-6 col-xl-6 col-12 d-flex flex-row justify-content-center align-items-center m-2">
         <div class="input-group mb-3 rounded d-flex flex-row justify-content-center align-items-center">
           <div class="input-group-prepend  col-12 d-flex flex-row justify-content-start">
             <label class="input-group-text " for="category">
@@ -43,7 +43,7 @@ const AddContract = () => {
           </div>
         </div>
       </div>
-      <div className="col-6 d-flex flex-row flex-wrap justify-content-center">
+      <div className="col-xxl-6 col-xl-6 col-12 d-flex flex-row flex-wrap justify-content-center">
         <div class="form-group m-2 d-flex flex-column bg-white col-5 rounded shadow-sm p-2 justify-content-center">
           <label for="contractImg">תמונה ראשית</label>
           <input type="file" class="form-control-file" id="contractImg" />
@@ -53,7 +53,7 @@ const AddContract = () => {
           <input type="file" class="form-control-file" id="visibleContract" />
         </div>
         <div class="form-group m-2 d-flex flex-column  bg-white col-5 rounded shadow-sm p-2 justify-content-center">
-          <label for="hiddenContract">הסכם בסיסי מלא</label>
+          <label for="hiddenContract">הסכם בסיסי לשליחה</label>
           <input type="file" class="form-control-file" id="hiddenContract" />
         </div>
         <div class="form-group m-2 d-flex flex-column  bg-white col-5 rounded shadow-sm p-2 justify-content-center">
@@ -65,7 +65,7 @@ const AddContract = () => {
           <input type="file" class="form-control-file" id="fullContract" />
         </div>
       </div>
-      <div className="col-6 d-flex flex-column justify-content-start">
+      <div className="col-xxl-6 col-xl-6 col-12 d-flex flex-column justify-content-start">
         {/*  */}
         <div className="col-12 d-flex flex-column justify-content-center border align-items-center bg-light p-2 rounded shadow-sm m-2">
           <h1> בסיסי</h1>
