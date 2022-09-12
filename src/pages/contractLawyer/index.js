@@ -39,7 +39,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <h3 className="m-0 p-0 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center  mt-2 m-2 f22 greyText">
           משרדנו מציע שירות משפטי דיגיטלי חדש, מהיר ומקצועי <br />{' '}
           <a className="lightBlueText fw-bold" style={{ textDecoration: 'underline' }}>
-            שבו תוכלו לרכוש ישירות מהאתר:
+          באפשרותכם לרכוש במהירות באתר:
           </a>
         </h3>
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
@@ -54,7 +54,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
             חבילת "ייעוץ אישית" הכוללת פגישה עם עורך דין ממשרדנו שמטרתה לבחון עבורכם את מלוא הנסיבות, העובדות וצרכיכם האישיים, ועריכת חוזה מיטבי בעל אחריות משפטית תוך 7 ימי עסקים. 
             </li>
           </ul>
-          <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
+          <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center fs-bold text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
             תוכלו למצוא באתר עשרות דוגמאות לחוזים בכל תחום משפטי שנערכו ונוסחו על ידי עורך דין חוזים אלעד כהן.
           </p>
           <div className="col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 d-flex flex-row flex-wrap justify-content-xxl-center justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-center justify-content-center flex-row align-items-center align-items-lg-center  align-self-xxl-center align-self-xl-center  align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
