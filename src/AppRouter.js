@@ -96,31 +96,48 @@ const ResultPage = () => {
 };
 
 const MangaeBar = () => {
-  const SetComp = ({view})=>{
-    if(!view){
-      return <AddContract/>
+  const SetComp = ({ view }) => {
+    if (!view) {
+      return <div className="text-center fs-3"> היי אלעד! מה תרצה לעשות? </div>;
     }
-    if(view === "service"){
-      return <AddServices/>
+    if (view === 'service') {
+      return <AddServices />;
     }
-    if(view === "payment"){
-      return <div className='text-center fs-3'>חיוב ידני ושליחת חוזה</div>
+    if (view === 'contract') {
+      return <AddContract />;
     }
-  }
+    if (view === 'payment') {
+      return <div className="text-center fs-3">חיוב ידני </div>;
+    }
+    if (view === 'purchase') {
+      return <div className="text-center fs-3"> היסטורית רכישות </div>;
+    }
+    if (view === 'mail') {
+      return <div className="text-center fs-3"> שליחת חוזה</div>;
+    }
+  };
   const [view, setView] = useState('');
   return (
     <div className="col-12 d-flex flex-column justify-content-center">
-    <div className="col-6 d-flex flex-row justify-content-center align-self-center">
-      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView(""))}>יצירת הסכם</div>
-      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("service"))}>יצירת שירות משרד</div>
-      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>חיוב לקוח</div>
-      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>שליחת הסכמים </div>
-      <div className="col-3 btn border btn-light m-2" onClick={(()=>setView("payment"))}>היסטורית רכישות</div>
-
+      <div className="col-6 d-flex flex-row flex-wrap justify-content-center align-self-center">
+        <div className="col-xxl-3 col-xl-3 col-md-5 col-lg-5 col-sm-5 col-5 btn border btn-light m-2" onClick={() => setView('contract')}>
+          יצירת הסכם
+        </div>
+        <div className="col-xxl-3 col-xl-3 col-md-5 col-lg-5 col-sm-5 col-5 btn border btn-light m-2" onClick={() => setView('service')}>
+          יצירת שירות משרד
+        </div>
+        <div className="col-xxl-3 col-xl-3 col-md-5 col-lg-5 col-sm-5 col-5 btn border btn-light m-2" onClick={() => setView('payment')}>
+          חיוב לקוח
+        </div>
+        <div className="col-xxl-3 col-xl-3 col-md-5 col-lg-5 col-sm-5 col-5 btn border btn-light m-2" onClick={() => setView('mail')}>
+          שליחת הסכמים{' '}
+        </div>
+        <div className="col-xxl-3 col-xl-3 col-md-5 col-lg-5 col-sm-5 col-5 btn border btn-light m-2" onClick={() => setView('purchase')}>
+          היסטורית רכישות
+        </div>
+      </div>
+      <SetComp view={view} />
     </div>
-    <SetComp view={view}/>
-  </div>
-
   );
 };
 const AppRouter = ({ transactionSuccess }) => {
