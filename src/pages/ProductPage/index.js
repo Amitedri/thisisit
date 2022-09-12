@@ -189,6 +189,8 @@ const ProductPage = ({ previewContracts }) => {
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
       flexCheckDefault.parentElement.classList.add('text-danger');
+    flexCheckDefault.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+
       return;
     }
     flexCheckDefault.parentElement.classList.remove('text-danger');

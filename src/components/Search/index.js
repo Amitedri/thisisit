@@ -59,7 +59,7 @@ const Search = ({ classlist }) => {
     if (searchTerm) {
       previewContracts.forEach((el) => {
         if (searchTerm.length >= 3) {
-          if (el.categoryHeb.includes(searchTerm) || el.h1.includes(searchTerm) || el.h1Content.includes(searchTerm)) {
+          if (el.categoryHeb.includes(searchTerm) || el.h1.includes(searchTerm)) {
             console.log('contractsearchResults', contractsearchResults);
             if (!res.includes(el)) {
               el.type = 'contract';

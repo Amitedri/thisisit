@@ -25,6 +25,7 @@ function App() {
     setTransactionData(value);
     return;
   };
+  
   useEffect(async () => {
     if (isPaymentOk) {
       let url = encodeURI('https://www.ceco.co.il/paymentres/success');
@@ -74,7 +75,7 @@ function App() {
       <Notifications />
       <TermsModal />
       <QuickContact />
-      <div className="col-2 position-fixed end-0" style={{ height: '50px', bottom: "100px", zIndex: '9999' }}>
+      <div className="col-2 position-fixed end-0" style={{ height: '50px', bottom: "150px", zIndex: '9999' }}>
         <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
           <img
             src={'../assets/icons/wha.png'}

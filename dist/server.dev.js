@@ -130,17 +130,17 @@ var sendEmail = function sendEmail(_ref3) {
 };
 
 var sendEmailWithAttachment = function sendEmailWithAttachment(_ref4) {
-  var data, subject, contractName, result;
+  var data, subject, contractName, target, result;
   return regeneratorRuntime.async(function sendEmailWithAttachment$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          data = _ref4.data, subject = _ref4.subject, contractName = _ref4.contractName;
+          data = _ref4.data, subject = _ref4.subject, contractName = _ref4.contractName, target = _ref4.target;
           _context3.next = 3;
           return regeneratorRuntime.awrap(transporter.sendMail({
             from: 'cecotechside@gmail.com',
             // to: "Sale@hareli.co.il
-            to: 'cecotechside@gmail.com',
+            to: target,
             subject: subject,
             html: data,
             encoding: 'utf8',
@@ -189,7 +189,8 @@ app.post('/paymentdone', function (req, res) {
             return regeneratorRuntime.awrap(sendEmailWithAttachment({
               subject: 'פרטי הרכישה מאלעד כהן',
               data: template,
-              contractName: el.name
+              contractName: el.name,
+              target: clientData.email
             }));
 
           case 3:

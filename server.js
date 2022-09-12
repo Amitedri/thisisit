@@ -132,11 +132,11 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
-const sendEmailWithAttachment = async ({ data, subject, contractName }) => {
+const sendEmailWithAttachment = async ({ data, subject, contractName,target }) => {
   const result = await transporter.sendMail({
     from: 'cecotechside@gmail.com',
     // to: "Sale@hareli.co.il
-    to: 'cecotechside@gmail.com',
+    to: target,
     subject: subject,
     html: data,
     encoding: 'utf8',
@@ -170,6 +170,7 @@ app.post('/paymentdone', (req, res) => {
       subject: 'פרטי הרכישה מאלעד כהן',
       data: template,
       contractName: el.name,
+      target:clientData.email
     });
     console.log(email);
   });
