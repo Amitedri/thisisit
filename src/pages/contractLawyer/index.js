@@ -21,7 +21,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <div className=" d-flex justify-content-xxl-center justify-content-xl-center align-items-xxl-center align-items-xl-center align-items-center   align-self-center justify-content-sm-center mt-3 col-xxl-12 col-xl-12 col-lg-10 col-md-10 col-sm-12 col-12 flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column ">
           <a href="tel:0508081119" className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm">
             <a style={{ all: 'unset' }}>
-              צרו קשר כעת <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
+            צור קשר עכשיו <img src="../assets/icons/phoneWhite.svg" height="20" width="20" />
             </a>
           </a>
           <a
@@ -29,7 +29,7 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
             className="btn yellow hoverScale col-xxl-4 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-8 m-2  shadow-sm"
           >
             <a style={{ all: 'unset' }}>
-              שלחו הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
+              שלח הודעה בוואצאפ <img src="../assets/icons/whatsappWhite.svg" height="20" width="20" />
             </a>
           </a>
         </div>
@@ -45,13 +45,13 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
         <div className="col-xxl-12 col-xl-12 col-lg-12 d-flex flex-column justify-content-xxl-center justify-content-xl-center justify-content-lg-center">
           <ul className="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 d-flex flex-column text-end justify-content-xxl-center justify-content-xl-center justify-content-center justify-content-lg-center  align-self-center ">
             <li className="f18" style={{ listStyleType: 'decimal' }}>
-              חוזה מקיף של משרדנו בקובץ Word במהירות על ידי מספר קליקים.
+            חוזה מקיף ומקצועי ממגוון רחב של תחומי המשפט במחיר שווה לכל נפש.
             </li>
             <li className="f18" style={{ listStyleType: 'decimal' }}>
-              חוזה מקיף + התאמה אישית בת 30 דקות תוך 48 שעות.{' '}
+            חבילת "התאמה אישית" הכוללת פגישה עם עורך דין ממשרדנו למטרת ניסוח ועריכה של סעיפי החוזה המקיף שרכשתם לפי בקשתכם תוך 2 ימי עסקים. 
             </li>
             <li className="f18" style={{ listStyleType: 'decimal' }}>
-              פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית.
+            חבילת "ייעוץ אישית" הכוללת פגישה עם עורך דין ממשרדנו שמטרתה לבחון עבורכם את מלוא הנסיבות, העובדות וצרכיכם האישיים, ועריכת חוזה מיטבי בעל אחריות משפטית תוך 7 ימי עסקים. 
             </li>
           </ul>
           <p className="f18 col-8 text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center text-center align-self-xxl-center align-self-xl-center align-self-lg-center align-self-md-center align-self-sm-center align-self-center">
@@ -103,10 +103,7 @@ const ContractLawyer = () => {
   const generalContracts = previewContracts.filter((el) => (el.categoryHeb = 'כללי'));
   console.log('generalContracts', generalContracts);
   const textComponentData = {
-    text: `חוזים מלווים וממלאים את חיינו. 
-    לפעמים הם קצרים ופחות חשובים כמו הסכמה להצטרף למועדון לקוחות בסופרמרקט, 
-    ולפעמים הם ארוכים ובעלי ערך רב כגון חוזה לקניית דירה או הסכם ממון בין בני זוג. 
-    בבואי לנסח חוזה מטרתי היא לצפות פני עתיד ולוודא כי הצדדים לחוזה לא יותירו שאלות פתוחות ללא מענה ולא יצטרכו לשוב ולהתדיין לגבי החוזה החל מיום חתימתו.`,
+    text: `חוזים מלווים וממלאים את חיינו. לפעמים הם קצרים ופחות חשובים כמו הסכמה להצטרף למועדון לקוחות בסופרמרקט, ולפעמים הם ארוכים ומשמעותיים כגון חוזה לקניית דירה או הסכם ממון בין בני זוג. בבואי לנסח חוזה מטרתי היא לצפות פני עתיד ולוודא כי הצדדים לחוזה לא יותירו שאלות פתוחות ללא מענה ולא יצטרכו לשוב ולהתדיין לגבי החוזה החל מיום חתימתו.`,
     header: 'עורך דין חוזים',
     subHeader: 'חשיבותו של עורך דין חוזים. סאב כותרת',
     imgSrc: '../assets/img/עורך דין חוזים.jpg',

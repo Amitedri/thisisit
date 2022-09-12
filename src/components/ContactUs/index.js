@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ContactsUs.css';
 import { setModalTextFunc } from '../../Utils';
-import axios from 'axios';
+import './ContactsUs.css';
 
 const ContactsUs = () => {
   const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const ContactsUs = () => {
   useEffect(() => {
     let formInputItem = document.querySelectorAll('.formInputItem');
     let messageInput = document.querySelector('.messageInput');
-    if (!submit && isSubmitted || submit && isSubmitted) {
-      setModalTextFunc({ value:"ניתן לשלוח הודעה אחת, לשליחת הודעה נוספת יש לרענן את הדף.", dispatch: dispatch });
+    if ((!submit && isSubmitted) || (submit && isSubmitted)) {
+      setModalTextFunc({ value: 'ניתן לשלוח הודעה אחת, לשליחת הודעה נוספת יש לרענן את הדף.', dispatch: dispatch });
       return;
     }
     if (submit && !isSubmitted) {
@@ -162,24 +162,36 @@ const ContactsUs = () => {
         {/* left */}
         {/* contact container */}
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-row flex-wrap justify-content-start align-items-start text-center">
-          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center">
-            <span className="greyText w3 f20">
-              צרו כעת קשר עם משרדנו ב-
-              <img src="../assets/icons/whatsapp.svg" alt="אייקון של וואסטאפ" height="20" width="20" className="m-1" />
-            </span>
-
-            <span className="greyText w3">
-              או שלחו הודעת טקסט למספר{' '}
-              <a className="text-dark" href="tel:0508081119">
-                050-8081119
-              </a>
-            </span>
-            <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
-            <a href="mailto:office@ceco.com" className="pointer" style={{ all: 'unset' }}>
-              <a className="greyText w3  " href="mailto:office@ceco.com">
-                office@ceco.com
-              </a>
+          <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column justify-content-center align-items-center text-center">
+            <div className='d-flex flex-row'>
+            <a href="tel:0508081119">
+              <img
+                src="../assets/icons/phone.svg"
+                height="50"
+                width="50"
+                className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block"
+              />
             </a>
+            <a className="d-flex" href="https://api.whatsapp.com/send?phone=972508081119" target="_blank">
+              <img
+                src={'../assets/icons/whatsapp.svg'}
+                height={'50'}
+                width={'50'}
+                className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block pointer"
+                style={{ transform: 'rotate(-90deg)' }}
+              />
+            </a>
+            <a href="mailto:office@ceco.co.il">
+              <img
+                src="../assets/icons/maildotru.svg"
+                height="50"
+                width="50"
+                className="p-2 mb-3 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block d-block pointer"
+              />
+            </a>
+            </div>
+            <span className='f18'>office@ceco</span>
+            <span className='f18'>050-8081119</span>
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center justify-content-start mt-1">
             <h2 className="greyText w6 f20 ">שעות פעילות המשרד</h2>

@@ -109,26 +109,22 @@ const Contracts = ({ previewContracts, servicesList }) => {
       <div className="col-12 mt-2 d-flex flex-row align-items-center flex-wrap ">
         <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-center text-center d-flex flex-column align-items-center justify-content-center">
           <p className="f18 m-1 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11 text-center">
-            מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא מכל תחומי המשפט.{' '}
+          מהיום, לא צריך לשלם אלפי שקלים עבור רכישת הסכמים וחוזים, בדף זה תוכלו למצוא עשרות הסכמים לדוגמא ולרכישה ממגוון רחב של תחומי המשפט.
           </p>
           {/* <hr className="w-90 m-1" /> */}
           <ul className="f18 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-11 col-11 text-xxl-end text-xl-end text-lg-end text-md-end text-sm-end text-end d-flex flex-column w3">
             <span className="fw-bold text-center f22 lightBlueText " style={{ textDecoration: 'underline' }}>
-              באפשרותכם לרכוש במהירות:
+            באפשרותכם לרכוש במהירות באתר:
             </span>
             <li className="w2" style={{ listStyleType: 'decimal' }}>
-              הסכם מקיף ומקצועי של ממשרדנו ישירות מהאתר במחיר שווה לכל נפש.
-            </li>
+            הסכם מקיף ומקצועי במחיר שווה לכל נפש.            </li>
             <li className="w2" style={{ listStyleType: 'decimal' }}>
-              הסכם מקיף + 30 דקות התאמה אישית להסכם, תוך 48 שעות.
-            </li>
+            חבילת "התאמה אישית" הכוללת פגישה עם עורך דין ממשרדנו למטרת ניסוח ועריכה של סעיפי ההסכם המקיף שרכשתם לפי בקשתכם תוך 2 ימי עסקים.             </li>
             <li className="w2" style={{ listStyleType: 'decimal' }}>
-              פגישת ייעוץ אישית בת 90 דקות להגנה מיטבית תוך 7 ימי עסקים.
-            </li>
+            חבילת "ייעוץ אישית" הכוללת פגישה עם עורך דין ממשרדנו שמטרתה לבחון עבורכם את מלוא הנסיבות, העובדות וצרכיכם האישיים, ועריכת הסכם מיטבי בעל אחריות משפטית תוך 7 ימי עסקים.             </li>
           </ul>
           <p className="f18 m-1 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-11 col-11 w3 text-center">
-            במידה ואינכם מוצאים הסכם בו אתם מעוניינים צרו קשר עם משרדנו ונשמח לשלוח לכם. משרדנו מציע גם שירותי ניהול משא ומתן וגישור מכל סוג עד לכריתת הסכם.{' '}
-          </p>
+          במידה ואינכם מוצאים הסכם בו אתם מעוניינים אנא צרו קשר עם משרדנו ונשמח לעזור לכם. משרדנו מציע גם שירותי גישור וניהול משא ומתן עד לכריתת הסכם.          </p>
         </div>
       </div>
       <div className="col-12 d-flex flex-column justify-content-center align-items-center mt-2">

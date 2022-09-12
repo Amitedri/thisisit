@@ -37,7 +37,7 @@ const ProductPage = ({ previewContracts }) => {
   const [contractName, setContractName] = useState('');
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
-  const [zoom, setZoom] = useState(0.7);
+  const [zoom, setZoom] = useState(0);
   const [pdfString, setpdfString] = useState('');
 
   const [docs, setDocs] = useState('');
@@ -106,7 +106,7 @@ const ProductPage = ({ previewContracts }) => {
     }
     const doc = previewContracts.filter((el) => el.id == id);
 
-    const {imgSrc, h1, categoryHeb,title } = doc[0];
+    const { imgSrc, h1, categoryHeb, title } = doc[0];
     const { priceBasic, makingTimeBasic, numOfPagesBasic, numOfFixesBasic, hasBasicColumn, tailoredBasic, levelOfProtectionBasic, warrantyBasic } = doc[0];
     const { priceMekif, makingTimeMekif, numOfPagesMekif, numOfFixesMekif, hasMekifColumn, tailoredMekif, levelOfProtectionMekif, warrantyMekif } = doc[0];
     const { priceCustom, makingTimeCustom, numOfPagesCustom, numOfFixesCustom, hasCustomColumn, tailoredCustom, levelOfProtectionCustom, warrantyCustom } =
@@ -335,7 +335,7 @@ const ProductPage = ({ previewContracts }) => {
 
       <div className="contractLayer col-12">
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
-          <Viewer fileUrl={docs} />
+          <Viewer fileUrl={docs} defaultScal={zoom}  />
         </Worker>
       </div>
       <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
