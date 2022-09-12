@@ -190,7 +190,7 @@ const ContactsUs = () => {
               />
             </a>
             </div>
-            <span className='f18'>office@ceco</span>
+            <span className='f18'>office@ceco.co.il</span>
             <span className='f18'>050-8081119</span>
           </div>
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center justify-content-start mt-1">

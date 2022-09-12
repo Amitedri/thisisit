@@ -167,7 +167,7 @@ app.post('/paymentdone', (req, res) => {
       total: `${el.price}₪`,
     });
     const email = await sendEmailWithAttachment({
-      subject: 'פרטי הרכישה מאלעד כהן',
+      subject: 'פרטי הרכישה ממשרד עורכי דין כהן אלעד ושות',
       data: template,
       contractName: el.name,
       target:clientData.email

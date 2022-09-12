@@ -187,7 +187,7 @@ app.post('/paymentdone', function (req, res) {
             });
             _context4.next = 3;
             return regeneratorRuntime.awrap(sendEmailWithAttachment({
-              subject: 'פרטי הרכישה מאלעד כהן',
+              subject: 'פרטי הרכישה ממשרד עורכי דין כהן אלעד ושות',
               data: template,
               contractName: el.name,
               target: clientData.email
