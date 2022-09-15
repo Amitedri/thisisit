@@ -1,8 +1,20 @@
 const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
-var sslRedirect = require('heroku-ssl-redirect');
-
+const {} = require("heroku-ssl-redirect/dist/");
+const sslRedirect = (environments = ["production"], status = 302) => {
+  const currentEnv = process.env.NODE_ENV;
+  const isCurrentEnv = environments.includes(currentEnv);
+  return (req, res, next) => {
+      if (isCurrentEnv) {
+          req.headers["x-forwarded-proto"] !== "https"
+              ? res.redirect(status, "https://" + req.hostname + req.originalUrl)
+              : next();
+      }
+      else
+          next();
+  };
+};
 const fs = require('fs');
 const app = new express();
 const services = require('./src/Data/Services');

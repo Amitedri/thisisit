@@ -1,12 +1,28 @@
 "use strict";
 
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
 var express = require('express');
 
 var path = require('path');
 
 var child_process = require('child_process');
 
-var sslRedirect = require('heroku-ssl-redirect');
+var _require = require("heroku-ssl-redirect/dist/");
+
+_objectDestructuringEmpty(_require);
+
+var sslRedirect = function sslRedirect() {
+  var environments = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ["production"];
+  var status = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 302;
+  var currentEnv = process.env.NODE_ENV;
+  var isCurrentEnv = environments.includes(currentEnv);
+  return function (req, res, next) {
+    if (isCurrentEnv) {
+      req.headers["x-forwarded-proto"] !== "https" ? res.redirect(status, "https://" + req.hostname + req.originalUrl) : next();
+    } else next();
+  };
+};
 
 var fs = require('fs');
 
