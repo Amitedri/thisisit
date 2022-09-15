@@ -1,10 +1,9 @@
 import './FAQ.css';
 import Question from './Question';
 import { v4 as uuidv2 } from 'uuid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-
-const FAQ = ({ header, withTitle, questions,cat }) => {
+const FAQ = ({ header, withTitle, questions, cat }) => {
   const [expanded, setIsExpanded] = useState(false);
   const id = uuidv2();
   const onClick = (e) => {
@@ -15,10 +14,14 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
       el.classList.toggle('spinElem');
     });
   };
-  const handleClick = (e)=>{
-    e.preventDefault();
 
-  }
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!expanded) {
+      e.target.scrollIntoView()
+    }
+    setIsExpanded((prev) => !prev)
+  };
   return (
     <div className="col-12 m-0 d-flex flex-column align-items-center mt-2" data-cat={cat}>
       <div className="col-auto d-flex flex-column align-items-center text-center">
@@ -27,10 +30,6 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
       {expanded ? (
         <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
           {questions.map((el, idx) => {
-           
-            //change to real value later
-
-            
             const innerID = uuidv2();
 
             return <Question answer={el.answer} title={el.title} id={innerID} onClick={onClick} />;
@@ -39,7 +38,7 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
       ) : (
         <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
           {questions.map((el, idx) => {
-             if (idx >= 6) {
+            if (idx >= 6) {
               return null;
             }
             //change to real value later
@@ -50,8 +49,8 @@ const FAQ = ({ header, withTitle, questions,cat }) => {
         </div>
       )}
 
-      <a  class="btn blue w-25 text-white f20 w3 mt-2" onClick={() => setIsExpanded((prev) => !prev)}>
-       {expanded ? "סגור" : "פתח עוד"}
+      <a class="btn blue w-25 text-white f20 w3 mt-2" onClick={handleClick}>
+        {expanded ? 'סגור' : 'פתח עוד'}
       </a>
     </div>
   );

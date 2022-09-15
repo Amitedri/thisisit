@@ -297,13 +297,7 @@ const ProductPage = ({ previewContracts }) => {
             <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={() => scrollIntoView('tableDisplay')}>
               <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">הצג אפשרויות הגנה נוספות</div>
             </div>
-            <p className="text-muted f12 w-75 m-0 d-flex flex-column justify-content-center align-content-center align-items-center">
-              <p className="text-muted f16 w-75 m-0" style={{ textDecoration: 'underline' }}>
-                תניית פטור
-              </p>
-              כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת
-              ייעוץ משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
-            </p>
+
             <div class="form-check f12 mt-1 terms">
               <Checkbox />
               <p>

@@ -52,17 +52,14 @@ const ResultPage = () => {
       <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column flex-wrap justify-content-center align-items-center text-center mt-3">
         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contactInfo d-flex flex-column align-items-center text-center">
           <a className="greyText w3 f20" href="https://api.whatsapp.com/send?phone=972508081119">
-            צרו כעת קשר עם משרדנו ב-
             <img src="../assets/icons/whatsapp.svg" alt="אייקון של וואסטאפ" height="20" width="20" className="m-1" />
           </a>
 
           <a className="greyText w3" href="tel:0508081119">
-            או שלחו הודעת טקסט למספר{' '}
             <a className="text-dark" href="tel:0508081119">
               050-8081119
             </a>
           </a>
-          <h2 className="greyText w6 f20  m-0 mt-1">אימייל</h2>
           <a href="mailto:office@ceco.com" className="pointer" style={{ all: 'unset' }}>
             <a className="greyText w3  " href="mailto:office@ceco.com">
               office@ceco.com

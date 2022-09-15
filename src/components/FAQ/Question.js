@@ -7,7 +7,7 @@ const Question = ({ title, answer,id,onClick }) => {
           type="button"
           data-bs-toggle="collapse"
            data-bs-target={`#collapseExample${id}`}
-          aria-expanded="false"
+          aria-expanded="true"
           aria-controls={`collapseExample${id}`}
           onClick={onClick}
         >
@@ -17,7 +17,7 @@ const Question = ({ title, answer,id,onClick }) => {
         </button>
       </h2>
 
-      <div className="collapse" id={`collapseExample${id}`}>
+      <div className="collapse show" id={`collapseExample${id}`}>
         <div className="card card-body white ">{answer}</div>
       </div>
     </div>

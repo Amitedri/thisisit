@@ -1,14 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _ref;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var previewContract = [{
   hasBasicColumn: true,
   hasMekifColumn: true,
@@ -54,7 +45,6 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05D2\u05D9\u05E8\u05D5\u05E9\u05D9\u05DF - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05D2\u05D9\u05E8\u05D5\u05E9\u05D9\u05DF - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05D2\u05D9\u05E8\u05D5\u05E9\u05D9\u05DF \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D4\u05E1\u05DB\u05DD \u05D2\u05D9\u05E8\u05D5\u05E9\u05D9\u05DF \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF.",
   categoryHeb: 'משפחה',
   id: '1',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05D2\u05D9\u05E8\u05D5\u05E9\u05D9\u05DF"
 }, {
   hasBasicColumn: true,
@@ -101,7 +91,6 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05D4\u05D5\u05E8\u05D5\u05EA \u05DE\u05E9\u05D5\u05EA\u05E4\u05EA - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05D4\u05D5\u05E8\u05D5\u05EA \u05DE\u05E9\u05D5\u05EA\u05E4\u05EA - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E0\u05D5\u05E1\u05D7 \u05D4\u05E1\u05DB\u05DD \u05D4\u05D5\u05E8\u05D5\u05EA \u05DE\u05E9\u05D5\u05EA\u05E4\u05EA \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
   categoryHeb: 'משפחה',
   id: '2',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05D4\u05D5\u05E8\u05D5\u05EA \u05DE\u05E9\u05D5\u05EA\u05E4\u05EA",
   contractBody: ""
 }, {
@@ -149,13 +138,12 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05DE\u05D9\u05D9\u05E1\u05D3\u05D9\u05DD - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05DE\u05D9\u05D9\u05E1\u05D3\u05D9\u05DD \u05E1\u05D8\u05D0\u05E8\u05D8 \u05D0\u05E4 - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05DE\u05D9\u05D9\u05E1\u05D3\u05D9\u05DD \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05D4\u05E1\u05DB\u05DD \u05DE\u05D9\u05D9\u05E1\u05D3\u05D9\u05DD \u05DC\u05D4\u05E7\u05DE\u05EA \u05D7\u05D1\u05E8\u05D4.",
   categoryHeb: 'חברות וסטארט אפ',
   id: '3',
-  price: 85,
   title: " \u05D4\u05E1\u05DB\u05DD \u05DE\u05D9\u05D9\u05E1\u05D3\u05D9\u05DD"
 }, {
   hasBasicColumn: true,
   hasMekifColumn: true,
-  hasCustomColumn: true,
-  hasMeetingColumn: true,
+  hasCustomColumn: false,
+  hasMeetingColumn: false,
   numOfPagesBasic: '3',
   wordFileBasic: false,
   tailoredBasic: false,
@@ -196,9 +184,8 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05DE\u05DB\u05E8 \u05D3\u05D9\u05E8\u05D4 - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05DE\u05DB\u05E8 - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05DE\u05DB\u05E8 \u05D3\u05D9\u05E8\u05D4 \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF.",
   categoryHeb: 'מקרקעין',
   id: '4',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05DE\u05DB\u05E8"
-}, (_ref = {
+}, {
   hasBasicColumn: true,
   hasMekifColumn: true,
   hasCustomColumn: true,
@@ -234,14 +221,17 @@ var previewContract = [{
   levelOfProtectionMeeting: '5',
   warrantyMeeting: true,
   priceMeeting: '1320',
-  seoHeader: "\u05D9\u05D3\u05D5\u05E2\u05D9\u05DD \u05D1\u05E6\u05D9\u05D1\u05D5\u05E8 - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E7\u05D9\u05E3 \u05D5\u05D9\u05D9\u05E2\u05D5\u05E5 \u05E8\u05D0\u05E9\u05D5\u05E0\u05D9 / \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
-  seoDescription: "\u05D7\u05D9\u05D9\u05DD \u05DE\u05E9\u05D5\u05EA\u05E4\u05D9\u05DD - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05D7\u05D9\u05D9\u05DD \u05DE\u05E9\u05D5\u05EA\u05E4\u05D9\u05DD \u05D9\u05D3\u05D5\u05E2\u05D9\u05DD \u05D1\u05E6\u05D9\u05D1\u05D5\u05E8 \u05DE\u05E7\u05D9\u05E3 \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF - \u05D9\u05D3\u05D5\u05E2\u05D9\u05DD \u05D1\u05E6\u05D9\u05D1\u05D5\u05E8 \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF",
   imgSrc: '../assets/img/contracts/הסכם ידועים בציבור.jpg',
   buttonText: 'פתח עוד',
   href: 'contract/5',
-  h1: 'הסכם  ממון ידועים בציבור',
-  tags: ['הסכם  ממון ידועים בציבור', 'הסכם ממון לפני נישואין', 'עורך דין הסכם ממון', 'הסכם ממון דוגמא']
-}, _defineProperty(_ref, "seoHeader", "\u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF\n    "), _defineProperty(_ref, "seoDescription", 'הסכם ממון - שאלות ותשובות בנושא הסכם ממון - רכישת הסכם ממון מקיף און ליין במהירות ובפשטות. עורך דין הסכם ממון אלעד כהן'), _defineProperty(_ref, "categoryHeb", 'משפחה'), _defineProperty(_ref, "id", '5'), _defineProperty(_ref, "price", 85), _defineProperty(_ref, "title", 'הסכם  ממון ידועים בציבור'), _ref), {
+  h1: 'הסכם ממון ידועים בציבור',
+  tags: ['הסכם  ממון ידועים בציבור', 'הסכם ממון לפני נישואין', 'עורך דין הסכם ממון', 'הסכם ממון דוגמא'],
+  seoHeader: "\u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF\n    ",
+  seoDescription: 'הסכם ממון - שאלות ותשובות בנושא הסכם ממון - רכישת הסכם ממון מקיף און ליין במהירות ובפשטות. עורך דין הסכם ממון אלעד כהן',
+  categoryHeb: 'משפחה',
+  id: '5',
+  title: 'הסכם ממון ידועים בציבור'
+}, {
   hasBasicColumn: true,
   hasMekifColumn: true,
   hasCustomColumn: true,
@@ -282,11 +272,10 @@ var previewContract = [{
   href: 'contract/6',
   h1: 'הסכם סודיות',
   tags: ['הסכם סודיות', 'הסכם סודיות דוגמא', 'הסכם סודיות הדדי', ' חוזה סודיות', 'הסכם סודיות סטארט אפ'],
-  seoHeader: "",
-  seoDescription: "\u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
-  categoryHeb: 'כללי',
+  seoHeader: "\u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF\n    ",
+  seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA \u05E1\u05D8\u05D0\u05E8\u05D8 \u05D0\u05E4 \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF\n    ",
+  categoryHeb: 'חברות וסטארט אפ                                                                                                                                                                                                                                                                                                                                              ',
   id: '6',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05E1\u05D5\u05D3\u05D9\u05D5\u05EA"
 }, {
   hasBasicColumn: true,
@@ -333,7 +322,6 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05E2\u05D1\u05D5\u05D3\u05D4 \u05E2\u05DD \u05E7\u05D1\u05DC\u05DF - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05E2\u05D1\u05D5\u05D3\u05D4 \u05E2\u05DD \u05E7\u05D1\u05DC\u05DF \u05E9\u05D9\u05E4\u05D5\u05E6\u05D9\u05DD - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05E2\u05D1\u05D5\u05D3\u05D4 \u05E2\u05DD \u05E7\u05D1\u05DC\u05DF \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05D4\u05E1\u05DB\u05DD \u05E9\u05D9\u05E4\u05D5\u05E5 \u05D3\u05D9\u05E8\u05D4",
   categoryHeb: 'כללי',
   id: '7',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05E2\u05D1\u05D5\u05D3\u05D4 \u05E2\u05DD \u05E7\u05D1\u05DC\u05DF"
 }, {
   hasBasicColumn: true,
@@ -380,7 +368,6 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5\u05EA  - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5\u05EA \u05D1\u05E2\u05E1\u05E7 - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5\u05EA \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D4\u05E1\u05DB\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5\u05EA \u05E2\u05D5\u05E1\u05E7 \u05DE\u05D5\u05E8\u05E9\u05D4",
   categoryHeb: 'חברות וסטארט אפ',
   id: '8',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5\u05EA"
 }, {
   hasBasicColumn: true,
@@ -427,7 +414,6 @@ var previewContract = [{
   seoDescription: "\u05D4\u05E1\u05DB\u05DD \u05E9\u05D9\u05EA\u05D5\u05E3 \u05D1\u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D4\u05E1\u05DB\u05DD \u05E9\u05D9\u05EA\u05D5\u05E3 \u05D1\u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D4\u05E1\u05DB\u05DD \u05E9\u05D9\u05EA\u05D5\u05E3 \u05D1\u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF \u05D3\u05D5 \u05DE\u05E9\u05E4\u05D7\u05EA\u05D9 \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA.",
   categoryHeb: 'מקרקעין',
   id: '9',
-  price: 85,
   title: "\u05D4\u05E1\u05DB\u05DD \u05E9\u05D9\u05EA\u05D5\u05E3 \u05D1\u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF"
 }, {
   hasBasicColumn: true,
@@ -474,7 +460,6 @@ var previewContract = [{
   seoDescription: "\u05D7\u05D5\u05D6\u05D4 \u05E2\u05D1\u05D5\u05D3\u05D4 - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05D7\u05D5\u05D6\u05D4 \u05E2\u05D1\u05D5\u05D3\u05D4 \u05D0\u05D9\u05E9\u05D9 - \u05E8\u05DB\u05D9\u05E9\u05EA \u05D7\u05D5\u05D6\u05D4 \u05E2\u05D1\u05D5\u05D3\u05D4 \u05DE\u05E7\u05D9\u05E3 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D7\u05D5\u05D6\u05D4 \u05E2\u05D1\u05D5\u05D3\u05D4 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF.",
   categoryHeb: 'עבודה',
   id: '10',
-  price: 85,
   title: "\u05D7\u05D5\u05D6\u05D4 \u05E2\u05D1\u05D5\u05D3\u05D4"
 }, {
   hasBasicColumn: false,
@@ -522,10 +507,146 @@ var previewContract = [{
   h2: 'יפוי כוח מתמשך',
   h3: 'עורך דין ייפוי כוח מתמשך',
   h4: 'עריכת יפוי כח מתמשך',
-  categoryHeb: 'כללי',
+  categoryHeb: 'משפחה',
   id: '11',
-  price: 85,
   title: "\u05D9\u05E4\u05D5\u05D9 \u05DB\u05D7 \u05DE\u05EA\u05DE\u05E9\u05DA"
+}, {
+  hasBasicColumn: true,
+  hasMekifColumn: true,
+  hasCustomColumn: true,
+  hasMeetingColumn: true,
+  numOfPagesBasic: '2',
+  wordFileBasic: false,
+  tailoredBasic: false,
+  numOfFixesBasic: '0',
+  makingTimeBasic: '0',
+  levelOfProtectionBasic: '2',
+  warrantyBasic: false,
+  numOfPagesMekif: '7',
+  wordFileMekif: true,
+  tailoredMekif: false,
+  numOfFixesMekif: '0',
+  makingTimeMekif: '0',
+  levelOfProtectionMekif: '3',
+  warrantyMekif: false,
+  priceMekif: '220',
+  numOfPagesCustom: '8',
+  wordFileCustom: true,
+  tailoredCustom: true,
+  numOfFixesCustom: '1',
+  makingTimeCustom: '2',
+  levelOfProtectionCustom: '4',
+  warrantyCustom: false,
+  priceCustom: '720',
+  numOfPagesMeeting: '0',
+  wordFileMeeting: true,
+  tailoredMeeting: true,
+  numOfFixesMeeting: '2',
+  makingTimeMeeting: '7',
+  levelOfProtectionMeeting: '5',
+  warrantyMeeting: true,
+  priceMeeting: "1320",
+  imgSrc: '../assets/img/contracts/צוואה.jpg',
+  buttonText: 'פתח עוד',
+  href: 'contract/12',
+  h1: 'צוואה',
+  tags: ['צוואה', 'עורך דין צוואה', 'צוואה לדוגמא', 'עריכת צוואה'],
+  seoHeader: "\u05E6\u05D5\u05D5\u05D0\u05D4 \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05E6\u05D5\u05D5\u05D0\u05D4 \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
+  seoDescription: "\u05E6\u05D5\u05D5\u05D0\u05D4  - \u05E9\u05D0\u05DC\u05D5\u05EA \u05D5\u05EA\u05E9\u05D5\u05D1\u05D5\u05EA \u05D1\u05E0\u05D5\u05E9\u05D0 \u05E2\u05E8\u05D9\u05DB\u05EA \u05E6\u05D5\u05D5\u05D0\u05D4 - \u05E8\u05DB\u05D9\u05E9\u05EA \u05E6\u05D5\u05D5\u05D0\u05D4 \u05DE\u05E7\u05D9\u05E4\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05D1\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA \u05D5\u05D1\u05E4\u05E9\u05D8\u05D5\u05EA. \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05E6\u05D5\u05D5\u05D0\u05D4 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
+  categoryHeb: 'משפחה',
+  id: '12',
+  title: 'צוואה'
+}, {
+  hasBasicColumn: true,
+  hasMekifColumn: true,
+  hasCustomColumn: true,
+  hasMeetingColumn: true,
+  numOfPagesBasic: '4',
+  wordFileBasic: false,
+  tailoredBasic: false,
+  numOfFixesBasic: '0',
+  makingTimeBasic: '0',
+  levelOfProtectionBasic: '2',
+  warrantyBasic: false,
+  numOfPagesMekif: '10',
+  wordFileMekif: true,
+  tailoredMekif: false,
+  numOfFixesMekif: '0',
+  makingTimeMekif: '0',
+  levelOfProtectionMekif: '3',
+  warrantyMekif: false,
+  priceMekif: '220',
+  numOfPagesCustom: '11',
+  wordFileCustom: true,
+  tailoredCustom: true,
+  numOfFixesCustom: '1',
+  makingTimeCustom: '2',
+  levelOfProtectionCustom: '4',
+  warrantyCustom: false,
+  priceCustom: '720',
+  numOfPagesMeeting: '0',
+  wordFileMeeting: true,
+  tailoredMeeting: true,
+  numOfFixesMeeting: '2',
+  makingTimeMeeting: '7',
+  levelOfProtectionMeeting: '5',
+  warrantyMeeting: true,
+  priceMeeting: '1320',
+  imgSrc: '../assets/img/contracts/הסכם ממון.jpg',
+  buttonText: 'פתח עוד',
+  href: 'contract/13',
+  h1: 'הסכם ממון',
+  tags: ['הסכם ממון', 'הסכם ממון לפני נישואין', 'עורך דין הסכם ממון', 'הסכם ממון דוגמא'],
+  seoHeader: "\u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05D4\u05E1\u05DB\u05DD \u05DE\u05DE\u05D5\u05DF \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF",
+  seoDescription: 'הסכם ממון - שאלות ותשובות בנושא הסכם ממון - רכישת הסכם ממון מקיף און ליין במהירות ובפשטות. עורך דין הסכם ממון אלעד כהן',
+  categoryHeb: 'משפחה',
+  id: '13',
+  title: 'הסכם ממון'
+}, {
+  hasBasicColumn: true,
+  hasMekifColumn: true,
+  hasCustomColumn: true,
+  hasMeetingColumn: true,
+  numOfPagesBasic: '4',
+  wordFileBasic: false,
+  tailoredBasic: false,
+  numOfFixesBasic: '0',
+  makingTimeBasic: '0',
+  levelOfProtectionBasic: '2',
+  warrantyBasic: false,
+  numOfPagesMekif: '7',
+  wordFileMekif: true,
+  tailoredMekif: false,
+  numOfFixesMekif: '0',
+  makingTimeMekif: '0',
+  levelOfProtectionMekif: '3',
+  warrantyMekif: false,
+  priceMekif: '220',
+  numOfPagesCustom: '8',
+  wordFileCustom: true,
+  tailoredCustom: true,
+  numOfFixesCustom: '1',
+  makingTimeCustom: '2',
+  levelOfProtectionCustom: '4',
+  warrantyCustom: false,
+  priceCustom: '720',
+  numOfPagesMeeting: '0',
+  wordFileMeeting: true,
+  tailoredMeeting: true,
+  numOfFixesMeeting: '2',
+  makingTimeMeeting: '7',
+  levelOfProtectionMeeting: '5',
+  warrantyMeeting: true,
+  priceMeeting: '1320',
+  imgSrc: '../assets/img/contracts/הסכם ממון.jpg',
+  buttonText: 'פתח עוד',
+  href: 'contract/14',
+  h1: 'חוזה שכירות',
+  tags: ['חוזה שכירות', 'חוזה שכירות בלתי מוגנת', 'עורך דין חוזה שכירות', 'חוזה שכירות דירה'],
+  seoHeader: "\u05D7\u05D5\u05D6\u05D4 \u05E9\u05DB\u05D9\u05E8\u05D5\u05EA \u05DC\u05D3\u05D5\u05D2\u05DE\u05D0 - \u05D7\u05D5\u05D6\u05D4 \u05E9\u05DB\u05D9\u05E8\u05D5\u05EA \u05DC\u05E8\u05DB\u05D9\u05E9\u05D4 \u05D0\u05D5\u05DF \u05DC\u05D9\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05D7\u05D3\u05E9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF\n    ",
+  seoDescription: 'חוזה שכירות - שאלות ותשובות בנושא חוזה שכירות בלתי מוגנת- רכישת חוזה שכירות מקיף און ליין במהירות ובפשטות. עורך דין חוזה שכירות אלעד כהן',
+  categoryHeb: 'מקרקעין',
+  id: '14',
+  title: 'חוזה שכירות'
 }];
-var _default = previewContract;
-exports["default"] = _default;
+module.exports = previewContract;
