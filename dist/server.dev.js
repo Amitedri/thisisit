@@ -8,18 +8,18 @@ var path = require('path');
 
 var child_process = require('child_process');
 
-var _require = require("heroku-ssl-redirect/dist/");
+var _require = require('heroku-ssl-redirect/dist/');
 
 _objectDestructuringEmpty(_require);
 
 var sslRedirect = function sslRedirect() {
-  var environments = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ["production"];
+  var environments = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['production'];
   var status = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 302;
   var currentEnv = process.env.NODE_ENV;
   var isCurrentEnv = environments.includes(currentEnv);
   return function (req, res, next) {
     if (isCurrentEnv) {
-      req.headers["x-forwarded-proto"] !== "https" ? res.redirect(status, "https://" + req.hostname + req.originalUrl) : next();
+      req.headers['x-forwarded-proto'] !== 'https' ? res.redirect(status, 'https://' + req.hostname + req.originalUrl) : next();
     } else next();
   };
 };
@@ -330,8 +330,38 @@ app.get('*', function (req, res) {
     return res.send(_htmlWithSeo2);
   }
 
+  var isContractGeneral = splittedParams.includes('contracts');
+
+  if (isContractGeneral) {
+    var _html3 = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+
+    var _htmlWithSeo3 = _html3.toString().replace('__SEO_TITLE__', "הסכמים לדוגמא - מידע מקיף וייעוץ ראשוני עורך דין הסכמים וחוזים / עורך דין הסכמים אלעד כהן").replace('__SEO_DESCRIPTION__', "ניסוח הסכמים - רכישת הסכם מקיף בכל תחום משפטי במהירות ובפשטות און ליין - שירות חדש - כתיבת הסכמים וחוזים בהתאמה אישית - פגישת ייעוץ אישית להגנה משפטית מיטבית  - שירות מקצועי ומהיר - הכנסו לאתר וצרו קשר כעת ");
+
+    return res.send(_htmlWithSeo3);
+  }
+
+  var isServicesGeneral = splittedParams.includes('services');
+
+  if (isServicesGeneral) {
+    var _html4 = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+
+    var _htmlWithSeo4 = _html4.toString().replace('__SEO_TITLE__', "\u05E9\u05D9\u05E8\u05D5\u05EA\u05D9 \u05DE\u05E9\u05E8\u05D3 \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF \u05D5\u05E9\u05D5\u05EA - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E7\u05D9\u05E3 \u05D5\u05D9\u05D9\u05E2\u05D5\u05E5 \u05E8\u05D0\u05E9\u05D5\u05E0\u05D9 / \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D5\u05DE\u05D2\u05E9\u05E8 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF").replace('__SEO_DESCRIPTION__', "\u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05DE\u05E1\u05D7\u05E8\u05D9 - \u05D2\u05D9\u05E9\u05D5\u05E8 - \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D0\u05D6\u05E8\u05D7\u05D9 - \u05DC\u05D9\u05D5\u05D5\u05D9 \u05E2\u05E1\u05E7\u05D0\u05D5\u05EA \u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF \u05E9\u05D9\u05E8\u05D5\u05EA \u05DE\u05E7\u05E6\u05D5\u05E2\u05D9 \u05D5\u05DE\u05D4\u05D9\u05E8 - \u05D4\u05DB\u05E0\u05E1\u05D5 \u05DC\u05D0\u05EA\u05E8 \u05D5\u05E6\u05E8\u05D5 \u05E7\u05E9\u05E8 \u05DB\u05E2\u05EA");
+
+    return res.send(_htmlWithSeo4);
+  }
+
+  var islegalGeneral = splittedParams.includes('legal');
+
+  if (islegalGeneral) {
+    var _html5 = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+
+    var _htmlWithSeo5 = _html5.toString().replace('__SEO_TITLE__', "\u05DE\u05D9\u05D3\u05E2 \u05DE\u05E9\u05E4\u05D8\u05D9 \u05DE\u05E9\u05E8\u05D3 \u05E2\u05D5\u05E8\u05DA \u05D3\u05D9\u05DF \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF \u05D5\u05E9\u05D5\u05EA - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E7\u05D9\u05E3 \u05D5\u05D9\u05D9\u05E2\u05D5\u05E5 \u05E8\u05D0\u05E9\u05D5\u05E0\u05D9 / \u05E2\u05D5\"\u05D3 \u05D0\u05DC\u05E2\u05D3 \u05DB\u05D4\u05DF ").replace('__SEO_DESCRIPTION__', "\u05DE\u05D3\u05E8\u05D9\u05DA \u05DE\u05E9\u05E4\u05D8\u05D9 \u05DE\u05E7\u05D9\u05E3 \u05D1\u05EA\u05D7\u05D5\u05DE\u05D9 \u05E4\u05E2\u05D9\u05DC\u05D5\u05EA \u05D4\u05DE\u05E9\u05E8\u05D3 - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E9\u05E4\u05D8\u05D9 \u05D3\u05D9\u05E0\u05D9 \u05DE\u05E7\u05E8\u05E7\u05E2\u05D9\u05DF - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E9\u05E4\u05D8\u05D9 \u05D3\u05D9\u05E0\u05D9 \u05DE\u05E9\u05E4\u05D7\u05D4 - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E9\u05E4\u05D8\u05D9 \u05D3\u05D9\u05E0\u05D9 \u05E2\u05D1\u05D5\u05D3\u05D4 - \u05DE\u05D9\u05D3\u05E2 \u05DE\u05E9\u05E4\u05D8\u05D9 \u05D3\u05D9\u05E0\u05D9 \u05D7\u05D1\u05E8\u05D5\u05EA \u05D5\u05E1\u05D8\u05D0\u05E8\u05D8 \u05D0\u05E4 - \u05D4\u05DB\u05E0\u05E1\u05D5 \u05DC\u05D0\u05EA\u05E8 \u05D5\u05E6\u05E8\u05D5 \u05E7\u05E9\u05E8 \u05DB\u05E2\u05EA");
+
+    return res.send(_htmlWithSeo5);
+  }
+
   var html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
-  var htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'ce & co. law office').replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
+  var htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'עורך דין חוזים - מידע מקיף וייעוץ ראשוני / רכישת הסכמים און ליין / עורך דין חוזים אלעד כהן עורך דין חוזים תל אביב ').replace('__SEO_DESCRIPTION__', 'רכישת חוזה מקיף במהירות ובפשטות און ליין - שירות חדש - כתיבת הסכמים וחוזים בהתאמה אישית - פגישת ייעוץ אישית להגנה משפטית מיטבית ');
   return res.send(htmlWithSeo);
 });
 var port = process.env.PORT || 80;

@@ -1,18 +1,14 @@
 const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
-const {} = require("heroku-ssl-redirect/dist/");
-const sslRedirect = (environments = ["production"], status = 302) => {
+const {} = require('heroku-ssl-redirect/dist/');
+const sslRedirect = (environments = ['production'], status = 302) => {
   const currentEnv = process.env.NODE_ENV;
   const isCurrentEnv = environments.includes(currentEnv);
   return (req, res, next) => {
-      if (isCurrentEnv) {
-          req.headers["x-forwarded-proto"] !== "https"
-              ? res.redirect(status, "https://" + req.hostname + req.originalUrl)
-              : next();
-      }
-      else
-          next();
+    if (isCurrentEnv) {
+      req.headers['x-forwarded-proto'] !== 'https' ? res.redirect(status, 'https://' + req.hostname + req.originalUrl) : next();
+    } else next();
   };
 };
 const fs = require('fs');
@@ -146,7 +142,7 @@ const sendEmail = async ({ name, phone, data, subject }) => {
   });
   console.log(result);
 };
-const sendEmailWithAttachment = async ({ data, subject, contractName,target }) => {
+const sendEmailWithAttachment = async ({ data, subject, contractName, target }) => {
   const result = await transporter.sendMail({
     from: 'cecotechside@gmail.com',
     // to: "Sale@hareli.co.il
@@ -184,7 +180,7 @@ app.post('/paymentdone', (req, res) => {
       subject: 'פרטי הרכישה ממשרד עורכי דין כהן אלעד ושות',
       data: template,
       contractName: el.name,
-      target:clientData.email
+      target: clientData.email,
     });
     console.log(email);
   });
@@ -232,7 +228,6 @@ app.post('/paymentaccept', (req, res) => {
   console.log('paymentaccept');
   console.log(req.body);
   res.send('ok');
-  
 });
 
 app.get('*', (req, res) => {
@@ -253,8 +248,32 @@ app.get('*', (req, res) => {
     let htmlWithSeo = html.toString().replace('__SEO_TITLE__', service.seoHeader).replace('__SEO_DESCRIPTION__', service.seoDescription);
     return res.send(htmlWithSeo);
   }
+  const isContractGeneral = splittedParams.includes('contracts');
+  if(isContractGeneral){
+    let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+    let htmlWithSeo = html.toString().replace('__SEO_TITLE__', "הסכמים לדוגמא - מידע מקיף וייעוץ ראשוני עורך דין הסכמים וחוזים / עורך דין הסכמים אלעד כהן").replace('__SEO_DESCRIPTION__',"ניסוח הסכמים - רכישת הסכם מקיף בכל תחום משפטי במהירות ובפשטות און ליין - שירות חדש - כתיבת הסכמים וחוזים בהתאמה אישית - פגישת ייעוץ אישית להגנה משפטית מיטבית  - שירות מקצועי ומהיר - הכנסו לאתר וצרו קשר כעת ");
+    return res.send(htmlWithSeo);
+  }
+  const isServicesGeneral = splittedParams.includes('services');
+  if(isServicesGeneral){
+    let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+    let htmlWithSeo = html.toString().replace('__SEO_TITLE__', `שירותי משרד עורך דין אלעד כהן ושות - מידע מקיף וייעוץ ראשוני / עורך דין ומגשר אלעד כהן`).replace('__SEO_DESCRIPTION__',`עורך דין מסחרי - גישור - עורך דין אזרחי - ליווי עסקאות מקרקעין שירות מקצועי ומהיר - הכנסו לאתר וצרו קשר כעת`);
+    return res.send(htmlWithSeo);
+  }
+  const islegalGeneral = splittedParams.includes('legal');
+  if(islegalGeneral){
+    let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
+    let htmlWithSeo = html.toString().replace('__SEO_TITLE__', `מידע משפטי משרד עורך דין אלעד כהן ושות - מידע מקיף וייעוץ ראשוני / עו"ד אלעד כהן `).replace('__SEO_DESCRIPTION__',`מדריך משפטי מקיף בתחומי פעילות המשרד - מידע משפטי דיני מקרקעין - מידע משפטי דיני משפחה - מידע משפטי דיני עבודה - מידע משפטי דיני חברות וסטארט אפ - הכנסו לאתר וצרו קשר כעת`);
+    return res.send(htmlWithSeo);
+  }
   let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
-  let htmlWithSeo = html.toString().replace('__SEO_TITLE__', 'ce & co. law office').replace('__SEO_DESCRIPTION__', "עורך דין אלעד כהן ושות'");
+  let htmlWithSeo = html
+    .toString()
+    .replace('__SEO_TITLE__', 'עורך דין חוזים - מידע מקיף וייעוץ ראשוני / רכישת הסכמים און ליין / עורך דין חוזים אלעד כהן עורך דין חוזים תל אביב ')
+    .replace(
+      '__SEO_DESCRIPTION__',
+      'רכישת חוזה מקיף במהירות ובפשטות און ליין - שירות חדש - כתיבת הסכמים וחוזים בהתאמה אישית - פגישת ייעוץ אישית להגנה משפטית מיטבית '
+    );
   return res.send(htmlWithSeo);
 });
 
