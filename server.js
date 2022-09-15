@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
+var sslRedirect = require(‘heroku-ssl-redirect’);
 
 const fs = require('fs');
 const app = new express();
@@ -103,6 +104,7 @@ const makeProductEmailTemplate = ({ name, phone, email, productName, pack, descr
   </body>
   </html>`;
 };
+app.use(sslRedirect());
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
