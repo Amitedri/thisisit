@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
-var sslRedirect = require(‘heroku-ssl-redirect’);
+var sslRedirect = require('heroku-ssl-redirect');
 
 const fs = require('fs');
 const app = new express();
