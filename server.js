@@ -2,15 +2,15 @@ const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
 const {} = require('heroku-ssl-redirect/dist/');
-const sslRedirect = (environments = ['production'], status = 302) => {
-  const currentEnv = process.env.NODE_ENV;
-  const isCurrentEnv = environments.includes(currentEnv);
-  return (req, res, next) => {
-    if (isCurrentEnv) {
-      req.headers['x-forwarded-proto'] !== 'https' ? res.redirect(status, 'https://' + req.hostname + req.originalUrl) : next();
-    } else next();
-  };
-};
+// const sslRedirect = (environments = ['production'], status = 302) => {
+//   const currentEnv = process.env.NODE_ENV;
+//   const isCurrentEnv = environments.includes(currentEnv);
+//   return (req, res, next) => {
+//     if (isCurrentEnv) {
+//       req.headers['x-forwarded-proto'] !== 'https' ? res.redirect(status, 'https://' + req.hostname + req.originalUrl) : next();
+//     } else next();
+//   };
+// };
 const fs = require('fs');
 const app = new express();
 const services = require('./src/Data/Services');
@@ -112,7 +112,7 @@ const makeProductEmailTemplate = ({ name, phone, email, productName, pack, descr
   </body>
   </html>`;
 };
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -263,7 +263,7 @@ app.get('*', (req, res) => {
   const islegalGeneral = splittedParams.includes('legal');
   if(islegalGeneral){
     let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
-    let htmlWithSeo = html.toString().replace('__SEO_TITLE__', `מידע משפטי משרד עורך דין אלעד כהן ושות - מידע מקיף וייעוץ ראשוני / עו"ד אלעד כהן `).replace('__SEO_DESCRIPTION__',`מדריך משפטי מקיף בתחומי פעילות המשרד - מידע משפטי דיני מקרקעין - מידע משפטי דיני משפחה - מידע משפטי דיני עבודה - מידע משפטי דיני חברות וסטארט אפ - הכנסו לאתר וצרו קשר כעת`);
+    let htmlWithSeo = html.toString().replace('__SEO_TITLE__', `מידע משפטי משרד עורך דין אלעד כהן ושות - מידע מקיף וייעוץ ראשוני / עו"ד אלעד כהן `).replace('__SEO_DESCRIPTION__',`מדריך משפטי מקיף בתחומי פעילות המשרד - מידע משפטי דיני מקרקעין - מידע משפטי דיני משפחה - מידע משפטי דיני עבודה - צור קשר משפטי דיני חברות וסטארט אפ - הכנסו לאתר וצרו קשר כעת`);
     return res.send(htmlWithSeo);
   }
   let html = fs.readFileSync(path.join(__dirname, 'build', 'index.html'));
