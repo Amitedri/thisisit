@@ -112,14 +112,6 @@ const makeProductEmailTemplate = ({ name, phone, email, productName, pack, descr
   </body>
   </html>`;
 };
-app.use(function(request, response, next) {
-
-  if (process.env.NODE_ENV != 'development' && !request.secure) {
-     return response.redirect("https://" + request.headers.host + request.url);
-  }
-
-  next();
-});
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
