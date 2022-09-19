@@ -62,9 +62,15 @@ var makeProductEmailTemplate = function makeProductEmailTemplate(_ref2) {
       description = _ref2.description,
       total = _ref2.total;
   return "<html>\n  <head>\n      <style>\n      body{\n        display:flex !important;\n            flexDirection:column !important;\n            justify-content:evenly !important;\n      }\n          div{\n            display:block !important;\n            text-align:center !important;\n  \n          }\n          \n          .total{\n            text-align:center !important;\n          }\n          .oneTwo{\n            border-bottom:1px solid grey;\n            margin-bottom:5px;\n          }\n          span{\n            font-size:15px;\n            margin:5px !important;\n            padding:5px !important;\n            display:block !important;\n          }\n      </style>\n  </head>\n  <body class=\"col-12 d-flex flex-column\">\n  <h1 class\"total\">\u05E4\u05E8\u05D8\u05D9 \u05D4\u05E8\u05DB\u05D9\u05E9\u05D4 \u05E9\u05DC\u05DA</h1>\n  <div class\"total\">\u05E9\u05DD \u05DE\u05DC\u05D0: ".concat(name, "</div>\n  <div class\"total\">\u05D8\u05DC\u05E4\u05D5\u05DF: ").concat(phone, "</div>\n  <div class\"total\">\u05D0\u05D9\u05DE\u05D9\u05D9\u05DC: ").concat(email, "</div>  \n      <span class\"total\">\n      \u05E9\u05DD \u05D4\u05DE\u05D5\u05E6\u05E8: ").concat(productName, " ").concat(pack, "\n      </span>\n      <span class\"total\">\n      \u05E1\u05D4\"\u05DB \u05E9\u05D5\u05DC\u05DD : ").concat(total, "\n      </span>\n      <span class\"total\">\n      ").concat(description, "\n      </span>\n  </body>\n  </html>");
-}; // app.use(sslRedirect());
+};
 
+app.use(function (request, response, next) {
+  if (process.env.NODE_ENV != 'development' && !request.secure) {
+    return response.redirect("https://" + request.headers.host + request.url);
+  }
 
+  next();
+});
 app.use(cors());
 app.use(bodyParser.urlencoded({
   extended: true
