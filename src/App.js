@@ -29,7 +29,7 @@ function App() {
   useEffect(async () => {
     if (isPaymentOk) {
       let url = encodeURI('https://www.ceco.co.il/paymentres/success');
-      let productsReq = await axios.post('/paymentdone', transactionData);
+      let productsReq = await axios.post('http://localhost/paymentdone', transactionData);
       console.log('productsReq', productsReq);
       console.log('isPaymentOk', isPaymentOk);
       disptach(setShowCart(false));

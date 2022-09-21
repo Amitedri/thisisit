@@ -14,7 +14,26 @@ const FAQ = ({ header, withTitle, questions, cat }) => {
       el.classList.toggle('spinElem');
     });
   };
-
+  useEffect(()=>{
+    let elem = document.querySelectorAll('.question');
+    if(!expanded){
+      elem.forEach((el)=>{
+        let num = el.dataset.qnum;
+        if(num >6){
+          el.classList.add("d-none")
+        }
+      })
+      return
+    }
+    if(expanded){
+      elem.forEach((el)=>{
+        let num = el.dataset.qnum;
+        if(num >6){
+          el.classList.remove("d-none")
+        }
+      })
+    }
+  },[expanded])
   const handleClick = (e) => {
     e.preventDefault();
     if (!expanded) {
@@ -27,27 +46,18 @@ const FAQ = ({ header, withTitle, questions, cat }) => {
       <div className="col-auto d-flex flex-column align-items-center text-center">
         <h1>{header}</h1>
       </div>
-      {expanded ? (
+      <div className='col-12'>
+      {
         <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
           {questions.map((el, idx) => {
             const innerID = uuidv2();
 
-            return <Question answer={el.answer} title={el.title} id={innerID} onClick={onClick} />;
+            return <Question idx={idx} answer={el.answer} title={el.title} id={innerID} onClick={onClick} />;
           })}
         </div>
-      ) : (
-        <div className="accordion col-12 align-items-center d-flex flex-column" id={`accordionFlushExample${id}`}>
-          {questions.map((el, idx) => {
-            if (idx >= 6) {
-              return null;
-            }
-            //change to real value later
-            const innerID = uuidv2();
+      }
+      </div>
 
-            return <Question answer={el.answer} title={el.title} id={innerID} onClick={onClick} />;
-          })}
-        </div>
-      )}
 
       <a class="btn blue w-25 text-white f20 w3 mt-2" onClick={handleClick}>
         {expanded ? 'סגור' : 'פתח עוד'}
