@@ -1,18 +1,11 @@
 const express = require('express');
 const path = require('path');
 const child_process = require('child_process');
-const {} = require('heroku-ssl-redirect/dist/');
-// const sslRedirect = (environments = ['production'], status = 302) => {
-//   const currentEnv = process.env.NODE_ENV;
-//   const isCurrentEnv = environments.includes(currentEnv);
-//   return (req, res, next) => {
-//     if (isCurrentEnv) {
-//       req.headers['x-forwarded-proto'] !== 'https' ? res.redirect(status, 'https://' + req.hostname + req.originalUrl) : next();
-//     } else next();
-//   };
-// };
+var compression = require('compression')
+
 const fs = require('fs');
-const app = new express();
+const app = express();
+
 const services = require('./src/Data/Services');
 const previewContracts = require('./src/Data/ContractExport');
 const axios = require('axios');
@@ -23,11 +16,11 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'cecotechside@gmail.com',
-    pass: 'gytrururzbiprepf',
+    pass: 'eyzpppoxkxbeqsmb',
   },
 });
 const makeMessageEmailTemplate = ({ name, phone, email, message }) => {
-  return `<html>
+  return `<html dir="rtl" lang="he">
   <head>
       <style>
       body{
@@ -70,7 +63,9 @@ const makeMessageEmailTemplate = ({ name, phone, email, message }) => {
   </html>`;
 };
 const CustomePackContent = ({ name }) => {
-  return `   <div class='total'></div>היי ${name},<br/>
+  return `   <div class='total'>היי ${name},</div><br/>
+  <div class="total">תודה על האמון והרכישה באתר.</div><br/>
+
 <div class='total'>רכישת חבילת "התאמה אישית" עבור "הסכם מקיף" מעניקה לך פגישה בת חצי שעה עם עורך דין מהמשרד שבה העורך דין יעזור לך לנסח ולהתאים סעיפים לפי דרישתך ללא בחינה של מלוא הנסיבות והעובדות הקשורות לעריכת ההסכם ו/או לדרישות תיקון הניסוח. </div><br/>
 <div class='total'>למייל זה מצורף קובץ "וורד" ובו ה"הסכם המקיף" שנרכש בהזמנה. חשוב מאוד להתאים את הנסיבות הספציפיות של כל מקרה לתוכן ההסכם באמצעות פגישת ייעוץ משפטית, משרדנו ישמח לעזור לך בכך.</div><br/>
 <div class='total'>לנוחיותך, ניתן לקיים את פגישת "התאמה האישית" באמצעות שיחת טלפון, פגישת זום, או, פגישה פיזית במשרדנו.</div><br/>
@@ -82,7 +77,9 @@ const CustomePackContent = ({ name }) => {
 <div class='total'></div><br/>`;
 };
 const MeetingPackContent = ({ name }) => {
-  return `<div class='total'></div>היי ${name},<br/>
+  return `<div class='total'>היי ${name},</div><br/>
+  <div class="total">תודה על האמון והרכישה באתר.</div><br/>
+
   <div class="total">רכישת חבילת "ייעוץ משפטי" מעניקה לך פגישה בת שעה וחצי עם עורך דין מהמשרד לצורך הכנת הסכם מיטבי המותאם לנסיבות הספציפיות שהובילו לעריכת ההסכם.   
   </div>
   <div class="total">לנוחיותך, ניתן לקיים את פגישת "התאמה האישית" באמצעות פגישת זום, או, פגישה פיזית במשרדנו.
@@ -97,8 +94,10 @@ const MeetingPackContent = ({ name }) => {
 <div class='total'></div><br/>`;
 };
 const MekifPackContent = ({ name }) => {
-  return `   <div class='total'></div>היי ${name},<br/>
+  return `   <div class='total'>היי ${name},</div><br/>
+  <div class="total">תודה על האמון והרכישה באתר.</div><br/>
 <div class='total'>למייל זה מצורף קובץ "וורד" ובו ה"הסכם המקיף" שנרכש בהזמנה. חשוב מאוד להתאים את הנסיבות הספציפיות של כל מקרה לתוכן ההסכם באמצעות פגישת ייעוץ משפטית, משרדנו ישמח לעזור לך בכך.</div><br/>
+
 <div class='total'>ניתן ליצור קשר עם משרד עורכי דין כהן אלעד ושות' בשעות הפעילות המשרד ימים א'-ה' 20:00 - 08:00 ימי ו' וערבי חג 13:00 - 08:00.</div><br/>
 <div class='total'>לשאלות בנושא ההזמנה שלך ניתן לפנות במייל: office@ceco.co.il או במספר טלפון 050-8081119. 
 </div><br/>
@@ -106,7 +105,12 @@ const MekifPackContent = ({ name }) => {
 <div class='total'></div><br/>`;
 };
 const makeMeetingProductEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
-  return `<html>
+    let time = new Date().toLocaleTimeString('he-IL', {timeZone:'Asia/Jerusalem'});
+  let date = new Date().toLocaleDateString('he-IL', {timeZone:'Asia/Jerusalem'}).replace(/\D/g,'/')
+  
+
+  
+  return `<html dir="rtl" lang="he">
   <head>
       <style>
       body{
@@ -115,15 +119,18 @@ const makeMeetingProductEmailTemplate = ({ name, phone, email, productName, pack
         display:flex !important;
             flexDirection:column !important;
             justify-content:evenly !important;
+            direction: rtl !important;
       }
           div{
-            display:block !important;
-            text-align:center !important;
-  
+            display:block !important;  
           }
           
-          .total{
+          .center{
             text-align:center !important;
+
+          }
+          .total{
+            text-align:end !important;
           }
           .oneTwo{
             border-bottom:1px solid grey;
@@ -138,32 +145,36 @@ const makeMeetingProductEmailTemplate = ({ name, phone, email, productName, pack
       </style>
   </head>
   <body class="col-12 d-flex flex-column">
+  <div class='center'><img src="https://ceco.co.il/assets/img/emailLogo.png" height="150" width="350"/></div>
   ${MeetingPackContent({ name: name })}
-  <h1 class"total">פרטי הרכישה שלך</h1>
-  <div class"total">שם מלא: ${name}</div>
-  <div class"total">טלפון: ${phone}</div>
-  <div class"total">אימייל: ${email}</div>  
-      <span class"total">
+  <h1 class="center">פרטי הרכישה שלך</h1>
+  <div class="center">שם מלא: ${name}</div>
+  <div class="center">טלפון: ${phone}</div>
+  <div class="center">אימייל: ${email}</div>  
+      <span class="center">
       שם המוצר: ${productName} ${pack}
       </span>
-  <div class"total">מספר הזמנה: ${'בטיפול'}</div> 
-      <span class"total">
+  <div class="center">מספר הזמנה: ${'בטיפול'}</div> 
+      <span class="center">
     סה"כ שולם : ${total} כולל מע"מ
       </span>
+      <div class="center">${date}-${time}</div>
 
-      <span class"total">
+      <span class="center">
       חשבונית בגין הרכישה תשלח במייל נפרד. ככל ולא נשלחה חשבונית יש לפנות למשרדנו ונשלח בהקדם.
       </span>
-      <div class=total>image</div>
-      <div class=total>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
-      <div class=total>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
+      <div class='center'><img src="https://ceco.co.il/assets/img/thanks.png" height="200" width="500"/></div>
+      <div class='center'>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
+      <div class='center'>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
 
 
   </body>
   </html>`;
 };
-const makeMekifProductEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
-  return `<html>
+
+const thanksForMessageEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
+
+  return `<html dir="rtl" lang="he">
   <head>
       <style>
       body{
@@ -171,15 +182,18 @@ const makeMekifProductEmailTemplate = ({ name, phone, email, productName, pack, 
         display:flex !important;
             flexDirection:column !important;
             justify-content:evenly !important;
+            direction: rtl !important;
       }
           div{
-            display:block !important;
-            text-align:center !important;
-  
+            display:block !important;  
           }
           
-          .total{
+          .center{
             text-align:center !important;
+
+          }
+          .total{
+            text-align:end !important;
           }
           .oneTwo{
             border-bottom:1px solid grey;
@@ -194,32 +208,102 @@ const makeMekifProductEmailTemplate = ({ name, phone, email, productName, pack, 
       </style>
   </head>
   <body class="col-12 d-flex flex-column">
+  <div class='center'><img src="https://ceco.co.il/assets/img/emailLogo.png" height="150" width="350"/></div>
   ${MekifPackContent({ name: name })}
-  <h1 class"total">פרטי הרכישה שלך</h1>
-  <div class"total">שם מלא: ${name}</div>
-  <div class"total">טלפון: ${phone}</div>
-  <div class"total">אימייל: ${email}</div>  
-      <span class"total">
+  <h1 class="center">פרטי הרכישה שלך</h1>
+  <div class="center">שם מלא: ${name}</div>
+  <div class="center">טלפון: ${phone}</div>
+  <div class="center">אימייל: ${email}</div>  
+      <span class="center">
       שם המוצר: ${productName} ${pack}
       </span>
-  <div class"total">מספר הזמנה: ${'בטיפול'}</div> 
-      <span class"total">
+  <div class="center">מספר הזמנה: ${'בטיפול'}</div> 
+      <span class="center">
     סה"כ שולם : ${total} כולל מע"מ
       </span>
+      <div class="center">${date}-${time}</div>
 
-      <span class"total">
+      <span class="center">
       חשבונית בגין הרכישה תשלח במייל נפרד. ככל ולא נשלחה חשבונית יש לפנות למשרדנו ונשלח בהקדם.
       </span>
-      <div class=total>image</div>
-      <div class=total>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
-      <div class=total>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
+            <div class='center'><img src="https://ceco.co.il/assets/img/thanks.png" height="200" width="500"/></div>
 
+      <div class='center'>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
+      <div class='center'>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
+  </body>
+  </html>`;
+};
+const makeMekifProductEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
+    let time = new Date().toLocaleTimeString('he-IL', {timeZone:'Asia/Jerusalem'});
+  let date = new Date().toLocaleDateString('he-IL', {timeZone:'Asia/Jerusalem'}).replace(/\D/g,'/')
+  
 
+  let string = `${date}-${time}`
+  return `<html dir="rtl" lang="he">
+  <head>
+      <style>
+      body{
+        width:80% !important;
+        display:flex !important;
+            flexDirection:column !important;
+            justify-content:evenly !important;
+            direction: rtl !important;
+      }
+          div{
+            display:block !important;  
+          }
+          
+          .center{
+            text-align:center !important;
+
+          }
+          .total{
+            text-align:end !important;
+          }
+          .oneTwo{
+            border-bottom:1px solid grey;
+            margin-bottom:5px;
+          }
+          span{
+            font-size:15px;
+            margin:5px !important;
+            padding:5px !important;
+            display:block !important;
+          }
+      </style>
+  </head>
+  <body class="col-12 d-flex flex-column">
+  <div class='center'><img src="https://ceco.co.il/assets/img/emailLogo.png" height="150" width="350"/></div>
+  ${MekifPackContent({ name: name })}
+  <h1 class="center">פרטי הרכישה שלך</h1>
+  <div class="center">שם מלא: ${name}</div>
+  <div class="center">טלפון: ${phone}</div>
+  <div class="center">אימייל: ${email}</div>  
+      <span class="center">
+      שם המוצר: ${productName} ${pack}
+      </span>
+  <div class="center">מספר הזמנה: ${'בטיפול'}</div> 
+      <span class="center">
+    סה"כ שולם : ${total} כולל מע"מ
+      </span>
+      <div class="center">${date}-${time}</div>
+
+      <span class="center">
+      חשבונית בגין הרכישה תשלח במייל נפרד. ככל ולא נשלחה חשבונית יש לפנות למשרדנו ונשלח בהקדם.
+      </span>
+            <div class='center'><img src="https://ceco.co.il/assets/img/thanks.png" height="200" width="500"/></div>
+
+      <div class='center'>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
+      <div class='center'>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
   </body>
   </html>`;
 };
 const makeCustomProductEmailTemplate = ({ name, phone, email, productName, pack, description, total }) => {
-  return `<html>
+    let time = new Date().toLocaleTimeString('he-IL', {timeZone:'Asia/Jerusalem'});
+  let date = new Date().toLocaleDateString('he-IL', {timeZone:'Asia/Jerusalem'}).replace(/\D/g,'/')
+  
+
+  return `<html dir="rtl" lang="he">
   <head>
       <style>
       body{
@@ -228,15 +312,18 @@ width:80% !important;
         display:flex !important;
             flexDirection:column !important;
             justify-content:evenly !important;
+            direction: rtl !important;
       }
           div{
-            display:block !important;
-            text-align:center !important;
-  
+            display:block !important;  
           }
-          
-          .total{
+          .center{
             text-align:center !important;
+            direction:rtl  !important;
+
+          }
+          .total{
+            
           }
           .oneTwo{
             border-bottom:1px solid grey;
@@ -251,30 +338,32 @@ width:80% !important;
       </style>
   </head>
   <body class="col-12 d-flex flex-column">
+  <div class='total'><img src="https://ceco.co.il/assets/img/emailLogo.png" height="150" width="350"/></div>
   ${CustomePackContent({ name: name })}
-  <h1 class"total">פרטי הרכישה שלך</h1>
-  <div class"total">שם מלא: ${name}</div>
-  <div class"total">טלפון: ${phone}</div>
-  <div class"total">אימייל: ${email}</div>  
-      <span class"total">
+  <h1 class="center">פרטי הרכישה שלך</h1>
+  <div class="center">שם מלא: ${name}</div>
+  <div class="center">טלפון: ${phone}</div>
+  <div class="center">אימייל: ${email}</div>  
+      <span class="center">
       שם המוצר: ${productName} ${pack}
       </span>
-  <div class"total">מספר הזמנה: ${'בטיפול'}</div> 
-      <span class"total">
+  <div class="center">מספר הזמנה: ${'בטיפול'}</div> 
+      <span class="center">
     סה"כ שולם : ${total} כולל מע"מ
       </span>
+      <div class="center">${date}-${time}</div>
 
-      <span class"total">
+      <span class="center">
       חשבונית בגין הרכישה תשלח במייל נפרד. ככל ולא נשלחה חשבונית יש לפנות למשרדנו ונשלח בהקדם.
       </span>
-      <div class=total>image</div>
-      <div class=total>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
-      <div class=total>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
+            <div class='center'><img src="https://ceco.co.il/assets/img/thanks.png" height="200" width="500"/></div>
 
-
+      <div class='center'>כמפורט בתנאי השימוש באתר, רכישת "הסכם מקיף" ו/או חבילת "התאמה אישית" מכל סוג באתר אינם מהווים ייעוץ משפטי או תחליף לו ואינם כוללים בשום מקרה אחריות משפטית. רכישתם ושימושם הם באחריות הגולש בלבד. אין להסתמך על המפורט בהסכם המקיף לרבות לאחר התאמה אישית והוא אינו יכול להוות עילה לתביעה ו/או טענה ו/או דרישה כלשהי כלפי משרד עורכי דין כהן אלעד ושות'. הלכות וחוקים עשויים להשתנות מעת לעת ועל כן המפורט ב"הסכם המקיף" מכל סוג עלול להיות לא מעודכן או רלוונטי. לקבלת ייעוץ משפטי הכולל אחריות משפטית צרו קשר כעת או הזמינו בקלות חבילת "ייעוץ משפטי" באתר.</div>
+      <div class='center'>אסור לשכפל ו/או להעתיק ו/או להעביר לאחר בתמורה ובין אם לאו ו/או להפיץ בין אם בתמורה ובין אם לאו ו/או לפרסם בכל דרך ו/או לצור סוג של עבודה נגזרת מ"הסכם מקיף" מכל סוג ו/או קובץ אחר שנערך על ידי משרד עורכי דין כהן אלעד ושות' ו/או שנרכש באתר. כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'. </div>
   </body>
   </html>`;
 };
+app.use(compression())
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -288,16 +377,15 @@ app.post('/message', async (req, res) => {
   }
   const { name, email, phone, message } = req.body;
   const messageTemplate = makeMessageEmailTemplate({ email, name, phone, message });
-  console.log(req.body);
-  const request = await sendEmail({ data: messageTemplate, name, phone, subject: `הודעה חדשה מהאתר מ - ${name}` });
-  console.log(request);
+
+    await sendEmail({ data: messageTemplate, name, phone, subject: `הודעה חדשה מהאתר מ - ${name}`,mail:'coelad6@gmail.com' });
   res.status(200).send('request.body');
 });
-const sendEmail = async ({ name, phone, data, subject }) => {
+const sendEmail = async ({ name, phone, data, subject,mail }) => {
   const result = await transporter.sendMail({
-    from: 'cecotechside@gmail.com',
+    from: 'office@ceco.co.il',
     // to: "Sale@hareli.co.il
-    to: 'cecotechside@gmail.com',
+    to:mail,
     subject: subject,
     html: data,
     encoding: 'utf8',
@@ -306,7 +394,7 @@ const sendEmail = async ({ name, phone, data, subject }) => {
 };
 const sendEmailWithoutAttachment = async ({ data, subject, target }) => {
   const result = await transporter.sendMail({
-    from: 'cecotechside@gmail.com',
+    // from: 'office@ceco.co.il',
     // to: "Sale@hareli.co.il
     to: target,
     subject: subject,
@@ -317,7 +405,7 @@ const sendEmailWithoutAttachment = async ({ data, subject, target }) => {
 };
 const sendEmailWithAttachment = async ({ data, subject, contractName, target }) => {
   const result = await transporter.sendMail({
-    from: 'cecotechside@gmail.com',
+    // from: 'office@ceco.co.il',
     // to: "Sale@hareli.co.il
     to: target,
     subject: subject,
@@ -515,7 +603,18 @@ app.get('*', (req, res) => {
   return res.send(htmlWithSeo);
 });
 
-const port = process.env.PORT || 80;
-app.listen(port, () => {
-  console.log(`listened on ${port}`);
-});
+const port = process.env.PORT || 443;
+const key = fs.readFileSync(path.join("815d0f0f19b576a6.key")).toString();;
+
+let cert = fs.readFileSync(path.join("815d0f0f19b576a6.pem")).toString();
+
+var options = {
+  key: key,
+  cert:cert,
+  requestCert: false,
+  rejectUnauthorized: false
+};
+app.listen(8080)
+
+
+

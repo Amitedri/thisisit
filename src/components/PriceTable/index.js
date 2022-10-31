@@ -37,7 +37,11 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
     disptach(addProduct(value));
     return;
   };
+const up = ()=>{
+  let elem = document.getElementById('flexCheckDefaultOdsdsd');
+  elem.scrollIntoView();
 
+}
   useEffect(() => {
     const tableBtns = document.querySelectorAll('.clickable');
     tableBtns.forEach((el) => {
@@ -62,7 +66,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: mekifContractData.numOfFixesMekif,
             makingTime: mekifContractData.makingTimeMekif,
           });
-          console.log('mekifContractData', mekifContractData);
+        //   console.log('mekifContractData', mekifContractData);
         }
         if (pack === 'התאמה אישית') {
           addItem({
@@ -74,7 +78,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: customContractData.numOfFixesCustom,
             makingTime: customContractData.makingTimeCustom,
           });
-          console.log('mekifContractData', mekifContractData);
+        //   console.log('mekifContractData', mekifContractData);
         }
         if (pack === 'פגישת ייעוץ') {
           addItem({
@@ -86,11 +90,11 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             numOfFixes: meetingContractData.numOfFixesMeeting,
             makingTime: meetingContractData.makingTimeMeeting,
           });
-          console.log('meetingContractData', meetingContractData);
+          // console.log('meetingContractData', meetingContractData);
         }
       });
     });
-    console.log('mekifContractData', mekifContractData);
+    // console.log('mekifContractData', mekifContractData);
 
     return () => {
       tableBtns.forEach((el) => {
@@ -151,22 +155,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 </span>
               </h3>
             </th>
-            <th scope="col" className="col-2 custom">
-              <h3 className="f22 blueText d-flex flex-column">
-                התאמה אישית
-                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
-                  הסכם מקיף + 30 ד' התאמה אישית, תוך 48 שעות.
-                </span>
-              </h3>
-            </th>
-            <th scope="col" className="col-2 meeting">
-              <h3 className="f22 blueText d-flex flex-column">
-                פגישת ייעוץ
-                <span className="f12 align-self-center basic blueText w-50" style={{ height: '50px' }}>
-                  90 ד' פגישת ייעוץ להגנה מיטבית.
-                </span>
-              </h3>
-            </th>
+
           </tr>
         </thead>
         <tbody>
@@ -176,8 +165,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">עד {basicContractData.numOfPagesBasic}</td>
             <td className="mekif">עד {mekifContractData.numOfPagesMekif}</td>
-            <td className="custom">עד {customContractData.numOfPagesCustom}</td>
-            <td className="meeting">{meetingContractData.numOfPagesMeeting == 0 ? 'ללא הגבלה' : ` עד ${meetingContractData.numOfPagesMeeting}`}</td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -193,16 +181,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 <img src="../assets/icons/check.svg" height="23" width="23" />
               </span>
             </td>{' '}
-            <td className="custom">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="23" width="23" />
-              </span>
-            </td>
-            <td className="meeting">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="23" width="23" />
-              </span>
-            </td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -216,12 +195,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             <td className="mekif">
               <Check value={mekifContractData.tailoredMekif} />
             </td>
-            <td className="custom">
-              <Check value={customContractData.tailoredCustom} />
-            </td>{' '}
-            <td className="meeting">
-              <Check value={meetingContractData.tailoredMeeting} />
-            </td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -240,16 +214,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 </span>
               </span>
             </td>
-            <td className="custom">
-              <span className="fs-6 border-bottom col-12">
-                <span className="fs-6 border-bottom col-12">{customContractData.numOfFixesCustom}</span>
-              </span>
-            </td>
-            <td className="meeting">
-              <span className="fs-6 border-bottom col-12">
-                <span className="fs-6 border-bottom col-12">{meetingContractData.numOfFixesMeeting}</span>
-              </span>
-            </td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -257,8 +222,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">{MakingTime(basicContractData.numOfFixesBasic)}</td>
             <td className="mekif">{MakingTime(mekifContractData.numOfFixesMekif)}</td>
-            <td className="custom">{MakingTime(customContractData.numOfFixesCustom)}*</td>
-            <td className="meeting">{MakingTime(meetingContractData.numOfFixesMeeting)}*</td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -271,14 +235,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
               {' '}
               <Stars amount={mekifContractData.levelOfProtectionMekif} />
             </td>
-            <td className="custom">
-              {' '}
-              <Stars amount={customContractData.levelOfProtectionCustom} />
-            </td>
-            <td className="meeting">
-              {' '}
-              <Stars amount={meetingContractData.levelOfProtectionMeeting} />
-            </td>
+
           </tr>
           <tr>
             <th scope="row" className="col-2 lightBlue border-white">
@@ -294,16 +251,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 <img src="../assets/icons/out.svg" height="23" width="23" />
               </span>
             </td>
-            <td className="custom">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/out.svg" height="23" width="23" />
-              </span>
-            </td>
-            <td className="meeting">
-              <span className="fs-6 border-bottom col-12">
-                <img src="../assets/icons/check.svg" height="23" width="23" />
-              </span>
-            </td>
+
           </tr>
           <tr className=" border-white">
             <th scope="row" className="col-2 lightBlue border-white">
@@ -311,8 +259,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
             </th>
             <td className="basic">ללא עלות</td>
             <td className="mekif">{mekifContractData.priceMekif} ש"ח</td>
-            <td className="custom">{customContractData.priceCustom} ש"ח</td>
-            <td className="meeting">{meetingContractData.priceMeeting} ש"ח</td>
+
           </tr>
           <tr className="border-top-0 border-white">
             <th scope="row" className="col-2 text-muted ">
@@ -325,8 +272,8 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 data-contractid={id}
                 data-pack={'בסיסי'}
                 data-localImg={'asjmdlkasjmdlkajsdlajisdasdasdasdjsioidj'}
-                href={isAgreedConsent ? `./assets/files/${contractName}.pdf` : null }
-                download={isAgreedConsent ? true :false}
+                onClick={isAgreedConsent ? ()=>up() : null }
+                // download={isAgreedConsent ? true :false}
               >
                 הורד
               </a>
@@ -341,26 +288,7 @@ const PriceTable = ({ iconType, basicContractData, mekifContractData, customCont
                 בצע רכישה
               </div>
             </td>
-            <td className="w3 custom">
-              <div
-                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
-                data-contractid={id}
-                data-pack={'התאמה אישית'}
-                data-localImg={'aslkjdauiohdhdghdbaybsascyubcsyabcysc'}
-              >
-                בצע רכישה
-              </div>
-            </td>
-            <td className="w3 meeting">
-              <div
-                className="btn p-1 border w-75 border-white tableBtn clickable f16 w3"
-                data-contractid={id}
-                data-pack={'פגישת ייעוץ'}
-                data-localImg={'sdifbnidkfnsudfdflndfuiosdfiusndfuisndu'}
-              >
-                בצע רכישה
-              </div>
-            </td>
+
           </tr>
         </tbody>
       </table>

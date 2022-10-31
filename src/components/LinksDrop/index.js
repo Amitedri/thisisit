@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-import $ from 'jquery';
 
 const LinksDrop = ({ header, colorClass, values, subdomain }) => {
   useEffect(() => {

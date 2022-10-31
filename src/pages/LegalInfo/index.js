@@ -71,15 +71,15 @@ const LegalInfo = ({ previewContracts, servicesList }) => {
       <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-row justify-content-center mt-2">
         <DropDown header={'תחום משפטי'} key={'קטגוריותsdfsdfקטגוריות'} colorClass="lightBlueStrong" values={serviceCategoryDrop} onChange={onFilterChange} />
       </div>
-      <FAQ header={'דיני משפחה'} questions={family} cat={'משפחה'} />
+      <FAQ header={'דיני משפחה'} questions={family} cat={'משפחה'} key="sjdndjksnchdjdfdfknskjdndsndkjsdd" />
 
-      <FAQ header={'דיני עבודה'} questions={work} cat={'עבודה'} />
+      <FAQ header={'דיני עבודה'} questions={work} cat={'עבודה'} key="sjdndjksndjknskjdggggggggggsfggsndsndkjsdd" />
 
-      <FAQ header={'דיני מקרקעין'} questions={realestate} cat={'מקרקעין'} />
+      <FAQ header={'דיני מקרקעין'} questions={realestate} cat={'מקרקעין'} key="sjdndjksgsgfndjknskjdndsndkjsdd" />
 
-      <FAQ header={'דיני חברות'} questions={companies} cat={'חברות'} />
+      <FAQ header={'דיני חברות'} questions={companies} cat={'חברות'} key="sjdndjksndjfgffgknskjdndsndkjsdd" />
 
-      <FAQ header={'כללי'} questions={klali} cat={'משפחה'} />
+      <FAQ header={'כללי'} questions={klali} cat={'משפחה'} key="sjdndjksndjknskjdndssgsgsgndkjsdd" />
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import Checkbox from '../Checkbox';
-import $ from 'jquery';
 import './ContractPreview.css';
 const ContractPreview = ({ title, whoSign, firstSigner, seocondSigner, contractBody, contractPreview, signInDate, isAgreedConsent }) => {
   const headerRef = useRef(null);

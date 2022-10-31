@@ -99,7 +99,6 @@ const SpecialTextComponent = ({ imgSrc, header, subHeader, text, backgroundColor
 };
 
 const ContractLawyer = () => {
-  const generalServices = servicesList.filter((el) => el.categoryHeb === 'כללי');
   const generalContracts = previewContracts.filter((el) => (el.categoryHeb = 'כללי'));
   console.log('generalContracts', generalContracts);
   const textComponentData = {

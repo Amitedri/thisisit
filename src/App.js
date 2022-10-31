@@ -29,7 +29,7 @@ function App() {
   useEffect(async () => {
     if (isPaymentOk) {
       let url = encodeURI('https://www.ceco.co.il/paymentres/success');
-      let productsReq = await axios.post('http://localhost/paymentdone', transactionData);
+      let productsReq = await axios.post('/paymentdone', transactionData);
       console.log('productsReq', productsReq);
       console.log('isPaymentOk', isPaymentOk);
       disptach(setShowCart(false));
@@ -52,7 +52,7 @@ function App() {
         if (res === 'close') {
           console.log(' on close');
           let url = encodeURI('https://www.ceco.co.il/paymentres/failed');
-          window.location = url;
+          window.location.assign(url)
           disptach(setShowCart(false));
           setisPaymentOk(false);
         }

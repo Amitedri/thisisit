@@ -76,7 +76,7 @@ const ServicePage = ({previewContracts,servicesList}) => {
       <div className="col-12 p-0 position-relative serviceImageContainer">
         <img src={imgSrc} className="w-100 h-100  servicesTopImg" />
         <div className="col-12 d-flex flex-column position-absolute contentCenter z-100 h-50 m-auto">
-          <h1 className="f42 align-self-center text-muted bg-white rounded p-2 lightBlueText">{header}</h1>
+          <h1 className="f42 align-self-center lightBlueText rounded p-2" style={{backgroundColor:'#D6E2CE'}}>{header}</h1>
           <div className="d-grid col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-5 col-8 align-self-center">
             <div className="btn yellow f36 w3 p-2 shadow-sm">
               <ServiceButton withText="true"/>

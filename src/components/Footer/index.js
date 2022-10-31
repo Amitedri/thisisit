@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="col-6 links d-flex flex-column m-3">
+      <div className="col-6 links d-flex flex-column m-3 align-items-center">
         <span className="f12 text-center text-white">
           כל המידע המופיע בדף זה אינו מהווה ייעוץ משפטי או תחליף לו לרבות רכישת הסכם מקיף. כל התוכן ו/או המידע הינם באחריות הרוכש ו/או המשתמש בלבד. לקבלת ייעוץ
           משפטי צרו קשר כעת או הזמינו בקלות באתר ייעוץ משפטי.
@@ -84,6 +84,7 @@ const Footer = () => {
             הצהרת נגישות
           </a>
         </div>
+        <div className='f14 text-white'>כל הזכויות שמורות למשרד עורכי דין כהן אלעד ושות'.</div>
       </div>
     </div>
   );

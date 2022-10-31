@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import $ from 'jquery';
+
 
 const DropDown = ({ header, colorClass, values,onChange }) => {
   const mappedValues = values.map((el) => {

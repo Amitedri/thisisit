@@ -36,9 +36,7 @@ const FAQ = ({ header, withTitle, questions, cat }) => {
   },[expanded])
   const handleClick = (e) => {
     e.preventDefault();
-    if (!expanded) {
-      e.target.scrollIntoView()
-    }
+    e.target.parentElement.scrollIntoView();
     setIsExpanded((prev) => !prev)
   };
   return (
@@ -59,9 +57,9 @@ const FAQ = ({ header, withTitle, questions, cat }) => {
       </div>
 
 
-      <a class="btn blue w-25 text-white f20 w3 mt-2" onClick={handleClick}>
+      <div class="btn blue w-25 text-white f20 w3 mt-2" onClick={handleClick}>
         {expanded ? 'סגור' : 'פתח עוד'}
-      </a>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import './ProductPage.css';
 import ContactsUs from '../../components/ContactUs';
-import ContractPreview from '../../components/ContractPreview';
 import StandUp from '../../components/StandUp';
 import FAQ from '../../components/FAQ';
 import { general } from '../../Data/Questions';
@@ -9,15 +8,25 @@ import { useCallback, useEffect, useState } from 'react';
 import { scrollIntoView } from '../../Utils';
 import { addProduct, setShowCart, setTermsModal } from '../../Slice';
 import { useDispatch, useSelector } from 'react-redux';
-import DocViewer, { DocRenderer } from '@cyntler/react-doc-viewer';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
 
 const fireAsync = async ({ name, path }) => {
-  let elem = require(`../../Data/${path}/${name}.pdf`);
+  let elem = encodeURI(`https://ceco.co.il/assets/${path}/${name}.pdf`);
   return elem;
 };
-
+const AddDetails = ({ setName, setEmail, setSubmitDownload }) => {
+  return (
+    <div className="col-10 m-1 d-flex flex-column align-items-center justify-content-center shadow-sm">
+      <input type="text" onChange={(e) => setName(e.target.value)} placeholder="שם פרטי ושם משפחה" className="form-control m-1" />
+      <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder='דוא"ל' className="form-control m-1" />
+      <div className="col-6 text-center border shadow-sm yellow text-white f22 pointer hoverGreener" onClick={() => setSubmitDownload((prev) => !prev)}>
+        להורדת ההסכם
+      </div>
+      <span className="text-danger d-none" id="isFormOk">
+        יש למלא את כל השדות.
+      </span>
+    </div>
+  );
+};
 const ProductPage = ({ previewContracts }) => {
   const disptach = useDispatch();
   const [questions, setQuestions] = useState([]);
@@ -26,19 +35,16 @@ const ProductPage = ({ previewContracts }) => {
   const generalConsent = useSelector((state) => state.prods.generalConsent);
   const [h1, seth1] = useState('');
   const [title, setTitle] = useState('');
-  const [contractBody, setContractBody] = useState('');
-  const [contractPreview, setContractPreview] = useState('');
   const [imgSrc, setImgSrc] = useState('../assets/img/service.png');
   const [docWhole, setDocWhole] = useState({});
-  const [whoSignLine, setWhoSignLine] = useState('');
-  const [firstSigner, setFirstSigner] = useState('');
-  const [secondSigner, setSecondSigner] = useState('');
-  const [signInDate, setSignInDate] = useState('');
   const [contractName, setContractName] = useState('');
   const [isAgreedConsent, setisAgreedConsent] = useState(false);
   const [showFull, setShowFull] = useState(false);
   const [zoom, setZoom] = useState(0);
-  const [pdfString, setpdfString] = useState('');
+  const [email, setemail] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [submitDownload, setSubmitDownload] = useState(false);
+  const [showDownloadBox, setShowDownloadBox] = useState(false);
 
   const [docs, setDocs] = useState('');
   const [basicContractData, setBasicContractData] = useState({
@@ -97,13 +103,47 @@ const ProductPage = ({ previewContracts }) => {
       setisAgreedConsent(true);
     }
   }, [generalConsent]);
+  useEffect(() => {
+    const isFormOk = document.getElementById('isFormOk');
+    if (submitDownload) {
+      const emailOk = email
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+      if (fullName.length > 2 && emailOk && isAgreedConsent) {
+        setShowDownloadBox(true);
+        setSubmitDownload(false);
+        isFormOk.classList.remove('d-none');
+        return;
+      }
+      if (!(fullName.length > 2)) {
+        isFormOk.textContent = 'יש להזין שם תקין.';
+        setSubmitDownload(false);
+        isFormOk.classList.remove('d-none');
 
+        return;
+      }
+      if (!emailOk) {
+        isFormOk.textContent = 'יש להזין אימייל תקין.';
+        setSubmitDownload(false);
+        isFormOk.classList.remove('d-none');
+
+        return;
+      }
+      if (!isAgreedConsent) {
+        window.$('#termsModal').modal('toggle');
+        return;
+      }
+    }
+    console.log(fullName, email);
+  }, [submitDownload, isAgreedConsent]);
   useEffect(() => {
     let width = document.body.clientWidth;
-    if (width <= 650) {
-      setZoom(1.2);
-      document.querySelector('.contractLayer').classList.add('specialk');
-    }
+    // if (width <= 650) {
+    //   setZoom(1.2);
+    //   document.querySelector('.contractLayer').classList.add('specialk');
+    // }
     const doc = previewContracts.filter((el) => el.id == id);
 
     const { imgSrc, h1, categoryHeb, title } = doc[0];
@@ -192,7 +232,7 @@ const ProductPage = ({ previewContracts }) => {
     if (!isAgreedConsent) {
       window.$('#termsModal').modal('toggle');
       flexCheckDefault.parentElement.classList.add('text-danger');
-    flexCheckDefault.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      flexCheckDefault.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
 
       return;
     }
@@ -232,20 +272,17 @@ const ProductPage = ({ previewContracts }) => {
   useEffect(() => {
     if (isAgreedConsent) {
       fireAsync({ name: h1, path: 'locals' }).then((file) => {
-        fireAsync({ name: h1, path: 'locals' }).then((file) => {
-          setDocs(file);
-        });
+        setDocs(file);
       });
     }
     if (!isAgreedConsent && h1) {
       fireAsync({ name: h1, path: 'previews' }).then((file) => {
-        fireAsync({ name: h1, path: 'previews' }).then((file) => {
-          setDocs(file);
-        });
+        setDocs(file);
       });
     }
   }, [showFull, isAgreedConsent]);
 
+  const BakcedObj = useCallback(() => <object className="w-100" height="900" data={`https://docs.google.com/gview?embedded=true&url=${docs}`} />, [docs]);
   const Checkbox = useCallback(() => <InnerCheck />, []);
   const BackedFaq = useCallback(() => <FAQ header={`שאלות ותשובות בנושא ${category}`} withTitle="true" questions={questions} />, [questions]);
   return (
@@ -271,32 +308,16 @@ const ProductPage = ({ previewContracts }) => {
           <div className="col d-flex flex-column align-items-center position-relative">
             <h1 className="f32 w5">{title}</h1>
             <h2 className="f18 text-muted col-7">אל תסתפקו בפחות, רכשו הסכם מקיף להגנה טובה יותר על זכויותכם</h2>
-            <div className="col-6 d-flex flex-column mt-2 shadow-sm">
-              <div className="btn btn-sm w-3 lightBlue text-white hoverYellow" onClick={showBasicContract}>
-                צפייה בהסכם בסיסי
+            {showDownloadBox ? (
+              <div className="col-auto d-flex flex-column">
+                <span className='fw-bold'> ההסכם נשלח אליכם למייל</span>
+                <a download={true} className="col text-center border shadow-sm yellow text-white f22 pointer hoverGreener rounded" href={`./assets/files/${title}.pdf`}>
+                  להורדת ההסכם
+                </a>
               </div>
-            </div>
-            <div className="col-6 d-flex flex-column mt-2 shadow-sm">
-              <div
-                className="btn btn-sm w-3 yellow"
-                onClick={() =>
-                  onConsent({
-                    isAgreedConsent,
-                    contractName,
-                    id,
-                    price: mekifContractData.priceMekif,
-                    pages: mekifContractData.numOfPagesMekif,
-                    fixes: mekifContractData.numOfFixesMekif,
-                    makingTime: mekifContractData.makingTimeMekif,
-                  })
-                }
-              >
-                רכוש הסכם מקיף 290 ש"ח
-              </div>
-            </div>
-            <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={() => scrollIntoView('tableDisplay')}>
-              <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">הצג אפשרויות הגנה נוספות</div>
-            </div>
+            ) : (
+              <AddDetails setEmail={setemail} setName={setFullName} setSubmitDownload={setSubmitDownload} />
+            )}
 
             <div class="form-check f12 mt-1 terms">
               <Checkbox />
@@ -322,6 +343,29 @@ const ProductPage = ({ previewContracts }) => {
                 </a>
               </p>
             </div>
+            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-10 col-sm-10 col-10 d-flex flex-column align-items-center position-relative">
+              <div className="col-12 m-1 d-flex flex-column shadow-sm pointer ">
+                <div
+                  className="yellow hoverGreener"
+                  onClick={() =>
+                    onConsent({
+                      isAgreedConsent,
+                      contractName,
+                      id,
+                      price: mekifContractData.priceMekif,
+                      pages: mekifContractData.numOfPagesMekif,
+                      fixes: mekifContractData.numOfFixesMekif,
+                      makingTime: mekifContractData.makingTimeMekif,
+                    })
+                  }
+                >
+                  רכוש הסכם מקיף 290 ש"ח
+                </div>
+              </div>
+              <div className="col-12 m-1 d-flex flex-column shadow-sm pointer" onClick={() => scrollIntoView('tableDisplay')}>
+                <div className="moreProtectionBtn  hoverGreener blink"> אפשרויות הגנה נוספות</div>
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -332,14 +376,8 @@ const ProductPage = ({ previewContracts }) => {
         </div>
       </div>
 
-      <div className="contractLayer col-12">
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
-          <Viewer fileUrl={docs} defaultScal={zoom}  />
-        </Worker>
-      </div>
-      <div className="col-6 d-flex flex-column m-2 shadow-sm" onClick={showBasicContract}>
-        <div className="btn btn-sm w-3 moreProtectionBtn  hoverGreener blink">{isAgreedConsent ? 'סגור' : 'הצג את ההסכם המלא'}</div>
-      </div>
+      <BakcedObj />
+
 
       <StandUp
         key={'asdasadasdasdsfffa'}

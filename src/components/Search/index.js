@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Search.css';
-import $ from 'jquery';
 import servicesList from '../../Data/Services';
 import previewContracts from '../../Data/ContractExport';
 
